@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本のお城ファンページ - 全国の城郭を巡る旅</title>
+    <meta name="description" content="日本全国の城郭・城跡・チャシ・陣屋を紹介する総合サイト。北海道から沖縄まで、歴史と文化が織りなす城郭の魅力を体験してください。">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6; color: #333; background-color: #0a0a0a; overflow-x: hidden;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px); color: white; padding: 15px 20px; z-index: 1000;
+            transition: all 0.3s ease; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem; background: linear-gradient(45deg, #ffffff, #ffd700);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex; gap: 30px; align-items: center;
+        }
+        
+        .nav-link {
+            color: white; text-decoration: none; font-size: 1rem; transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0;
+            height: 2px; background: #ffd700; transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: #ffd700; }
+        
+        .hamburger {
+            display: none; flex-direction: column; justify-content: space-around;
+            width: 30px; height: 24px; background: transparent; border: none;
+            cursor: pointer; padding: 0; z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px; height: 3px; background: white; border-radius: 10px;
+            transition: all 0.3s linear; position: relative; transform-origin: 1px;
+        }
+        
+        .hero {
+            height: 100vh; position: relative; display: flex; align-items: center;
+            justify-content: center; overflow: hidden;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 70%);
+        }
+        
+        .castle-silhouette {
+            position: absolute; width: 100%; height: 100%; opacity: 0.1;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" d="M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,192C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat center bottom;
+            background-size: cover;
+        }
+        
+        .sakura-container {
+            position: absolute; width: 100%; height: 100%; overflow: hidden;
+        }
+        
+        .sakura-petal {
+            position: absolute; width: 10px; height: 10px; background: #ffb6c1;
+            border-radius: 0 100% 0 100%; opacity: 0.7;
+            animation: sakuraFall 15s linear infinite;
+        }
+        
+        @keyframes sakuraFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0.7; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(calc(100vh + 100px)) rotate(720deg); opacity: 0; }
+        }
+        
+        .sakura-petal:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 13s; }
+        .sakura-petal:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .sakura-petal:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 14s; }
+        .sakura-petal:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 16s; }
+        .sakura-petal:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 13s; }
+        .sakura-petal:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 15s; }
+        .sakura-petal:nth-child(7) { left: 70%; animation-delay: 2s; animation-duration: 14s; }
+        .sakura-petal:nth-child(8) { left: 80%; animation-delay: 4s; animation-duration: 16s; }
+        .sakura-petal:nth-child(9) { left: 90%; animation-delay: 1s; animation-duration: 13s; }
+        .sakura-petal:nth-child(10) { left: 15%; animation-delay: 6s; animation-duration: 15s; }
+        
+        .hero-content {
+            text-align: center; color: white; z-index: 10; position: relative; padding: 20px;
+            max-width: 1000px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #ffd700, #ff6b6b);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; animation: titleShimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(255,215,0,0.5);
+        }
+        
+        @keyframes titleShimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem; margin-bottom: 30px; opacity: 0.9; color: #ffd700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-description {
+            font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block; padding: 15px 40px; background: linear-gradient(45deg, #8b0000, #dc143c);
+            color: white; text-decoration: none; border-radius: 50px; font-size: 1.2rem;
+            font-weight: bold; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(220,20,60,0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px); box-shadow: 0 8px 30px rgba(220,20,60,0.5);
+        }
+        
+        .section {
+            padding: 100px 20px; max-width: 1400px; margin: 0 auto; position: relative;
+        }
+        
+        .section h2 {
+            font-size: 3rem; margin-bottom: 50px; text-align: center; color: white;
+            background: linear-gradient(45deg, #ffffff, #ffd700);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .regions-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+        
+        .regions-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px; margin-top: 60px;
+        }
+        
+        .region-card {
+            background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .region-card.active {
+            background: linear-gradient(135deg, rgba(139,0,0,0.3), rgba(220,20,60,0.3));
+            border-color: #dc143c;
+        }
+        
+        .region-card:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .region-header {
+            position: relative; height: 200px; display: flex; align-items: center;
+            justify-content: center; overflow: hidden;
+        }
+        
+        .hokkaido-bg {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+        
+        .tohoku-bg {
+            background: linear-gradient(135deg, #2c5f2d, #97bc62);
+        }
+        
+        .kanto-bg {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        }
+        
+        .chubu-bg {
+            background: linear-gradient(135deg, #764ba2, #f093fb);
+        }
+        
+        .kinki-bg {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+        
+        .chugoku-bg {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .shikoku-bg {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+        
+        .kyushu-bg {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+        
+        .region-icon {
+            font-size: 4rem; color: white; opacity: 0.9;
+        }
+        
+        .region-content {
+            padding: 30px; color: white;
+        }
+        
+        .region-content h3 {
+            font-size: 1.8rem; margin-bottom: 15px; color: #ffd700;
+        }
+        
+        .region-stats {
+            display: flex; justify-content: space-between; margin: 20px 0;
+            padding: 15px 0; border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem; font-weight: bold; color: #ffd700;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem; opacity: 0.8;
+        }
+        
+        .region-link {
+            display: inline-block; margin-top: 20px; color: #ffd700;
+            text-decoration: none; font-weight: bold; transition: all 0.3s ease;
+        }
+        
+        .region-link:hover {
+            transform: translateX(5px);
+        }
+        
+        .region-link::after {
+            content: ' →'; margin-left: 5px;
+        }
+        
+        .coming-soon {
+            position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7);
+            color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;
+        }
+        
+        .features-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; margin-top: 60px;
+        }
+        
+        .feature-card {
+            text-align: center; color: white; padding: 40px 20px;
+            background: rgba(255,255,255,0.05); border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem; margin-bottom: 20px; color: #ffd700;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem; margin-bottom: 15px; color: #ffd700;
+        }
+        
+        .footer {
+            background: #0a0a0a; color: white; text-align: center; padding: 60px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-links {
+            display: flex; justify-content: center; gap: 30px; margin-top: 30px;
+        }
+        
+        .footer-link {
+            color: #ffd700; text-decoration: none; transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero h1 { font-size: 3rem; }
+            .regions-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+        
+        .fade-in {
+            opacity: 0; transform: translateY(30px); transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+            background: rgba(0,0,0,0.95); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active { right: 0; }
+        
+        .mobile-menu .nav-link {
+            font-size: 2rem; margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><h1>日本のお城ファンページ</h1></div>
+            <nav class="nav-links">
+                <a href="#home" class="nav-link">ホーム</a>
+                <a href="#regions" class="nav-link">地域別</a>
+                <a href="#features" class="nav-link">特徴</a>
+                <a href="#about" class="nav-link">このサイトについて</a>
+            </nav>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-menu">
+        <a href="#home" class="nav-link">ホーム</a>
+        <a href="#regions" class="nav-link">地域別</a>
+        <a href="#features" class="nav-link">特徴</a>
+        <a href="#about" class="nav-link">このサイトについて</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="castle-silhouette"></div>
+        <div class="sakura-container">
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+            <div class="sakura-petal"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>日本の城郭を巡る旅</h1>
+            <p class="hero-subtitle">Castle Journey Across Japan</p>
+            <p class="hero-description">
+                北海道から沖縄まで、日本全国の城郭・城跡・チャシ・陣屋を網羅。<br>
+                歴史と文化が織りなす壮大な物語を、最新のWeb技術で体験してください。
+            </p>
+            <a href="#regions" class="cta-button">城郭探訪を始める</a>
+        </div>
+    </section>
+
+    <section id="regions" class="section regions-section">
+        <h2 class="fade-in">地域別城郭コレクション</h2>
+        <div class="regions-grid">
+            <div class="region-card active fade-in">
+                <div class="region-header hokkaido-bg">
+                    <div class="region-icon">🏔️</div>
+                </div>
+                <div class="region-content">
+                    <h3>北海道</h3>
+                    <p>アイヌ文化のチャシから幕末の五稜郭まで、北の大地の独特な防衛施設群。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">50</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">完成</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                    <a href="/castles/北海道/" class="region-link">北海道の城郭を探る</a>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header tohoku-bg">
+                    <div class="region-icon">🌸</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>東北地方</h3>
+                    <p>奥州藤原氏の栄華から戊辰戦争まで、東北の雄大な城郭群。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">120+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header kanto-bg">
+                    <div class="region-icon">🏯</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>関東地方</h3>
+                    <p>江戸城を中心とした徳川の城郭ネットワーク。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header chubu-bg">
+                    <div class="region-icon">⛰️</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>中部地方</h3>
+                    <p>山城の宝庫。戦国時代の激戦地に築かれた堅固な城郭群。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header kinki-bg">
+                    <div class="region-icon">👑</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>近畿地方</h3>
+                    <p>古都の守り。平安京から大坂城まで、日本史の中心地の城郭。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">180+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header chugoku-bg">
+                    <div class="region-icon">⚔️</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>中国地方</h3>
+                    <p>毛利氏の本拠地。瀬戸内海の要衝を守る海城群。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header shikoku-bg">
+                    <div class="region-icon">🌊</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>四国地方</h3>
+                    <p>現存天守の宝庫。四国八十八箇所と共に巡る城郭群。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">80+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card fade-in">
+                <div class="region-header kyushu-bg">
+                    <div class="region-icon">🔥</div>
+                    <div class="coming-soon">Coming Soon</div>
+                </div>
+                <div class="region-content">
+                    <h3>九州・沖縄地方</h3>
+                    <p>南蛮貿易の玄関口。独特な石垣技術を持つグスクまで。</p>
+                    <div class="region-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">130+</div>
+                            <div class="stat-label">城郭数</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">準備中</div>
+                            <div class="stat-label">ステータス</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section features-section">
+        <h2 class="fade-in">サイトの特徴</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3>没入感のあるデザイン</h3>
+                <p>各城郭の特徴に合わせたユニークなビジュアルエフェクトとアニメーションで、歴史の世界へ誘います。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📖</div>
+                <h3>詳細な歴史物語</h3>
+                <p>7章構成の物語形式で、各城郭の歴史と文化を深く掘り下げ、当時の人々の生活を生き生きと描きます。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📱</div>
+                <h3>完全レスポンシブ</h3>
+                <p>スマートフォンからデスクトップまで、あらゆるデバイスで最適な閲覧体験を提供します。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🗺️</div>
+                <h3>インタラクティブマップ</h3>
+                <p>Google Maps統合により、各城郭の正確な位置情報と周辺情報を確認できます。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔍</div>
+                <h3>詳細な検索機能</h3>
+                <p>時代、地域、城主、建築様式など、多様な条件での検索が可能です。（開発中）</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📸</div>
+                <h3>高品質な写真集</h3>
+                <p>プロカメラマンによる美しい城郭写真で、現地の雰囲気を体感できます。（準備中）</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="fade-in">このサイトについて</h2>
+        <div style="max-width: 800px; margin: 0 auto; color: white; text-align: center;" class="fade-in">
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px;">
+                日本のお城ファンページは、日本全国の城郭文化を次世代に継承することを目的としたプロジェクトです。
+                最新のWeb技術を駆使して、歴史的建造物の魅力を現代的な形で表現し、
+                より多くの人々に日本の城郭文化の素晴らしさを伝えていきます。
+            </p>
+            <p style="font-size: 1.1rem; opacity: 0.8;">
+                現在、北海道の50城郭が完成しており、順次他の地域も追加予定です。
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 日本のお城ファンページ - Castle Journey Across Japan</p>
+        <p style="opacity: 0.8; margin-top: 10px;">歴史と文化を次世代へ</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link">利用規約</a>
+            <a href="#" class="footer-link">プライバシーポリシー</a>
+            <a href="#" class="footer-link">お問い合わせ</a>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Dynamic sakura petals
+        const sakuraContainer = document.querySelector('.sakura-container');
+        
+        function createSakuraPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'sakura-petal';
+            petal.style.left = Math.random() * 100 + '%';
+            petal.style.animationDelay = Math.random() * 10 + 's';
+            petal.style.animationDuration = (Math.random() * 5 + 10) + 's';
+            sakuraContainer.appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 15000);
+        }
+
+        // Create new petals periodically
+        setInterval(createSakuraPetal, 2000);
+    </script>
+</body>
+</html>
