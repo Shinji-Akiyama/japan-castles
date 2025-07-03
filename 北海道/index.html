@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北海道の城郭 - お城ファンページ</title>
+    <meta name="description" content="北海道の50の城郭・チャシ・陣屋を紹介。アイヌ文化のチャシから幕末の五稜郭まで、北の大地の独特な防衛施設群を巡る旅。">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6; color: #333; background-color: #0c1421; overflow-x: hidden;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; background: rgba(12, 20, 33, 0.95);
+            backdrop-filter: blur(10px); color: white; padding: 15px 20px; z-index: 1000;
+            transition: all 0.3s ease; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem; background: linear-gradient(45deg, #ffffff, #87ceeb);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .back-link {
+            color: #87ceeb; text-decoration: none; font-size: 1rem;
+            transition: all 0.3s ease; display: flex; align-items: center; gap: 5px;
+        }
+        
+        .back-link:hover { color: white; transform: translateX(-5px); }
+        
+        .hero {
+            height: 70vh; position: relative; display: flex; align-items: center;
+            justify-content: center; overflow: hidden;
+            background: linear-gradient(135deg, #0c1421 0%, #1e3c72 50%, #2a5298 100%);
+        }
+        
+        .snow-container {
+            position: absolute; width: 100%; height: 100%; overflow: hidden;
+        }
+        
+        .snowflake {
+            position: absolute; top: -10px; color: white; user-select: none;
+            animation: snowfall linear infinite; font-size: 1rem; opacity: 0.8;
+        }
+        
+        @keyframes snowfall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(calc(100vh + 100px)); }
+        }
+        
+        .snowflake:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
+        .snowflake:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 1s; }
+        .snowflake:nth-child(3) { left: 30%; animation-duration: 11s; animation-delay: 2s; }
+        .snowflake:nth-child(4) { left: 40%; animation-duration: 13s; animation-delay: 3s; }
+        .snowflake:nth-child(5) { left: 50%; animation-duration: 10s; animation-delay: 4s; }
+        .snowflake:nth-child(6) { left: 60%; animation-duration: 14s; animation-delay: 5s; }
+        .snowflake:nth-child(7) { left: 70%; animation-duration: 11s; animation-delay: 6s; }
+        .snowflake:nth-child(8) { left: 80%; animation-duration: 12s; animation-delay: 7s; }
+        .snowflake:nth-child(9) { left: 90%; animation-duration: 13s; animation-delay: 8s; }
+        .snowflake:nth-child(10) { left: 15%; animation-duration: 11s; animation-delay: 9s; }
+        
+        .hero-content {
+            text-align: center; color: white; z-index: 10; position: relative; padding: 20px;
+            max-width: 1000px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5rem); margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #87ceeb, #4682b4);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; animation: titleShimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(135,206,235,0.5);
+        }
+        
+        @keyframes titleShimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem; margin-bottom: 30px; opacity: 0.9; color: #87ceeb;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .stats-container {
+            display: flex; justify-content: center; gap: 50px; margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem; font-weight: bold; color: #87ceeb;
+            text-shadow: 0 0 20px rgba(135,206,235,0.5);
+        }
+        
+        .stat-label {
+            font-size: 1rem; opacity: 0.8;
+        }
+        
+        .section {
+            padding: 80px 20px; max-width: 1400px; margin: 0 auto; position: relative;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem; margin-bottom: 50px; text-align: center; color: white;
+            background: linear-gradient(45deg, #ffffff, #87ceeb);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .filter-section {
+            background: linear-gradient(135deg, #1a2332 0%, #2a3f5f 100%);
+            padding: 40px 20px;
+        }
+        
+        .filter-buttons {
+            display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;
+            max-width: 1000px; margin: 0 auto;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px; background: rgba(255,255,255,0.1); color: white;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 30px;
+            cursor: pointer; transition: all 0.3s ease; font-size: 1rem;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(135,206,235,0.3); border-color: #87ceeb;
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background: #87ceeb; color: #0c1421; border-color: #87ceeb;
+        }
+        
+        .castles-section {
+            background: linear-gradient(135deg, #0c1421 0%, #1a2332 100%);
+        }
+        
+        .castles-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px; margin-top: 50px;
+        }
+        
+        .castle-card {
+            background: rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden;
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .castle-card:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: #87ceeb;
+        }
+        
+        .castle-header {
+            height: 200px; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .castle-type-icon {
+            font-size: 4rem; color: rgba(255,255,255,0.3); position: absolute;
+        }
+        
+        .castle-name-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px; color: white;
+        }
+        
+        .castle-name {
+            font-size: 1.5rem; font-weight: bold; margin-bottom: 5px;
+        }
+        
+        .castle-reading {
+            font-size: 0.9rem; opacity: 0.8;
+        }
+        
+        .castle-content {
+            padding: 20px; color: white;
+        }
+        
+        .castle-info {
+            display: flex; justify-content: space-between; margin-bottom: 15px;
+            padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-item {
+            text-align: center;
+        }
+        
+        .info-label {
+            font-size: 0.8rem; opacity: 0.6; display: block;
+        }
+        
+        .info-value {
+            font-size: 1rem; color: #87ceeb; margin-top: 5px;
+        }
+        
+        .castle-description {
+            font-size: 0.95rem; line-height: 1.6; opacity: 0.8; margin-bottom: 20px;
+        }
+        
+        .castle-link {
+            display: inline-block; color: #87ceeb; text-decoration: none;
+            font-weight: bold; transition: all 0.3s ease;
+        }
+        
+        .castle-link:hover {
+            transform: translateX(5px);
+        }
+        
+        .castle-link::after {
+            content: ' →'; margin-left: 5px;
+        }
+        
+        .fortress-bg { background: linear-gradient(135deg, #8b4513, #d2691e); }
+        .chashi-bg { background: linear-gradient(135deg, #228b22, #32cd32); }
+        .jinya-bg { background: linear-gradient(135deg, #483d8b, #6a5acd); }
+        .daiba-bg { background: linear-gradient(135deg, #dc143c, #ff6347); }
+        .yakata-bg { background: linear-gradient(135deg, #2f4f4f, #708090); }
+        
+        .footer {
+            background: #0c1421; color: white; text-align: center; padding: 60px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .castles-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .stats-container { flex-direction: column; gap: 20px; }
+            .filter-buttons { gap: 10px; }
+            .filter-btn { padding: 8px 20px; font-size: 0.9rem; }
+        }
+        
+        .fade-in {
+            opacity: 0; transform: translateY(30px); transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><h1>北海道の城郭</h1></div>
+            <a href="../" class="back-link">← トップへ戻る</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="snow-container">
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>北海道の城郭</h1>
+            <p class="hero-subtitle">Northern Fortress Collection</p>
+            <p class="hero-description">
+                アイヌ文化の伝統的なチャシから幕末の西洋式要塞まで、<br>
+                北の大地に築かれた独特な防衛施設群を探訪する旅へ
+            </p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">50</div>
+                    <div class="stat-label">総城郭数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">チャシ跡</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">近世城郭</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">すべて</button>
+            <button class="filter-btn" data-filter="chashi">チャシ</button>
+            <button class="filter-btn" data-filter="yakata">館・城</button>
+            <button class="filter-btn" data-filter="goryokaku">五稜郭関連</button>
+            <button class="filter-btn" data-filter="daiba">台場</button>
+            <button class="filter-btn" data-filter="jinya">陣屋</button>
+        </div>
+    </section>
+
+    <section class="section castles-section">
+        <h2 class="fade-in">城郭一覧</h2>
+        <div class="castles-grid" id="castles-container">
+            <!-- JavaScript will populate this -->
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 北海道の城郭 - お城ファンページ</p>
+        <p style="opacity: 0.8; margin-top: 10px;">アイヌ文化から幕末まで、北の大地の歴史を巡る</p>
+    </footer>
+
+    <script>
+        // Castle data
+        const castles = [
+            { name: "五稜郭", reading: "ごりょうかく", type: "goryokaku", category: "要塞", location: "函館市", era: "幕末", description: "幕末に築かれた日本初の西洋式星型要塞。箱館戦争の舞台となった歴史的城郭。", icon: "⭐", bg: "fortress-bg" },
+            { name: "四稜郭", reading: "しりょうかく", type: "goryokaku", category: "要塞", location: "函館市", era: "幕末", description: "五稜郭の支城として築かれた四角形の要塞。箱館戦争時の激戦地。", icon: "⭐", bg: "fortress-bg" },
+            { name: "志苔館", reading: "しのりたて", type: "yakata", category: "館", location: "函館市", era: "中世", description: "津軽海峡を望む断崖上の中世館跡。コシャマインの戦いの舞台。", icon: "🏯", bg: "yakata-bg" },
+            { name: "上名寄チャシ", reading: "かみなよろちゃし", type: "chashi", category: "チャシ", location: "下川町", era: "アイヌ文化期", description: "北限の地に築かれたアイヌのチャシ。極寒の地を守る砦。", icon: "🌲", bg: "chashi-bg" },
+            { name: "弁天台場", reading: "べんてんだいば", type: "daiba", category: "台場", location: "函館市", era: "幕末", description: "函館港を守る海上要塞。箱館戦争最後の激戦地。", icon: "🔫", bg: "daiba-bg" },
+            { name: "松前城", reading: "まつまえじょう", type: "yakata", category: "城", location: "松前町", era: "江戸時代", description: "北海道唯一の近世城郭。最北の天守を持つ城。", icon: "🏯", bg: "yakata-bg" },
+            { name: "戸切地陣屋", reading: "へきりちじんや", type: "jinya", category: "陣屋", location: "北斗市", era: "幕末", description: "幕末に設置された松前藩の陣屋。北方警備の重要拠点。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "館城", reading: "たてじょう", type: "yakata", category: "館", location: "厚沢部町", era: "中世", description: "中世の館跡。地域支配の拠点として機能。", icon: "🏯", bg: "yakata-bg" },
+            { name: "上之国館", reading: "かみのくにたて", type: "yakata", category: "館", location: "上ノ国町", era: "中世", description: "北海道最古級の館跡。蠣崎氏の居館。", icon: "🏯", bg: "yakata-bg" },
+            { name: "大館", reading: "おおだて", type: "yakata", category: "館", location: "松前町", era: "中世", description: "松前氏の祖先が築いた館。松前城の前身。", icon: "🏯", bg: "yakata-bg" },
+            { name: "徳山館", reading: "とくやまたて", type: "yakata", category: "館", location: "松前町", era: "中世", description: "松前地方の有力者の館跡。", icon: "🏯", bg: "yakata-bg" },
+            { name: "桂ヶ岡砦", reading: "かつらがおかちゃし", type: "chashi", category: "チャシ", location: "網走市", era: "アイヌ文化期", description: "オホーツク海を望む丘陵上のチャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "天神山チャシ", reading: "てんじんやまちゃし", type: "chashi", category: "チャシ", location: "斜里町", era: "アイヌ文化期", description: "知床半島の付け根に位置する山城型チャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "シャリ陣屋", reading: "しゃりじんや", type: "jinya", category: "陣屋", location: "斜里町", era: "幕末", description: "幕末の北方警備陣屋。オホーツク海沿岸の守り。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "トニカチャシ", reading: "とにかちゃし", type: "chashi", category: "チャシ", location: "標津町", era: "アイヌ文化期", description: "根室海峡に面したチャシ。海上交通の要衝。", icon: "🌲", bg: "chashi-bg" },
+            { name: "根室半島チャシ", reading: "ねむろはんとうちゃし", type: "chashi", category: "チャシ", location: "根室市", era: "アイヌ文化期", description: "日本最東端のチャシ群。国指定史跡。", icon: "🌲", bg: "chashi-bg" },
+            { name: "カリカリウスチャシ", reading: "かりかりうすちゃし", type: "chashi", category: "チャシ", location: "標津町", era: "アイヌ文化期", description: "標津川河口のチャシ。鮭漁の管理拠点。", icon: "🌲", bg: "chashi-bg" },
+            { name: "釧路川流域チャシ", reading: "くしろがわりゅういきちゃし", type: "chashi", category: "チャシ", location: "釧路市", era: "アイヌ文化期", description: "釧路川沿いに点在するチャシ群。", icon: "🌲", bg: "chashi-bg" },
+            { name: "西春別1チャシ", reading: "にししゅんべついちちゃし", type: "chashi", category: "チャシ", location: "別海町", era: "アイヌ文化期", description: "道東内陸部のチャシ。牧草地に囲まれた遺跡。", icon: "🌲", bg: "chashi-bg" },
+            { name: "ショップチャシ", reading: "しょっぷちゃし", type: "chashi", category: "チャシ", location: "厚岸町", era: "アイヌ文化期", description: "厚岸湾を望むチャシ。海産物交易の拠点。", icon: "🌲", bg: "chashi-bg" },
+            { name: "アッケシ陣屋", reading: "あっけしじんや", type: "jinya", category: "陣屋", location: "厚岸町", era: "幕末", description: "幕末の北方警備陣屋。太平洋沿岸の要衝。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "桜チャシ", reading: "さくらちゃし", type: "chashi", category: "チャシ", location: "浜中町", era: "アイヌ文化期", description: "春には桜が美しいチャシ跡。", icon: "🌲", bg: "chashi-bg" },
+            { name: "フシコベツ川上流チャシ", reading: "ふしこべつがわじょうりゅうちゃし", type: "chashi", category: "チャシ", location: "釧路市", era: "アイヌ文化期", description: "内陸部の川沿いチャシ。狩猟の拠点。", icon: "🌲", bg: "chashi-bg" },
+            { name: "鶴沼チャシ", reading: "つるぬまちゃし", type: "chashi", category: "チャシ", location: "釧路市", era: "アイヌ文化期", description: "湿原地帯のチャシ。タンチョウの生息地近く。", icon: "🌲", bg: "chashi-bg" },
+            { name: "オソウシナイチャシ", reading: "おそうしないちゃし", type: "chashi", category: "チャシ", location: "釧路町", era: "アイヌ文化期", description: "釧路湿原東部のチャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "トカチ陣屋", reading: "とかちじんや", type: "jinya", category: "陣屋", location: "大樹町", era: "幕末", description: "十勝平野を守る陣屋。農業開拓の前線基地。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "ユクエピラチャシ", reading: "ゆくえぴらちゃし", type: "chashi", category: "チャシ", location: "陸別町", era: "アイヌ文化期", description: "日本一寒い町のチャシ。内陸交通の要衝。", icon: "🌲", bg: "chashi-bg" },
+            { name: "館山チャシ", reading: "たてやまちゃし", type: "chashi", category: "チャシ", location: "本別町", era: "アイヌ文化期", description: "十勝東部の山城型チャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "カムイチャシ", reading: "かむいちゃし", type: "chashi", category: "チャシ", location: "帯広市", era: "アイヌ文化期", description: "神聖な場所に築かれたチャシ。祭祀の中心地。", icon: "🌲", bg: "chashi-bg" },
+            { name: "ヲシャマンベ陣屋", reading: "おしゃまんべじんや", type: "jinya", category: "陣屋", location: "長万部町", era: "幕末", description: "渡島半島の付け根を守る陣屋。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "ポンモイチャシ", reading: "ぽんもいちゃし", type: "chashi", category: "チャシ", location: "日高町", era: "アイヌ文化期", description: "日高地方のチャシ。馬産地の守り。", icon: "🌲", bg: "chashi-bg" },
+            { name: "モロラン陣屋", reading: "もろらんじんや", type: "jinya", category: "陣屋", location: "室蘭市", era: "幕末", description: "天然の良港を守る陣屋。製鉄業の先駆け。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "勇払場所", reading: "ゆうふつばしょ", type: "jinya", category: "場所", location: "苫小牧市", era: "江戸時代", description: "交易の中心地。アイヌとの重要な接点。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "白老陣屋", reading: "しらおいじんや", type: "jinya", category: "陣屋", location: "白老町", era: "幕末", description: "仙台藩の北方警備陣屋。現在は史跡公園。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "シベチャリ川流域チャシ", reading: "しべちゃりがわりゅういきちゃし", type: "chashi", category: "チャシ", location: "新ひだか町", era: "アイヌ文化期", description: "シャクシャインの拠点。アイヌ史の重要地。", icon: "🌲", bg: "chashi-bg" },
+            { name: "ヤムワッカチャシ", reading: "やむわっかちゃし", type: "chashi", category: "チャシ", location: "森町", era: "アイヌ文化期", description: "噴火湾を望むチャシ。海陸交通の要衝。", icon: "🌲", bg: "chashi-bg" },
+            { name: "二股口台場山", reading: "ふたまたぐちだいばやま", type: "daiba", category: "台場", location: "北斗市", era: "幕末", description: "箱館戦争の激戦地。新政府軍との決戦場。", icon: "🔫", bg: "daiba-bg" },
+            { name: "神居古潭チャシ", reading: "かむいこたんちゃし", type: "chashi", category: "チャシ", location: "旭川市", era: "アイヌ文化期", description: "石狩川の急流地点のチャシ。神聖な場所。", icon: "🌲", bg: "chashi-bg" },
+            { name: "突哨山チャシ", reading: "とっしょうざんちゃし", type: "chashi", category: "チャシ", location: "旭川市", era: "アイヌ文化期", description: "旭川盆地を一望するチャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "ハママシケ陣屋", reading: "はままけしじんや", type: "jinya", category: "陣屋", location: "石狩市", era: "幕末", description: "日本海沿岸の警備陣屋。", icon: "🏛️", bg: "jinya-bg" },
+            { name: "発寒チャシ", reading: "はっさむちゃし", type: "chashi", category: "チャシ", location: "札幌市", era: "アイヌ文化期", description: "札幌の古代守護者。都市に残る貴重なチャシ跡。", icon: "🌲", bg: "chashi-bg" },
+            { name: "茂漁チャシ", reading: "もいざりちゃし", type: "chashi", category: "チャシ", location: "千歳市", era: "アイヌ文化期", description: "鮭漁管理の水の要塞。千歳川の守り。", icon: "🌲", bg: "chashi-bg" },
+            { name: "シュプサラチャシ", reading: "しゅぷさらちゃし", type: "chashi", category: "チャシ", location: "千歳市", era: "アイヌ文化期", description: "湿原の守護者。豊かな自然を守るチャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "オタフンベチャシ", reading: "おたふんべちゃし", type: "chashi", category: "チャシ", location: "白糠町", era: "アイヌ文化期", description: "東海岸防衛の要。太平洋を見守る砦。", icon: "🌲", bg: "chashi-bg" },
+            { name: "島松川左岸チャシ", reading: "しままつがわさがんちゃし", type: "chashi", category: "チャシ", location: "恵庭市", era: "アイヌ文化期", description: "川辺の渡河管理拠点。交通の要衝。", icon: "🌲", bg: "chashi-bg" },
+            { name: "張碓チャシ", reading: "はりうすちゃし", type: "chashi", category: "チャシ", location: "小樽市", era: "アイヌ文化期", description: "海岸断崖の要塞。日本海の守り。", icon: "🌲", bg: "chashi-bg" },
+            { name: "クッタリチャシ", reading: "くったりちゃし", type: "chashi", category: "チャシ", location: "鶴居村", era: "アイヌ文化期", description: "山岳峠道の守護者。内陸交通の要。", icon: "🌲", bg: "chashi-bg" },
+            { name: "新内チャシ", reading: "しんないちゃし", type: "chashi", category: "チャシ", location: "夕張市", era: "アイヌ文化期", description: "産業時代移行期の証人。炭鉱地帯のチャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "滝の上チャシ", reading: "たきのうえちゃし", type: "chashi", category: "チャシ", location: "美瑛町", era: "アイヌ文化期", description: "瀑布の神聖な守護者。美しい自然の中のチャシ。", icon: "🌲", bg: "chashi-bg" },
+            { name: "野花南オチノンベチャシ", reading: "のかなんおちのんべちゃし", type: "chashi", category: "チャシ", location: "浦河町", era: "アイヌ文化期", description: "炭鉱地帯の黒いダイヤ守護者。産業遺産。", icon: "🌲", bg: "chashi-bg" },
+            { name: "瀬田内チャシ", reading: "せたないちゃし", type: "chashi", category: "チャシ", location: "せたな町", era: "アイヌ文化期", description: "西方防衛の最終ライン。日本海沿岸の砦。", icon: "🌲", bg: "chashi-bg" },
+            { name: "アッテウシのチャシ", reading: "あってうしのちゃし", type: "chashi", category: "チャシ", location: "稚内市", era: "アイヌ文化期", description: "最北端の極地要塞。宗谷海峡の守り。", icon: "🌲", bg: "chashi-bg" },
+            { name: "オタリオマップチャシ", reading: "おたりおまっぷちゃし", type: "chashi", category: "チャシ", location: "石狩市", era: "アイヌ文化期", description: "港湾管制の海の関所。石狩湾の要衝。", icon: "🌲", bg: "chashi-bg" },
+            { name: "茶津チャシ", reading: "ちゃつちゃし", type: "chashi", category: "チャシ", location: "白糠町", era: "アイヌ文化期", description: "茶文化交流の拠点。文化の架け橋。", icon: "🌲", bg: "chashi-bg" },
+            { name: "秋田藩増毛元陣屋", reading: "あきたはんましけもとじんや", type: "jinya", category: "陣屋", location: "増毛町", era: "幕末", description: "秋田藩の北方警備陣屋。日本海側の守りの要。", icon: "🏛️", bg: "jinya-bg" }
+        ];
+
+        // Populate castle cards
+        function renderCastles(filterType = 'all') {
+            const container = document.getElementById('castles-container');
+            container.innerHTML = '';
+            
+            const filteredCastles = filterType === 'all' 
+                ? castles 
+                : castles.filter(castle => castle.type === filterType);
+            
+            filteredCastles.forEach((castle, index) => {
+                const card = document.createElement('div');
+                card.className = 'castle-card fade-in';
+                card.setAttribute('data-type', castle.type);
+                
+                card.innerHTML = `
+                    <div class="castle-header ${castle.bg}">
+                        <div class="castle-type-icon">${castle.icon}</div>
+                        <div class="castle-name-overlay">
+                            <div class="castle-name">${castle.name}</div>
+                            <div class="castle-reading">${castle.reading}</div>
+                        </div>
+                    </div>
+                    <div class="castle-content">
+                        <div class="castle-info">
+                            <div class="info-item">
+                                <span class="info-label">種別</span>
+                                <span class="info-value">${castle.category}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">所在地</span>
+                                <span class="info-value">${castle.location}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">時代</span>
+                                <span class="info-value">${castle.era}</span>
+                            </div>
+                        </div>
+                        <p class="castle-description">
+                            ${castle.description}
+                        </p>
+                        <a href="${castle.name}/" class="castle-link">詳細を見る</a>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+                
+                // Trigger fade-in animation
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, 50 * index);
+            });
+        }
+
+        // Initial render
+        renderCastles();
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                renderCastles(filter);
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(12, 20, 33, 0.98)';
+            } else {
+                header.style.background = 'rgba(12, 20, 33, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
