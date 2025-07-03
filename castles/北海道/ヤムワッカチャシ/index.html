@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ヤムワッカチャシ（やむわっかちゃし）- 北海道今金町 | お城ファンページ</title>
+    <meta name="description" content="北海道今金町にあるヤムワッカチャシの魅力を紹介。聖なる山に築かれた霊的防衛の要、アイヌの宇宙観と戦略思想が融合した特別な聖地。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #c084fc, #a855f7);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #a855f7;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #c084fc, #a855f7);
+            border-radius: 2px;
+        }
+        
+        /* 歴史セクション */
+        .history {
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #ddd;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #a855f7;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #a855f7;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #a855f7;
+            margin-bottom: 10px;
+        }
+        
+        /* 見どころセクション */
+        .highlights {
+            background: #f8f9fa;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-card-header {
+            background: linear-gradient(135deg, #c084fc, #a855f7);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card-body {
+            padding: 30px;
+        }
+        
+        .highlight-card h3 {
+            color: #a855f7;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* アクセスセクション */
+        .access {
+            background: white;
+        }
+        
+        .access-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .access-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-info h3 {
+            color: #a855f7;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .access-info p {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-info p::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #c084fc;
+        }
+        
+        /* 聖なる山の防衛セクション */
+        .sacred-mountain {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 50%, #e9d5ff 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sacred-mountain::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path d="M0 300 L200 100 L400 200 L600 50 L800 150 L800 400 L0 400 Z" fill="rgba(255,255,255,0.1)"/><path d="M0 350 L150 200 L350 250 L550 150 L800 200 L800 400 L0 400 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat bottom;
+            background-size: cover;
+            animation: mountain-float 20s ease-in-out infinite;
+        }
+        
+        @keyframes mountain-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .sacred-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sacred-mountain h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sacred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .sacred-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sacred-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .sacred-item:hover::before {
+            opacity: 1;
+            transform: rotate(180deg);
+        }
+        
+        .sacred-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .sacred-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: spirit-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes spirit-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        .sacred-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #faf5ff;
+        }
+        
+        .sacred-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 霊的防衛システムセクション */
+        .spiritual-defense {
+            background: white;
+            padding: 100px 20px;
+        }
+        
+        .spiritual-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #a855f7;
+            margin-bottom: 60px;
+        }
+        
+        .ritual-map {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .ritual-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .ritual-element {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .ritual-element::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c084fc, #a855f7);
+            transition: width 0.3s ease;
+        }
+        
+        .ritual-element:hover::after {
+            width: 80%;
+        }
+        
+        .ritual-element:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .ritual-icon {
+            font-size: 2.5rem;
+            color: #a855f7;
+            margin-bottom: 15px;
+        }
+        
+        .ritual-element h4 {
+            color: #a855f7;
+            margin-bottom: 10px;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #e9d5ff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 40px;
+            }
+            
+            .timeline-item::before {
+                left: -20px;
+                transform: translateX(0);
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0 !important;
+            }
+            
+            .sacred-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 霊光エフェクト */
+        .spirit-light {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent 70%);
+            border-radius: 50%;
+            animation: spirit-float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes spirit-float {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            25% { 
+                transform: translate(50px, -30px) scale(1.2);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translate(-30px, -50px) scale(0.9);
+                opacity: 0.6;
+            }
+            75% { 
+                transform: translate(-50px, 20px) scale(1.1);
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>ヤムワッカチャシ</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#history">歴史</a></li>
+                <li><a href="#highlights">見どころ</a></li>
+                <li><a href="#sacred">聖なる山</a></li>
+                <li><a href="#spiritual">霊的防衛</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d140.0089!3d42.4267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>ヤムワッカチャシ</h1>
+            <p class="subtitle">神々が宿る聖なる山の要塞</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道今金町</p>
+                <p>🏯 種類：チャシ（アイヌの聖地砦）</p>
+                <p>📅 築城年代：16-18世紀（アイヌ文化期）</p>
+                <p>🔍 性格：霊的防衛拠点・祭祀場</p>
+            </div>
+        </div>
+        <div class="spirit-light" style="top: 20%; right: 10%;"></div>
+        <div class="spirit-light" style="bottom: 30%; left: 15%; animation-delay: -3s;"></div>
+    </section>
+
+    <!-- 歴史セクション -->
+    <section id="history" class="section history scroll-reveal">
+        <h2 class="section-title">ヤムワッカチャシの歴史</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">古代</div>
+                    <h3>聖山の起源</h3>
+                    <p>「ヤムワッカ」は「冷たい水」を意味し、山頂付近の聖なる泉に由来。古くからアイヌの人々にとって、カムイ（神）が宿る聖地として崇められてきました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">16世紀</div>
+                    <h3>チャシの築造</h3>
+                    <p>聖山の中腹、標高約200mの地点にチャシが築かれました。物理的な防衛施設であると同時に、霊的な守護を担う特別な場所として機能しました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">17世紀前半</div>
+                    <h3>祭祀センター</h3>
+                    <p>周辺コタン（集落）の重要な祭祀が行われる中心地となりました。特に狩猟の成功や豊漁を祈る儀式、病気平癒の祈祷などが盛んに行われました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1669年</div>
+                    <h3>シャクシャインの戦い</h3>
+                    <p>戦乱の時代、ヤムワッカチャシは霊的な結束の象徴として機能。戦士たちはここで戦勝祈願を行い、カムイの加護を求めました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">18-19世紀</div>
+                    <h3>聖地としての継続</h3>
+                    <p>松前藩の支配が強まる中でも、ヤムワッカは聖地として密かに守られ続けました。表向きは廃されても、アイヌの精神的支柱として機能し続けました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">現代</div>
+                    <h3>文化的復興</h3>
+                    <p>アイヌ文化の見直しと共に、ヤムワッカチャシの重要性が再認識。霊的防衛という独特の概念を持つチャシとして、研究者の注目を集めています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 見どころセクション -->
+    <section id="highlights" class="section highlights scroll-reveal">
+        <h2 class="section-title">ヤムワッカチャシの見どころ</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">⛰️</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>聖なる泉</h3>
+                    <p>山頂近くに湧く冷たい清水は、カムイからの恵みとして崇められました。この水は薬効があるとされ、病気治療にも用いられました。</p>
+                    <p>現在も枯れることなく湧き続け、訪れる人々に清浄な気を与えています。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🔮</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>祭壇跡</h3>
+                    <p>チャシの中心部には、イナウ（木幣）を捧げた祭壇の跡が残ります。円形に配置された石組みは、天体の動きと関連があると考えられています。</p>
+                    <p>特に夏至と冬至の日には、特別な光の現象が観察されるといわれています。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🌲</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>神聖な森</h3>
+                    <p>チャシを取り囲む原生林は「チャシコル」（砦の森）と呼ばれ、伐採が禁じられた聖域でした。巨木には精霊が宿るとされています。</p>
+                    <p>森の中には、祈りの場として使われた特別な空間が点在しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聖なる山の防衛セクション -->
+    <section id="sacred" class="sacred-mountain scroll-reveal">
+        <div class="sacred-content">
+            <h2>聖なる山の霊的防衛</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                物理的な要塞を超えた、精神世界の守護システム
+            </p>
+            
+            <div class="sacred-grid">
+                <div class="sacred-item">
+                    <span class="sacred-icon">🌟</span>
+                    <h3>カムイの守護</h3>
+                    <p>山全体がカムイの住処とされ、侵入者には神罰が下ると信じられました。この霊的な威圧は、物理的な防壁以上の抑止力となりました。</p>
+                </div>
+                
+                <div class="sacred-item">
+                    <span class="sacred-icon">🔥</span>
+                    <h3>聖火の維持</h3>
+                    <p>チャシ内では常に聖火が焚かれ、悪霊の侵入を防ぎました。火の番人は特別な訓練を受けた祭司が務めました。</p>
+                </div>
+                
+                <div class="sacred-item">
+                    <span class="sacred-icon">🎭</span>
+                    <h3>守護霊の召喚</h3>
+                    <p>危機の際には、特別な儀式により先祖の霊や動物の守護霊を召喚。目に見えない防衛線を構築しました。</p>
+                </div>
+                
+                <div class="sacred-item">
+                    <span class="sacred-icon">💫</span>
+                    <h3>結界の形成</h3>
+                    <p>イナウと呪文により、チャシの周囲に霊的な結界を張り巡らせました。この結界は邪悪な存在の侵入を阻みました。</p>
+                </div>
+                
+                <div class="sacred-item">
+                    <span class="sacred-icon">🌙</span>
+                    <h3>月光の儀式</h3>
+                    <p>満月の夜に行われる特別な儀式は、チャシの霊的な力を更新し、守護の力を強化する重要な行事でした。</p>
+                </div>
+                
+                <div class="sacred-item">
+                    <span class="sacred-icon">⚡</span>
+                    <h3>雷神の加護</h3>
+                    <p>山頂に落ちる雷は、カムイの怒りの現れ。この自然現象も防衛システムの一部として認識されていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 霊的防衛システムセクション -->
+    <section id="spiritual" class="spiritual-defense scroll-reveal">
+        <h2 class="spiritual-title">アイヌの霊的防衛思想</h2>
+        <div class="ritual-map">
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+                ヤムワッカチャシは、物理的な軍事施設というより、<br>
+                共同体の精神的な拠り所として機能した特別な場所でした。
+            </p>
+            
+            <div class="ritual-elements">
+                <div class="ritual-element">
+                    <div class="ritual-icon">🏹</div>
+                    <h4>戦士の聖別</h4>
+                    <p>戦いに赴く戦士たちは、ここで清めの儀式を受け、カムイの加護を身に帯びました。</p>
+                </div>
+                
+                <div class="ritual-element">
+                    <div class="ritual-icon">🌿</div>
+                    <h4>薬草の知識</h4>
+                    <p>聖山に自生する薬草は、傷の治療や毒消しに使われ、戦時の医療拠点としても機能しました。</p>
+                </div>
+                
+                <div class="ritual-element">
+                    <div class="ritual-icon">🦅</div>
+                    <h4>鳥占い</h4>
+                    <p>渡り鳥の飛来パターンから敵の動きを予測。自然と一体となった情報収集システムでした。</p>
+                </div>
+                
+                <div class="ritual-element">
+                    <div class="ritual-icon">🎪</div>
+                    <h4>幻術の修練</h4>
+                    <p>霧や光を操る幻術により、敵を惑わせる技術が伝承されていました。</p>
+                </div>
+                
+                <div class="ritual-element">
+                    <div class="ritual-icon">🔊</div>
+                    <h4>呪歌の響き</h4>
+                    <p>特定の旋律は敵に恐怖を与え、味方を鼓舞する効果があったとされています。</p>
+                </div>
+                
+                <div class="ritual-element">
+                    <div class="ritual-icon">🌺</div>
+                    <h4>供物の奉納</h4>
+                    <p>定期的な供物により、カムイとの契約を更新し、守護の継続を確保しました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="section access scroll-reveal">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-content">
+            <div class="access-info">
+                <h3>🚗 車でのアクセス</h3>
+                <p>函館市から約2時間</p>
+                <p>今金町市街から約30分</p>
+                <p>林道入口に駐車スペースあり</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🚌 公共交通機関</h3>
+                <p>JR新函館北斗駅からバスで今金町へ</p>
+                <p>今金町からはタクシー利用</p>
+                <p>登山口まで約20分</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🕒 見学情報</h3>
+                <p>見学自由（日中推奨）</p>
+                <p>登山道あり（往復約2時間）</p>
+                <p>冬季は積雪により通行困難</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>📍 周辺の見どころ</h3>
+                <p>ピリカ遺跡（車で40分）</p>
+                <p>美利河ダム（車で30分）</p>
+                <p>今金町郷土資料館</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 ヤムワッカチャシ - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 霊光エフェクトの動的追加
+        function addSpiritLights() {
+            const sacredSection = document.querySelector('.sacred-mountain');
+            setInterval(() => {
+                const light = document.createElement('div');
+                light.className = 'spirit-light';
+                light.style.left = Math.random() * 100 + '%';
+                light.style.top = Math.random() * 100 + '%';
+                light.style.animationDelay = Math.random() * 3 + 's';
+                sacredSection.appendChild(light);
+                
+                setTimeout(() => {
+                    light.remove();
+                }, 6000);
+            }, 3000);
+        }
+        
+        // ページ読み込み後に実行
+        window.addEventListener('load', addSpiritLights);
+    </script>
+</body>
+</html>

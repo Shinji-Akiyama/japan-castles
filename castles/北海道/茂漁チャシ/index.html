@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茂漁チャシ（もいざりちゃし）- 北海道恵庭市 | お城ファンページ</title>
+    <meta name="description" content="北海道恵庭市にある茂漁チャシの魅力を紹介。千歳川の鮭漁を支配した川の要塞。豊かな恵みを守り、公正な分配を実現した漁業管理の中心地。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            opacity: 0.95;
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: bold;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 20px;
+        }
+        
+        .nav-menu.active a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu a:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu a:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu a:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu a:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu a:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu a:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu a:nth-child(8) { transition-delay: 0.8s; }
+        .nav-menu a:nth-child(9) { transition-delay: 0.9s; }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+            width: 0;
+            height: 3px;
+            background: #81c784;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: calc(100% - 40px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 1;
+        }
+        
+        /* 川の流れアニメーション */
+        .river-flow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .water-layer {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(13, 71, 161, 0.3) 0%,
+                rgba(21, 101, 192, 0.5) 25%,
+                rgba(33, 150, 243, 0.4) 50%,
+                rgba(21, 101, 192, 0.5) 75%,
+                rgba(13, 71, 161, 0.3) 100%);
+            animation: waterFlow 10s linear infinite;
+        }
+        
+        .water-layer:nth-child(2) {
+            animation-duration: 15s;
+            opacity: 0.7;
+            height: 80%;
+        }
+        
+        .water-layer:nth-child(3) {
+            animation-duration: 20s;
+            opacity: 0.5;
+            height: 60%;
+        }
+        
+        @keyframes waterFlow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* 鮭のジャンプアニメーション */
+        .salmon-container {
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        .salmon {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(90deg, #c0c0c0 0%, #808080 50%, #c0c0c0 100%);
+            border-radius: 50% 10% 10% 50%;
+            opacity: 0;
+            animation: salmonJump 8s ease-in-out infinite;
+        }
+        
+        .salmon::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 15px;
+            background: inherit;
+            right: -5px;
+            top: 2.5px;
+            transform: rotate(45deg);
+            border-radius: 0 50% 50% 0;
+        }
+        
+        @keyframes salmonJump {
+            0%, 100% {
+                transform: translateX(-100px) translateY(100px) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                transform: translateX(20vw) translateY(50px) rotate(-20deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(50vw) translateY(-150px) rotate(-45deg);
+                opacity: 1;
+            }
+            80% {
+                transform: translateX(80vw) translateY(50px) rotate(-20deg);
+                opacity: 1;
+            }
+        }
+        
+        /* 漁網パターン */
+        .fishing-net {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            opacity: 0.1;
+            z-index: 2;
+        }
+        
+        .net-line {
+            position: absolute;
+            background: white;
+            opacity: 0.5;
+        }
+        
+        .net-line.horizontal {
+            width: 100%;
+            height: 1px;
+        }
+        
+        .net-line.vertical {
+            width: 1px;
+            height: 100%;
+        }
+        
+        .hero-map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #81c784, #66bb6a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(129, 199, 132, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 50px;
+            color: #0d47a1;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #0d47a1, #1565c0);
+            border-radius: 2px;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 60px 20px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #0d47a1;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(13, 71, 161, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(13, 71, 161, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        .story-chapter:nth-child(7) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0d47a1, #1565c0);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .chapter-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #0d47a1;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #0d47a1;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .chapter-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #0d47a1, #1565c0);
+        }
+        
+        .chapter-content {
+            line-height: 2;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(to bottom, transparent 60%, rgba(129, 199, 132, 0.3) 60%);
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-section .section-title {
+            color: white;
+        }
+        
+        .info-section .section-title::after {
+            background: linear-gradient(90deg, #81c784, #66bb6a);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #81c784;
+        }
+        
+        /* 鮭漁特徴セクション */
+        .fishing-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 波紋効果背景 */
+        .ripple-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .ripple {
+            position: absolute;
+            border: 2px solid #0d47a1;
+            border-radius: 50%;
+            animation: rippleEffect 4s ease-out infinite;
+        }
+        
+        @keyframes rippleEffect {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+        
+        .fishing-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .fishing-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+        
+        .fishing-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .fishing-feature {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .fishing-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(129, 199, 132, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .fishing-feature:hover::before {
+            opacity: 1;
+        }
+        
+        .fishing-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fishing-feature h3 {
+            font-size: 1.5rem;
+            color: #0d47a1;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .fishing-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0d47a1, #1565c0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .fishing-feature p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .fishing-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .fishing-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .fishing-list li::before {
+            content: '🐟';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        /* 漁獲統計セクション */
+        .statistics-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 80px 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #0d47a1;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .stat-description {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        
+        /* 漁法伝承セクション */
+        .techniques-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .technique-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .technique-card {
+            position: relative;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .technique-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .technique-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #0d47a1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .technique-card h3 {
+            font-size: 1.5rem;
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
+        
+        .technique-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .technique-tools {
+            background: rgba(13, 71, 161, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .technique-tools h4 {
+            font-size: 1rem;
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+        
+        .technique-tools ul {
+            list-style: none;
+        }
+        
+        .technique-tools li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-section .section-title {
+            color: white;
+        }
+        
+        .strategy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #81c784, #66bb6a, #81c784);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .strategy-card:hover::before {
+            opacity: 1;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .strategy-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #81c784, #66bb6a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #81c784;
+        }
+        
+        .strategy-card p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .strategy-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategy-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #81c784;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .facilities-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-category h3 {
+            color: #0d47a1;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .facility-list li:hover {
+            padding-left: 20px;
+            background: linear-gradient(to right, rgba(13, 71, 161, 0.05), transparent);
+        }
+        
+        .facility-link {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .facility-name {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .facility-distance {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .facility-arrow {
+            color: #0d47a1;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list li:hover .facility-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .access-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-card h3 {
+            color: #0d47a1;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-icon {
+            font-size: 1.5rem;
+        }
+        
+        .access-card p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .access-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .access-card ul li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #81c784, #66bb6a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, #81c784, #66bb6a);
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary:hover {
+            background: linear-gradient(135deg, #66bb6a, #81c784);
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #0d47a1;
+        }
+        
+        /* 装飾的な要素 */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #81c784;
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-copy {
+            opacity: 0.5;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .nav-menu a {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .strategy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .salmon {
+                width: 40px;
+                height: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <h1 style="font-size: 1.5rem;">茂漁チャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <a href="#story" onclick="closeMenu()">鮭の川物語</a>
+            <a href="#info" onclick="closeMenu()">基本情報</a>
+            <a href="#fishing" onclick="closeMenu()">鮭漁の特徴</a>
+            <a href="#statistics" onclick="closeMenu()">漁獲の記録</a>
+            <a href="#techniques" onclick="closeMenu()">伝統漁法</a>
+            <a href="#strategic" onclick="closeMenu()">戦略的価値</a>
+            <a href="#facilities" onclick="closeMenu()">関連施設</a>
+            <a href="#access" onclick="closeMenu()">アクセス</a>
+            <a href="../" onclick="closeMenu()">北海道の城一覧へ</a>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="river-flow">
+            <div class="water-layer"></div>
+            <div class="water-layer"></div>
+            <div class="water-layer"></div>
+        </div>
+        <div class="salmon-container" id="salmonContainer"></div>
+        <div class="fishing-net" id="fishingNet"></div>
+        <div class="hero-background"></div>
+        <div class="hero-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11736.8!2d141.4833!3d42.9667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDU4JzAwLjAiTiAxNDHCsDI5JzAwLjAiRQ!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-content">
+            <h1>茂漁チャシ</h1>
+            <p class="hero-subtitle">鮭の川の守護者</p>
+            <p class="hero-description">
+                千歳川の豊かな恵みを守り続けた川の要塞。
+                秋の大遡上を管理し、公正な分配を実現した
+                持続可能な漁業システムの中心地。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <a href="#story" class="nav-card">
+                <div class="nav-card-icon">📖</div>
+                <div class="nav-card-title">鮭の川物語</div>
+            </a>
+            <a href="#info" class="nav-card">
+                <div class="nav-card-icon">🏯</div>
+                <div class="nav-card-title">基本情報</div>
+            </a>
+            <a href="#fishing" class="nav-card">
+                <div class="nav-card-icon">🎣</div>
+                <div class="nav-card-title">鮭漁の特徴</div>
+            </a>
+            <a href="#statistics" class="nav-card">
+                <div class="nav-card-icon">📊</div>
+                <div class="nav-card-title">漁獲の記録</div>
+            </a>
+            <a href="#techniques" class="nav-card">
+                <div class="nav-card-icon">🛠️</div>
+                <div class="nav-card-title">伝統漁法</div>
+            </a>
+            <a href="#strategic" class="nav-card">
+                <div class="nav-card-icon">⚔️</div>
+                <div class="nav-card-title">戦略的価値</div>
+            </a>
+            <a href="#facilities" class="nav-card">
+                <div class="nav-card-icon">🏛️</div>
+                <div class="nav-card-title">関連施設</div>
+            </a>
+            <a href="#access" class="nav-card">
+                <div class="nav-card-icon">🗺️</div>
+                <div class="nav-card-title">アクセス</div>
+            </a>
+            <a href="../" class="nav-card">
+                <div class="nav-card-icon">🏰</div>
+                <div class="nav-card-title">北海道の城一覧</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section section" id="story">
+        <h2 class="section-title">鮭の川物語</h2>
+        <div class="story-container">
+            <div class="story-chapter">
+                <div class="chapter-number">1</div>
+                <h3 class="chapter-title">千歳川の恵み</h3>
+                <div class="chapter-content">
+                    <p>
+                        恵庭の地を流れる千歳川。この川に築かれた<span class="highlight-text">茂漁チャシ</span>は、
+                        その名が示す通り、豊かな漁場を管理する要塞として機能していた。
+                        「モイザリ」というアイヌ語は「穏やかな川の漁場」を意味し、
+                        古来よりこの地が鮭の一大産地であったことを物語っている。
+                    </p>
+                    <p>
+                        秋になると、太平洋から遡上してくる鮭の大群が川を埋め尽くした。
+                        その光景は、まるで川が銀色に輝いているかのようだったという。
+                        茂漁チャシは、この豊かな資源を守り、適切に管理する
+                        重要な役割を担っていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">2</div>
+                <h3 class="chapter-title">漁業権の管理</h3>
+                <div class="chapter-content">
+                    <p>
+                        茂漁チャシの最も重要な機能は、<span class="highlight-text">漁業権の管理と調整</span>だった。
+                        周辺の集落から集まる人々に対し、公平に漁場を割り当て、
+                        乱獲を防ぐための厳格なルールを定めていた。
+                    </p>
+                    <p>
+                        漁期の開始と終了の決定、一日の漁獲量の制限、
+                        使用できる漁具の規定など、詳細な取り決めが存在した。
+                        これらのルールは、長年の経験と観察に基づいて作られ、
+                        資源の持続可能な利用を可能にしていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">3</div>
+                <h3 class="chapter-title">聖なる儀式</h3>
+                <div class="chapter-content">
+                    <p>
+                        鮭漁の開始前には、必ず<span class="highlight-text">カムイへの感謝の儀式</span>が
+                        茂漁チャシで執り行われた。川の神、鮭の神に対し、
+                        豊漁と安全を祈る祈りが捧げられた。
+                    </p>
+                    <p>
+                        特に重要だったのは「初鮭の儀式」である。
+                        その年最初に捕獲された鮭は、神への供物として扱われ、
+                        特別な作法で料理され、集落の長老たちによって分かち合われた。
+                        この儀式を経て初めて、一般の漁が解禁されるのだった。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">4</div>
+                <h3 class="chapter-title">加工と保存の技術</h3>
+                <div class="chapter-content">
+                    <p>
+                        茂漁チャシは、単なる漁場の管理だけでなく、
+                        <span class="highlight-text">鮭の加工・保存技術</span>の中心地でもあった。
+                        大量に獲れる鮭を無駄なく利用するため、
+                        様々な保存方法が開発され、伝承されていた。
+                    </p>
+                    <p>
+                        干し鮭、燻製、塩漬け、凍結乾燥など、
+                        季節や用途に応じた多様な加工技術が確立されていた。
+                        特に、冬期の貴重なタンパク源となる干し鮭の製造技術は高度に発達し、
+                        その品質は遠方まで知れ渡っていたという。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">5</div>
+                <h3 class="chapter-title">交易ネットワークの要</h3>
+                <div class="chapter-content">
+                    <p>
+                        優れた品質の鮭加工品は、<span class="highlight-text">広域交易の重要な商品</span>となった。
+                        茂漁チャシは、内陸部への鮭製品の供給基地として機能し、
+                        山間部の産物との交換が活発に行われた。
+                    </p>
+                    <p>
+                        毛皮、薬草、鉱物などと鮭製品が交換され、
+                        互いに不足する資源を補い合う経済システムが構築されていた。
+                        この交易ネットワークは、地域全体の繁栄を支える基盤となり、
+                        茂漁チャシはその中心的な役割を果たしていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">6</div>
+                <h3 class="chapter-title">近代化の波と伝統の継承</h3>
+                <div class="chapter-content">
+                    <p>
+                        明治時代以降、近代的な漁法が導入されると、
+                        茂漁チャシの役割も大きく変化した。
+                        しかし、<span class="highlight-text">持続可能な資源管理の理念</span>は、
+                        形を変えながらも受け継がれていった。
+                    </p>
+                    <p>
+                        現在の千歳川では、サケ・マス増殖事業が行われ、
+                        人工孵化による資源管理が実施されている。
+                        これは、茂漁チャシが実践していた資源保護の思想を、
+                        現代の技術で発展させたものと言えるだろう。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">7</div>
+                <h3 class="chapter-title">川と共に生きる知恵</h3>
+                <div class="chapter-content">
+                    <p>
+                        茂漁チャシが私たちに教えてくれるのは、
+                        <span class="highlight-text">自然の恵みと共に生きる知恵</span>である。
+                        資源を独占するのではなく、公平に分かち合い、
+                        未来の世代にも恵みを残すという考え方。
+                    </p>
+                    <p>
+                        現代社会が直面する環境問題や資源枯渇の課題に対し、
+                        茂漁チャシが実践していた持続可能な資源管理システムは、
+                        重要な示唆を与えてくれる。川の恵みに感謝し、
+                        節度を持って利用するという精神は、今こそ見直されるべき価値観なのである。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section section" id="info">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">立地</div>
+                <div class="info-value">千歳川中流域・標高約20m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">築造時期</div>
+                <div class="info-value">14-16世紀頃</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">規模</div>
+                <div class="info-value">東西250m × 南北150m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">主要施設</div>
+                <div class="info-value">漁場監視所・加工場・保管庫</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">管理河川範囲</div>
+                <div class="info-value">上下流各5km区間</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">現況</div>
+                <div class="info-value">一部遺構残存・記念碑設置</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 鮭漁特徴セクション -->
+    <section class="fishing-section section" id="fishing">
+        <div class="ripple-background" id="rippleContainer"></div>
+        
+        <div class="fishing-content">
+            <h2 class="section-title">鮭漁の特徴</h2>
+            <div class="fishing-intro">
+                千歳川の豊かな生態系を守り続けた、持続可能な漁業管理システム
+            </div>
+            
+            <div class="fishing-features">
+                <div class="fishing-feature">
+                    <h3>
+                        <div class="fishing-icon">🌊</div>
+                        遡上管理システム
+                    </h3>
+                    <p>
+                        鮭の遡上時期と数量を詳細に観察・記録し、適切な漁獲計画を立案。
+                        川の水温、水量、月齢などの自然条件を総合的に判断して、最適な漁期を決定していました。
+                    </p>
+                    <ul class="fishing-list">
+                        <li>遡上開始時期の予測技術</li>
+                        <li>日別遡上数の記録システム</li>
+                        <li>産卵場所の保護区域設定</li>
+                        <li>稚魚保護のための禁漁期間</li>
+                    </ul>
+                </div>
+                
+                <div class="fishing-feature">
+                    <h3>
+                        <div class="fishing-icon">⚖️</div>
+                        公平な分配制度
+                    </h3>
+                    <p>
+                        漁獲物の分配は、厳格なルールに基づいて行われました。
+                        家族構成、労働への貢献度、特別な事情などを考慮した、きめ細かな配分システムが確立されていました。
+                    </p>
+                    <ul class="fishing-list">
+                        <li>世帯別基本配分量の設定</li>
+                        <li>労働貢献度による追加配分</li>
+                        <li>高齢者・病人への優先配慮</li>
+                        <li>祭事用特別配分の確保</li>
+                    </ul>
+                </div>
+                
+                <div class="fishing-feature">
+                    <h3>
+                        <div class="fishing-icon">🔧</div>
+                        漁具の標準化
+                    </h3>
+                    <p>
+                        使用する漁具は厳格に規定され、資源保護と公平性が保たれていました。
+                        網の目の大きさ、簗の間隔など、細部まで基準が定められていました。
+                    </p>
+                    <ul class="fishing-list">
+                        <li>網目サイズの統一規格</li>
+                        <li>簗（やな）の設置基準</li>
+                        <li>銛の使用制限</li>
+                        <li>違反者への罰則規定</li>
+                    </ul>
+                </div>
+                
+                <div class="fishing-feature">
+                    <h3>
+                        <div class="fishing-icon">🏺</div>
+                        加工技術の伝承
+                    </h3>
+                    <p>
+                        鮭の各部位を無駄なく利用する加工技術が、世代を超えて伝承されました。
+                        保存期間や用途に応じた、多様な加工方法が体系化されていました。
+                    </p>
+                    <ul class="fishing-list">
+                        <li>部位別の最適加工法</li>
+                        <li>保存期間別の処理技術</li>
+                        <li>薬用・装飾用素材の活用</li>
+                        <li>副産物の有効利用法</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 漁獲統計セクション -->
+    <section class="statistics-section section" id="statistics">
+        <h2 class="section-title">漁獲の記録</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🐟</div>
+                <div class="stat-value">10,000尾</div>
+                <div class="stat-label">年間平均漁獲量</div>
+                <div class="stat-description">
+                    最盛期の推定年間漁獲量。現在の基準でも驚異的な数値
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-value">45日間</div>
+                <div class="stat-label">漁期期間</div>
+                <div class="stat-description">
+                    9月中旬から10月末までの集中漁期
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value">500世帯</div>
+                <div class="stat-label">受益世帯数</div>
+                <div class="stat-description">
+                    茂漁チャシの管理下で恩恵を受けた推定世帯数
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏔️</div>
+                <div class="stat-value">200km</div>
+                <div class="stat-label">供給範囲</div>
+                <div class="stat-description">
+                    鮭製品が流通した最大距離
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">♻️</div>
+                <div class="stat-value">95%</div>
+                <div class="stat-label">資源利用率</div>
+                <div class="stat-description">
+                    鮭の各部位の有効利用率
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📈</div>
+                <div class="stat-value">300年</div>
+                <div class="stat-label">持続期間</div>
+                <div class="stat-description">
+                    安定的な漁獲が維持された推定期間
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 漁法伝承セクション -->
+    <section class="techniques-section section" id="techniques">
+        <h2 class="section-title">伝統漁法の叡智</h2>
+        <div class="technique-cards">
+            <div class="technique-card">
+                <div class="technique-number">1</div>
+                <h3>簗漁（やなりょう）</h3>
+                <p>
+                    川幅に合わせて木や竹を組み、V字型の仕掛けを作る伝統漁法。
+                    遡上する鮭を傷つけることなく、効率的に捕獲することができました。
+                </p>
+                <div class="technique-tools">
+                    <h4>使用道具と材料</h4>
+                    <ul>
+                        <li>▸ 直径10-15cmの丸太材</li>
+                        <li>▸ 柳の枝で編んだ捕獲籠</li>
+                        <li>▸ 石と縄による固定具</li>
+                        <li>▸ 水流調整用の可動式堰板</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="technique-card">
+                <div class="technique-number">2</div>
+                <h3>刺し網漁</h3>
+                <p>
+                    流れの緩やかな淵に網を設置し、回遊する鮭を捕獲する方法。
+                    網目の大きさを調整することで、成熟した個体のみを選択的に漁獲できました。
+                </p>
+                <div class="technique-tools">
+                    <h4>使用道具と材料</h4>
+                    <ul>
+                        <li>▸ イラクサ繊維の漁網</li>
+                        <li>▸ 浮子用の樺の皮</li>
+                        <li>▸ 沈子用の川石</li>
+                        <li>▸ 補修用の予備網糸</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="technique-card">
+                <div class="technique-number">3</div>
+                <h3>突き漁（マレク）</h3>
+                <p>
+                    浅瀬で産卵行動中の鮭を、専用の銛で仕留める漁法。
+                    高度な技術と経験が必要で、選ばれた漁師のみが行うことを許されていました。
+                </p>
+                <div class="technique-tools">
+                    <h4>使用道具と材料</h4>
+                    <ul>
+                        <li>▸ 先端に鹿角製の鏃</li>
+                        <li>▸ 弾力のある樺材の柄</li>
+                        <li>▸ 回収用の麻縄</li>
+                        <li>▸ 防水加工した革手袋</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section section" id="strategic">
+        <h2 class="section-title">戦略的価値</h2>
+        <div class="strategy-cards">
+            <div class="strategy-card">
+                <div class="strategy-number">1</div>
+                <h3>食料安全保障</h3>
+                <p>
+                    安定的な蛋白源の確保により、地域全体の食料安全保障に貢献。
+                    飢饉や不作の年でも、保存された鮭製品が命綱となりました。
+                </p>
+                <ul class="strategy-list">
+                    <li>年間を通じた蛋白質供給</li>
+                    <li>非常用備蓄システムの確立</li>
+                    <li>栄養バランスの改善</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">2</div>
+                <h3>経済的基盤</h3>
+                <p>
+                    高品質な鮭製品は重要な交易品として、地域経済の基盤を形成。
+                    安定した収入源として、他の産業発展も支えました。
+                </p>
+                <ul class="strategy-list">
+                    <li>広域交易ネットワークの構築</li>
+                    <li>付加価値製品の開発</li>
+                    <li>雇用機会の創出</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <h3>社会的統合</h3>
+                <p>
+                    漁業権の公平な管理と分配により、社会的な統合と秩序を維持。
+                    共同作業を通じた地域コミュニティの強化にも貢献しました。
+                </p>
+                <ul class="strategy-list">
+                    <li>紛争の予防と調停機能</li>
+                    <li>相互扶助システムの運営</li>
+                    <li>文化的アイデンティティの維持</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <h3>環境保全機能</h3>
+                <p>
+                    持続可能な資源利用により、河川生態系の保全に貢献。
+                    現代の環境保護思想の先駆けとなる実践を行っていました。
+                </p>
+                <ul class="strategy-list">
+                    <li>産卵場の保護管理</li>
+                    <li>河川環境のモニタリング</li>
+                    <li>生物多様性の維持</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section section" id="facilities">
+        <h2 class="section-title">関連施設・周辺観光</h2>
+        <div class="facilities-container">
+            <div class="facility-category">
+                <h3>歴史・文化施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">恵庭市郷土資料館</span>
+                            <span class="facility-distance">
+                                <span>約3km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳サケのふるさと館</span>
+                            <span class="facility-distance">
+                                <span>約15km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳アイヌ文化伝承館</span>
+                            <span class="facility-distance">
+                                <span>約12km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>自然・体験スポット</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳川サケ観察ポイント</span>
+                            <span class="facility-distance">
+                                <span>約5km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">恵庭渓谷</span>
+                            <span class="facility-distance">
+                                <span>約20km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">支笏湖</span>
+                            <span class="facility-distance">
+                                <span>約25km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>グルメ・特産品</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">恵庭いくら丼の店</span>
+                            <span class="facility-distance">
+                                <span>市内各所</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳鮭料理専門店</span>
+                            <span class="facility-distance">
+                                <span>約10km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">道の駅 花ロードえにわ</span>
+                            <span class="facility-distance">
+                                <span>約5km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section section" id="access">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-container">
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d93893.812!2d141.4!3d42.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x5f74e442c5f5f5f5%3A0x5f74e442c5f5f5f5!2z5oG15bqt6aeF!3m2!1d42.8828!2d141.5758!4m5!1s0x0%3A0x0!2z6IyC5ryi44OB44Oj44K3!3m2!1d42.9667!2d141.4833!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚆</span>
+                        鉄道でのアクセス
+                    </h3>
+                    <p>
+                        JR千歳線恵庭駅から車で約15分。
+                        札幌から快速エアポートで約25分、新千歳空港から約15分。
+                    </p>
+                    <ul>
+                        <li>札幌→恵庭：快速25分</li>
+                        <li>新千歳空港→恵庭：15分</li>
+                        <li>恵庭駅からバス：約20分</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚗</span>
+                        車でのアクセス
+                    </h3>
+                    <p>
+                        道央自動車道恵庭ICから約10分。
+                        国道36号線から道道46号線経由。駐車場完備。
+                    </p>
+                    <ul>
+                        <li>札幌市内から：約40分</li>
+                        <li>新千歳空港から：約30分</li>
+                        <li>無料駐車場：20台</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚌</span>
+                        バスでのアクセス
+                    </h3>
+                    <p>
+                        恵庭駅前から路線バス「千歳川線」で約20分。
+                        「茂漁」バス停下車、徒歩5分。
+                    </p>
+                    <ul>
+                        <li>平日：1時間に1本</li>
+                        <li>土日祝：2時間に1本</li>
+                        <li>運賃：大人320円</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="cta">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2 class="cta-title">千歳川の恵みを体感する旅へ</h2>
+            <p class="cta-description">
+                古代から続く持続可能な資源管理の知恵を学び、
+                豊かな自然の恵みと共に生きた人々の物語に触れてください。
+                秋の鮭の遡上シーズンには、圧巻の自然の営みを目撃できます。
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">鮭観察ツアーを予約</a>
+                <a href="../" class="cta-button secondary">他の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">サイトマップ</a>
+            </div>
+            <p class="footer-copy">
+                &copy; 2024 北海道の城めぐり. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの開閉
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // メニュー項目クリックで閉じる
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // スクロールでヘッダーの背景を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 動的な装飾要素の生成
+        function createDecorations() {
+            // 鮭のジャンプアニメーション
+            const salmonContainer = document.getElementById('salmonContainer');
+            for (let i = 0; i < 5; i++) {
+                const salmon = document.createElement('div');
+                salmon.className = 'salmon';
+                salmon.style.left = Math.random() * 100 + '%';
+                salmon.style.animationDelay = i * 1.5 + 's';
+                salmon.style.animationDuration = (8 + Math.random() * 4) + 's';
+                salmonContainer.appendChild(salmon);
+            }
+            
+            // 漁網パターン生成
+            const fishingNet = document.getElementById('fishingNet');
+            // 横線
+            for (let i = 0; i < 10; i++) {
+                const line = document.createElement('div');
+                line.className = 'net-line horizontal';
+                line.style.top = (i * 10) + '%';
+                fishingNet.appendChild(line);
+            }
+            // 縦線
+            for (let i = 0; i < 10; i++) {
+                const line = document.createElement('div');
+                line.className = 'net-line vertical';
+                line.style.left = (i * 10) + '%';
+                fishingNet.appendChild(line);
+            }
+            
+            // 波紋効果
+            const rippleContainer = document.getElementById('rippleContainer');
+            setInterval(() => {
+                const ripple = document.createElement('div');
+                ripple.className = 'ripple';
+                ripple.style.left = Math.random() * 100 + '%';
+                ripple.style.top = Math.random() * 100 + '%';
+                rippleContainer.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 4000);
+            }, 2000);
+        }
+        
+        // ページ読み込み完了後に装飾を生成
+        window.addEventListener('load', createDecorations);
+    </script>
+</body>
+</html>

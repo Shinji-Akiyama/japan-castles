@@ -1,0 +1,521 @@
+/Users/cnp/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Castle Data Collection from cmeg.jp
+==================================================
+Loaded 17 existing castles from castle_data.csv
+
+==================================================
+Processing 福島県 (Fukushima)
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E5%B3%B6%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E5%B3%B6%E7%9C%8C/2
+    Found 26 castles
+Total castles for 福島県: 56
+
+Saved 73 castles to all_japan_castles.csv
+
+==================================================
+Processing 茨城県 (Ibaraki)
+  Fetching: https://cmeg.jp/w/castles/%E8%8C%A8%E5%9F%8E%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E8%8C%A8%E5%9F%8E%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E8%8C%A8%E5%9F%8E%E7%9C%8C/3
+    Found 17 castles
+Total castles for 茨城県: 77
+
+Saved 150 castles to all_japan_castles.csv
+
+==================================================
+Processing 栃木県 (Tochigi)
+  Fetching: https://cmeg.jp/w/castles/%E6%A0%83%E6%9C%A8%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%A0%83%E6%9C%A8%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%A0%83%E6%9C%A8%E7%9C%8C/3
+    Found 9 castles
+Total castles for 栃木県: 69
+
+Saved 219 castles to all_japan_castles.csv
+
+==================================================
+Processing 群馬県 (Gunma)
+  Fetching: https://cmeg.jp/w/castles/%E7%BE%A4%E9%A6%AC%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%BE%A4%E9%A6%AC%E7%9C%8C/2
+    Found 28 castles
+Total castles for 群馬県: 58
+
+Saved 277 castles to all_japan_castles.csv
+
+==================================================
+Processing 埼玉県 (Saitama)
+  Fetching: https://cmeg.jp/w/castles/%E5%9F%BC%E7%8E%89%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%9F%BC%E7%8E%89%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%9F%BC%E7%8E%89%E7%9C%8C/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%9F%BC%E7%8E%89%E7%9C%8C/4
+    Found 0 castles
+Total castles for 埼玉県: 90
+
+Saved 367 castles to all_japan_castles.csv
+
+==================================================
+Processing 千葉県 (Chiba)
+  Fetching: https://cmeg.jp/w/castles/%E5%8D%83%E8%91%89%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%8D%83%E8%91%89%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%8D%83%E8%91%89%E7%9C%8C/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%8D%83%E8%91%89%E7%9C%8C/4
+    Found 7 castles
+Total castles for 千葉県: 97
+
+Saved 464 castles to all_japan_castles.csv
+
+==================================================
+Processing 東京都 (Tokyo)
+  Fetching: https://cmeg.jp/w/castles/%E6%9D%B1%E4%BA%AC%E9%83%BD
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%9D%B1%E4%BA%AC%E9%83%BD/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%9D%B1%E4%BA%AC%E9%83%BD/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%9D%B1%E4%BA%AC%E9%83%BD/4
+    Found 29 castles
+Total castles for 東京都: 119
+
+Saved 583 castles to all_japan_castles.csv
+
+==================================================
+Processing 神奈川県 (Kanagawa)
+  Fetching: https://cmeg.jp/w/castles/%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C/3
+    Found 27 castles
+Total castles for 神奈川県: 87
+
+Saved 670 castles to all_japan_castles.csv
+
+==================================================
+Processing 新潟県 (Niigata)
+  Fetching: https://cmeg.jp/w/castles/%E6%96%B0%E6%BD%9F%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%96%B0%E6%BD%9F%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%96%B0%E6%BD%9F%E7%9C%8C/3
+    Found 23 castles
+Total castles for 新潟県: 83
+
+Saved 753 castles to all_japan_castles.csv
+
+==================================================
+Processing 富山県 (Toyama)
+  Fetching: https://cmeg.jp/w/castles/%E5%AF%8C%E5%B1%B1%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%AF%8C%E5%B1%B1%E7%9C%8C/2
+    Found 24 castles
+Total castles for 富山県: 54
+
+Saved 807 castles to all_japan_castles.csv
+
+==================================================
+Processing 石川県 (Ishikawa)
+  Fetching: https://cmeg.jp/w/castles/%E7%9F%B3%E5%B7%9D%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%9F%B3%E5%B7%9D%E7%9C%8C/2
+    Found 11 castles
+Total castles for 石川県: 41
+
+Saved 848 castles to all_japan_castles.csv
+
+==================================================
+Processing 福井県 (Fukui)
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E4%BA%95%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E4%BA%95%E7%9C%8C/2
+    Found 20 castles
+Total castles for 福井県: 50
+
+Saved 898 castles to all_japan_castles.csv
+
+==================================================
+Processing 山梨県 (Yamanashi)
+  Fetching: https://cmeg.jp/w/castles/%E5%B1%B1%E6%A2%A8%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B1%B1%E6%A2%A8%E7%9C%8C/2
+    Found 5 castles
+Total castles for 山梨県: 35
+
+Saved 933 castles to all_japan_castles.csv
+
+==================================================
+Processing 長野県 (Nagano)
+  Fetching: https://cmeg.jp/w/castles/%E9%95%B7%E9%87%8E%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%95%B7%E9%87%8E%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%95%B7%E9%87%8E%E7%9C%8C/3
+    Found 26 castles
+Total castles for 長野県: 86
+
+Saved 1019 castles to all_japan_castles.csv
+
+==================================================
+Processing 岐阜県 (Gifu)
+  Fetching: https://cmeg.jp/w/castles/%E5%B2%90%E9%98%9C%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B2%90%E9%98%9C%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B2%90%E9%98%9C%E7%9C%8C/3
+    Found 7 castles
+Total castles for 岐阜県: 67
+
+Saved 1086 castles to all_japan_castles.csv
+
+==================================================
+Processing 静岡県 (Shizuoka)
+  Fetching: https://cmeg.jp/w/castles/%E9%9D%99%E5%B2%A1%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%9D%99%E5%B2%A1%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%9D%99%E5%B2%A1%E7%9C%8C/3
+    Found 10 castles
+Total castles for 静岡県: 70
+
+Saved 1156 castles to all_japan_castles.csv
+
+==================================================
+Processing 愛知県 (Aichi)
+  Fetching: https://cmeg.jp/w/castles/%E6%84%9B%E7%9F%A5%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%84%9B%E7%9F%A5%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%84%9B%E7%9F%A5%E7%9C%8C/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%84%9B%E7%9F%A5%E7%9C%8C/4
+    Found 12 castles
+Total castles for 愛知県: 102
+
+Saved 1258 castles to all_japan_castles.csv
+
+==================================================
+Processing 三重県 (Mie)
+  Fetching: https://cmeg.jp/w/castles/%E4%B8%89%E9%87%8D%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E4%B8%89%E9%87%8D%E7%9C%8C/2
+    Found 28 castles
+Total castles for 三重県: 58
+
+Saved 1316 castles to all_japan_castles.csv
+
+==================================================
+Processing 滋賀県 (Shiga)
+  Fetching: https://cmeg.jp/w/castles/%E6%BB%8B%E8%B3%80%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%BB%8B%E8%B3%80%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%BB%8B%E8%B3%80%E7%9C%8C/3
+    Found 20 castles
+Total castles for 滋賀県: 80
+
+Saved 1396 castles to all_japan_castles.csv
+
+==================================================
+Processing 京都府 (Kyoto)
+  Fetching: https://cmeg.jp/w/castles/%E4%BA%AC%E9%83%BD%E5%BA%9C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E4%BA%AC%E9%83%BD%E5%BA%9C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E4%BA%AC%E9%83%BD%E5%BA%9C/3
+    Found 10 castles
+Total castles for 京都府: 70
+
+Saved 1466 castles to all_japan_castles.csv
+
+==================================================
+Processing 大阪府 (Osaka)
+  Fetching: https://cmeg.jp/w/castles/%E5%A4%A7%E9%98%AA%E5%BA%9C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%A4%A7%E9%98%AA%E5%BA%9C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%A4%A7%E9%98%AA%E5%BA%9C/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%A4%A7%E9%98%AA%E5%BA%9C/4
+    Found 14 castles
+Total castles for 大阪府: 104
+
+Saved 1570 castles to all_japan_castles.csv
+
+==================================================
+Processing 兵庫県 (Hyogo)
+  Fetching: https://cmeg.jp/w/castles/%E5%85%B5%E5%BA%AB%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%85%B5%E5%BA%AB%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%85%B5%E5%BA%AB%E7%9C%8C/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%85%B5%E5%BA%AB%E7%9C%8C/4
+    Found 11 castles
+Total castles for 兵庫県: 101
+
+Saved 1671 castles to all_japan_castles.csv
+
+==================================================
+Processing 奈良県 (Nara)
+  Fetching: https://cmeg.jp/w/castles/%E5%A5%88%E8%89%AF%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%A5%88%E8%89%AF%E7%9C%8C/2
+    Found 24 castles
+Total castles for 奈良県: 54
+
+Saved 1725 castles to all_japan_castles.csv
+
+==================================================
+Processing 和歌山県 (Wakayama)
+  Fetching: https://cmeg.jp/w/castles/%E5%92%8C%E6%AD%8C%E5%B1%B1%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%92%8C%E6%AD%8C%E5%B1%B1%E7%9C%8C/2
+    Found 14 castles
+Total castles for 和歌山県: 44
+
+Saved 1769 castles to all_japan_castles.csv
+
+==================================================
+Processing 鳥取県 (Tottori)
+  Fetching: https://cmeg.jp/w/castles/%E9%B3%A5%E5%8F%96%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%B3%A5%E5%8F%96%E7%9C%8C/2
+    Found 10 castles
+Total castles for 鳥取県: 40
+
+Saved 1809 castles to all_japan_castles.csv
+
+==================================================
+Processing 島根県 (Shimane)
+  Fetching: https://cmeg.jp/w/castles/%E5%B3%B6%E6%A0%B9%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B3%B6%E6%A0%B9%E7%9C%8C/2
+    Found 20 castles
+Total castles for 島根県: 50
+
+Saved 1859 castles to all_japan_castles.csv
+
+==================================================
+Processing 岡山県 (Okayama)
+  Fetching: https://cmeg.jp/w/castles/%E5%B2%A1%E5%B1%B1%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B2%A1%E5%B1%B1%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B2%A1%E5%B1%B1%E7%9C%8C/3
+    Found 2 castles
+Total castles for 岡山県: 62
+
+Saved 1921 castles to all_japan_castles.csv
+
+==================================================
+Processing 広島県 (Hiroshima)
+  Fetching: https://cmeg.jp/w/castles/%E5%BA%83%E5%B3%B6%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%BA%83%E5%B3%B6%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%BA%83%E5%B3%B6%E7%9C%8C/3
+    Found 14 castles
+Total castles for 広島県: 74
+
+Saved 1995 castles to all_japan_castles.csv
+
+==================================================
+Processing 山口県 (Yamaguchi)
+  Fetching: https://cmeg.jp/w/castles/%E5%B1%B1%E5%8F%A3%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%B1%B1%E5%8F%A3%E7%9C%8C/2
+    Found 15 castles
+Total castles for 山口県: 45
+
+Saved 2040 castles to all_japan_castles.csv
+
+==================================================
+Processing 徳島県 (Tokushima)
+  Fetching: https://cmeg.jp/w/castles/%E5%BE%B3%E5%B3%B6%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%BE%B3%E5%B3%B6%E7%9C%8C/2
+    Found 10 castles
+Total castles for 徳島県: 40
+
+Saved 2080 castles to all_japan_castles.csv
+
+==================================================
+Processing 香川県 (Kagawa)
+  Fetching: https://cmeg.jp/w/castles/%E9%A6%99%E5%B7%9D%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%A6%99%E5%B7%9D%E7%9C%8C/2
+    Found 14 castles
+Total castles for 香川県: 44
+
+Saved 2124 castles to all_japan_castles.csv
+
+==================================================
+Processing 愛媛県 (Ehime)
+  Fetching: https://cmeg.jp/w/castles/%E6%84%9B%E5%AA%9B%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%84%9B%E5%AA%9B%E7%9C%8C/2
+    Found 22 castles
+Total castles for 愛媛県: 52
+
+Saved 2176 castles to all_japan_castles.csv
+
+==================================================
+Processing 高知県 (Kochi)
+  Fetching: https://cmeg.jp/w/castles/%E9%AB%98%E7%9F%A5%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%AB%98%E7%9F%A5%E7%9C%8C/2
+    Found 10 castles
+Total castles for 高知県: 40
+
+Saved 2216 castles to all_japan_castles.csv
+
+==================================================
+Processing 福岡県 (Fukuoka)
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E5%B2%A1%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E5%B2%A1%E7%9C%8C/2
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E5%B2%A1%E7%9C%8C/3
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%A6%8F%E5%B2%A1%E7%9C%8C/4
+    Found 0 castles
+Total castles for 福岡県: 90
+
+Saved 2306 castles to all_japan_castles.csv
+
+==================================================
+Processing 佐賀県 (Saga)
+  Fetching: https://cmeg.jp/w/castles/%E4%BD%90%E8%B3%80%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E4%BD%90%E8%B3%80%E7%9C%8C/2
+    Found 12 castles
+Total castles for 佐賀県: 42
+
+Saved 2348 castles to all_japan_castles.csv
+
+==================================================
+Processing 長崎県 (Nagasaki)
+  Fetching: https://cmeg.jp/w/castles/%E9%95%B7%E5%B4%8E%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%95%B7%E5%B4%8E%E7%9C%8C/2
+    Found 26 castles
+Total castles for 長崎県: 56
+
+Saved 2404 castles to all_japan_castles.csv
+
+==================================================
+Processing 熊本県 (Kumamoto)
+  Fetching: https://cmeg.jp/w/castles/%E7%86%8A%E6%9C%AC%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E7%86%8A%E6%9C%AC%E7%9C%8C/2
+    Found 29 castles
+Total castles for 熊本県: 59
+
+Saved 2463 castles to all_japan_castles.csv
+
+==================================================
+Processing 大分県 (Oita)
+  Fetching: https://cmeg.jp/w/castles/%E5%A4%A7%E5%88%86%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%A4%A7%E5%88%86%E7%9C%8C/2
+    Found 16 castles
+Total castles for 大分県: 46
+
+Saved 2509 castles to all_japan_castles.csv
+
+==================================================
+Processing 宮崎県 (Miyazaki)
+  Fetching: https://cmeg.jp/w/castles/%E5%AE%AE%E5%B4%8E%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E5%AE%AE%E5%B4%8E%E7%9C%8C/2
+    Found 24 castles
+Total castles for 宮崎県: 54
+
+Saved 2563 castles to all_japan_castles.csv
+
+==================================================
+Processing 鹿児島県 (Kagoshima)
+  Fetching: https://cmeg.jp/w/castles/%E9%B9%BF%E5%85%90%E5%B3%B6%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E9%B9%BF%E5%85%90%E5%B3%B6%E7%9C%8C/2
+    Found 29 castles
+Total castles for 鹿児島県: 59
+
+Saved 2622 castles to all_japan_castles.csv
+
+==================================================
+Processing 沖縄県 (Okinawa)
+  Fetching: https://cmeg.jp/w/castles/%E6%B2%96%E7%B8%84%E7%9C%8C
+    Found 30 castles
+  Fetching: https://cmeg.jp/w/castles/%E6%B2%96%E7%B8%84%E7%9C%8C/2
+    Found 11 castles
+Total castles for 沖縄県: 41
+
+Saved 2663 castles to all_japan_castles.csv
+
+Saved 2663 castles to all_japan_castles.csv
+Also saved to all_japan_castles.json
+
+==================================================
+FINAL SUMMARY
+==================================================
+Total castles collected: 2663
+
+Castles by Prefecture:
+  三重県: 58
+  京都府: 70
+  佐賀県: 42
+  兵庫県: 101
+  千葉県: 97
+  和歌山県: 44
+  埼玉県: 90
+  大分県: 46
+  大阪府: 104
+  奈良県: 54
+  宮城県: 3
+  宮崎県: 54
+  富山県: 54
+  山口県: 45
+  山形県: 3
+  山梨県: 35
+  岐阜県: 67
+  岡山県: 62
+  岩手県: 3
+  島根県: 50
+  広島県: 74
+  徳島県: 40
+  愛媛県: 52
+  愛知県: 102
+  新潟県: 83
+  東京都: 119
+  栃木県: 69
+  沖縄県: 41
+  滋賀県: 80
+  熊本県: 59
+  石川県: 41
+  神奈川県: 87
+  福井県: 50
+  福岡県: 90
+  福島県: 56
+  秋田県: 3
+  群馬県: 58
+  茨城県: 77
+  長崎県: 56
+  長野県: 86
+  青森県: 5
+  静岡県: 70
+  香川県: 44
+  高知県: 40
+  鳥取県: 40
+  鹿児島県: 59

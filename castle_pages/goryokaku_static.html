@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五稜郭（ごりょうかく）- 北海道函館市 | お城ファンページ</title>
+    <meta name="description" content="北海道函館市にある星形要塞・五稜郭の魅力を紹介。幕末の歴史と美しい景観が融合する特別史跡。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header .reading {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* ヒーロー画像エリア */
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=41.796941,140.756656&zoom=17&size=640x640&maptype=satellite&scale=2&key=YOUR_API_KEY');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+            z-index: 1;
+        }
+        
+        .hero-caption {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-caption .type {
+            display: inline-block;
+            background: #e74c3c;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        /* メインコンテンツ */
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fafafa;
+        }
+        
+        .info-label {
+            background: #34495e;
+            color: white;
+            padding: 10px 15px;
+            min-width: 100px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-value {
+            padding: 10px 15px;
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        /* 特徴セクション */
+        .features {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .feature-card h3 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h3::before {
+            content: "★";
+            color: #f39c12;
+            margin-right: 8px;
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 20px;
+            background: white;
+        }
+        
+        .access-section iframe {
+            margin: 15px 0;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #3498db;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        /* タブレット対応 */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+        }
+        
+        /* PC対応 */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <h1>五稜郭</h1>
+        <p class="reading">ごりょうかく</p>
+    </header>
+    
+    <!-- ヒーロー画像 -->
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-caption">
+            <span class="type">城郭</span>
+            <h2>北海道函館市</h2>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- 基本情報 -->
+        <section class="info-section">
+            <h2>基本情報</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">所在地</div>
+                    <div class="info-value">北海道函館市</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">築城年代</div>
+                    <div class="info-value">幕末（1857-1866年）</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">城主・築城者</div>
+                    <div class="info-value">旧幕府軍（蝦夷共和国）</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">別名</div>
+                    <div class="info-value">柳野城</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 特徴 -->
+        <section class="features">
+            <h2>見どころ・特徴</h2>
+            
+            <div class="feature-card">
+                <h3>星形要塞</h3>
+                <p>ヨーロッパの城塞都市をモデルにした日本初の西洋式城郭。上空から見ると美しい星形をしています。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>特別史跡</h3>
+                <p>国の特別史跡に指定されており、歴史的価値が非常に高い城跡です。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>箱館戦争の舞台</h3>
+                <p>幕末の戊辰戦争最後の戦いとなった箱館戦争の主要な舞台。榎本武揚や土方歳三が戦った場所として有名です。</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>四季の美しさ</h3>
+                <p>春は約1,600本の桜が咲き誇る桜の名所。冬は堀の水面が凍り、幻想的な雪景色が楽しめます。</p>
+            </div>
+        </section>
+        
+        <!-- アクセス -->
+        <section class="access-section">
+            <h2>アクセス</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5948.719263029798!2d140.75443831542318!3d41.79694097922789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9ef46bfcb8e1a1%3A0x7c4f7b0e8f0f1f0!2z5LqU56ic6YOt!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="200"
+                style="border:0; border-radius: 8px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="info-item">
+                <div class="info-label">住所</div>
+                <div class="info-value">〒040-0001 北海道函館市五稜郭町44</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">アクセス</div>
+                <div class="info-value">市電「五稜郭公園前」電停から徒歩約15分</div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>五稜郭を訪れてみませんか？</h2>
+            <p>星形の美しい城郭で、幕末の歴史に思いを馳せる</p>
+            <a href="#" class="cta-button">公式観光情報を見る</a>
+        </section>
+    </div>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <p>© 2024 お城ファンページ</p>
+        <p><a href="/castle-list">お城一覧に戻る</a></p>
+    </footer>
+</body>
+</html>

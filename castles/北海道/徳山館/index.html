@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徳山館（とくやまだて）- 北海道松前町 | お城ファンページ</title>
+    <meta name="description" content="北海道松前町にある徳山館の魅力を紹介。松前藩の重要家臣・蠣崎氏の居館として、藩政の中枢を担い、北前船交易で繁栄した城館。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #c9302c, #d9534f);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #c9302c;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #c9302c, #d9534f);
+            border-radius: 2px;
+        }
+        
+        /* 歴史セクション */
+        .history {
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #ddd;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #c9302c;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #c9302c;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #c9302c;
+            margin-bottom: 10px;
+        }
+        
+        /* 見どころセクション */
+        .highlights {
+            background: #f8f9fa;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-card-header {
+            background: linear-gradient(135deg, #c9302c, #d9534f);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card-body {
+            padding: 30px;
+        }
+        
+        .highlight-card h3 {
+            color: #c9302c;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* アクセスセクション */
+        .access {
+            background: white;
+        }
+        
+        .access-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .access-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-info h3 {
+            color: #c9302c;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .access-info p {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-info p::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #d9534f;
+        }
+        
+        /* 北前船交易セクション */
+        .kitamae-trade {
+            background: linear-gradient(135deg, #8b0000 0%, #b22222 50%, #dc143c 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kitamae-trade::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M100 200 Q150 150 200 200 T300 200" stroke="rgba(255,255,255,0.1)" stroke-width="3" fill="none"/><circle cx="200" cy="200" r="80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>') repeat;
+            animation: rotate-pattern 60s linear infinite;
+        }
+        
+        @keyframes rotate-pattern {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .trade-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .kitamae-trade h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .trade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .trade-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trade-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .trade-item:hover::before {
+            transform: scale(2);
+        }
+        
+        .trade-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .trade-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: ship-rock 4s ease-in-out infinite;
+        }
+        
+        @keyframes ship-rock {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .trade-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffcccb;
+        }
+        
+        .trade-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #d9534f;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 40px;
+            }
+            
+            .timeline-item::before {
+                left: -20px;
+                transform: translateX(0);
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0 !important;
+            }
+            
+            .trade-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 波紋エフェクト */
+        .ripple {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: ripple-expand 4s ease-out infinite;
+        }
+        
+        @keyframes ripple-expand {
+            from {
+                transform: scale(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>徳山館</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#history">歴史</a></li>
+                <li><a href="#highlights">見どころ</a></li>
+                <li><a href="#trade">北前船交易</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d140.1089!3d41.4298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>徳山館</h1>
+            <p class="subtitle">松前藩重臣が築いた交易の館</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道松前町字徳山</p>
+                <p>🏯 種類：平城・居館</p>
+                <p>📅 築城年代：慶長9年（1604）</p>
+                <p>🔍 城主：蠣崎氏（徳山氏）</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 歴史セクション -->
+    <section id="history" class="section history scroll-reveal">
+        <h2 class="section-title">徳山館の歴史</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">慶長9年（1604）</div>
+                    <h3>徳山館の築城</h3>
+                    <p>松前藩の重臣・蠣崎広益が、徳山の地に居館を築城。松前城の支城として、また北前船の寄港地を管理する拠点として重要な役割を担いました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">寛永年間（1624-1644）</div>
+                    <h3>交易拠点として発展</h3>
+                    <p>アイヌとの交易が本格化し、徳山館は昆布、鮭、ニシンなどの海産物の集積地として繁栄。北前船の定期的な寄港により、本州との交易も活発化しました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">元禄年間（1688-1704）</div>
+                    <h3>黄金期の到来</h3>
+                    <p>北前船交易の最盛期を迎え、徳山館は巨万の富を築きました。京都や大阪の文化が流入し、蝦夷地でも有数の文化的な館となりました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">文化4年（1807）</div>
+                    <h3>ロシア船襲撃事件</h3>
+                    <p>ロシア船が蝦夷地を襲撃した際、徳山館も防衛体制を強化。沿岸警備の拠点として、幕府直轄時代の重要な役割を果たしました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">嘉永7年（1854）</div>
+                    <h3>開国の影響</h3>
+                    <p>日米和親条約により箱館が開港。徳山館は新時代の波に対応し、西洋文化との接点としても機能するようになりました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">明治元年（1868）</div>
+                    <h3>館の終焉</h3>
+                    <p>明治維新により松前藩が消滅。徳山館も廃館となりましたが、その遺構は地域の歴史を物語る貴重な史跡として保存されています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 見どころセクション -->
+    <section id="highlights" class="section highlights scroll-reveal">
+        <h2 class="section-title">徳山館の見どころ</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🏯</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>館跡の石垣</h3>
+                    <p>野面積みの石垣が良好な状態で残されています。特に海側の石垣は高さ4メートル以上あり、北前船から見える威容を誇示していました。</p>
+                    <p>石材は地元の安山岩を使用し、松前城と同じ技法で築かれており、藩の重要拠点としての格式の高さがうかがえます。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">⚓</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>船着場跡</h3>
+                    <p>北前船が接岸した石造りの船着場が現存。満潮時には大型船が直接接岸でき、荷物の積み下ろしが効率的に行えるよう設計されていました。</p>
+                    <p>船着場には係留用の鉄環が今も残り、当時の賑わいを偲ばせます。近くには船頭たちが利用した宿の跡も発見されています。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🏛️</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>蔵屋敷群跡</h3>
+                    <p>海産物を保管した土蔵の基礎が複数発見されています。防火・防湿に優れた構造で、昆布や干魚を最適な状態で保管していました。</p>
+                    <p>最大の蔵は間口20メートル以上あり、北前船一隻分の積荷を収容できる規模でした。地下には氷室の跡も確認されています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 北前船交易セクション -->
+    <section id="trade" class="kitamae-trade scroll-reveal">
+        <div class="trade-content">
+            <h2>北前船交易と徳山館</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                日本海を舞台にした壮大な商業ネットワークの北端
+            </p>
+            
+            <div class="trade-grid">
+                <div class="trade-item">
+                    <span class="trade-icon">⛵</span>
+                    <h3>千石船の往来</h3>
+                    <p>徳山館の沖には、最盛期には年間100隻以上の北前船が寄港。一隻で米千石を運べる大型船が、蝦夷地の産物を満載して本州へ向かいました。</p>
+                </div>
+                
+                <div class="trade-item">
+                    <span class="trade-icon">🦐</span>
+                    <h3>蝦夷三品</h3>
+                    <p>昆布・鮭・ニシンは「蝦夷三品」と呼ばれ、徳山館が扱う主力商品でした。特に昆布は「徳山昆布」としてブランド化され、京都で高値で取引されました。</p>
+                </div>
+                
+                <div class="trade-item">
+                    <span class="trade-icon">💰</span>
+                    <h3>莫大な利益</h3>
+                    <p>北前船一航海で現在の価値で数億円の利益を上げることも。徳山館の蠣崎家は、この交易により松前藩でも屈指の富豪となりました。</p>
+                </div>
+                
+                <div class="trade-item">
+                    <span class="trade-icon">🎭</span>
+                    <h3>文化の交流</h3>
+                    <p>北前船は物資だけでなく文化も運びました。上方の芸能、工芸品、書物などが徳山館にもたらされ、蝦夷地の文化発展に寄与しました。</p>
+                </div>
+                
+                <div class="trade-item">
+                    <span class="trade-icon">🗾</span>
+                    <h3>広域ネットワーク</h3>
+                    <p>徳山館は、松前から下関、瀬戸内海を経て大阪に至る壮大な交易路の一端を担いました。各地の商人との人的ネットワークも形成されました。</p>
+                </div>
+                
+                <div class="trade-item">
+                    <span class="trade-icon">⏰</span>
+                    <h3>季節航海</h3>
+                    <p>春は北上し蝦夷地へ、秋は南下して本州へ。季節風を利用した年一往復の航海で、徳山館は春と秋に最も活気づきました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="section access scroll-reveal">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-content">
+            <div class="access-info">
+                <h3>🚗 車でのアクセス</h3>
+                <p>松前城から約5分</p>
+                <p>函館市内から約2時間</p>
+                <p>無料駐車場あり（10台）</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🚌 公共交通機関</h3>
+                <p>函館バス「松前出張所」行き</p>
+                <p>「徳山」バス停下車、徒歩5分</p>
+                <p>1日4本程度（要確認）</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🕒 見学情報</h3>
+                <p>見学自由（24時間）</p>
+                <p>ガイドツアーあり（松前観光協会）</p>
+                <p>最適期：5月〜10月</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>📍 周辺の見どころ</h3>
+                <p>松前城（車で5分）</p>
+                <p>松前藩屋敷（車で7分）</p>
+                <p>白神岬（車で15分）</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 徳山館 - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 波紋エフェクトの生成
+        function createRipple() {
+            const tradeSection = document.querySelector('.kitamae-trade');
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = Math.random() * 100 + '%';
+            ripple.style.top = Math.random() * 100 + '%';
+            tradeSection.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 4000);
+        }
+        
+        // 定期的に波紋を生成
+        setInterval(createRipple, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上名寄チャシ（かみなよろちゃし）- 北海道名寄市 | お城ファンページ</title>
+    <meta name="description" content="北海道名寄市にある上名寄チャシの魅力を紹介。北の大地の最前線、極寒の地を守り抜いた要塞。天塩川流域の守護者として北方交易を支えた物語。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            opacity: 0.95;
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: bold;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 20px;
+        }
+        
+        .nav-menu.active a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu a:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu a:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu a:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu a:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu a:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu a:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu a:nth-child(8) { transition-delay: 0.8s; }
+        .nav-menu a:nth-child(9) { transition-delay: 0.9s; }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+            width: 0;
+            height: 3px;
+            background: #64b5f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: calc(100% - 40px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 1;
+        }
+        
+        /* 雪の結晶アニメーション */
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            animation: snowfall linear infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* オーロラ効果 */
+        .aurora {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .aurora-layer {
+            position: absolute;
+            width: 200%;
+            height: 60%;
+            top: 10%;
+            left: -50%;
+            background: linear-gradient(0deg, 
+                transparent 0%,
+                rgba(0, 255, 170, 0.1) 20%,
+                rgba(0, 200, 255, 0.2) 40%,
+                rgba(100, 0, 255, 0.1) 60%,
+                transparent 100%);
+            transform: rotate(-5deg);
+            animation: auroraWave 20s ease-in-out infinite;
+        }
+        
+        .aurora-layer:nth-child(2) {
+            animation-delay: -5s;
+            animation-duration: 25s;
+            opacity: 0.5;
+        }
+        
+        .aurora-layer:nth-child(3) {
+            animation-delay: -10s;
+            animation-duration: 30s;
+            opacity: 0.3;
+        }
+        
+        @keyframes auroraWave {
+            0%, 100% {
+                transform: rotate(-5deg) translateY(0);
+            }
+            25% {
+                transform: rotate(-3deg) translateY(-50px);
+            }
+            50% {
+                transform: rotate(-7deg) translateY(50px);
+            }
+            75% {
+                transform: rotate(-4deg) translateY(-30px);
+            }
+        }
+        
+        /* 氷の城壁効果 */
+        .ice-fortress {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            z-index: 3;
+        }
+        
+        .ice-wall {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(to top, 
+                rgba(150, 200, 255, 0.8) 0%,
+                rgba(200, 230, 255, 0.5) 50%,
+                transparent 100%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(150, 200, 255, 0.5);
+        }
+        
+        .ice-wall:nth-child(1) {
+            left: 0;
+            width: 100px;
+            height: 100%;
+            transform: skewY(-5deg);
+        }
+        
+        .ice-wall:nth-child(2) {
+            left: 90px;
+            width: 120px;
+            height: 120%;
+            z-index: 2;
+        }
+        
+        .ice-wall:nth-child(3) {
+            right: 0;
+            width: 100px;
+            height: 100%;
+            transform: skewY(5deg);
+        }
+        
+        .hero-map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(100, 181, 246, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 50px;
+            color: #1e3c72;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            border-radius: 2px;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 60px 20px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #1e3c72;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(30, 60, 114, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        .story-chapter:nth-child(7) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .chapter-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #1e3c72;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .chapter-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+        }
+        
+        .chapter-content {
+            line-height: 2;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(to bottom, transparent 60%, rgba(100, 181, 246, 0.3) 60%);
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-section .section-title {
+            color: white;
+        }
+        
+        .info-section .section-title::after {
+            background: linear-gradient(90deg, #64b5f6, #42a5f5);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #64b5f6;
+        }
+        
+        /* 北方防衛特徴セクション */
+        .defense-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 雪原背景効果 */
+        .snowfield-background {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(240, 248, 255, 0.3) 0%, transparent 100%);
+            opacity: 0.5;
+        }
+        
+        .defense-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .defense-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+        
+        .defense-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .defense-feature {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .defense-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .defense-feature:hover::before {
+            opacity: 1;
+        }
+        
+        .defense-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .defense-feature h3 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .defense-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .defense-feature p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .defense-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .defense-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .defense-list li::before {
+            content: '❄';
+            position: absolute;
+            left: 0;
+            color: #2a5298;
+            font-weight: bold;
+        }
+        
+        /* 極寒対策セクション */
+        .winter-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 80px 20px;
+        }
+        
+        .winter-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .winter-stat {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .winter-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #1e3c72;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* 交易路セクション */
+        .trade-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .trade-map {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trade-routes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .trade-route {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .trade-route:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .route-direction {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .route-arrow {
+            font-size: 1.5rem;
+        }
+        
+        .trade-goods {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .trade-goods li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-section .section-title {
+            color: white;
+        }
+        
+        .strategy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5, #64b5f6);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .strategy-card:hover::before {
+            opacity: 1;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .strategy-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #64b5f6, #42a5f5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #64b5f6;
+        }
+        
+        .strategy-card p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .strategy-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategy-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #64b5f6;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .facilities-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-category h3 {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .facility-list li:hover {
+            padding-left: 20px;
+            background: linear-gradient(to right, rgba(30, 60, 114, 0.05), transparent);
+        }
+        
+        .facility-link {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .facility-name {
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
+        .facility-distance {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .facility-arrow {
+            color: #1e3c72;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list li:hover .facility-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .access-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-card h3 {
+            color: #1e3c72;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-icon {
+            font-size: 1.5rem;
+        }
+        
+        .access-card p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .access-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .access-card ul li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1e3c72;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, #64b5f6, #42a5f5);
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary:hover {
+            background: linear-gradient(135deg, #42a5f5, #64b5f6);
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #1e3c72;
+        }
+        
+        /* 装飾的な要素 */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #64b5f6;
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-copy {
+            opacity: 0.5;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .nav-menu a {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .strategy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .ice-fortress {
+                width: 250px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <h1 style="font-size: 1.5rem;">上名寄チャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <a href="#story" onclick="closeMenu()">北の要塞物語</a>
+            <a href="#info" onclick="closeMenu()">基本情報</a>
+            <a href="#defense" onclick="closeMenu()">北方防衛の特徴</a>
+            <a href="#winter" onclick="closeMenu()">極寒対策</a>
+            <a href="#trade" onclick="closeMenu()">交易路管理</a>
+            <a href="#strategic" onclick="closeMenu()">戦略的価値</a>
+            <a href="#facilities" onclick="closeMenu()">関連施設</a>
+            <a href="#access" onclick="closeMenu()">アクセス</a>
+            <a href="../" onclick="closeMenu()">北海道の城一覧へ</a>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="snow-container" id="snowContainer"></div>
+        <div class="aurora">
+            <div class="aurora-layer"></div>
+            <div class="aurora-layer"></div>
+            <div class="aurora-layer"></div>
+        </div>
+        <div class="ice-fortress">
+            <div class="ice-wall"></div>
+            <div class="ice-wall"></div>
+            <div class="ice-wall"></div>
+        </div>
+        <div class="hero-background"></div>
+        <div class="hero-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11456.8!2d142.4583!3d44.3667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDIyJzAwLjAiTiAxNDLCsDI3JzMwLjAiRQ!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-content">
+            <h1>上名寄チャシ</h1>
+            <p class="hero-subtitle">北の大地の最前線</p>
+            <p class="hero-description">
+                極寒の地を守り抜いた北方の要塞。
+                天塩川流域の守護者として、厳しい自然と向き合いながら
+                北方交易の要衝を支配した氷の城。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <a href="#story" class="nav-card">
+                <div class="nav-card-icon">📖</div>
+                <div class="nav-card-title">北の要塞物語</div>
+            </a>
+            <a href="#info" class="nav-card">
+                <div class="nav-card-icon">🏯</div>
+                <div class="nav-card-title">基本情報</div>
+            </a>
+            <a href="#defense" class="nav-card">
+                <div class="nav-card-icon">🛡️</div>
+                <div class="nav-card-title">北方防衛の特徴</div>
+            </a>
+            <a href="#winter" class="nav-card">
+                <div class="nav-card-icon">❄️</div>
+                <div class="nav-card-title">極寒対策</div>
+            </a>
+            <a href="#trade" class="nav-card">
+                <div class="nav-card-icon">🛷</div>
+                <div class="nav-card-title">交易路管理</div>
+            </a>
+            <a href="#strategic" class="nav-card">
+                <div class="nav-card-icon">⚔️</div>
+                <div class="nav-card-title">戦略的価値</div>
+            </a>
+            <a href="#facilities" class="nav-card">
+                <div class="nav-card-icon">🏛️</div>
+                <div class="nav-card-title">関連施設</div>
+            </a>
+            <a href="#access" class="nav-card">
+                <div class="nav-card-icon">🗺️</div>
+                <div class="nav-card-title">アクセス</div>
+            </a>
+            <a href="../" class="nav-card">
+                <div class="nav-card-icon">🏰</div>
+                <div class="nav-card-title">北海道の城一覧</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section section" id="story">
+        <h2 class="section-title">北の要塞物語</h2>
+        <div class="story-container">
+            <div class="story-chapter">
+                <div class="chapter-number">1</div>
+                <h3 class="chapter-title">極北の守護者</h3>
+                <div class="chapter-content">
+                    <p>
+                        道北の中心地・名寄の北部、天塩川の支流沿いに築かれた
+                        <span class="highlight-text">上名寄チャシ</span>は、
+                        北海道でも最も厳しい自然環境の中に立地していた。
+                        冬には氷点下30度を下回る極寒の地で、人々はなぜこの地に要塞を築いたのか。
+                    </p>
+                    <p>
+                        それは、この地が北方からの脅威に対する最前線であり、
+                        同時に豊かな毛皮資源を産する森林地帯への入り口でもあったからである。
+                        上名寄チャシは、厳しい自然と共生しながら、
+                        北の大地の平和と繁栄を守り続けた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">2</div>
+                <h3 class="chapter-title">天塩川交易の要</h3>
+                <div class="chapter-content">
+                    <p>
+                        天塩川は、内陸部と日本海を結ぶ重要な交通路だった。
+                        上名寄チャシは、この<span class="highlight-text">水運の要衝</span>を押さえることで、
+                        北方交易の流れを掌握していた。
+                    </p>
+                    <p>
+                        春から秋にかけて、川を行き交う舟には、
+                        内陸部からは毛皮、薬草、鮭などが積まれ、
+                        沿岸部からは鉄器、塩、米などが運ばれてきた。
+                        チャシの管理者たちは、これらの交易品の流通を管理し、
+                        公正な取引が行われるよう監督していた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">3</div>
+                <h3 class="chapter-title">冬の要塞</h3>
+                <div class="chapter-content">
+                    <p>
+                        上名寄チャシの真価が発揮されたのは、<span class="highlight-text">厳冬期</span>だった。
+                        川が凍結し、大地が雪に覆われる季節、この要塞は
+                        周辺地域の人々にとって命綱となる避難所の役割を果たした。
+                    </p>
+                    <p>
+                        チャシには、厚い土壁で囲まれた半地下式の住居が設けられ、
+                        大量の薪と保存食が備蓄されていた。
+                        吹雪で孤立した集落への救援活動の拠点としても機能し、
+                        多くの命を救ったという記録が残されている。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">4</div>
+                <h3 class="chapter-title">狩猟民の聖地</h3>
+                <div class="chapter-content">
+                    <p>
+                        上名寄周辺の森林地帯は、<span class="highlight-text">豊かな狩猟場</span>として知られていた。
+                        エゾシカ、ヒグマ、キツネ、テンなど、様々な動物が生息し、
+                        特に上質な毛皮を産することで有名だった。
+                    </p>
+                    <p>
+                        チャシは、これらの狩猟活動の調整センターとしても機能した。
+                        狩猟期の設定、獲物の分配、毛皮の品質管理など、
+                        持続可能な資源利用のための様々な規則が定められ、
+                        厳格に運用されていた。この伝統的な資源管理の知恵は、
+                        現代の野生動物保護の考え方にも通じるものがある。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">5</div>
+                <h3 class="chapter-title">北方民族との交流</h3>
+                <div class="chapter-content">
+                    <p>
+                        上名寄チャシは、<span class="highlight-text">異なる文化の交差点</span>でもあった。
+                        北からはサハリンや大陸の民族が、南からは本州の文化が、
+                        この地で出会い、融合していった。
+                    </p>
+                    <p>
+                        特に注目すべきは、犬橇技術の発展である。
+                        北方民族から伝わった犬橇は、冬期の重要な交通手段として改良され、
+                        上名寄独自の橇文化が生まれた。
+                        チャシには専門の犬飼育場があり、優秀な橇犬の育成が行われていたという。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">6</div>
+                <h3 class="chapter-title">幕末の動乱と近代化</h3>
+                <div class="chapter-content">
+                    <p>
+                        19世紀後半、ロシアの南下政策により、
+                        北海道北部の防衛は急務となった。
+                        上名寄チャシも<span class="highlight-text">国防の最前線</span>として、
+                        その重要性が再認識された。
+                    </p>
+                    <p>
+                        明治政府は、伝統的なチャシの防衛システムを近代的な
+                        軍事施設へと改編しようとしたが、
+                        極寒の地での西洋式軍事施設の建設は困難を極めた。
+                        結局、アイヌの人々が築いた伝統的な防寒技術と
+                        立地選定の知恵が、最も実用的であることが証明された。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">7</div>
+                <h3 class="chapter-title">現代に生きる北の知恵</h3>
+                <div class="chapter-content">
+                    <p>
+                        現在、上名寄チャシの正確な位置は特定されていないが、
+                        その精神と知恵は<span class="highlight-text">現代の名寄</span>に受け継がれている。
+                        日本最北の公立大学がある学術都市として、
+                        また冬季スポーツの拠点として発展した名寄市。
+                    </p>
+                    <p>
+                        極寒の地で培われた忍耐力と創意工夫の精神は、
+                        現代の寒冷地技術の開発にも活かされている。
+                        上名寄チャシが示した「厳しい自然との共生」という理念は、
+                        地球温暖化時代の今こそ、改めて注目すべき価値を持っているのである。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section section" id="info">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">立地</div>
+                <div class="info-value">天塩川支流域・標高約150m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">築造時期</div>
+                <div class="info-value">15-17世紀頃</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">規模</div>
+                <div class="info-value">推定 東西300m × 南北200m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">防御施設</div>
+                <div class="info-value">土塁・空堀・柵列・物見台</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">主な機能</div>
+                <div class="info-value">北方防衛・交易管理・冬季避難所</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">現況</div>
+                <div class="info-value">詳細位置未確定・伝承地として保護</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 北方防衛特徴セクション -->
+    <section class="defense-section section" id="defense">
+        <div class="snowfield-background"></div>
+        
+        <div class="defense-content">
+            <h2 class="section-title">北方防衛の特徴</h2>
+            <div class="defense-intro">
+                極寒の地における独自の防衛システムと生存戦略
+            </div>
+            
+            <div class="defense-features">
+                <div class="defense-feature">
+                    <h3>
+                        <div class="defense-icon">🏔️</div>
+                        地形を活かした要塞設計
+                    </h3>
+                    <p>
+                        河岸段丘の自然地形を巧みに利用し、少ない労力で最大の防御効果を実現。
+                        急斜面と河川に囲まれた立地は、冬季には氷の城壁となり、難攻不落の要塞と化しました。
+                    </p>
+                    <ul class="defense-list">
+                        <li>三方を急斜面で防護</li>
+                        <li>河川の自然堀としての活用</li>
+                        <li>見通しの良い高台配置</li>
+                        <li>複数の脱出路の確保</li>
+                    </ul>
+                </div>
+                
+                <div class="defense-feature">
+                    <h3>
+                        <div class="defense-icon">🛡️</div>
+                        重層的防御システム
+                    </h3>
+                    <p>
+                        外郭、中郭、主郭の三重構造により、段階的な防御を実現。
+                        各区画には独立した防御機能があり、一部が突破されても全体の防御力を維持できました。
+                    </p>
+                    <ul class="defense-list">
+                        <li>外郭：早期警戒と初期防御</li>
+                        <li>中郭：主要施設の保護</li>
+                        <li>主郭：最終防衛線と司令機能</li>
+                        <li>地下通路による区画間連絡</li>
+                    </ul>
+                </div>
+                
+                <div class="defense-feature">
+                    <h3>
+                        <div class="defense-icon">🔥</div>
+                        冬季戦闘への対応
+                    </h3>
+                    <p>
+                        極寒期の戦闘を想定した独自の防衛設備。
+                        暖房設備を備えた戦闘詰所、温水による氷結防止システムなど、寒冷地ならではの工夫が施されていました。
+                    </p>
+                    <ul class="defense-list">
+                        <li>地下式の温暖待機所</li>
+                        <li>複数の薪貯蔵庫配置</li>
+                        <li>融雪用の温水供給路</li>
+                        <li>防寒装備の集中管理</li>
+                    </ul>
+                </div>
+                
+                <div class="defense-feature">
+                    <h3>
+                        <div class="defense-icon">📡</div>
+                        広域監視網の構築
+                    </h3>
+                    <p>
+                        周辺の小規模チャシと連携した監視ネットワーク。
+                        狼煙、鏡による光通信、犬橇による急使など、多様な通信手段で情報を共有していました。
+                    </p>
+                    <ul class="defense-list">
+                        <li>半径50km圏の監視網</li>
+                        <li>24時間交代制の見張り</li>
+                        <li>気象観測による移動予測</li>
+                        <li>野生動物の行動監視</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 極寒対策セクション -->
+    <section class="winter-section section" id="winter">
+        <h2 class="section-title">極寒対策の知恵</h2>
+        <div class="winter-stats">
+            <div class="winter-stat">
+                <div class="stat-icon">🌡️</div>
+                <div class="stat-value">-41.5°C</div>
+                <div class="stat-label">記録的最低気温</div>
+            </div>
+            <div class="winter-stat">
+                <div class="stat-icon">❄️</div>
+                <div class="stat-value">180日</div>
+                <div class="stat-label">年間降雪日数</div>
+            </div>
+            <div class="winter-stat">
+                <div class="stat-icon">🏔️</div>
+                <div class="stat-value">2.5m</div>
+                <div class="stat-label">最大積雪深</div>
+            </div>
+            <div class="winter-stat">
+                <div class="stat-icon">💨</div>
+                <div class="stat-value">20m/s</div>
+                <div class="stat-label">冬季平均風速</div>
+            </div>
+        </div>
+        
+        <div class="defense-features" style="margin-top: 60px;">
+            <div class="defense-feature">
+                <h3>半地下式建築</h3>
+                <p>
+                    地熱を利用した暖房効率の高い建築様式。
+                    厚い土壁と二重構造の屋根により、外気温がマイナス40度でも
+                    室内を氷点上に保つことができました。
+                </p>
+            </div>
+            <div class="defense-feature">
+                <h3>食料保存技術</h3>
+                <p>
+                    凍結乾燥、燻製、塩蔵など多様な保存方法を駆使。
+                    地下氷室では夏でも冷凍保存が可能で、
+                    一年を通じて安定した食料供給を実現していました。
+                </p>
+            </div>
+            <div class="defense-feature">
+                <h3>防寒装備の工夫</h3>
+                <p>
+                    動物の毛皮を重ね着する独自の防寒システム。
+                    空気層を効果的に利用し、軽量でありながら
+                    高い保温性を実現した衣服が開発されていました。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 交易路セクション -->
+    <section class="trade-section section" id="trade">
+        <h2 class="section-title">北方交易路の管理</h2>
+        <div class="trade-map">
+            <h3 style="color: #1e3c72; margin-bottom: 20px;">主要交易ルート</h3>
+            <p style="color: #666; line-height: 1.8;">
+                上名寄チャシは、内陸部と沿岸部を結ぶ交易路の要衝に位置し、
+                夏季の河川交通と冬季の橇道交通の両方を管理していました。
+            </p>
+            
+            <div class="trade-routes">
+                <div class="trade-route">
+                    <div class="route-direction">
+                        <span class="route-arrow">⬆️</span>
+                        <span>北方ルート（サハリン方面）</span>
+                    </div>
+                    <ul class="trade-goods">
+                        <li>▸ 海獣の毛皮・牙</li>
+                        <li>▸ 干し魚・魚油</li>
+                        <li>▸ 琥珀・宝石類</li>
+                        <li>▸ 大陸系工芸品</li>
+                    </ul>
+                </div>
+                
+                <div class="trade-route">
+                    <div class="route-direction">
+                        <span class="route-arrow">⬇️</span>
+                        <span>南方ルート（道央方面）</span>
+                    </div>
+                    <ul class="trade-goods">
+                        <li>▸ 米・穀物類</li>
+                        <li>▸ 鉄器・農具</li>
+                        <li>▸ 漆器・陶器</li>
+                        <li>▸ 織物・衣類</li>
+                    </ul>
+                </div>
+                
+                <div class="trade-route">
+                    <div class="route-direction">
+                        <span class="route-arrow">⬅️</span>
+                        <span>西方ルート（日本海方面）</span>
+                    </div>
+                    <ul class="trade-goods">
+                        <li>▸ 塩・海産物</li>
+                        <li>▸ 昆布・海藻類</li>
+                        <li>▸ 貝殻装飾品</li>
+                        <li>▸ 舶来品</li>
+                    </ul>
+                </div>
+                
+                <div class="trade-route">
+                    <div class="route-direction">
+                        <span class="route-arrow">➡️</span>
+                        <span>東方ルート（オホーツク方面）</span>
+                    </div>
+                    <ul class="trade-goods">
+                        <li>▸ 鮭・マス類</li>
+                        <li>▸ クマ・シカの毛皮</li>
+                        <li>▸ 薬草・山菜</li>
+                        <li>▸ 木材・樹皮製品</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section section" id="strategic">
+        <h2 class="section-title">戦略的価値</h2>
+        <div class="strategy-cards">
+            <div class="strategy-card">
+                <div class="strategy-number">1</div>
+                <h3>地政学的重要性</h3>
+                <p>
+                    北海道内陸部への入り口を押さえる位置にあり、
+                    北方からの侵入に対する第一防衛線として機能。
+                    天塩川水系の制御により、広域支配を実現していました。
+                </p>
+                <ul class="strategy-list">
+                    <li>サハリンへの最短経路上に位置</li>
+                    <li>内陸部への唯一の大規模侵入路を封鎖</li>
+                    <li>河川交通の完全掌握</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">2</div>
+                <h3>資源管理の中枢</h3>
+                <p>
+                    豊富な森林資源と毛皮資源の管理センターとして、
+                    持続可能な資源利用を実現。厳格な狩猟規制により、
+                    長期的な経済基盤を確立していました。
+                </p>
+                <ul class="strategy-list">
+                    <li>狩猟権の管理と配分</li>
+                    <li>毛皮の品質管理と価格統制</li>
+                    <li>森林資源の計画的利用</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <h3>文化交流の要衝</h3>
+                <p>
+                    北方文化と南方文化が出会う場所として、
+                    技術交流と文化融合の中心地。異なる生活様式の
+                    良い部分を取り入れた独自文化が発展しました。
+                </p>
+                <ul class="strategy-list">
+                    <li>犬橇技術の改良と普及</li>
+                    <li>防寒建築技術の発展</li>
+                    <li>食料保存技術の革新</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <h3>緊急時対応能力</h3>
+                <p>
+                    極寒期の災害や緊急事態に対応できる唯一の拠点。
+                    備蓄物資と救援体制により、広域の生命線として
+                    機能していました。
+                </p>
+                <ul class="strategy-list">
+                    <li>大規模備蓄による長期籠城能力</li>
+                    <li>犬橇部隊による機動的救援活動</li>
+                    <li>医療知識と薬草の集積</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section section" id="facilities">
+        <h2 class="section-title">関連施設・周辺観光</h2>
+        <div class="facilities-container">
+            <div class="facility-category">
+                <h3>歴史関連施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">名寄市北国博物館</span>
+                            <span class="facility-distance">
+                                <span>約10km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">名寄市郷土資料室</span>
+                            <span class="facility-distance">
+                                <span>約8km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">天塩川歴史資料館</span>
+                            <span class="facility-distance">
+                                <span>約15km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>自然・体験スポット</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">なよろ市立天文台きたすばる</span>
+                            <span class="facility-distance">
+                                <span>約12km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">ピヤシリスキー場</span>
+                            <span class="facility-distance">
+                                <span>約20km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">なよろ温泉サンピラー</span>
+                            <span class="facility-distance">
+                                <span>約15km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>冬季観光・イベント</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">なよろ雪質日本一フェスティバル（2月）</span>
+                            <span class="facility-distance">
+                                <span>市内各所</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">国際雪像彫刻大会</span>
+                            <span class="facility-distance">
+                                <span>南広場</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">犬ぞり体験ツアー</span>
+                            <span class="facility-distance">
+                                <span>要予約</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section section" id="access">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-container">
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d183309.812!2d142.3!3d44.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x5f6d5f5f5f5f5f5f%3A0x5f6d5f5f5f5f5f5f!2z5ZCN5a-E6aeF!3m2!1d44.3558!2d142.4608!4m5!1s0x0%3A0x0!2z5LiK5ZCN5a-E5Zyw5Yy6!3m2!1d44.3667!2d142.4583!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚆</span>
+                        鉄道でのアクセス
+                    </h3>
+                    <p>
+                        JR宗谷本線名寄駅から車で約20分。
+                        札幌から特急で約3時間、旭川から約1時間30分。
+                    </p>
+                    <ul>
+                        <li>特急宗谷：札幌→名寄（1日2往復）</li>
+                        <li>特急サロベツ：旭川→名寄（1日2往復）</li>
+                        <li>普通列車：旭川→名寄（1日4往復）</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚗</span>
+                        車でのアクセス
+                    </h3>
+                    <p>
+                        道央自動車道士別剣淵ICから国道40号線経由で約30分。
+                        冬季は路面凍結に注意が必要です。
+                    </p>
+                    <ul>
+                        <li>札幌から：約3時間30分（250km）</li>
+                        <li>旭川から：約1時間30分（100km）</li>
+                        <li>冬季はスタッドレスタイヤ必須</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">✈️</span>
+                        空路でのアクセス
+                    </h3>
+                    <p>
+                        最寄りの旭川空港から車で約2時間。
+                        レンタカーまたは空港連絡バスと鉄道を利用。
+                    </p>
+                    <ul>
+                        <li>羽田→旭川：1日7便</li>
+                        <li>中部→旭川：1日1便（季節運航）</li>
+                        <li>空港→名寄：連絡バス+JR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="cta">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2 class="cta-title">極北の要塞を訪ねる旅へ</h2>
+            <p class="cta-description">
+                厳しい自然と共に生きた人々の知恵と勇気に触れる旅。
+                日本最北級の歴史遺産で、極寒の地が育んだ独自の文化と
+                壮大な自然の営みを体感してください。
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">冬の名寄体験プラン</a>
+                <a href="../" class="cta-button secondary">他の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">サイトマップ</a>
+            </div>
+            <p class="footer-copy">
+                &copy; 2024 北海道の城めぐり. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの開閉
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // メニュー項目クリックで閉じる
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // スクロールでヘッダーの背景を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 動的な装飾要素の生成
+        function createDecorations() {
+            // 雪の結晶生成
+            const snowContainer = document.getElementById('snowContainer');
+            const snowflakes = ['❄', '❅', '❆'];
+            
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+                snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                snowflake.style.animationDelay = Math.random() * 10 + 's';
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snowContainer.appendChild(snowflake);
+            }
+        }
+        
+        // ページ読み込み完了後に装飾を生成
+        window.addEventListener('load', createDecorations);
+        
+        // 氷の城壁のきらめき効果
+        const iceWalls = document.querySelectorAll('.ice-wall');
+        iceWalls.forEach((wall, index) => {
+            setInterval(() => {
+                wall.style.boxShadow = `0 0 ${Math.random() * 30 + 20}px rgba(150, 200, 255, ${Math.random() * 0.5 + 0.3})`;
+            }, 2000 + index * 500);
+        });
+    </script>
+</body>
+</html>

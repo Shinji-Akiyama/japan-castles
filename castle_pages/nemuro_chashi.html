@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根室半島チャシ（ねむろはんとうちゃし）- 北海道根室市 | お城ファンページ</title>
+    <meta name="description" content="北海道根室市にある根室半島チャシ跡群の魅力を紹介。アイヌ民族が築いた24ヵ所のチャシ跡群・日本100名城。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active .nav-overlay {
+            opacity: 1;
+        }
+        
+        .nav-content {
+            position: absolute;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: #1a1a1a;
+            padding: 60px 30px 30px;
+            overflow-y: auto;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active .nav-content {
+            right: 0;
+        }
+        
+        .nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-close:hover {
+            transform: rotate(90deg);
+        }
+        
+        .nav-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+        
+        .nav-list li {
+            margin-bottom: 20px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+            padding-left: 10px;
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        /* タブレット以上では非表示 */
+        @media (min-width: 768px) {
+            .nav-content {
+                width: 400px;
+                right: -400px;
+            }
+        }
+        
+        .header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .header .reading {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+        
+        /* ヒーロー画像エリア */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero iframe {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            border: none;
+            z-index: 1;
+            pointer-events: none;
+            transform: scale(1.1);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero-content .type-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            opacity: 0.7;
+        }
+        
+        /* メインコンテンツ */
+        .main-content {
+            background: #fff;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* セクション共通スタイル */
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            border-radius: 2px;
+        }
+        
+        /* ポエムセクション */
+        .poem-section {
+            background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
+        }
+        
+        .poem-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .poem-content {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .poem-intro {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+        
+        .poem-title {
+            font-size: 48px;
+            font-weight: 200;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #fff 0%, #ccc 50%, #fff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .poem-text {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .poem-text p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .poem-divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            margin: 40px auto;
+        }
+        
+        .poem-description {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.8;
+            text-align: left;
+        }
+        
+        .poem-description p {
+            margin-bottom: 20px;
+            text-indent: 1em;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3498db 0%, #2ecc71 100%);
+        }
+        
+        .info-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .info-card p {
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .access-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-card h3 {
+            font-size: 16px;
+            color: #3498db;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .access-card p {
+            color: #5a6c7d;
+            font-size: 15px;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #3498db;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #3498db;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #2ecc71;
+        }
+        
+        .footer .copyright {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .poem-title {
+                font-size: 32px;
+            }
+            
+            .poem-text {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .info-grid, .access-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div>
+                <h1>根室半島チャシ</h1>
+                <p class="reading">ねむろはんとうちゃし</p>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-overlay" id="navOverlay"></div>
+        <div class="nav-content">
+            <button class="nav-close" id="navClose" aria-label="閉じる">×</button>
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">トップ</a></li>
+                <li><a href="#poem" class="nav-link">チャシについて</a></li>
+                <li><a href="#info" class="nav-link">基本情報</a></li>
+                <li><a href="#access" class="nav-link">アクセス</a></li>
+                <li><a href="/castle-list" class="nav-link">城一覧へ</a></li>
+            </ul>
+            <div class="nav-footer">
+                <p>© 2024 お城ファンページ</p>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- ヒーロー画像 -->
+    <div class="hero" id="home">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2962.734!2d145.583611!3d43.382778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="type-badge">チャシ群 - CHASHI</div>
+            <h1>根室半島チャシ</h1>
+            <p class="subtitle">北海道根室市 • 日本100名城</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14m0 0l-7-7m7 7l7-7"/>
+            </svg>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <!-- ポエムセクション -->
+        <section class="poem-section" id="poem">
+            <div class="poem-container">
+                <div class="poem-content">
+                    <p class="poem-intro">アイヌの聖地、根室半島チャシ</p>
+                    <h2 class="poem-title">大地に刻まれた<br>先住民の記憶</h2>
+                    <div class="poem-text">
+                        <p>オホーツクの風が吹き抜ける岬に</p>
+                        <p>アイヌの人々が築いた砦の跡</p>
+                        <p>千年の時を超えて語りかける</p>
+                    </div>
+                    <div class="poem-divider"></div>
+                    <div class="poem-description">
+                        <p>根室半島チャシ跡群は、16～18世紀にかけてアイヌ民族によって築かれた24ヵ所のチャシ（砦）の総称。「チャシ」とはアイヌ語で「柵囲い」を意味し、戦いの砦、祭祀の場、見張り場など多様な用途で使用された。</p>
+                        <p>2007年に日本100名城に選定され、最も北に位置する「城」として知られる。特にノツカマフ1号・2号チャシは整備が進み、アイヌ文化を今に伝える貴重な遺跡として、多くの人々が訪れている。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 基本情報 -->
+        <section class="info-section" id="info">
+            <h2 class="section-title">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>所在地</h3>
+                    <p>北海道根室市</p>
+                </div>
+                <div class="info-card">
+                    <h3>築造年代</h3>
+                    <p>16-18世紀</p>
+                </div>
+                <div class="info-card">
+                    <h3>築造者</h3>
+                    <p>アイヌ民族</p>
+                </div>
+                <div class="info-card">
+                    <h3>種別</h3>
+                    <p>チャシ跡群（24ヵ所）</p>
+                </div>
+                <div class="info-card">
+                    <h3>主な見学地</h3>
+                    <p>ノツカマフ1号・2号チャシ</p>
+                </div>
+                <div class="info-card">
+                    <h3>文化財指定</h3>
+                    <p>国指定史跡・日本100名城</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- アクセス -->
+        <section class="access-section" id="access">
+            <div class="access-container">
+                <h2 class="section-title">アクセス</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5925.468!2d145.583611!3d43.382778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zNDPCsDIyJzU4LjAiTiAxNDXCsDM1JzAxLjAiRQ!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="access-info">
+                    <div class="access-card">
+                        <h3>📍 住所</h3>
+                        <p>〒087-0165<br>北海道根室市納沙布</p>
+                    </div>
+                    <div class="access-card">
+                        <h3>🚃 公共交通機関</h3>
+                        <p>JR根室駅から<br>根室交通バス「納沙布岬」行きで約40分<br>「納沙布岬」バス停下車、徒歩約25分</p>
+                    </div>
+                    <div class="access-card">
+                        <h3>🚗 車でのアクセス</h3>
+                        <p>根室市内から約30分<br>納沙布岬から約5分</p>
+                    </div>
+                    <div class="access-card">
+                        <h3>🅿️ 駐車場</h3>
+                        <p>無料駐車場あり<br>（納沙布岬駐車場を利用）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>根室半島チャシで歴史を感じる旅へ</h2>
+                <p>アイヌ文化の聖地で、北の大地の歴史に触れてみませんか？</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button">公式観光情報</a>
+                    <a href="/castle-list/hokkaido" class="cta-button secondary">北海道の他の城を見る</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/castle-list">お城一覧</a>
+                <a href="/castle-list/hokkaido">北海道の城</a>
+                <a href="/about">このサイトについて</a>
+                <a href="/contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">© 2024 お城ファンページ. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // ヘッダーのスクロール効果
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.padding = '10px 20px';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+                header.style.padding = '15px 20px';
+            }
+        });
+        
+        // ハンバーガーメニューの動作
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const navClose = document.getElementById('navClose');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // メニューを開く
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // メニューを閉じる（×ボタン）
+        navClose.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // メニューを閉じる（オーバーレイクリック）
+        navOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // メニューを閉じる（リンククリック）
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>

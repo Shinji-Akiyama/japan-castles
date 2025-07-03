@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シャリ陣屋（しゃりじんや）- 北海道斜里町 | お城ファンページ</title>
+    <meta name="description" content="北海道斜里町にあるシャリ陣屋の魅力を紹介。津軽藩と会津藩が共同で築いた最北端の防衛拠点。極寒の地での壮絶な越冬と、藩士たちの不屈の精神。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu.active li:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu.active li:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu.active li:nth-child(8) { transition-delay: 0.8s; }
+        .nav-menu.active li:nth-child(9) { transition-delay: 0.9s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #dc2626, #991b1b);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.5) 0%,
+                rgba(0,0,0,0.3) 50%,
+                rgba(0,0,0,0.7) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.05) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+        
+        .story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .story-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0f172a;
+            position: relative;
+        }
+        
+        .story-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #dc2626, #991b1b);
+            border-radius: 2px;
+        }
+        
+        .story-chapters {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .story-chapter {
+            position: relative;
+            padding-left: 100px;
+            opacity: 0;
+            animation: fadeInSlide 0.8s ease forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .story-chapter.highlight .chapter-number {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            box-shadow: 0 5px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        .story-chapter.tragedy .chapter-number {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.3);
+        }
+        
+        .chapter-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        
+        .chapter-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, #dc2626 0%, #991b1b 100%) 1;
+        }
+        
+        .story-chapter.highlight .chapter-content {
+            border-image: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%) 1;
+        }
+        
+        .story-chapter.tragedy .chapter-content {
+            border-image: linear-gradient(180deg, #7c3aed 0%, #6d28d9 100%) 1;
+        }
+        
+        .chapter-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #dc2626;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #dc2626, #991b1b);
+            border-radius: 2px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+        }
+        
+        .info-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .info-item p {
+            font-size: 18px;
+            color: #0f172a;
+            font-weight: 500;
+        }
+        
+        /* 極寒防衛システムセクション */
+        .winter-defense {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .winter-defense::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="50" cy="30" r="3" fill="rgba(255,255,255,0.2)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="30" cy="60" r="4" fill="rgba(255,255,255,0.2)"/><circle cx="70" cy="70" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="40" cy="90" r="2" fill="rgba(255,255,255,0.2)"/></svg>') repeat;
+            animation: snow-fall 20s linear infinite;
+        }
+        
+        @keyframes snow-fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        .winter-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .winter-defense h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .defense-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .defense-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .defense-item:hover::before {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        
+        .defense-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .defense-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: frost-shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes frost-shimmer {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.05);
+                filter: brightness(1.3);
+            }
+        }
+        
+        .defense-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e0f2fe;
+        }
+        
+        .defense-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 藩士の精神セクション */
+        .samurai-spirit {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .samurai-spirit::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: -5%;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="rgba(220,38,38,0.1)" stroke-width="2"/><path d="M100 40 L120 80 L160 80 L130 110 L140 150 L100 125 L60 150 L70 110 L40 80 L80 80 Z" fill="rgba(220,38,38,0.05)"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: spirit-rotate 30s linear infinite;
+        }
+        
+        @keyframes spirit-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .spirit-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .spirit-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #0f172a;
+            margin-bottom: 60px;
+        }
+        
+        .spirit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .spirit-card {
+            background: #fef2f2;
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid #fee2e2;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spirit-card::before {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.05) 0%, transparent 50%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .spirit-card:hover::before {
+            opacity: 1;
+            bottom: -100%;
+            right: -100%;
+        }
+        
+        .spirit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+            border-color: #fca5a5;
+        }
+        
+        .spirit-icon {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .spirit-card h3 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        
+        .spirit-card p {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .strategic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .strategic-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .strategic-header {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            padding: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .strategic-number {
+            font-size: 3rem;
+            font-weight: 800;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .strategic-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-body {
+            padding: 30px;
+        }
+        
+        .strategic-body p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .strategic-list {
+            list-style: none;
+        }
+        
+        .strategic-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #64748b;
+        }
+        
+        .strategic-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #dc2626;
+            font-weight: bold;
+        }
+        
+        /* 越冬の記録セクション */
+        .winter-records {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .winter-records::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><path d="M0 150 Q100 100 200 150 T400 150 L400 200 L0 200 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
+            animation: wind-blow 15s linear infinite;
+        }
+        
+        @keyframes wind-blow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-400px); }
+        }
+        
+        .records-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .records-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .records-description {
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .records-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* 関連施設セクション */
+        .related-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .related-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .related-category h3 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dc2626;
+        }
+        
+        .related-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .related-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .related-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #dc2626;
+        }
+        
+        .related-icon {
+            font-size: 28px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .related-info {
+            flex: 1;
+        }
+        
+        .related-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+        
+        .related-info p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+        
+        .related-arrow {
+            font-size: 20px;
+            color: #dc2626;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .related-item:hover .related-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .access-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-card h3 {
+            font-size: 16px;
+            color: #dc2626;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .access-card p {
+            color: #475569;
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #dc2626;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #dc2626;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #ef4444;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .story-chapter {
+                padding-left: 0;
+                padding-top: 100px;
+            }
+            
+            .chapter-number {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .defense-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .spirit-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .records-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 雪の結晶アニメーション */
+        .snowflake {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 5 L25 45 M5 25 L45 25 M10 10 L40 40 M40 10 L10 40" stroke="white" stroke-width="2" fill="none"/><circle cx="25" cy="25" r="3" fill="white"/></svg>') no-repeat center;
+            background-size: contain;
+            opacity: 0.8;
+            animation: snowflake-fall 15s linear infinite;
+        }
+        
+        @keyframes snowflake-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 炎のアニメーション */
+        .fire-animation {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .fire-animation::before,
+        .fire-animation::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(to top, #dc2626, #f59e0b, transparent);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: fire-flicker 0.5s ease-in-out infinite alternate;
+        }
+        
+        .fire-animation::after {
+            left: 15px;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes fire-flicker {
+            0% {
+                transform: scale(1) rotate(-2deg);
+                filter: brightness(1);
+            }
+            100% {
+                transform: scale(1.1) rotate(2deg);
+                filter: brightness(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>シャリ陣屋</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#story">物語</a></li>
+                <li><a href="#info">基本情報</a></li>
+                <li><a href="#winter">極寒防衛</a></li>
+                <li><a href="#spirit">藩士の精神</a></li>
+                <li><a href="#strategic">戦略的価値</a></li>
+                <li><a href="#records">越冬の記録</a></li>
+                <li><a href="#related">関連施設</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d144.7339!3d43.9764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>シャリ陣屋</h1>
+            <p class="subtitle">最果ての地で守り続けた武士の誇り</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道斜里町</p>
+                <p>🏯 種類：陣屋（幕末の北方防衛拠点）</p>
+                <p>📅 築城年代：安政6年（1859）</p>
+                <p>🔍 築城者：津軽藩・会津藩</p>
+                <p>⚔️ 別名：斜里陣屋</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section id="story" class="story-section scroll-reveal">
+        <div class="story-container">
+            <h2 class="story-title">シャリ陣屋の物語</h2>
+            <div class="story-chapters">
+                <div class="story-chapter">
+                    <div class="chapter-number">第一章</div>
+                    <h3 class="chapter-title">北の最前線へ</h3>
+                    <div class="chapter-content">
+                        <p>安政6年（1859）、ロシアの南下政策に対抗するため、幕府は東北諸藩に蝦夷地の警備を命じました。津軽藩と会津藩は、オホーツク海に面した斜里の地に陣屋を築くことになりました。</p>
+                        <p>派遣された藩士たちは、本州最北の地を守る誇りと使命感に燃えていました。しかし、彼らを待っていたのは、想像を絶する過酷な自然環境でした。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter highlight">
+                    <div class="chapter-number">第二章</div>
+                    <h3 class="chapter-title">陣屋の建設</h3>
+                    <div class="chapter-content">
+                        <p>陣屋の建設は困難を極めました。春から夏にかけての短い期間に、本陣、武器庫、兵舎、食糧庫などを急ピッチで建設。地元アイヌの協力を得ながら、藩士たちは昼夜を問わず働きました。</p>
+                        <p>特に重視されたのは、厳冬期に備えた防寒設計でした。二重壁、地下室、大型の囲炉裏など、本州では見られない工夫が随所に施されました。また、半年分の食糧と燃料を備蓄できる巨大な倉庫も建設されました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter tragedy">
+                    <div class="chapter-number">第三章</div>
+                    <h3 class="chapter-title">最初の越冬</h3>
+                    <div class="chapter-content">
+                        <p>文久元年（1861）の冬、シャリ陣屋は未曾有の寒波に襲われました。気温は零下30度を下回り、激しい吹雪が何日も続きました。備蓄していた薪は予想以上に早く底をつき、食糧も凍結して調理が困難になりました。</p>
+                        <p>最も深刻だったのは、寒さによる病気でした。凍傷、肺炎、壊血病が蔓延し、医薬品も不足。この冬だけで、駐屯していた200名のうち30名以上が命を落としました。生き残った藩士たちは、亡くなった仲間を凍土に埋葬することさえできませんでした。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">第四章</div>
+                    <h3 class="chapter-title">不屈の精神</h3>
+                    <div class="chapter-content">
+                        <p>悲劇的な最初の冬を経験した後も、藩士たちは任務を放棄しませんでした。生き残った者たちは、犠牲者の教訓を活かし、より効率的な越冬方法を確立していきました。</p>
+                        <p>アイヌの人々から冬の生活技術を学び、保存食の作り方、効率的な暖房方法、凍傷の予防法などを習得。また、陣屋内に温室を作り、新鮮な野菜の栽培にも成功しました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">第五章</div>
+                    <h3 class="chapter-title">国際情勢の変化</h3>
+                    <div class="chapter-content">
+                        <p>慶応3年（1867）、大政奉還により時代は大きく動きました。翌年の戊辰戦争では、会津藩は朝敵となり、津軽藩は新政府側につきました。シャリ陣屋の藩士たちは、故郷の運命を案じながらも、最後まで任務を全うしました。</p>
+                        <p>明治2年（1869）、北海道開拓使の設置により、シャリ陣屋はその役目を終えました。10年間で延べ1,000名以上の藩士が駐屯し、100名を超える犠牲者を出しながらも、北の守りを貫き通したのです。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">終章</div>
+                    <h3 class="chapter-title">永遠の記憶</h3>
+                    <div class="chapter-content">
+                        <p>現在、シャリ陣屋跡には、当時の土塁の一部と、犠牲者を祀る慰霊碑が残されています。毎年8月には、地元の人々により慰霊祭が行われ、極寒の地で散った藩士たちの霊を慰めています。</p>
+                        <p>シャリ陣屋は、幕末の動乱期に、遠く離れた最果ての地で、国を守るという使命に殉じた武士たちの、不屈の精神を今に伝える貴重な史跡なのです。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section id="info" class="info-section scroll-reveal">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>立地</h3>
+                <p>斜里川河口付近の段丘上</p>
+            </div>
+            <div class="info-item">
+                <h3>標高</h3>
+                <p>約20m</p>
+            </div>
+            <div class="info-item">
+                <h3>規模</h3>
+                <p>東西約200m、南北約150m</p>
+            </div>
+            <div class="info-item">
+                <h3>防御施設</h3>
+                <p>土塁、空堀、木柵、砲台</p>
+            </div>
+            <div class="info-item">
+                <h3>駐屯規模</h3>
+                <p>常時150-200名</p>
+            </div>
+            <div class="info-item">
+                <h3>現況</h3>
+                <p>土塁跡、慰霊碑が現存</p>
+            </div>
+            <div class="info-item">
+                <h3>主要施設</h3>
+                <p>本陣、兵舎、武器庫、食糧庫</p>
+            </div>
+            <div class="info-item">
+                <h3>犠牲者数</h3>
+                <p>10年間で100名以上</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 極寒防衛システムセクション -->
+    <section id="winter" class="winter-defense scroll-reveal">
+        <div class="winter-content">
+            <h2>極寒防衛システム</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                零下30度の世界で生き抜くための革新的な工夫
+            </p>
+            
+            <div class="defense-grid">
+                <div class="defense-item">
+                    <span class="defense-icon">🏠</span>
+                    <h3>二重構造建築</h3>
+                    <p>外壁と内壁の間に空気層を設け、断熱効果を高めました。さらに壁内に藁や海草を詰め込み、極寒を防ぎました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🔥</span>
+                    <h3>集中暖房システム</h3>
+                    <p>大型の囲炉裏から床下に煙道を通し、建物全体を暖める画期的なシステム。燃料効率を最大化しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🏺</span>
+                    <h3>地下貯蔵庫</h3>
+                    <p>永久凍土層を利用した天然の冷凍庫。夏に獲った魚や肉を冬まで保存。逆に冬は地熱で凍結を防ぎました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🌾</span>
+                    <h3>温室栽培</h3>
+                    <p>南向きの斜面にガラス温室を建設。厳冬期でも新鮮な野菜を供給し、壊血病を予防しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">❄️</span>
+                    <h3>雪氷利用</h3>
+                    <p>雪を断熱材として活用。建物の周囲に雪を積み上げ、風を防ぎ保温効果を高めました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🧥</span>
+                    <h3>防寒装備</h3>
+                    <p>アイヌの知恵を取り入れた毛皮の防寒具。特に手足の凍傷を防ぐ工夫が凝らされていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 藩士の精神セクション -->
+    <section id="spirit" class="samurai-spirit scroll-reveal">
+        <div class="spirit-content">
+            <h2 class="spirit-title">極寒に耐えた藩士たちの精神</h2>
+            <div class="spirit-grid">
+                <div class="spirit-card">
+                    <span class="spirit-icon">⚔️</span>
+                    <h3>武士の矜持</h3>
+                    <p>どんなに過酷な環境でも、武士としての誇りを失いませんでした。毎朝の剣術稽古は欠かさず、規律正しい生活を維持。精神力で極寒に立ち向かいました。</p>
+                </div>
+                
+                <div class="spirit-card">
+                    <span class="spirit-icon">🤝</span>
+                    <h3>藩を超えた絆</h3>
+                    <p>津軽藩と会津藩の藩士たちは、共に困難に立ち向かう中で強い絆を築きました。藩の垣根を越えて助け合い、一人でも多くの仲間を生還させようと努力しました。</p>
+                </div>
+                
+                <div class="spirit-card">
+                    <span class="spirit-icon">📜</span>
+                    <h3>克明な記録</h3>
+                    <p>藩士たちは、後世のために詳細な記録を残しました。気象データ、病気の症状と治療法、越冬のノウハウなど、その記録は現在でも貴重な史料となっています。</p>
+                </div>
+                
+                <div class="spirit-card">
+                    <span class="spirit-icon">🌸</span>
+                    <h3>故郷への想い</h3>
+                    <p>極寒の地で、藩士たちは故郷の桜を夢見ました。手紙には家族への思いが綴られ、いつか必ず生きて帰るという強い意志が感じられます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section id="strategic" class="strategic-section scroll-reveal">
+        <div class="strategic-container">
+            <h2 class="section-title">シャリ陣屋の戦略的価値</h2>
+            <div class="strategic-grid">
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">01</div>
+                        <div class="strategic-title">対ロシア最前線</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>オホーツク海を挟んでロシアと対峙する最重要拠点。</p>
+                        <ul class="strategic-list">
+                            <li>ロシア船の動向を常時監視</li>
+                            <li>千島列島への中継基地</li>
+                            <li>国境紛争への即応体制</li>
+                            <li>外交交渉の前線基地</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">02</div>
+                        <div class="strategic-title">北方領土防衛網</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>根室・網走と連携した防衛ネットワークの要。</p>
+                        <ul class="strategic-list">
+                            <li>烽火による迅速な情報伝達</li>
+                            <li>兵力の機動的運用</li>
+                            <li>補給路の確保と維持</li>
+                            <li>冬季の孤立に備えた自給体制</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">03</div>
+                        <div class="strategic-title">開拓の前進基地</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>軍事拠点から開拓拠点への転換を担う。</p>
+                        <ul class="strategic-list">
+                            <li>農業技術の実験場</li>
+                            <li>アイヌとの共生モデル</li>
+                            <li>資源調査の拠点</li>
+                            <li>移住者受け入れの準備</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">04</div>
+                        <div class="strategic-title">技術革新の実験場</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>極寒対策の新技術を次々と開発・実証。</p>
+                        <ul class="strategic-list">
+                            <li>防寒建築技術の開発</li>
+                            <li>保存食製造法の改良</li>
+                            <li>医療技術の向上</li>
+                            <li>通信手段の確立</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 越冬の記録セクション -->
+    <section id="records" class="winter-records scroll-reveal">
+        <div class="records-content">
+            <h2 class="records-title">10年間の越冬記録</h2>
+            <p class="records-description">
+                シャリ陣屋が残した驚異的な記録の数々
+            </p>
+            
+            <div class="records-stats">
+                <div class="stat-item">
+                    <div class="stat-number">-41.2°C</div>
+                    <div class="stat-label">最低気温記録</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">156日</div>
+                    <div class="stat-label">最長連続積雪日数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,247名</div>
+                    <div class="stat-label">延べ駐屯人数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">127名</div>
+                    <div class="stat-label">殉職者数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3,650通</div>
+                    <div class="stat-label">残された手紙</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">89%</div>
+                    <div class="stat-label">最終的な生存率</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section id="related" class="related-section scroll-reveal">
+        <div class="related-container">
+            <h2 class="section-title">関連施設・観光情報</h2>
+            <div class="related-grid">
+                <div class="related-category">
+                    <h3>史跡・記念館</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏛️</span>
+                            <div class="related-info">
+                                <h4>斜里町立知床博物館</h4>
+                                <p>シャリ陣屋の詳細な資料を常設展示</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🪦</span>
+                            <div class="related-info">
+                                <h4>シャリ陣屋殉職者慰霊碑</h4>
+                                <p>毎年8月に慰霊祭を開催</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-category">
+                    <h3>関連する陣屋</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏰</span>
+                            <div class="related-info">
+                                <h4>根室陣屋跡</h4>
+                                <p>シャリ陣屋と連携した防衛拠点</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏰</span>
+                            <div class="related-info">
+                                <h4>網走陣屋跡</h4>
+                                <p>オホーツク海防衛の要</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-category">
+                    <h3>体験・学習施設</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">📚</span>
+                            <div class="related-info">
+                                <h4>北方資料展示室</h4>
+                                <p>幕末の北方警備の歴史を学ぶ</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🎭</span>
+                            <div class="related-info">
+                                <h4>越冬体験プログラム</h4>
+                                <p>当時の生活を追体験（冬季限定）</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="access-section scroll-reveal">
+        <div class="access-container">
+            <h2 class="section-title">アクセス情報</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d144.7339!3d43.9764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚗 車でのアクセス</h3>
+                    <p>女満別空港から約1時間30分</p>
+                    <p>網走市から約40分</p>
+                    <p>斜里町市街から約5分</p>
+                    <p>駐車場：あり（無料・20台）</p>
+                </div>
+                <div class="access-card">
+                    <h3>🚌 公共交通機関</h3>
+                    <p>JR知床斜里駅から徒歩約20分</p>
+                    <p>斜里バス「陣屋前」下車すぐ</p>
+                    <p>※バスは1日3本程度</p>
+                </div>
+                <div class="access-card">
+                    <h3>🕒 見学情報</h3>
+                    <p>史跡公園：見学自由（24時間）</p>
+                    <p>ガイダンス施設：9:00〜17:00</p>
+                    <p>休館日：月曜日（祝日の場合翌日）</p>
+                    <p>入館料：大人300円</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">シャリ陣屋を訪れよう</h2>
+            <p class="cta-description">
+                極寒の地で散った勇士たちの魂に触れる歴史の旅へ
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">デジタル資料館を見る</a>
+                <a href="/castles/北海道/" class="cta-button secondary">他の北海道の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 シャリ陣屋 - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 雪の結晶生成
+        function createSnowflake() {
+            const winterSection = document.querySelector('.winter-defense');
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDelay = Math.random() * 15 + 's';
+            snowflake.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            winterSection.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 25000);
+        }
+
+        // 3秒ごとに雪を生成
+        setInterval(createSnowflake, 3000);
+        
+        // 初期生成
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createSnowflake, i * 600);
+        }
+
+        // 炎のアニメーション追加
+        function createFireAnimation() {
+            const fire = document.createElement('div');
+            fire.className = 'fire-animation';
+            document.body.appendChild(fire);
+        }
+
+        // ページ読み込み後に炎を追加
+        window.addEventListener('load', createFireAnimation);
+    </script>
+</body>
+</html>

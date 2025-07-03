@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カリカリウスチャシ（かりかりうすちゃし）- 北海道標茶町 | お城ファンページ</title>
+    <meta name="description" content="北海道標茶町にあるカリカリウスチャシの魅力を紹介。釧路湿原を見下ろす戦略的要衝に築かれた、アイヌの高度な防衛思想を体現する山城。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6b46c1, #7c3aed);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #6b46c1;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #6b46c1, #7c3aed);
+            border-radius: 2px;
+        }
+        
+        /* 歴史セクション */
+        .history {
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #ddd;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #6b46c1;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #6b46c1;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #6b46c1;
+            margin-bottom: 10px;
+        }
+        
+        /* 見どころセクション */
+        .highlights {
+            background: #f8f9fa;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-card-header {
+            background: linear-gradient(135deg, #6b46c1, #7c3aed);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card-body {
+            padding: 30px;
+        }
+        
+        .highlight-card h3 {
+            color: #6b46c1;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* アクセスセクション */
+        .access {
+            background: white;
+        }
+        
+        .access-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .access-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-info h3 {
+            color: #6b46c1;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .access-info p {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-info p::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #7c3aed;
+        }
+        
+        /* 要塞防衛システムセクション */
+        .defense-system {
+            background: linear-gradient(135deg, #6b46c1 0%, #7c3aed 50%, #9333ea 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .defense-system::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><circle cx="300" cy="300" r="250" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="300" cy="300" r="200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="300" cy="300" r="150" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="300" cy="300" r="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="300" cy="300" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') no-repeat center;
+            animation: defense-pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes defense-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+        }
+        
+        .defense-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .defense-system h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .defense-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .defense-item::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .defense-item:hover::after {
+            bottom: -20%;
+            opacity: 1;
+        }
+        
+        .defense-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .defense-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: shield-float 3s ease-in-out infinite;
+        }
+        
+        @keyframes shield-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .defense-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e9d5ff;
+        }
+        
+        .defense-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 地形利用セクション */
+        .terrain-section {
+            background: white;
+            padding: 100px 20px;
+        }
+        
+        .terrain-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #6b46c1;
+            margin-bottom: 60px;
+        }
+        
+        .terrain-map {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .terrain-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .terrain-feature {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .terrain-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .terrain-feature-icon {
+            font-size: 2.5rem;
+            color: #6b46c1;
+            margin-bottom: 15px;
+        }
+        
+        .terrain-feature h4 {
+            color: #6b46c1;
+            margin-bottom: 10px;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #9333ea;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 40px;
+            }
+            
+            .timeline-item::before {
+                left: -20px;
+                transform: translateX(0);
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0 !important;
+            }
+            
+            .defense-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 防衛線エフェクト */
+        .defense-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.8), transparent);
+            animation: defense-scan 3s linear infinite;
+        }
+        
+        @keyframes defense-scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>カリカリウスチャシ</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#history">歴史</a></li>
+                <li><a href="#highlights">見どころ</a></li>
+                <li><a href="#defense">要塞防衛</a></li>
+                <li><a href="#terrain">地形利用</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d144.4917!3d43.4806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>カリカリウスチャシ</h1>
+            <p class="subtitle">釧路湿原を睥睨する天空の要塞</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道標茶町</p>
+                <p>🏯 種類：チャシ（アイヌの砦）</p>
+                <p>📅 築城年代：16-18世紀（アイヌ文化期）</p>
+                <p>🔍 築城者：アイヌ民族</p>
+            </div>
+        </div>
+        <div class="defense-line" style="top: 30%;"></div>
+        <div class="defense-line" style="top: 60%; animation-delay: -1.5s;"></div>
+    </section>
+
+    <!-- 歴史セクション -->
+    <section id="history" class="section history scroll-reveal">
+        <h2 class="section-title">カリカリウスチャシの歴史</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">16世紀頃</div>
+                    <h3>チャシの築城</h3>
+                    <p>釧路湿原を見渡す標高約80mの台地上に築城。「カリカリウス」は「削り取った崖」を意味し、急峻な地形を巧みに利用した天然の要害として機能しました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">17世紀</div>
+                    <h3>交易路の監視拠点</h3>
+                    <p>釧路川を利用した内陸交易路の重要な監視点として機能。下流の釧路方面と上流の弟子屈・阿寒方面を結ぶ交通の要衝を押さえました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">1669年</div>
+                    <h3>シャクシャインの戦い</h3>
+                    <p>道東のアイヌ勢力もシャクシャインの戦いに呼応。カリカリウスチャシも緊張状態に入り、防衛体制が強化されたと考えられています。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">18世紀</div>
+                    <h3>和人との交易深化</h3>
+                    <p>松前藩の場所請負制度が確立し、釧路場所が設置。チャシは次第に軍事的性格から交易・儀礼の場へと性格を変えていきました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">19世紀初頭</div>
+                    <h3>チャシの廃絶</h3>
+                    <p>幕府の直轄統治により、アイヌの自治的な防衛施設は不要となり、カリカリウスチャシも放棄。以後は聖地として崇敬の対象となりました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">平成年間</div>
+                    <h3>遺跡の調査と保護</h3>
+                    <p>詳細な測量調査により、複雑な防御構造が明らかに。壕跡や柵列跡が確認され、アイヌの高度な築城技術が実証されました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 見どころセクション -->
+    <section id="highlights" class="section highlights scroll-reveal">
+        <h2 class="section-title">カリカリウスチャシの見どころ</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🏔️</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>断崖絶壁の地形</h3>
+                    <p>三方を急崖に囲まれた天然の要害。特に釧路湿原側は垂直に近い崖となっており、攻撃を極めて困難にしています。</p>
+                    <p>台地上からは釧路湿原が一望でき、敵の接近を遠方から察知できる絶好の監視点でした。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🛡️</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>複雑な防御構造</h3>
+                    <p>台地への唯一の進入路には、深い空堀が穿たれています。さらに土塁や柵列の痕跡も確認され、重層的な防御システムが構築されていました。</p>
+                    <p>主郭部分は平坦に整地され、複数の建物跡と思われる窪みが残存しています。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🌅</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>絶景の展望地</h3>
+                    <p>チャシ跡からの眺望は圧巻。眼下に広がる釧路湿原、蛇行する釧路川、遠くには雄阿寒岳・雌阿寒岳の山並みが望めます。</p>
+                    <p>特に朝霧に包まれた湿原の幻想的な風景は、この地が持つ神秘的な雰囲気を今に伝えています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 要塞防衛システムセクション -->
+    <section id="defense" class="defense-system scroll-reveal">
+        <div class="defense-content">
+            <h2>アイヌの要塞防衛システム</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                地形を最大限に活用した巧妙な防御思想
+            </p>
+            
+            <div class="defense-grid">
+                <div class="defense-item">
+                    <span class="defense-icon">🏹</span>
+                    <h3>断崖の活用</h3>
+                    <p>三方を急崖で守られた立地は、少人数でも効果的な防衛を可能にしました。崖下からの攻撃は事実上不可能でした。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🔍</span>
+                    <h3>監視機能</h3>
+                    <p>標高差約60mの高所から、半径10km以上の範囲を監視。釧路川を遡上する舟や、湿原を移動する人馬を容易に発見できました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">⚔️</span>
+                    <h3>空堀システム</h3>
+                    <p>台地への進入路に設けられた空堀は、幅約5m、深さ約3m。堀底には逆茂木が設置されていたと推定されています。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🛡️</span>
+                    <h3>土塁と柵</h3>
+                    <p>主郭を囲む土塁の上には、木柵が巡らされていました。二重三重の防御線により、敵の侵入を段階的に阻止しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🏹</span>
+                    <h3>射撃陣地</h3>
+                    <p>土塁の各所に設けられた張り出し部は、側面から敵を射撃する横矢掛かりの機能を持っていたと考えられます。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🚨</span>
+                    <h3>通信網</h3>
+                    <p>周辺のチャシとは煙火による連絡網で結ばれ、有事の際には迅速な情報伝達と援軍要請が可能でした。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地形利用セクション -->
+    <section id="terrain" class="terrain-section scroll-reveal">
+        <h2 class="terrain-title">天然の要害・地形利用の妙</h2>
+        <div class="terrain-map">
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">
+                カリカリウスチャシは、釧路湿原東縁の台地突端部に位置し、<br>
+                自然地形を巧みに利用した鉄壁の防御を誇りました。
+            </p>
+            
+            <div class="terrain-features">
+                <div class="terrain-feature">
+                    <div class="terrain-feature-icon">🏔️</div>
+                    <h4>台地上の立地</h4>
+                    <p>標高約80mの舌状台地先端部に築城。三方が急崖となる天然の要害地形。</p>
+                </div>
+                
+                <div class="terrain-feature">
+                    <div class="terrain-feature-icon">🌊</div>
+                    <h4>釧路川の監視</h4>
+                    <p>眼下を流れる釧路川の水運を完全に掌握。交易路の管理に最適な立地。</p>
+                </div>
+                
+                <div class="terrain-feature">
+                    <div class="terrain-feature-icon">🌿</div>
+                    <h4>湿原の防御</h4>
+                    <p>西側に広がる釧路湿原は天然の堀。大軍の接近を困難にする地形的利点。</p>
+                </div>
+                
+                <div class="terrain-feature">
+                    <div class="terrain-feature-icon">🎯</div>
+                    <h4>狭隘な進入路</h4>
+                    <p>台地への進入は東側の尾根筋のみ。防御側に圧倒的に有利な地形配置。</p>
+                </div>
+                
+                <div class="terrain-feature">
+                    <div class="terrain-feature-icon">💧</div>
+                    <h4>水源の確保</h4>
+                    <p>台地上には湧水があり、籠城戦にも対応可能。生活用水の心配がない立地。</p>
+                </div>
+                
+                <div class="terrain-feature">
+                    <div class="terrain-feature-icon">🌲</div>
+                    <h4>建材の入手</h4>
+                    <p>周囲の森林から防御施設の建材を容易に調達。修築・補強が迅速に可能。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="section access scroll-reveal">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-content">
+            <div class="access-info">
+                <h3>🚗 車でのアクセス</h3>
+                <p>釧路市街から約40分</p>
+                <p>標茶町市街から約15分</p>
+                <p>国道391号線から案内板に従って進入</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🚌 公共交通機関</h3>
+                <p>JR釧網本線 標茶駅下車</p>
+                <p>駅からタクシーで約10分</p>
+                <p>路線バスは運行なし</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🕒 見学情報</h3>
+                <p>見学自由（24時間）</p>
+                <p>駐車場：簡易駐車スペースあり</p>
+                <p>トイレ・売店等の施設なし</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>📍 周辺の見どころ</h3>
+                <p>釧路湿原展望台（車で20分）</p>
+                <p>塘路湖（車で15分）</p>
+                <p>標茶町郷土館（車で15分）</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 カリカリウスチャシ - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 防衛線アニメーション制御
+        function addDefenseAnimation() {
+            const defenseSection = document.querySelector('.defense-system');
+            const lines = document.querySelectorAll('.defense-line');
+            
+            const defenseObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        lines.forEach(line => {
+                            line.style.animationPlayState = 'running';
+                        });
+                    } else {
+                        lines.forEach(line => {
+                            line.style.animationPlayState = 'paused';
+                        });
+                    }
+                });
+            });
+            
+            if (defenseSection) {
+                defenseObserver.observe(defenseSection);
+            }
+        }
+        
+        addDefenseAnimation();
+    </script>
+</body>
+</html>

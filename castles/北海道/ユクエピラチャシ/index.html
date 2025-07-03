@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユクエピラチャシ（ゆくえぴらちゃし）- 北海道様似町 | お城ファンページ</title>
+    <meta name="description" content="北海道様似町にあるユクエピラチャシの魅力を紹介。アポイ岳の麓に築かれた山岳チャシは、狩猟の安全と豊猟を祈る聖地として、日高アイヌの精神文化を今に伝える。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #065f46, #059669);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #065f46;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #065f46, #059669);
+            border-radius: 2px;
+        }
+        
+        /* 歴史セクション */
+        .history {
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #ddd;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #065f46;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #065f46;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+        
+        /* 見どころセクション */
+        .highlights {
+            background: #f8f9fa;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-card-header {
+            background: linear-gradient(135deg, #065f46, #059669);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card-body {
+            padding: 30px;
+        }
+        
+        .highlight-card h3 {
+            color: #065f46;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* アクセスセクション */
+        .access {
+            background: white;
+        }
+        
+        .access-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .access-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-info h3 {
+            color: #065f46;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .access-info p {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-info p::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #059669;
+        }
+        
+        /* 山岳狩猟文化セクション */
+        .mountain-hunting {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mountain-hunting::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150"><path d="M0 150 L200 50 L400 100 L600 30 L800 80 L1000 40 L1200 120 L1200 150 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x;
+            pointer-events: none;
+        }
+        
+        .mountain-hunting::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"><path d="M0 100 L300 20 L600 60 L900 30 L1200 80 L1200 100 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat-x;
+            pointer-events: none;
+        }
+        
+        .hunting-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mountain-hunting h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hunting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .hunting-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hunting-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .hunting-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .hunting-item:hover::before {
+            opacity: 1;
+        }
+        
+        .hunting-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: sway 3s ease-in-out infinite;
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .hunting-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #86efac;
+        }
+        
+        .hunting-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #059669;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 40px;
+            }
+            
+            .timeline-item::before {
+                left: -20px;
+                transform: translateX(0);
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0 !important;
+            }
+            
+            .hunting-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 山霧エフェクト */
+        .mist {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to top, rgba(255,255,255,0.2), transparent);
+            animation: mist-flow 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes mist-flow {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 0.6; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>ユクエピラチャシ</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#history">歴史</a></li>
+                <li><a href="#highlights">見どころ</a></li>
+                <li><a href="#hunting">山岳狩猟文化</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d143.0156!3d42.1134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="mist"></div>
+        <div class="hero-content">
+            <h1>ユクエピラチャシ</h1>
+            <p class="subtitle">日高山脈に抱かれた狩猟の聖地</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道様似町</p>
+                <p>🏯 種類：山岳チャシ</p>
+                <p>📅 築城年代：15世紀頃</p>
+                <p>🔍 別名：鹿見チャシ、山の見張り台</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 歴史セクション -->
+    <section id="history" class="section history scroll-reveal">
+        <h2 class="section-title">ユクエピラチャシの歴史</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">古代</div>
+                    <h3>狩猟の聖地として</h3>
+                    <p>日高山脈の豊かな自然に恵まれたこの地は、エゾシカやヒグマなどの獲物が豊富で、古くからアイヌの人々の重要な狩猟場でした。ユク（鹿）エピラ（崖）の名が示す通り、鹿の通り道を見渡せる場所として選ばれました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">15世紀頃</div>
+                    <h3>チャシの築造</h3>
+                    <p>狩猟の安全と成功を祈る祭祀場として、また獲物の見張り台として高台にチャシが築かれます。周辺のコタン（集落）から狩人たちが集まり、山の神への祈りを捧げる重要な場所となりました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">16〜17世紀</div>
+                    <h3>地域の中心地として発展</h3>
+                    <p>日高地方のアイヌコタン間の交流拠点として機能。狩猟技術の伝承、獲物の分配、祭事の執行など、地域社会の重要な役割を担いました。特に秋の狩猟期には大規模な集会が開かれました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">18世紀</div>
+                    <h3>和人との交易活発化</h3>
+                    <p>鹿皮や熊胆などの山の産物を介した交易が盛んになります。しかし、チャシは聖地としての性格を保持し、商業活動とは一線を画した精神的な拠点として維持されました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">明治時代</div>
+                    <h3>狩猟文化の変容</h3>
+                    <p>開拓政策により狩猟が制限され、伝統的な山の生活が困難に。多くのアイヌの人々が平地への移住を余儀なくされましたが、ユクエピラチャシは密かに守られ続けました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">現代</div>
+                    <h3>文化遺産として保護</h3>
+                    <p>アイヌの山岳狩猟文化を伝える貴重な遺跡として再評価。自然と共生する知恵、持続可能な資源利用の実践例として、現代社会への重要なメッセージを発信しています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 見どころセクション -->
+    <section id="highlights" class="section highlights scroll-reveal">
+        <h2 class="section-title">ユクエピラチャシの見どころ</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🦌</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>鹿の見張り台</h3>
+                    <p>チャシからは、エゾシカの移動ルートを一望できます。季節によって変わる鹿の行動パターンを熟知したアイヌの人々は、この地点から効率的な狩猟を計画しました。</p>
+                    <p>現在でも秋から冬にかけて、エゾシカの群れがアポイ岳山麓を移動する姿を観察できます。早朝や夕暮れ時が特に観察のチャンスです。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">⛰️</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>アポイ岳への祈り</h3>
+                    <p>背後にそびえるアポイ岳は、アイヌの人々にとって神聖な山。チャシはこの霊峰への祈りを捧げる場所でもありました。山の神への感謝と畏敬の念が込められています。</p>
+                    <p>春には高山植物が咲き誇り、アポイ岳ジオパークの一部として、地質学的にも貴重な景観を楽しめます。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🏹</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>狩猟儀礼の痕跡</h3>
+                    <p>チャシ内には、狩猟の成功を祈る儀式が行われた祭壇跡が残っています。獲物への感謝と命の循環を重んじるアイヌの精神文化が色濃く反映されています。</p>
+                    <p>イナウ（木幣）を立てた跡や、儀礼用の石組みなど、精神文化の物証が発見されており、当時の信仰の様子を知ることができます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 山岳狩猟文化セクション -->
+    <section id="hunting" class="mountain-hunting scroll-reveal">
+        <div class="hunting-content">
+            <h2>日高アイヌの山岳狩猟文化</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                山と共に生き、自然の恵みに感謝する知恵の結晶
+            </p>
+            
+            <div class="hunting-grid">
+                <div class="hunting-item">
+                    <span class="hunting-icon">🦌</span>
+                    <h3>ユク（鹿）狩り</h3>
+                    <p>秋から冬にかけての鹿狩りは、集団で行う大規模な狩猟。鹿柵を使った追い込み猟や、毒矢を使った待ち伏せ猟など、地形を活かした巧妙な技術が発達しました。</p>
+                </div>
+                
+                <div class="hunting-item">
+                    <span class="hunting-icon">🐻</span>
+                    <h3>キムンカムイ（熊）</h3>
+                    <p>山の神である熊は、最も尊い獲物。冬眠中の熊穴を見つける技術、熊送りの儀礼など、熊と人間の精神的な関係を示す文化が発展しました。</p>
+                </div>
+                
+                <div class="hunting-item">
+                    <span class="hunting-icon">🌿</span>
+                    <h3>山菜・薬草採集</h3>
+                    <p>狩猟と並行して、山菜や薬草の採集も重要な生業。ギョウジャニンニク、フキ、ウドなどの食用植物や、薬効のある植物の知識が代々受け継がれました。</p>
+                </div>
+                
+                <div class="hunting-item">
+                    <span class="hunting-icon">🔥</span>
+                    <h3>山小屋文化</h3>
+                    <p>狩猟の拠点となる山小屋（クチャ）は、単なる宿泊施設ではなく、知識の伝承の場。火を囲んで狩猟技術や山の掟が若者に伝えられました。</p>
+                </div>
+                
+                <div class="hunting-item">
+                    <span class="hunting-icon">🏔️</span>
+                    <h3>カムイノミ（神への祈り）</h3>
+                    <p>狩猟の前後には必ず山の神への祈りを捧げました。獲物は神からの贈り物であり、必要以上に取らない、すべての部位を無駄にしないという掟がありました。</p>
+                </div>
+                
+                <div class="hunting-item">
+                    <span class="hunting-icon">🦅</span>
+                    <h3>鳥獣との共生</h3>
+                    <p>ワシやタカなどの猛禽類の行動から獲物の位置を知る、カラスの鳴き声で天候を予測するなど、野生動物との共生関係を築いていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="section access scroll-reveal">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-content">
+            <div class="access-info">
+                <h3>🚗 車でのアクセス</h3>
+                <p>様似町市街地から約30分</p>
+                <p>国道336号線からアポイ岳登山口方面へ</p>
+                <p>駐車場：アポイ岳ジオパークビジターセンター</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🥾 徒歩でのアクセス</h3>
+                <p>アポイ岳登山口から徒歩約1時間</p>
+                <p>山道のため、登山装備推奨</p>
+                <p>ガイドツアーあり（要予約）</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🕒 見学情報</h3>
+                <p>見学自由（日中推奨）</p>
+                <p>冬季は積雪のため困難</p>
+                <p>ベストシーズン：5月〜10月</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>📍 周辺施設</h3>
+                <p>アポイ岳ジオパークビジターセンター</p>
+                <p>様似町郷土館（アイヌ文化展示）</p>
+                <p>エンルム岬（車で20分）</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 ユクエピラチャシ - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

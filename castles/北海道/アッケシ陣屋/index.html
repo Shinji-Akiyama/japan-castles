@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アッケシ陣屋（あっけしじんや）- 北海道厚岸町 | お城ファンページ</title>
+    <meta name="description" content="北海道厚岸町にあるアッケシ陣屋の魅力を紹介。仙台藩が築いた東蝦夷地最東端の防衛拠点は、牡蠣の名産地としても知られ、海防と産業の両面で重要な役割を果たした。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0369a1, #0284c7);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #0369a1;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0369a1, #0284c7);
+            border-radius: 2px;
+        }
+        
+        /* 歴史セクション */
+        .history {
+            background: white;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #ddd;
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #0369a1;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #0369a1;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 10px;
+        }
+        
+        /* 見どころセクション */
+        .highlights {
+            background: #f8f9fa;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .highlight-card-header {
+            background: linear-gradient(135deg, #0369a1, #0284c7);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card-body {
+            padding: 30px;
+        }
+        
+        .highlight-card h3 {
+            color: #0369a1;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* アクセスセクション */
+        .access {
+            background: white;
+        }
+        
+        .access-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .access-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-info h3 {
+            color: #0369a1;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .access-info p {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-info p::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #0284c7;
+        }
+        
+        /* 厚岸湾海防体制セクション */
+        .akkeshi-defense {
+            background: linear-gradient(135deg, #075985 0%, #0369a1 50%, #0284c7 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .akkeshi-defense::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M0 200 Q100 150 200 200 T400 200" stroke="rgba(255,255,255,0.1)" stroke-width="3" fill="none"/><path d="M0 250 Q100 200 200 250 T400 250" stroke="rgba(255,255,255,0.08)" stroke-width="2" fill="none"/><circle cx="100" cy="100" r="50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/><circle cx="300" cy="300" r="70" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>') repeat;
+            animation: tide-flow 20s ease-in-out infinite;
+        }
+        
+        @keyframes tide-flow {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(50px) translateY(-20px); }
+            50% { transform: translateX(0) translateY(-40px); }
+            75% { transform: translateX(-50px) translateY(-20px); }
+        }
+        
+        .defense-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .akkeshi-defense h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .defense-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .defense-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .defense-item:hover::before {
+            opacity: 1;
+        }
+        
+        .defense-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .defense-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: bob-wave 4s ease-in-out infinite;
+        }
+        
+        @keyframes bob-wave {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(-5deg); }
+            75% { transform: translateY(5px) rotate(5deg); }
+        }
+        
+        .defense-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #bae6fd;
+        }
+        
+        .defense-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 牡蠣養殖文化セクション */
+        .oyster-culture {
+            background: #f8f9fa;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .oyster-culture h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #0369a1;
+            margin-bottom: 60px;
+        }
+        
+        .oyster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .oyster-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .oyster-card::after {
+            content: '🦪';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.05;
+            bottom: -20px;
+            right: -20px;
+            transform: rotate(-15deg);
+        }
+        
+        .oyster-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .oyster-card h3 {
+            color: #0369a1;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .oyster-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #0284c7;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 40px;
+            }
+            
+            .timeline-item::before {
+                left: -20px;
+                transform: translateX(0);
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin: 20px 0 !important;
+            }
+            
+            .defense-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .oyster-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 波紋エフェクト */
+        .water-ripple {
+            position: absolute;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: ripple-spread 3s ease-out infinite;
+        }
+        
+        @keyframes ripple-spread {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            to {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+        
+        /* 潮の満ち引きエフェクト */
+        .tide-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(3,105,161,0.1), transparent);
+            animation: tide 10s ease-in-out infinite;
+        }
+        
+        @keyframes tide {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>アッケシ陣屋</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#history">歴史</a></li>
+                <li><a href="#highlights">見どころ</a></li>
+                <li><a href="#defense">厚岸湾海防体制</a></li>
+                <li><a href="#oyster">牡蠣養殖文化</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d144.8627!3d43.0525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="tide-effect"></div>
+        <div class="hero-content">
+            <h1>アッケシ陣屋</h1>
+            <p class="subtitle">仙台藩が守った東蝦夷地の要衝</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道厚岸町湾月</p>
+                <p>🏯 種類：陣屋</p>
+                <p>📅 築城年代：文化元年（1804）</p>
+                <p>🔍 築城者：仙台藩</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 歴史セクション -->
+    <section id="history" class="section history scroll-reveal">
+        <h2 class="section-title">アッケシ陣屋の歴史</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">寛政11年（1799）</div>
+                    <h3>東蝦夷地直轄化</h3>
+                    <p>ロシアの南下政策に対抗するため、幕府は東蝦夷地を直轄化。厚岸は太平洋側の要衝として、防衛拠点の設置が決定されました。同時に、豊富な海産物資源も注目されました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">文化元年（1804）</div>
+                    <h3>仙台藩による陣屋築造</h3>
+                    <p>仙台藩に東蝦夷地警備が命じられ、アッケシ陣屋を築造。藩士約200名が常駐し、厚岸湾を見下ろす高台に本陣を構えました。大砲も配備され、本格的な海防拠点となりました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">文化4年（1807）</div>
+                    <h3>フヴォストフ事件</h3>
+                    <p>ロシア海軍のフヴォストフらが樺太・利尻を襲撃。アッケシ陣屋は厳戒態勢に入り、沿岸警備を強化。この事件により、東蝦夷地防衛の重要性が再認識されました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">文政4年（1821）</div>
+                    <h3>松前藩への返還</h3>
+                    <p>一時的に東蝦夷地が松前藩に返還され、アッケシ陣屋も松前藩の管理下に。しかし、仙台藩時代に確立された防衛体制は維持され、引き続き重要拠点として機能しました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">安政2年（1855）</div>
+                    <h3>再度の直轄化と強化</h3>
+                    <p>ペリー来航を受けて東蝦夷地は再び幕府直轄地となり、仙台藩が再度警備を担当。陣屋の施設が拡充され、西洋式の砲台も増設されました。</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">明治2年（1869）</div>
+                    <h3>陣屋の廃止と産業転換</h3>
+                    <p>明治維新により陣屋は廃止。しかし、仙台藩士の一部は厚岸に残り、牡蠣養殖などの産業開発に従事。軍事拠点から産業拠点への転換が始まりました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 見どころセクション -->
+    <section id="highlights" class="section highlights scroll-reveal">
+        <h2 class="section-title">アッケシ陣屋の見どころ</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🏯</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>陣屋跡の遺構</h3>
+                    <p>厚岸湾を一望する高台に築かれた陣屋跡には、土塁や空堀の一部が現存。特に海側の土塁は高さ3メートル以上あり、当時の防御施設の規模を物語っています。</p>
+                    <p>発掘調査により、兵舎跡、武器庫跡、井戸跡などが確認され、約200名の藩士が生活していた様子が明らかになっています。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">🔭</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>国見台展望所</h3>
+                    <p>陣屋内で最も高い場所にあった見張り台跡は、現在「国見台」と呼ばれる展望所に。太平洋と厚岸湾、そして知床連山まで見渡せる絶景スポットです。</p>
+                    <p>晴れた日には、遠く千島列島の島影も望むことができ、当時の見張り番が監視していた海域の広さを実感できます。</p>
+                </div>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-card-header">
+                    <div class="highlight-icon">⛩️</div>
+                </div>
+                <div class="highlight-card-body">
+                    <h3>厚岸神社</h3>
+                    <p>陣屋内に創建された神社は、現在も厚岸神社として地域の信仰を集めています。仙台藩士が持ち込んだ東北の神様と、地元の海の神様が共に祀られています。</p>
+                    <p>境内には、仙台藩士が奉納した石灯籠や、陣屋時代の記念碑が残され、歴史の証人となっています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 厚岸湾海防体制セクション -->
+    <section id="defense" class="akkeshi-defense scroll-reveal">
+        <div class="defense-content">
+            <h2>厚岸湾海防体制</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                仙台藩が築いた東蝦夷地最強の防衛網
+            </p>
+            
+            <div class="defense-grid">
+                <div class="defense-item">
+                    <span class="defense-icon">🏰</span>
+                    <h3>多層防御システム</h3>
+                    <p>厚岸湾の入り口から陣屋まで、複数の防御線を設定。湾口の見張り台、中間の砲台、そして本陣と、段階的に敵を迎撃する体制を構築していました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">💥</span>
+                    <h3>西洋式砲台</h3>
+                    <p>幕末には最新の西洋式大砲を配備。射程距離は3キロメートル以上で、厚岸湾全体をカバー。砲術訓練も定期的に実施され、実戦的な防衛力を保持していました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🔥</span>
+                    <h3>狼煙通信網</h3>
+                    <p>根室から釧路まで続く狼煙台ネットワークの中核。異常を発見すると30分以内に100キロ先まで情報を伝達できる、当時最速の通信システムでした。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🚣</span>
+                    <h3>水軍部隊</h3>
+                    <p>小型船による機動部隊を編成。厚岸湾内の警備だけでなく、沿岸の偵察活動も実施。アイヌの協力を得て、複雑な海岸線も効率的に監視しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🌊</span>
+                    <h3>自然地形の活用</h3>
+                    <p>厚岸湾の複雑な地形を巧みに利用。干満の差が大きく、干潮時には進入路が限定される特性を活かし、少ない兵力で効果的な防衛を実現しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🤝</span>
+                    <h3>地域協力体制</h3>
+                    <p>地元アイヌとの協力関係を構築。彼らの海洋知識と地形情報は防衛に不可欠で、共同で沿岸警備にあたる独自の体制が確立されていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 牡蠣養殖文化セクション -->
+    <section id="oyster" class="oyster-culture scroll-reveal">
+        <div class="oyster-content">
+            <h2>厚岸の牡蠣養殖文化</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; color: #666;">
+                陣屋時代から続く海の恵みと産業の発展
+            </p>
+            
+            <div class="oyster-grid">
+                <div class="oyster-card">
+                    <h3>仙台藩士が発見した宝</h3>
+                    <p>文化年間（1804-1818）、アッケシ陣屋に駐屯していた仙台藩士たちは、厚岸湾に自生する牡蠣の美味しさと豊富さに驚嘆。「仙台に劣らぬ牡蠣の名産地」として本国に報告しました。</p>
+                    <p>特に冬の牡蠣は身が締まり、濃厚な旨味があることから、「蝦夷の真珠」と称賛されました。</p>
+                </div>
+                
+                <div class="oyster-card">
+                    <h3>カキえもんの誕生</h3>
+                    <p>明治時代以降、元仙台藩士たちが中心となって牡蠣養殖技術を発展させました。厚岸湾の清浄な海水と豊富なプランクトンが、世界に誇る「カキえもん」ブランドを生み出しました。</p>
+                    <p>現在では、3年かけてじっくり育てる独自の養殖法により、大粒で甘みの強い牡蠣として全国的に有名です。</p>
+                </div>
+                
+                <div class="oyster-card">
+                    <h3>牡蠣まつりの伝統</h3>
+                    <p>陣屋時代、冬の慰労会として始まった牡蠣を囲む宴は、現在「厚岸牡蠣まつり」として受け継がれています。毎年10月には、全国から牡蠣愛好家が集まります。</p>
+                    <p>祭りでは、炭火焼き、蒸し牡蠣、牡蠣飯など、様々な調理法で厚岸牡蠣を堪能できます。</p>
+                </div>
+                
+                <div class="oyster-card">
+                    <h3>持続可能な養殖</h3>
+                    <p>厚岸では、環境に配慮した持続可能な牡蠣養殖を実践。厚岸湖と厚岸湾の汽水域という特殊な環境を活かし、自然のサイクルに合わせた養殖を行っています。</p>
+                    <p>この取り組みは、陣屋時代から続く「海の恵みを大切にする」精神の現代的な表現といえるでしょう。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="section access scroll-reveal">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-content">
+            <div class="access-info">
+                <h3>🚗 車でのアクセス</h3>
+                <p>釧路市内から約50分</p>
+                <p>道東自動車道 厚岸ICから10分</p>
+                <p>無料駐車場あり（30台）</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🚆 鉄道でのアクセス</h3>
+                <p>JR根室本線 厚岸駅下車</p>
+                <p>駅からタクシーで10分</p>
+                <p>または徒歩30分</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>🕒 見学情報</h3>
+                <p>陣屋跡：見学自由</p>
+                <p>厚岸町海事記念館：9:00〜17:00</p>
+                <p>入館料：大人300円</p>
+            </div>
+            
+            <div class="access-info">
+                <h3>📍 周辺の見どころ</h3>
+                <p>厚岸味覚ターミナル（牡蠣料理）</p>
+                <p>国泰寺（仙台藩ゆかりの寺）</p>
+                <p>愛冠岬（恋人の聖地）</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 アッケシ陣屋 - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 水面の波紋エフェクト
+        function createRipple() {
+            const defenseSection = document.querySelector('.akkeshi-defense');
+            const ripple = document.createElement('div');
+            ripple.className = 'water-ripple';
+            
+            const size = Math.random() * 100 + 50;
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            
+            ripple.style.left = left + '%';
+            ripple.style.top = top + '%';
+            ripple.style.width = '0px';
+            ripple.style.height = '0px';
+            
+            defenseSection.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 3000);
+        }
+        
+        // 定期的に波紋を生成
+        setInterval(createRipple, 2000);
+    </script>
+</body>
+</html>

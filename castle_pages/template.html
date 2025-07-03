@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{城名}}（{{読み方}}）- {{都道府県}}{{所在地}} | お城ファンページ</title>
+    <meta name="description" content="{{都道府県}}{{所在地}}にある{{城名}}の魅力を紹介。{{備考}}">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header .reading {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* ヒーロー画像エリア */
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        .hero iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+            z-index: 2;
+        }
+        
+        .hero-caption {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 3;
+        }
+        
+        .hero-caption .type {
+            display: inline-block;
+            background: #e74c3c;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        /* 種類別の色分け */
+        .type-城, .type-城郭 { background: #e74c3c; }
+        .type-館 { background: #3498db; }
+        .type-チャシ { background: #27ae60; }
+        .type-陣屋 { background: #f39c12; }
+        .type-台場 { background: #9b59b6; }
+        .type-砦 { background: #1abc9c; }
+        
+        /* メインコンテンツ */
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fafafa;
+        }
+        
+        .info-label {
+            background: #34495e;
+            color: white;
+            padding: 10px 15px;
+            min-width: 100px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-value {
+            padding: 10px 15px;
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 20px;
+            background: white;
+        }
+        
+        .access-section iframe {
+            margin: 15px 0;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #3498db;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        /* タブレット対応 */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+        }
+        
+        /* PC対応 */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <h1>{{城名}}</h1>
+        <p class="reading">{{読み方}}</p>
+    </header>
+    
+    <!-- ヒーロー画像 -->
+    <div class="hero">
+        <!-- Google Maps 航空写真 
+             使用方法: 
+             1. Google Mapsで城の場所を検索
+             2. 航空写真モードに切り替え
+             3. 適切なズームレベルに調整（城の全体像が見えるように）
+             4. 共有ボタン → 地図を埋め込む → HTMLをコピー
+             5. &maptype=satellite を追加して航空写真モードを強制
+        -->
+        <iframe
+            src="{{GOOGLE_MAPS_EMBED_URL}}&maptype=satellite"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="hero-overlay"></div>
+        <div class="hero-caption">
+            <span class="type type-{{種類}}">{{種類}}</span>
+            <h2>{{都道府県}}{{所在地}}</h2>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- 基本情報 -->
+        <section class="info-section">
+            <h2>基本情報</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">所在地</div>
+                    <div class="info-value">{{都道府県}}{{所在地}}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">築城年代</div>
+                    <div class="info-value">{{築城年代}}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">城主・築城者</div>
+                    <div class="info-value">{{城主・築城者}}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">別名</div>
+                    <div class="info-value">{{別名}}</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 特徴（備考がある場合） -->
+        {{#if 備考}}
+        <section class="info-section">
+            <h2>特徴・見どころ</h2>
+            <p style="padding: 10px; background: #f8f9fa; border-radius: 8px;">{{備考}}</p>
+        </section>
+        {{/if}}
+        
+        <!-- アクセス -->
+        <section class="access-section">
+            <h2>アクセス</h2>
+            <iframe
+                src="{{GOOGLE_MAPS_EMBED_URL}}"
+                width="100%"
+                height="200"
+                style="border:0; border-radius: 8px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>{{城名}}を訪れてみませんか？</h2>
+            <p>{{都道府県}}の歴史を感じる城跡へ</p>
+            <a href="/castle-list/{{都道府県}}" class="cta-button">{{都道府県}}の他の城を見る</a>
+        </section>
+    </div>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <p>© 2024 お城ファンページ</p>
+        <p><a href="/castle-list">お城一覧に戻る</a> | <a href="/castle-list/{{都道府県}}">{{都道府県}}の城一覧</a></p>
+    </footer>
+</body>
+</html>

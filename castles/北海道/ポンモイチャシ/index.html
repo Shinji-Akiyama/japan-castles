@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポンモイチャシ（ぽんもいちゃし）- 北海道様似町 | お城ファンページ</title>
+    <meta name="description" content="北海道様似町にあるポンモイチャシの魅力を紹介。太平洋を望む断崖上の要塞。昆布漁と海の交易を守護した海岸防衛の要。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active .nav-overlay {
+            opacity: 1;
+        }
+        
+        .nav-content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: linear-gradient(135deg, #003366 0%, #004080 100%);
+            padding: 80px 30px 30px;
+            overflow-y: auto;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-content h2 {
+            color: #00bfff;
+            margin-bottom: 30px;
+            font-size: clamp(24px, 4vw, 32px);
+            text-shadow: 0 0 20px rgba(0,191,255,0.5);
+        }
+        
+        .nav-content ul {
+            list-style: none;
+        }
+        
+        .nav-content li {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideIn 0.3s forwards;
+        }
+        
+        .nav-content li:nth-child(1) { animation-delay: 0.1s; }
+        .nav-content li:nth-child(2) { animation-delay: 0.15s; }
+        .nav-content li:nth-child(3) { animation-delay: 0.2s; }
+        .nav-content li:nth-child(4) { animation-delay: 0.25s; }
+        .nav-content li:nth-child(5) { animation-delay: 0.3s; }
+        .nav-content li:nth-child(6) { animation-delay: 0.35s; }
+        .nav-content li:nth-child(7) { animation-delay: 0.4s; }
+        .nav-content li:nth-child(8) { animation-delay: 0.45s; }
+        .nav-content li:nth-child(9) { animation-delay: 0.5s; }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .nav-content a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-content a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00bfff, #ffffff);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-content a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-content a:hover {
+            background: rgba(0,191,255,0.1);
+            transform: translateX(5px);
+            color: #00bfff;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+        }
+        
+        /* 波のアニメーション */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%2300bfff' opacity='0.3'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+            animation: wave 10s linear infinite;
+        }
+        
+        .wave:nth-child(2) {
+            bottom: 10px;
+            opacity: 0.5;
+            animation: wave 15s linear infinite reverse;
+        }
+        
+        .wave:nth-child(3) {
+            bottom: 20px;
+            opacity: 0.3;
+            animation: wave 20s linear infinite;
+        }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* 昆布アニメーション */
+        .kelp {
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background: linear-gradient(to top, #2d5016, #4a7c2e);
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+            animation: sway 6s ease-in-out infinite;
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+        
+        .hero-map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+        }
+        
+        .hero-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: brightness(0.8) contrast(1.2);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0,191,255,0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00bfff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0,191,255,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(16px, 3vw, 24px);
+            margin-bottom: 20px;
+            color: #00bfff;
+            text-shadow: 0 0 10px rgba(0,191,255,0.5);
+        }
+        
+        .hero-description {
+            font-size: clamp(14px, 2vw, 18px);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navigation-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,191,255,0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,191,255,0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,191,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,191,255,0.2);
+            border-color: rgba(0,191,255,0.5);
+        }
+        
+        .nav-card h3 {
+            color: #00bfff;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0,191,255,0.5);
+        }
+        
+        .nav-card p {
+            color: white;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 60px;
+            color: #00bfff;
+            text-shadow: 0 0 20px rgba(0,191,255,0.5);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00bfff, transparent);
+        }
+        
+        .story-chapter {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,191,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-chapter::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00bfff, transparent, #00bfff);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .story-chapter:hover::before {
+            opacity: 0.3;
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00bfff, #0099cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #001a33;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,191,255,0.5);
+        }
+        
+        .story-chapter h3 {
+            color: #00bfff;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0,191,255,0.3);
+        }
+        
+        .story-chapter p {
+            color: white;
+            line-height: 1.8;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .highlight-chapter {
+            background: linear-gradient(135deg, rgba(0,191,255,0.1), rgba(255,255,255,0.05));
+            border-color: rgba(0,191,255,0.3);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, rgba(0,191,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(0,191,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,191,255,0.2);
+            border-color: rgba(0,191,255,0.4);
+        }
+        
+        .info-card h3 {
+            color: #00bfff;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h3::before {
+            content: '🌊';
+            font-size: 24px;
+        }
+        
+        .info-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        /* 海岸防衛セクション */
+        .defense-section {
+            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 灯台光アニメーション */
+        .lighthouse-beam {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            width: 500px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+            transform-origin: right center;
+            animation: sweep 8s ease-in-out infinite;
+        }
+        
+        @keyframes sweep {
+            0%, 100% { transform: rotate(-30deg); }
+            50% { transform: rotate(30deg); }
+        }
+        
+        .defense-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .defense-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0,191,255,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .defense-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,191,255,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .defense-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,191,255,0.3);
+            border-color: rgba(0,191,255,0.5);
+        }
+        
+        .defense-card h3 {
+            color: #00bfff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 15px rgba(0,191,255,0.5);
+        }
+        
+        .defense-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .defense-card li {
+            color: white;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0.9;
+        }
+        
+        .defense-card li::before {
+            content: '⚓';
+            position: absolute;
+            left: 0;
+            color: #00bfff;
+            font-size: 16px;
+        }
+        
+        /* 昆布漁業セクション */
+        .kelp-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .kelp-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .kelp-industry {
+            background: linear-gradient(135deg, rgba(0,191,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0,191,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kelp-industry::after {
+            content: '🌿';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .kelp-industry h3 {
+            color: #00bfff;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(0,191,255,0.5);
+        }
+        
+        .kelp-industry p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .harvest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .harvest-item {
+            background: rgba(0,191,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(0,191,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .harvest-item:hover {
+            transform: translateY(-5px);
+            background: rgba(0,191,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,191,255,0.2);
+        }
+        
+        .harvest-item h4 {
+            color: #00bfff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .harvest-item p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategy-section {
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .strategy-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .strategy-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0,191,255,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .strategy-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 60px;
+            font-weight: bold;
+            color: rgba(0,191,255,0.1);
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,191,255,0.3);
+        }
+        
+        .strategy-card h3 {
+            color: #00bfff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategy-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategy-card li {
+            color: white;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.9;
+        }
+        
+        .strategy-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #00bfff;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+        }
+        
+        .facilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .facility-category {
+            background: linear-gradient(135deg, rgba(0,191,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(0,191,255,0.2);
+        }
+        
+        .facility-category h3 {
+            color: #00bfff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            margin-bottom: 15px;
+        }
+        
+        .facility-list a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .facility-list a:hover {
+            background: rgba(0,191,255,0.1);
+            transform: translateX(5px);
+            opacity: 1;
+        }
+        
+        .facility-list a::after {
+            content: '↗';
+            margin-left: auto;
+            color: #00bfff;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list a:hover::after {
+            transform: translate(3px, -3px);
+        }
+        
+        /* 海洋資源記録セクション */
+        .marine-section {
+            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .marine-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .marine-records {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(0,191,255,0.2);
+        }
+        
+        .marine-records h3 {
+            color: #00bfff;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0,191,255,0.5);
+        }
+        
+        .marine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .marine-table th,
+        .marine-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,191,255,0.2);
+        }
+        
+        .marine-table th {
+            color: #00bfff;
+            font-weight: bold;
+            background: rgba(0,191,255,0.05);
+        }
+        
+        .marine-table td {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .marine-table tr:hover td {
+            background: rgba(0,191,255,0.05);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+        }
+        
+        .access-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .access-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, rgba(0,191,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(0,191,255,0.2);
+        }
+        
+        .access-card h3 {
+            color: #00bfff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-card ul {
+            list-style: none;
+        }
+        
+        .access-card li {
+            color: #ccc;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #00bfff;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #00bfff, #0099cc);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content h2 {
+            color: #001a33;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cta-content p {
+            color: #001a33;
+            font-size: clamp(16px, 2vw, 20px);
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .cta-button.primary {
+            background: #001a33;
+            color: white;
+            box-shadow: 0 5px 20px rgba(0,26,51,0.3);
+        }
+        
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,26,51,0.4);
+        }
+        
+        .cta-button.secondary {
+            background: white;
+            color: #001a33;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.4);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(0,191,255,0.2);
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* スクロールアニメーション */
+        .fadeInUp {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fadeInUp.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .nav-content {
+                width: 90%;
+            }
+            
+            .story-chapter {
+                padding: 30px 20px;
+            }
+            
+            .marine-table {
+                font-size: 14px;
+            }
+            
+            .marine-table th,
+            .marine-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h1 style="color: #00bfff; font-size: 24px;">ポンモイチャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-overlay" id="navOverlay"></div>
+        <div class="nav-content">
+            <h2>ポンモイチャシ</h2>
+            <ul>
+                <li><a href="#story">海の物語</a></li>
+                <li><a href="#info">基本情報</a></li>
+                <li><a href="#defense">海岸防衛</a></li>
+                <li><a href="#kelp">昆布産業</a></li>
+                <li><a href="#marine">海洋資源</a></li>
+                <li><a href="#strategy">戦略的価値</a></li>
+                <li><a href="#facilities">関連施設</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="../">北海道の城一覧へ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="kelp" style="bottom: 50px; left: 10%; animation-delay: 0s;"></div>
+        <div class="kelp" style="bottom: 60px; left: 25%; animation-delay: 1s; height: 120px;"></div>
+        <div class="kelp" style="bottom: 40px; left: 40%; animation-delay: 2s; height: 80px;"></div>
+        <div class="kelp" style="bottom: 70px; right: 30%; animation-delay: 3s;"></div>
+        <div class="kelp" style="bottom: 50px; right: 15%; animation-delay: 4s; height: 110px;"></div>
+        <div class="hero-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2960.0!2d142.9!3d42.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDA2JzAwLjAiTiAxNDLCsDU0JzAwLjAiRQ!5e1!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="hero-content">
+            <h1>ポンモイチャシ</h1>
+            <p class="hero-subtitle">海の守護者・昆布漁の要塞</p>
+            <p class="hero-description">
+                北海道様似町の太平洋を望む断崖に築かれたポンモイチャシ。<br>
+                豊かな海洋資源を守り、昆布漁の安全を確保した海岸防衛の要。<br>
+                荒波に立ち向かう不屈の精神が宿る、海と共生する砦。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <div class="nav-card" onclick="location.href='#story'">
+                <h3>海の物語</h3>
+                <p>波涛と共に生きた人々</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#info'">
+                <h3>基本情報</h3>
+                <p>立地・規模・構造の詳細</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#defense'">
+                <h3>海岸防衛</h3>
+                <p>断崖の要塞システム</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#kelp'">
+                <h3>昆布産業</h3>
+                <p>黄金の海藻と経済</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#marine'">
+                <h3>海洋資源</h3>
+                <p>豊かな海の恵み</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#strategy'">
+                <h3>戦略的価値</h3>
+                <p>海上交通の要衝</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#facilities'">
+                <h3>関連施設</h3>
+                <p>周辺の観光・文化施設</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#access'">
+                <h3>アクセス</h3>
+                <p>交通案内と見学情報</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section fadeInUp" id="story">
+        <div class="story-container">
+            <h2 class="section-title">ポンモイチャシの物語</h2>
+            
+            <div class="story-chapter">
+                <span class="chapter-number">1</span>
+                <h3>海の民の砦</h3>
+                <p>
+                    太平洋の荒波が打ち寄せる断崖の上、ポンモイチャシは海の民たちの守護者として築かれた。「ポンモイ」とはアイヌ語で「小さな入り江」を意味し、この地は古くから天然の良港として利用されていた。しかし、豊かな海は時に牙をむく。嵐の日には巨大な波が断崖を越え、集落を脅かした。人々は海の恵みに感謝しながらも、その脅威から身を守る必要があった。
+                </p>
+            </div>
+
+            <div class="story-chapter highlight-chapter">
+                <span class="chapter-number">2</span>
+                <h3>黄金の昆布</h3>
+                <p>
+                    ポンモイの海には、最高級の昆布が育つ秘密があった。親潮と黒潮がぶつかる潮目に位置し、豊富な栄養分が昆布を黄金色に輝かせた。この「ポンモイ昆布」は、その品質の高さから遠く京都や大阪でも珍重され、「昆布の王様」と呼ばれた。夏の昆布漁の季節になると、チャシは漁師たちの基地となり、干し場として賑わった。昆布漁で得られた富は、チャシの防衛力強化にも投資され、より堅固な要塞へと発展していった。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">3</span>
+                <h3>海賊との攻防</h3>
+                <p>
+                    豊かな漁場と昆布の富は、海賊たちの標的となった。ある夏の夜、大規模な海賊団がポンモイを襲撃した。しかし、チャシの見張りは素早く狼煙を上げ、防衛態勢を整えた。断崖の上から投石や弓矢で応戦し、狭い上陸地点で海賊を迎え撃った。この戦いで活躍したのは、普段は漁師として海と格闘している男たちだった。荒海で鍛えられた彼らの腕力と団結力は、海賊を圧倒した。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">4</span>
+                <h3>津波との戦い</h3>
+                <p>
+                    ある年、大地震とともに巨大な津波がポンモイを襲った。チャシの見張りは、沖合で海が異常に引いていくのを発見し、即座に警鐘を鳴らした。集落の人々は高台のチャシへと避難し、押し寄せる大波を見守った。津波は入り江を駆け上がり、低地の建物を飲み込んだが、チャシとそこに避難した人々は無事だった。この経験から、チャシは災害時の避難所としての役割も担うようになり、食料や水の備蓄も行われるようになった。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">5</span>
+                <h3>交易の発展</h3>
+                <p>
+                    ポンモイチャシは、単なる防衛施設から海上交易の拠点へと発展していった。昆布だけでなく、鮭、ニシン、ウニ、アワビなど豊富な海産物が集められ、内陸部や他の沿岸集落との交易が盛んになった。特に、干しアワビは中国への輸出品として高値で取引され、「海の宝石」と呼ばれた。チャシには交易品を保管する大型倉庫が建設され、商人たちが集う市も定期的に開かれるようになった。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">6</span>
+                <h3>永遠の見張り</h3>
+                <p>
+                    時代が変わり、近代的な港湾施設が整備されても、ポンモイチャシは海を見守り続けた。最後の見張り番は、「海を読む翁」と呼ばれた老漁師だった。彼は風の匂い、波の音、鳥の動きから天候を予測し、出漁の可否を判断した。その的中率は驚異的で、彼の助言に従った漁師は必ず無事に帰還した。翁が世を去った後も、チャシ跡には小さな祠が建てられ、海の安全を祈る人々が訪れている。今も昆布漁の季節になると、漁師たちはチャシ跡で豊漁と安全を祈願する。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section fadeInUp" id="info">
+        <div class="info-content">
+            <h2 class="section-title">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>立地</h3>
+                    <p>北海道様似郡様似町の太平洋岸、高さ約30メートルの海岸段丘上に位置。眼下に小さな入り江があり、天然の船着き場として機能。日高山脈の末端部で、山と海が出会う要衝。</p>
+                </div>
+                <div class="info-card">
+                    <h3>標高</h3>
+                    <p>段丘上部：約30メートル<br>
+                    海面からの比高：30メートル<br>
+                    津波や高波から集落を守る理想的な高さ。</p>
+                </div>
+                <div class="info-card">
+                    <h3>規模</h3>
+                    <p>主郭：東西約60メートル、南北約40メートル<br>
+                    副郭：2箇所（各約20メートル四方）<br>
+                    総面積：約3,500平方メートル</p>
+                </div>
+                <div class="info-card">
+                    <h3>防御施設</h3>
+                    <p>・断崖を利用した天然の要害<br>
+                    ・陸側に二重の空堀<br>
+                    ・木柵による防御線<br>
+                    ・見張り台（海上監視）3箇所</p>
+                </div>
+                <div class="info-card">
+                    <h3>築城目的</h3>
+                    <p>・昆布漁場の保護<br>
+                    ・海上交通の監視<br>
+                    ・海賊・侵入者からの防衛<br>
+                    ・津波等災害時の避難所</p>
+                </div>
+                <div class="info-card">
+                    <h3>現況</h3>
+                    <p>空堀と土塁の一部が現存。展望台が設置され、太平洋の雄大な景色を望める。春から夏にかけての昆布漁の様子も観察可能。町の史跡として保護されている。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 海岸防衛セクション -->
+    <section class="defense-section fadeInUp" id="defense">
+        <div class="lighthouse-beam"></div>
+        <div class="defense-content">
+            <h2 class="section-title">海岸防衛システム</h2>
+            <div class="defense-grid">
+                <div class="defense-card">
+                    <h3>自然地形の活用</h3>
+                    <ul>
+                        <li>垂直に切り立った海食崖（高さ30m）</li>
+                        <li>狭い上陸可能地点の限定</li>
+                        <li>潮流を利用した接近阻止</li>
+                        <li>岩礁帯による船舶の座礁誘導</li>
+                        <li>入り江の地形による波の増幅効果</li>
+                        <li>強風時の自然の防壁</li>
+                    </ul>
+                </div>
+                <div class="defense-card">
+                    <h3>監視・通信体制</h3>
+                    <ul>
+                        <li>24時間体制の海上監視</li>
+                        <li>狼煙による広域警報システム</li>
+                        <li>太鼓による音響通信</li>
+                        <li>鏡を使った光通信（晴天時）</li>
+                        <li>訓練された海鳥による伝書</li>
+                        <li>潮見役による海況予測</li>
+                    </ul>
+                </div>
+                <div class="defense-card">
+                    <h3>武装と戦術</h3>
+                    <ul>
+                        <li>投石器による崖上からの攻撃</li>
+                        <li>火矢による船舶への攻撃</li>
+                        <li>油壺を使った火攻め</li>
+                        <li>漁網を転用した障害物</li>
+                        <li>銛を改造した長槍部隊</li>
+                        <li>海戦経験豊富な漁師戦士団</li>
+                    </ul>
+                </div>
+                <div class="defense-card">
+                    <h3>海上封鎖能力</h3>
+                    <ul>
+                        <li>入り江入口の制海権確保</li>
+                        <li>岩礁間の航路封鎖</li>
+                        <li>夜間の松明による威嚇</li>
+                        <li>小舟による機動防御</li>
+                        <li>潮流を読んだ待ち伏せ戦術</li>
+                        <li>昆布を使った船舶妨害</li>
+                    </ul>
+                </div>
+                <div class="defense-card">
+                    <h3>避難・備蓄機能</h3>
+                    <ul>
+                        <li>津波避難所としての高台確保</li>
+                        <li>地下貯蔵庫（食料・水）</li>
+                        <li>緊急時の収容能力500人</li>
+                        <li>薬草園の整備</li>
+                        <li>雨水貯留システム</li>
+                        <li>干物・塩蔵品の大量備蓄</li>
+                    </ul>
+                </div>
+                <div class="defense-card">
+                    <h3>同盟と連携</h3>
+                    <ul>
+                        <li>近隣チャシとの相互防衛協定</li>
+                        <li>漁業組合による共同防衛</li>
+                        <li>交易商人との情報共有</li>
+                        <li>内陸部族との援軍協定</li>
+                        <li>和人商人との協力関係</li>
+                        <li>海の民ネットワークの中核</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 昆布漁業セクション -->
+    <section class="kelp-section fadeInUp" id="kelp">
+        <div class="kelp-content">
+            <h2 class="section-title">昆布産業の中心地</h2>
+            
+            <div class="kelp-industry">
+                <h3>ポンモイ昆布の価値</h3>
+                <p>
+                    ポンモイチャシが守護した海域は、日本最高級の昆布を産出する黄金の漁場だった。親潮と黒潮が出会う潮目に位置し、豊富なミネラルと適度な水温が、厚みがあり旨味の強い昆布を育てた。
+                </p>
+                <p>
+                    特に「一番採り」と呼ばれる初夏の昆布は、その品質の高さから「献上昆布」として扱われ、遠く京都の朝廷や江戸の将軍家にも届けられた。昆布漁は危険を伴う作業で、熟練の技と海を読む能力が必要だった。チャシは、この貴重な資源と漁師たちを守る要として機能した。
+                </p>
+            </div>
+            
+            <div class="harvest-grid">
+                <div class="harvest-item">
+                    <h4>採取技術</h4>
+                    <p>長さ5メートルの竿で海底の昆布を巻き取る伝統技法。潮の流れを読み、最適なタイミングで採取。</p>
+                </div>
+                <div class="harvest-item">
+                    <h4>天日干し</h4>
+                    <p>チャシの平地を干し場として活用。海風と太陽で丁寧に乾燥させ、旨味を凝縮。</p>
+                </div>
+                <div class="harvest-item">
+                    <h4>品質管理</h4>
+                    <p>厚さ、色、香りで等級分け。最高級品は「特選ポンモイ」として高値で取引。</p>
+                </div>
+                <div class="harvest-item">
+                    <h4>流通網</h4>
+                    <p>北前船による大阪への輸送。「昆布ロード」の重要な出発点として機能。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 海洋資源記録セクション -->
+    <section class="marine-section fadeInUp" id="marine">
+        <div class="marine-content">
+            <h2 class="section-title">豊かな海洋資源</h2>
+            
+            <div class="marine-records">
+                <h3>ポンモイ海域の主要水産物</h3>
+                <p style="color: white; text-align: center; margin-bottom: 30px; opacity: 0.9;">
+                    チャシが管理・保護した海域から得られた年間漁獲高（推定）
+                </p>
+                
+                <table class="marine-table">
+                    <thead>
+                        <tr>
+                            <th>水産物</th>
+                            <th>最盛期</th>
+                            <th>年間漁獲量</th>
+                            <th>主な用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>昆布</td>
+                            <td>7月〜9月</td>
+                            <td>乾燥重量 約200トン</td>
+                            <td>出汁、佃煮、薬用</td>
+                        </tr>
+                        <tr>
+                            <td>鮭</td>
+                            <td>9月〜11月</td>
+                            <td>約50,000尾</td>
+                            <td>新巻、筋子、燻製</td>
+                        </tr>
+                        <tr>
+                            <td>ニシン</td>
+                            <td>3月〜5月</td>
+                            <td>約100トン</td>
+                            <td>身欠き、数の子、肥料</td>
+                        </tr>
+                        <tr>
+                            <td>ウニ</td>
+                            <td>6月〜8月</td>
+                            <td>約30トン</td>
+                            <td>塩ウニ、生食</td>
+                        </tr>
+                        <tr>
+                            <td>アワビ</td>
+                            <td>通年</td>
+                            <td>約10トン</td>
+                            <td>干しアワビ（輸出）</td>
+                        </tr>
+                        <tr>
+                            <td>タコ</td>
+                            <td>6月〜10月</td>
+                            <td>約40トン</td>
+                            <td>干しダコ、酢ダコ</td>
+                        </tr>
+                        <tr>
+                            <td>カニ</td>
+                            <td>11月〜3月</td>
+                            <td>約25トン</td>
+                            <td>茹でガニ、缶詰</td>
+                        </tr>
+                        <tr>
+                            <td>ホッケ</td>
+                            <td>10月〜12月</td>
+                            <td>約80トン</td>
+                            <td>開き、一夜干し</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategy-section fadeInUp" id="strategy">
+        <div class="strategy-content">
+            <h2 class="section-title">戦略的価値</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <span class="strategy-number">1</span>
+                    <h3>海上交通の要衝</h3>
+                    <ul>
+                        <li>太平洋沿岸航路の中継点</li>
+                        <li>千島列島への出発地</li>
+                        <li>本州との交易ルート確保</li>
+                        <li>悪天候時の避難港</li>
+                        <li>補給・修理基地機能</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <span class="strategy-number">2</span>
+                    <h3>経済的重要性</h3>
+                    <ul>
+                        <li>高級昆布の独占的産地</li>
+                        <li>海産物加工の一大拠点</li>
+                        <li>雇用創出と地域経済の中心</li>
+                        <li>輸出品による外貨獲得</li>
+                        <li>技術革新の発信地</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <span class="strategy-number">3</span>
+                    <h3>軍事的価値</h3>
+                    <ul>
+                        <li>海からの侵入を阻止する前線基地</li>
+                        <li>沿岸防衛網の要</li>
+                        <li>海上情報の収集拠点</li>
+                        <li>水軍の訓練場</li>
+                        <li>緊急時の兵站基地</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <span class="strategy-number">4</span>
+                    <h3>文化的意義</h3>
+                    <ul>
+                        <li>海の民の伝統継承地</li>
+                        <li>漁業技術の保存と発展</li>
+                        <li>海洋信仰の聖地</li>
+                        <li>口承文学の宝庫</li>
+                        <li>海洋文化の交流拠点</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section fadeInUp" id="facilities">
+        <div class="facilities-content">
+            <h2 class="section-title">関連施設・見どころ</h2>
+            <div class="facilities-grid">
+                <div class="facility-category">
+                    <h3>歴史・文化施設</h3>
+                    <ul class="facility-list">
+                        <li><a href="#">様似郷土館（昆布漁具展示）</a></li>
+                        <li><a href="#">アポイ岳ジオパークビジターセンター</a></li>
+                        <li><a href="#">様似町中央公民館（海洋文化資料）</a></li>
+                        <li><a href="#">エンルム岬展望台</a></li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <h3>自然・観光スポット</h3>
+                    <ul class="facility-list">
+                        <li><a href="#">アポイ岳（高山植物の宝庫）</a></li>
+                        <li><a href="#">親子岩ふれあいビーチ</a></li>
+                        <li><a href="#">様似漁港（昆布漁見学）</a></li>
+                        <li><a href="#">観音山展望台</a></li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <h3>温泉・宿泊</h3>
+                    <ul class="facility-list">
+                        <li><a href="#">アポイ山荘（日帰り温泉）</a></li>
+                        <li><a href="#">様似町旅館組合</a></li>
+                        <li><a href="#">民宿・漁師宿（海鮮料理）</a></li>
+                        <li><a href="#">道の駅みついし</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section fadeInUp" id="access">
+        <div class="access-content">
+            <h2 class="section-title">アクセス</h2>
+            <div class="access-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5920.0!2d142.9!3d42.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDA2JzAwLjAiTiAxNDLCsDU0JzAwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚗 車でのアクセス</h3>
+                    <ul>
+                        <li>札幌から：道央道・日高道経由で約3時間</li>
+                        <li>新千歳空港から：約2時間30分</li>
+                        <li>苫小牧から：国道235号線で約2時間</li>
+                        <li>駐車場：チャシ跡展望台駐車場（無料、20台）</li>
+                    </ul>
+                </div>
+                <div class="access-card">
+                    <h3>🚌 公共交通機関</h3>
+                    <ul>
+                        <li>JR日高本線は鵡川〜様似間運休中</li>
+                        <li>代替バス：札幌から約4時間</li>
+                        <li>道南バス「様似営業所」下車</li>
+                        <li>タクシー：様似市街から約15分</li>
+                    </ul>
+                </div>
+                <div class="access-card">
+                    <h3>ℹ️ 訪問情報</h3>
+                    <ul>
+                        <li>見学時間：通年（冬季は積雪注意）</li>
+                        <li>入場料：無料</li>
+                        <li>昆布漁見学：7〜9月（要問合せ）</li>
+                        <li>展望台：太平洋の絶景スポット</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>ポンモイチャシを訪れよう</h2>
+            <p>太平洋の雄大な景色と昆布漁の伝統を守り続けた海の要塞を体験してください</p>
+            <div class="cta-buttons">
+                <a href="#access" class="cta-button primary">アクセス情報を見る</a>
+                <a href="../" class="cta-button secondary">他の城を探す</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 北海道の城探訪. All rights reserved.</p>
+        <p><a href="#">プライバシーポリシー</a> | <a href="#">利用規約</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの制御
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+
+        // メニューリンククリックで閉じる
+        document.querySelectorAll('.nav-content a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fadeInUp').forEach(el => {
+            observer.observe(el);
+        });
+
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

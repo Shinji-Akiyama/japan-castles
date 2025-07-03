@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鶴沼チャシ（つるぬまちゃし）- 北海道浦幌町 | お城ファンページ</title>
+    <meta name="description" content="北海道浦幌町にある鶴沼チャシの魅力を紹介。湿原の要塞として独特な防衛システムを持ち、鶴の聖地として崇められた神秘的なチャシ。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu.active li:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu.active li:nth-child(7) { transition-delay: 0.7s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #0891b2);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+        
+        .story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .story-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0f172a;
+            position: relative;
+        }
+        
+        .story-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #06b6d4, #0891b2);
+            border-radius: 2px;
+        }
+        
+        .story-chapters {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .story-chapter {
+            position: relative;
+            padding-left: 100px;
+            opacity: 0;
+            animation: fadeInSlide 0.8s ease forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(6, 182, 212, 0.3);
+        }
+        
+        .story-chapter.highlight .chapter-number {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .chapter-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        
+        .chapter-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, #06b6d4 0%, #0891b2 100%) 1;
+        }
+        
+        .story-chapter.highlight .chapter-content {
+            border-image: linear-gradient(180deg, #10b981 0%, #059669 100%) 1;
+        }
+        
+        .chapter-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #06b6d4;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #0891b2);
+            border-radius: 2px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #06b6d4 0%, #0891b2 100%);
+        }
+        
+        .info-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .info-item p {
+            font-size: 18px;
+            color: #0f172a;
+            font-weight: 500;
+        }
+        
+        /* 湿原防衛システムセクション */
+        .wetland-defense {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #0e7490 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wetland-defense::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400"><path d="M0 200 Q250 150 500 200 T1000 200 L1000 400 L0 400 Z" fill="rgba(255,255,255,0.05)"/><path d="M0 250 Q250 200 500 250 T1000 250 L1000 400 L0 400 Z" fill="rgba(255,255,255,0.05)"/><path d="M0 300 Q250 250 500 300 T1000 300 L1000 400 L0 400 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat-x bottom;
+            animation: wetland-wave 20s linear infinite;
+        }
+        
+        @keyframes wetland-wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1000px); }
+        }
+        
+        .wetland-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .wetland-defense h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .defense-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .defense-item::after {
+            content: '';
+            position: absolute;
+            bottom: -100%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transition: all 0.5s ease;
+        }
+        
+        .defense-item:hover::after {
+            bottom: -50%;
+        }
+        
+        .defense-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .defense-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .defense-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e0f2fe;
+        }
+        
+        .defense-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 鶴の聖地セクション */
+        .crane-sanctuary {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .crane-sanctuary::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 Q50 50 40 100 T80 180 Q100 150 120 180 T160 100 Q150 50 100 20" fill="none" stroke="rgba(6,182,212,0.1)" stroke-width="2"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: crane-fly 10s ease-in-out infinite;
+        }
+        
+        @keyframes crane-fly {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-50px, -30px) rotate(-10deg); }
+            50% { transform: translate(-100px, 0) rotate(0deg); }
+            75% { transform: translate(-50px, 30px) rotate(10deg); }
+        }
+        
+        .crane-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .crane-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #0f172a;
+            margin-bottom: 60px;
+        }
+        
+        .crane-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .crane-feature {
+            text-align: center;
+            padding: 40px;
+            background: #f0fdfa;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid #ccfbf1;
+        }
+        
+        .crane-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+            border-color: #5eead4;
+        }
+        
+        .crane-icon {
+            font-size: 3rem;
+            color: #0891b2;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .crane-feature h3 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        
+        .crane-feature p {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .strategic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .strategic-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .strategic-header {
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            padding: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .strategic-number {
+            font-size: 3rem;
+            font-weight: 800;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .strategic-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-body {
+            padding: 30px;
+        }
+        
+        .strategic-body p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .strategic-list {
+            list-style: none;
+        }
+        
+        .strategic-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #64748b;
+        }
+        
+        .strategic-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #06b6d4;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .related-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .related-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .related-category h3 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #06b6d4;
+        }
+        
+        .related-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .related-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .related-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #06b6d4;
+        }
+        
+        .related-icon {
+            font-size: 28px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .related-info {
+            flex: 1;
+        }
+        
+        .related-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+        
+        .related-info p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+        
+        .related-arrow {
+            font-size: 20px;
+            color: #06b6d4;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .related-item:hover .related-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .access-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-card h3 {
+            font-size: 16px;
+            color: #06b6d4;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .access-card p {
+            color: #475569;
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #06b6d4;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #06b6d4;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #0ea5e9;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .story-chapter {
+                padding-left: 0;
+                padding-top: 100px;
+            }
+            
+            .chapter-number {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .defense-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 水面エフェクト */
+        .water-ripple {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: ripple 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* 鶴の飛翔アニメーション */
+        .crane-animation {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .crane-animation svg {
+            width: 100%;
+            height: 100%;
+            fill: #06b6d4;
+        }
+        
+        @keyframes crane-flight {
+            0% {
+                transform: translate(-100px, 100vh) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(100vw + 100px), -100px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>鶴沼チャシ</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#story">物語</a></li>
+                <li><a href="#info">基本情報</a></li>
+                <li><a href="#wetland">湿原防衛</a></li>
+                <li><a href="#crane">鶴の聖地</a></li>
+                <li><a href="#strategic">戦略的価値</a></li>
+                <li><a href="#related">関連施設</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d143.7011!3d42.9786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>鶴沼チャシ</h1>
+            <p class="subtitle">湿原に浮かぶ幻の要塞</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道浦幌町</p>
+                <p>🏯 種類：チャシ（湿原型防塞）</p>
+                <p>📅 築城年代：16-18世紀（アイヌ文化期）</p>
+                <p>🔍 特徴：湿地帯を利用した天然の要害</p>
+            </div>
+        </div>
+        <div class="water-ripple" style="top: 70%; left: 20%;"></div>
+        <div class="water-ripple" style="top: 80%; right: 30%; animation-delay: -1.5s;"></div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section id="story" class="story-section scroll-reveal">
+        <div class="story-container">
+            <h2 class="story-title">鶴沼チャシの物語</h2>
+            <div class="story-chapters">
+                <div class="story-chapter">
+                    <div class="chapter-number">第一章</div>
+                    <h3 class="chapter-title">湿原の守護者</h3>
+                    <div class="chapter-content">
+                        <p>浦幌の大地に広がる鶴沼は、古来より神聖な場所として崇められてきました。春になると数千羽の丹頂鶴が飛来し、その優雅な舞は、まるで天界からの使者のようでした。</p>
+                        <p>アイヌの人々は、この地を「ツル・ウン・トー」（鶴のいる沼）と呼び、鶴を神の使いとして大切に守ってきました。そして16世紀、この聖地を守るため、沼を取り囲む台地上に巧妙なチャシが築かれたのです。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">第二章</div>
+                    <h3 class="chapter-title">水の要塞</h3>
+                    <div class="chapter-content">
+                        <p>鶴沼チャシの最大の特徴は、湿原という天然の防御を最大限に活用した点にありました。春から夏にかけて、雪解け水で増水した沼は、まるで巨大な堀のように敵の侵入を阻みました。</p>
+                        <p>唯一の進入路である狭い陸橋には、複雑な罠が仕掛けられ、湿地に慣れない侵入者は、足を取られて身動きが取れなくなりました。まさに「水の要塞」と呼ぶにふさわしい、自然と人智が融合した防衛システムでした。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter highlight">
+                    <div class="chapter-number">第三章</div>
+                    <h3 class="chapter-title">鶴の警報システム</h3>
+                    <div class="chapter-content">
+                        <p>最も興味深いのは、鶴たちが果たした「生きた警報システム」としての役割でした。鶴は非常に警戒心が強く、少しでも異変を察知すると、甲高い鳴き声を上げて飛び立ちます。</p>
+                        <p>チャシの守備隊は、この習性を巧みに利用しました。数キロ先から近づく敵の存在を、鶴たちの動きで察知することができたのです。まさに自然との共生が生んだ、独創的な早期警戒システムでした。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">第四章</div>
+                    <h3 class="chapter-title">聖地の防衛戦</h3>
+                    <div class="chapter-content">
+                        <p>1669年のシャクシャインの戦いの際、鶴沼チャシは重要な役割を果たしました。道東のアイヌ勢力の連絡拠点として機能し、湿原の地の利を活かして、松前藩の追撃を何度も撃退しました。</p>
+                        <p>しかし、圧倒的な兵力差の前に、ついにチャシは陥落。それでも最後まで抵抗を続けた守備隊の勇気は、後世まで語り継がれることとなりました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">終章</div>
+                    <h3 class="chapter-title">永遠の聖地</h3>
+                    <div class="chapter-content">
+                        <p>現在も鶴沼には、春になると丹頂鶴が飛来します。かつてのチャシの跡は、わずかな土塁の痕跡を残すのみですが、この地が持つ神聖な雰囲気は今も変わりません。</p>
+                        <p>鶴沼チャシは、人と自然が調和した防衛システムの傑作として、また、アイヌ民族の知恵と勇気の証として、私たちに多くのことを教えてくれる貴重な遺産なのです。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section id="info" class="info-section scroll-reveal">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>立地</h3>
+                <p>浦幌町鶴沼周辺の台地上</p>
+            </div>
+            <div class="info-item">
+                <h3>標高</h3>
+                <p>約40m（沼面からの比高20m）</p>
+            </div>
+            <div class="info-item">
+                <h3>規模</h3>
+                <p>東西約300m、南北約200m</p>
+            </div>
+            <div class="info-item">
+                <h3>防御施設</h3>
+                <p>土塁、空堀、木柵（推定）</p>
+            </div>
+            <div class="info-item">
+                <h3>築城目的</h3>
+                <p>聖地防衛、交易路管理</p>
+            </div>
+            <div class="info-item">
+                <h3>現況</h3>
+                <p>土塁跡が一部残存</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 湿原防衛システムセクション -->
+    <section id="wetland" class="wetland-defense scroll-reveal">
+        <div class="wetland-content">
+            <h2>湿原防衛システム</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                自然地形を最大限に活用した独創的な防衛構想
+            </p>
+            
+            <div class="defense-grid">
+                <div class="defense-item">
+                    <span class="defense-icon">💧</span>
+                    <h3>天然の水堀</h3>
+                    <p>鶴沼とその周辺の湿地帯は、幅100m以上の天然の堀として機能。季節により水位が変動し、防御力も変化しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🌿</span>
+                    <h3>湿地の罠</h3>
+                    <p>一見通行可能に見える湿地も、実は底なし沼。地元の案内なしには、一歩も進めない天然の地雷原でした。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🌉</span>
+                    <h3>陸橋防御</h3>
+                    <p>唯一の進入路である狭い陸橋には、落とし穴や逆茂木が設置され、侵入者を効果的に阻止しました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🦅</span>
+                    <h3>鳥類警報</h3>
+                    <p>鶴だけでなく、水鳥全般が早期警戒システムとして機能。その動きから敵の規模や方向を読み取りました。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🎣</span>
+                    <h3>補給路確保</h3>
+                    <p>沼は豊富な魚介類の宝庫。籠城戦でも食料に困ることなく、長期戦が可能でした。</p>
+                </div>
+                
+                <div class="defense-item">
+                    <span class="defense-icon">🌫️</span>
+                    <h3>霧の活用</h3>
+                    <p>湿原特有の濃霧を利用した奇襲戦法。視界不良を味方につけ、少数でも大軍を翻弄できました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 鶴の聖地セクション -->
+    <section id="crane" class="crane-sanctuary scroll-reveal">
+        <div class="crane-content">
+            <h2 class="crane-title">鶴の聖地としての鶴沼</h2>
+            <div class="crane-features">
+                <div class="crane-feature">
+                    <span class="crane-icon">🦢</span>
+                    <h3>タンチョウの楽園</h3>
+                    <p>春から夏にかけて、数千羽のタンチョウが飛来。繁殖地として重要な役割を果たし、アイヌの人々は「サルルンカムイ」（湿原の神）として崇めました。</p>
+                </div>
+                
+                <div class="crane-feature">
+                    <span class="crane-icon">🌅</span>
+                    <h3>鶴の舞</h3>
+                    <p>早朝、霧の中で行われる鶴の求愛ダンスは、神秘的な光景。この舞は、重要な祭祀の際の舞踊にも取り入れられました。</p>
+                </div>
+                
+                <div class="crane-feature">
+                    <span class="crane-icon">🪶</span>
+                    <h3>神聖な羽根</h3>
+                    <p>鶴の羽根は、最も神聖な儀式でのみ使用される貴重品。チャシの長は、この羽根を身につけることで、神の加護を得ると信じられていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section id="strategic" class="strategic-section scroll-reveal">
+        <div class="strategic-container">
+            <h2 class="section-title">鶴沼チャシの戦略的価値</h2>
+            <div class="strategic-grid">
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">01</div>
+                        <div class="strategic-title">交易路の管理</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>釧路から十勝へ抜ける内陸交易路の要衝に位置し、物資の流通を管理しました。</p>
+                        <ul class="strategic-list">
+                            <li>毛皮・海産物の中継地点</li>
+                            <li>内陸部への鉄器供給拠点</li>
+                            <li>情報収集の中心地</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">02</div>
+                        <div class="strategic-title">軍事的要衝</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>道東アイヌ勢力の連携拠点として、地域防衛の要となりました。</p>
+                        <ul class="strategic-list">
+                            <li>烽火による情報伝達網の中継点</li>
+                            <li>武器・兵糧の備蓄基地</li>
+                            <li>戦時の避難所機能</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">03</div>
+                        <div class="strategic-title">文化的中心地</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>聖地としての性格から、重要な祭祀や会議が行われる文化的中心地でした。</p>
+                        <ul class="strategic-list">
+                            <li>イオマンテ（熊送り）の開催地</li>
+                            <li>コタン間の紛争調停の場</li>
+                            <li>口承文学の伝承地</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section id="related" class="related-section scroll-reveal">
+        <div class="related-container">
+            <h2 class="section-title">関連施設・観光情報</h2>
+            <div class="related-grid">
+                <div class="related-category">
+                    <h3>周辺のチャシ群</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏰</span>
+                            <div class="related-info">
+                                <h4>オソウシナイチャシ</h4>
+                                <p>浦幌川沿いの要塞（車で30分）</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏰</span>
+                            <div class="related-info">
+                                <h4>十勝太チャシ</h4>
+                                <p>太平洋岸の監視拠点（車で40分）</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-category">
+                    <h3>博物館・資料館</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏛️</span>
+                            <div class="related-info">
+                                <h4>浦幌町立博物館</h4>
+                                <p>チャシ関連資料を常設展示</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">📚</span>
+                            <div class="related-info">
+                                <h4>アイヌ文化資料室</h4>
+                                <p>伝統文化と歴史を学べる施設</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-category">
+                    <h3>自然観察</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🦢</span>
+                            <div class="related-info">
+                                <h4>鶴沼野鳥観察舎</h4>
+                                <p>タンチョウ観察の最適地</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🌿</span>
+                            <div class="related-info">
+                                <h4>浦幌湿原散策路</h4>
+                                <p>湿原の自然を体感できる遊歩道</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="access-section scroll-reveal">
+        <div class="access-container">
+            <h2 class="section-title">アクセス情報</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d143.7011!3d42.9786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚗 車でのアクセス</h3>
+                    <p>帯広市から約1時間</p>
+                    <p>釧路市から約1時間30分</p>
+                    <p>道東自動車道 浦幌ICから20分</p>
+                </div>
+                <div class="access-card">
+                    <h3>🚌 公共交通機関</h3>
+                    <p>JR根室本線 浦幌駅下車</p>
+                    <p>駅からタクシーで約15分</p>
+                    <p>※路線バスは運行なし</p>
+                </div>
+                <div class="access-card">
+                    <h3>🕒 見学情報</h3>
+                    <p>見学自由（24時間）</p>
+                    <p>駐車場：あり（無料・10台）</p>
+                    <p>トイレ：なし</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">鶴沼チャシを訪れよう</h2>
+            <p class="cta-description">
+                湿原の要塞が語る、人と自然の共生の物語を体感してください
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">パンフレットダウンロード</a>
+                <a href="/castles/北海道/" class="cta-button secondary">他の北海道の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 鶴沼チャシ - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 水面エフェクトの動的生成
+        function createRipple() {
+            const wetlandSection = document.querySelector('.wetland-defense');
+            const ripple = document.createElement('div');
+            ripple.className = 'water-ripple';
+            ripple.style.left = Math.random() * 100 + '%';
+            ripple.style.top = Math.random() * 100 + '%';
+            wetlandSection.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 3000);
+        }
+
+        setInterval(createRipple, 2000);
+
+        // 鶴の飛翔アニメーション
+        function createCrane() {
+            const crane = document.createElement('div');
+            crane.className = 'crane-animation';
+            crane.innerHTML = '<svg viewBox="0 0 100 100"><path d="M20 50 Q30 30 50 40 Q70 50 80 30 L70 50 Q50 60 30 50 Z"/></svg>';
+            crane.style.animation = `crane-flight ${10 + Math.random() * 10}s linear`;
+            document.body.appendChild(crane);
+            
+            crane.addEventListener('animationend', () => {
+                crane.remove();
+            });
+        }
+
+        // 10秒ごとに鶴を飛ばす
+        setInterval(createCrane, 10000);
+        createCrane(); // 初回実行
+    </script>
+</body>
+</html>

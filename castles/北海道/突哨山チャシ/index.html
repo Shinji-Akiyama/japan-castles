@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>突哨山チャシ（とっしょうざんちゃし）- 北海道旭川市 | お城ファンページ</title>
+    <meta name="description" content="北海道旭川市にある突哨山チャシの魅力を紹介。上川盆地を一望する戦略的要地。石狩川流域の監視と防衛の要として機能した山城。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active .nav-overlay {
+            opacity: 1;
+        }
+        
+        .nav-content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: linear-gradient(135deg, #2d4a2b 0%, #1a2e19 100%);
+            padding: 80px 30px 30px;
+            overflow-y: auto;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-content h2 {
+            color: #90ee90;
+            margin-bottom: 30px;
+            font-size: clamp(24px, 4vw, 32px);
+            text-shadow: 0 0 20px rgba(144,238,144,0.5);
+        }
+        
+        .nav-content ul {
+            list-style: none;
+        }
+        
+        .nav-content li {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideIn 0.3s forwards;
+        }
+        
+        .nav-content li:nth-child(1) { animation-delay: 0.1s; }
+        .nav-content li:nth-child(2) { animation-delay: 0.15s; }
+        .nav-content li:nth-child(3) { animation-delay: 0.2s; }
+        .nav-content li:nth-child(4) { animation-delay: 0.25s; }
+        .nav-content li:nth-child(5) { animation-delay: 0.3s; }
+        .nav-content li:nth-child(6) { animation-delay: 0.35s; }
+        .nav-content li:nth-child(7) { animation-delay: 0.4s; }
+        .nav-content li:nth-child(8) { animation-delay: 0.45s; }
+        .nav-content li:nth-child(9) { animation-delay: 0.5s; }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .nav-content a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-content a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #90ee90, #ffffff);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-content a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-content a:hover {
+            background: rgba(144,238,144,0.1);
+            transform: translateX(5px);
+            color: #90ee90;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2e19 0%, #2d4a2b 100%);
+        }
+        
+        /* 山霧エフェクト */
+        .mist {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            background: linear-gradient(to top, rgba(255,255,255,0.2), transparent);
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(50px) translateY(-30px); }
+        }
+        
+        /* 鷹のシルエット */
+        .hawk {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cpath d='M30 5 Q20 15 10 10 Q15 20 30 20 Q45 20 50 10 Q40 15 30 5' fill='%23000' /%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            animation: soar 30s linear infinite;
+        }
+        
+        @keyframes soar {
+            from {
+                transform: translate(-100px, 100px);
+            }
+            to {
+                transform: translate(calc(100vw + 100px), -100px);
+            }
+        }
+        
+        .hero-map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+        }
+        
+        .hero-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: contrast(1.1) brightness(0.9);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(144,238,144,0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #90ee90, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(144,238,144,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(16px, 3vw, 24px);
+            margin-bottom: 20px;
+            color: #90ee90;
+            text-shadow: 0 0 10px rgba(144,238,144,0.5);
+        }
+        
+        .hero-description {
+            font-size: clamp(14px, 2vw, 18px);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #2d4a2b 0%, #1a2e19 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navigation-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(144,238,144,0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(144,238,144,0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(144,238,144,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(144,238,144,0.2);
+            border-color: rgba(144,238,144,0.5);
+        }
+        
+        .nav-card h3 {
+            color: #90ee90;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(144,238,144,0.5);
+        }
+        
+        .nav-card p {
+            color: white;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: linear-gradient(135deg, #1a2e19 0%, #2d4a2b 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 60px;
+            color: #90ee90;
+            text-shadow: 0 0 20px rgba(144,238,144,0.5);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #90ee90, transparent);
+        }
+        
+        .story-chapter {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(144,238,144,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-chapter::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #90ee90, transparent, #90ee90);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .story-chapter:hover::before {
+            opacity: 0.3;
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #90ee90, #7dd87d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a2e19;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(144,238,144,0.5);
+        }
+        
+        .story-chapter h3 {
+            color: #90ee90;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(144,238,144,0.3);
+        }
+        
+        .story-chapter p {
+            color: white;
+            line-height: 1.8;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .highlight-chapter {
+            background: linear-gradient(135deg, rgba(144,238,144,0.1), rgba(255,255,255,0.05));
+            border-color: rgba(144,238,144,0.3);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, rgba(144,238,144,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(144,238,144,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(144,238,144,0.2);
+            border-color: rgba(144,238,144,0.4);
+        }
+        
+        .info-card h3 {
+            color: #90ee90;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h3::before {
+            content: '⛰️';
+            font-size: 24px;
+        }
+        
+        .info-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        /* 戦略監視セクション */
+        .surveillance-section {
+            background: linear-gradient(135deg, #2d4a2b 0%, #1a2e19 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* レーダー効果 */
+        .radar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+        }
+        
+        .radar-sweep {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 50%;
+            background: linear-gradient(to bottom, transparent, #90ee90);
+            transform-origin: center bottom;
+            animation: sweep 4s linear infinite;
+        }
+        
+        @keyframes sweep {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .surveillance-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .surveillance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .surveillance-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(144,238,144,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .surveillance-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(144,238,144,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .surveillance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(144,238,144,0.3);
+            border-color: rgba(144,238,144,0.5);
+        }
+        
+        .surveillance-card h3 {
+            color: #90ee90;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 15px rgba(144,238,144,0.5);
+        }
+        
+        .surveillance-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .surveillance-card li {
+            color: white;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0.9;
+        }
+        
+        .surveillance-card li::before {
+            content: '👁️';
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+        
+        /* 地形利用セクション */
+        .terrain-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .terrain-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .terrain-features {
+            background: linear-gradient(135deg, rgba(144,238,144,0.05), rgba(255,255,255,0.02));
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(144,238,144,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terrain-features::after {
+            content: '🗻';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .terrain-features h3 {
+            color: #90ee90;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(144,238,144,0.5);
+        }
+        
+        .terrain-features p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .terrain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .terrain-item {
+            background: rgba(144,238,144,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(144,238,144,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .terrain-item:hover {
+            transform: translateY(-5px);
+            background: rgba(144,238,144,0.1);
+            box-shadow: 0 10px 30px rgba(144,238,144,0.2);
+        }
+        
+        .terrain-item h4 {
+            color: #90ee90;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .terrain-item p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategy-section {
+            background: linear-gradient(135deg, #1a2e19 0%, #2d4a2b 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .strategy-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .strategy-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(144,238,144,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .strategy-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 60px;
+            font-weight: bold;
+            color: rgba(144,238,144,0.1);
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(144,238,144,0.3);
+        }
+        
+        .strategy-card h3 {
+            color: #90ee90;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategy-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategy-card li {
+            color: white;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.9;
+        }
+        
+        .strategy-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #90ee90;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+        }
+        
+        .facilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .facility-category {
+            background: linear-gradient(135deg, rgba(144,238,144,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(144,238,144,0.2);
+        }
+        
+        .facility-category h3 {
+            color: #90ee90;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            margin-bottom: 15px;
+        }
+        
+        .facility-list a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .facility-list a:hover {
+            background: rgba(144,238,144,0.1);
+            transform: translateX(5px);
+            opacity: 1;
+        }
+        
+        .facility-list a::after {
+            content: '↗';
+            margin-left: auto;
+            color: #90ee90;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list a:hover::after {
+            transform: translate(3px, -3px);
+        }
+        
+        /* 監視記録セクション */
+        .records-section {
+            background: linear-gradient(135deg, #2d4a2b 0%, #1a2e19 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .records-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .surveillance-records {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(144,238,144,0.2);
+        }
+        
+        .surveillance-records h3 {
+            color: #90ee90;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(144,238,144,0.5);
+        }
+        
+        .records-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .records-table th,
+        .records-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(144,238,144,0.2);
+        }
+        
+        .records-table th {
+            color: #90ee90;
+            font-weight: bold;
+            background: rgba(144,238,144,0.05);
+        }
+        
+        .records-table td {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .records-table tr:hover td {
+            background: rgba(144,238,144,0.05);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: #0f0f0f;
+            padding: 80px 20px;
+        }
+        
+        .access-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .access-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, rgba(144,238,144,0.05), rgba(255,255,255,0.02));
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(144,238,144,0.2);
+        }
+        
+        .access-card h3 {
+            color: #90ee90;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-card ul {
+            list-style: none;
+        }
+        
+        .access-card li {
+            color: #ccc;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #90ee90;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #90ee90, #7dd87d);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content h2 {
+            color: #1a2e19;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cta-content p {
+            color: #1a2e19;
+            font-size: clamp(16px, 2vw, 20px);
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .cta-button.primary {
+            background: #1a2e19;
+            color: white;
+            box-shadow: 0 5px 20px rgba(26,46,25,0.3);
+        }
+        
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26,46,25,0.4);
+        }
+        
+        .cta-button.secondary {
+            background: white;
+            color: #1a2e19;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.4);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(144,238,144,0.2);
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #90ee90;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* スクロールアニメーション */
+        .fadeInUp {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fadeInUp.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .nav-content {
+                width: 90%;
+            }
+            
+            .story-chapter {
+                padding: 30px 20px;
+            }
+            
+            .records-table {
+                font-size: 14px;
+            }
+            
+            .records-table th,
+            .records-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h1 style="color: #90ee90; font-size: 24px;">突哨山チャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-overlay" id="navOverlay"></div>
+        <div class="nav-content">
+            <h2>突哨山チャシ</h2>
+            <ul>
+                <li><a href="#story">山の物語</a></li>
+                <li><a href="#info">基本情報</a></li>
+                <li><a href="#surveillance">戦略監視</a></li>
+                <li><a href="#terrain">地形活用</a></li>
+                <li><a href="#records">監視記録</a></li>
+                <li><a href="#strategy">戦略的価値</a></li>
+                <li><a href="#facilities">関連施設</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="../">北海道の城一覧へ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="mist"></div>
+        <div class="hawk" style="animation-delay: 0s;"></div>
+        <div class="hawk" style="animation-delay: 10s;"></div>
+        <div class="hawk" style="animation-delay: 20s;"></div>
+        <div class="hero-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2910.0!2d142.4!3d43.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQyJzAwLjAiTiAxNDLCsDI0JzAwLjAiRQ!5e1!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="hero-content">
+            <h1>突哨山チャシ</h1>
+            <p class="hero-subtitle">見張りの山・上川盆地の守護者</p>
+            <p class="hero-description">
+                北海道旭川市に位置する突哨山チャシ。<br>
+                上川盆地を一望する戦略的要地に築かれ、石狩川流域の監視と防衛の要として機能。<br>
+                鷹の目のような鋭い監視力で、広大な平野を守り続けた山城。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <div class="nav-card" onclick="location.href='#story'">
+                <h3>山の物語</h3>
+                <p>見張りの歴史と伝説</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#info'">
+                <h3>基本情報</h3>
+                <p>立地・規模・構造の詳細</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#surveillance'">
+                <h3>戦略監視</h3>
+                <p>広域監視システム</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#terrain'">
+                <h3>地形活用</h3>
+                <p>自然要害の特徴</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#records'">
+                <h3>監視記録</h3>
+                <p>歴史的観測データ</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#strategy'">
+                <h3>戦略的価値</h3>
+                <p>軍事と経済の要衝</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#facilities'">
+                <h3>関連施設</h3>
+                <p>周辺の観光・文化施設</p>
+            </div>
+            <div class="nav-card" onclick="location.href='#access'">
+                <h3>アクセス</h3>
+                <p>交通案内と見学情報</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section fadeInUp" id="story">
+        <div class="story-container">
+            <h2 class="section-title">突哨山チャシの物語</h2>
+            
+            <div class="story-chapter">
+                <span class="chapter-number">1</span>
+                <h3>鷹の目を持つ山</h3>
+                <p>
+                    突哨山は、その名が示すように「突き出た見張り場」として古くから知られていた。上川盆地を見下ろすこの山は、まるで巨大な鷹が翼を広げて大地を見守っているかのような形をしていた。アイヌの人々は、この山には特別な力が宿ると信じ、「イカウシ・ヌプリ（見張りの山）」と呼んで敬っていた。山頂からは四方八方が見渡せ、遠く大雪山系から石狩川の流れまで、すべてを視界に収めることができた。
+                </p>
+            </div>
+
+            <div class="story-chapter highlight-chapter">
+                <span class="chapter-number">2</span>
+                <h3>千里眼の戦士たち</h3>
+                <p>
+                    突哨山チャシには、「千里眼の戦士」と呼ばれる特別な見張り部隊が配置されていた。彼らは幼少期から視力を鍛える特殊な訓練を受け、遠くの煙一筋、鳥の群れの動き、川面の変化から敵の接近を察知する能力を持っていた。特に優れた戦士は、晴れた日には50キロ先の動きまで見分けることができたという。彼らの情報は即座に狼煙や太鼓で周辺の集落に伝えられ、上川盆地全体の早期警戒システムとして機能した。この監視網のおかげで、奇襲を受けることはほとんどなかった。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">3</span>
+                <h3>大洪水の予言</h3>
+                <p>
+                    ある年の春、突哨山の見張りは異変に気づいた。大雪山系の雪解けが例年より早く、しかも大量の水が石狩川に流れ込んでいた。さらに上流で土砂崩れが起き、天然ダムができている兆候を発見した。彼らは直ちに下流域に警報を発し、住民に高台への避難を促した。数日後、予想通り天然ダムが決壊し、大洪水が発生したが、早期警報のおかげで人的被害は最小限に抑えられた。この功績により、突哨山チャシは単なる軍事施設ではなく、地域の安全を守る「命の砦」として認識されるようになった。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">4</span>
+                <h3>交易路の守護者</h3>
+                <p>
+                    石狩川は内陸部と海岸部を結ぶ重要な交易路だった。突哨山チャシは、この水運ルートを見守る役割も担っていた。商人たちの船団が通過する際は、チャシから安全確認の狼煙が上げられ、危険がある場合は警告の太鼓が鳴らされた。また、河川の水位や流れの変化も常に監視し、航行に適した時期を知らせた。この情報サービスにより、多くの商人が突哨山チャシに感謝の品を贈り、チャシの維持費用の一部となっていた。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">5</span>
+                <h3>星読みと天候予測</h3>
+                <p>
+                    突哨山の見張りたちは、昼間の監視だけでなく、夜間の星の観測も行っていた。星の位置と明るさ、月の満ち欠けと雲の動きから、数日先の天候を予測する技術を持っていた。特に、農耕に重要な霜の予測は驚くほど正確で、農民たちはチャシからの情報を頼りに作物を守った。また、渡り鳥の観察記録も詳細に残され、季節の変わり目を正確に把握していた。これらの知識は代々受け継がれ、上川地方の農業発展に大きく貢献した。
+                </p>
+            </div>
+
+            <div class="story-chapter">
+                <span class="chapter-number">6</span>
+                <h3>永遠の見張り番</h3>
+                <p>
+                    明治時代に入り、近代的な通信手段が普及しても、突哨山からの眺望の価値は失われなかった。最後の見張り番となった老人は、90歳を過ぎても毎日山に登り、上川盆地を見守り続けた。彼は「この山から見える景色には、すべての答えがある」と語っていた。現在、突哨山は市民の憩いの場となり、展望台からは旭川市街と大雪山系の壮大なパノラマを楽しむことができる。かつての見張り場は、今も訪れる人々に広大な北の大地の美しさを教えてくれる。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section fadeInUp" id="info">
+        <div class="info-content">
+            <h2 class="section-title">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>立地</h3>
+                    <p>北海道旭川市の市街地東部に位置する標高238メートルの独立丘陵。上川盆地の中央部に突き出た形で、360度の展望が可能。石狩川と忠別川の合流点を見下ろす戦略的要地。</p>
+                </div>
+                <div class="info-card">
+                    <h3>標高</h3>
+                    <p>山頂部：238メートル<br>
+                    比高：約100メートル<br>
+                    周囲の平野部から明確に突出した地形。</p>
+                </div>
+                <div class="info-card">
+                    <h3>規模</h3>
+                    <p>主郭：東西約150メートル、南北約100メートル<br>
+                    副郭：4箇所（監視所として配置）<br>
+                    総面積：約20,000平方メートル</p>
+                </div>
+                <div class="info-card">
+                    <h3>防御施設</h3>
+                    <p>・急斜面を利用した自然の要害<br>
+                    ・頂上部に土塁と空堀<br>
+                    ・見張り台跡5箇所<br>
+                    ・狼煙台跡3箇所</p>
+                </div>
+                <div class="info-card">
+                    <h3>築城目的</h3>
+                    <p>・上川盆地全域の監視<br>
+                    ・石狩川水運の管理<br>
+                    ・早期警戒システムの中枢<br>
+                    ・気象観測と情報伝達</p>
+                </div>
+                <div class="info-card">
+                    <h3>現況</h3>
+                    <p>突哨山公園として整備。遊歩道が整備され、山頂の展望台からは旭川市街と大雪山系の絶景を望める。春は桜、秋は紅葉の名所。チャシ跡の土塁も一部現存。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略監視セクション -->
+    <section class="surveillance-section fadeInUp" id="surveillance">
+        <div class="radar">
+            <div class="radar-sweep"></div>
+        </div>
+        <div class="surveillance-content">
+            <h2 class="section-title">戦略監視システム</h2>
+            <div class="surveillance-grid">
+                <div class="surveillance-card">
+                    <h3>広域監視網</h3>
+                    <ul>
+                        <li>視界範囲：半径50キロメートル</li>
+                        <li>監視対象：上川盆地全域</li>
+                        <li>大雪山系からの脅威察知</li>
+                        <li>石狩川流域の動向把握</li>
+                        <li>主要街道の通行監視</li>
+                        <li>気象変化の早期発見</li>
+                    </ul>
+                </div>
+                <div class="surveillance-card">
+                    <h3>情報伝達手段</h3>
+                    <ul>
+                        <li>狼煙による広域通信（昼間）</li>
+                        <li>松明による夜間通信</li>
+                        <li>太鼓による音響信号</li>
+                        <li>旗による視覚信号</li>
+                        <li>伝令による詳細情報伝達</li>
+                        <li>鳥を使った緊急連絡</li>
+                    </ul>
+                </div>
+                <div class="surveillance-card">
+                    <h3>観測技術</h3>
+                    <ul>
+                        <li>特殊訓練を受けた見張り部隊</li>
+                        <li>望遠鏡の原型となる竹筒</li>
+                        <li>煙の色と量から情報判別</li>
+                        <li>鳥の飛行パターン分析</li>
+                        <li>雲の動きから天候予測</li>
+                        <li>河川の水位変化観測</li>
+                    </ul>
+                </div>
+                <div class="surveillance-card">
+                    <h3>警報システム</h3>
+                    <ul>
+                        <li>5段階の警戒レベル設定</li>
+                        <li>方向別の狼煙配置</li>
+                        <li>時間差発信による詳細伝達</li>
+                        <li>夜間の松明パターン</li>
+                        <li>緊急時の一斉警報</li>
+                        <li>定期的な通信訓練</li>
+                    </ul>
+                </div>
+                <div class="surveillance-card">
+                    <h3>連携体制</h3>
+                    <ul>
+                        <li>周辺チャシとの情報共有</li>
+                        <li>集落への直接連絡網</li>
+                        <li>商人組合との協力関係</li>
+                        <li>狩猟民からの情報収集</li>
+                        <li>河川監視所との連携</li>
+                        <li>季節労働者の動向把握</li>
+                    </ul>
+                </div>
+                <div class="surveillance-card">
+                    <h3>記録と分析</h3>
+                    <ul>
+                        <li>日々の観測記録作成</li>
+                        <li>異常事態の詳細記載</li>
+                        <li>天候パターンの統計化</li>
+                        <li>敵対勢力の行動分析</li>
+                        <li>交易量の推移記録</li>
+                        <li>知識の世代間継承</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地形利用セクション -->
+    <section class="terrain-section fadeInUp" id="terrain">
+        <div class="terrain-content">
+            <h2 class="section-title">地形を活かした要害</h2>
+            
+            <div class="terrain-features">
+                <h3>突哨山の地形的優位性</h3>
+                <p>
+                    突哨山は上川盆地に突き出た独立丘陵として、天然の監視塔の役割を果たした。周囲の平野部から約100メートル高い位置にあり、敵の接近を遠距離から察知できる理想的な立地だった。
+                </p>
+                <p>
+                    山の形状は全方位への視界を確保しており、死角がほとんど存在しない。また、急峻な斜面は防御にも適しており、少人数でも効果的な防衛が可能だった。山頂部の平坦地は、見張り所や通信施設の設置に最適で、強風にも耐える構造物を建設できた。
+                </p>
+            </div>
+            
+            <div class="terrain-grid">
+                <div class="terrain-item">
+                    <h4>急斜面の防御</h4>
+                    <p>平均斜度30度以上の急斜面が天然の防壁となり、騎馬での突撃を不可能にした。</p>
+                </div>
+                <div class="terrain-item">
+                    <h4>岩盤の活用</h4>
+                    <p>露出した岩盤を足場とし、投石や転石による防御戦術を可能にした。</p>
+                </div>
+                <div class="terrain-item">
+                    <h4>水源の確保</h4>
+                    <p>山腹の湧水を利用し、籠城時の水の確保を実現。貯水施設も整備。</p>
+                </div>
+                <div class="terrain-item">
+                    <h4>風向きの利用</h4>
+                    <p>卓越風を読み、狼煙の効果的な使用と、火攻めからの防御を実現。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 監視記録セクション -->
+    <section class="records-section fadeInUp" id="records">
+        <div class="records-content">
+            <h2 class="section-title">歴史的監視記録</h2>
+            
+            <div class="surveillance-records">
+                <h3>突哨山チャシ観測記録（推定）</h3>
+                <p style="color: white; text-align: center; margin-bottom: 30px; opacity: 0.9;">
+                    見張り部隊が残した観測データから、上川盆地の歴史的変遷を読み取ることができる
+                </p>
+                
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>観測対象</th>
+                            <th>記録内容</th>
+                            <th>活用方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>石狩川水位</td>
+                            <td>日々の水位変化、洪水予測</td>
+                            <td>航行安全情報、避難指示</td>
+                        </tr>
+                        <tr>
+                            <td>積雪量</td>
+                            <td>大雪山系の積雪深推定</td>
+                            <td>春の雪解け洪水予測</td>
+                        </tr>
+                        <tr>
+                            <td>渡り鳥</td>
+                            <td>種類、数、飛来時期</td>
+                            <td>季節変化の把握、農作業指針</td>
+                        </tr>
+                        <tr>
+                            <td>交易隊</td>
+                            <td>規模、頻度、積荷推定</td>
+                            <td>経済動向分析、安全確保</td>
+                        </tr>
+                        <tr>
+                            <td>煙の観測</td>
+                            <td>集落の活動、山火事警戒</td>
+                            <td>異常事態の早期発見</td>
+                        </tr>
+                        <tr>
+                            <td>野生動物</td>
+                            <td>熊、鹿の移動パターン</td>
+                            <td>狩猟情報、農作物被害予防</td>
+                        </tr>
+                        <tr>
+                            <td>霧の発生</td>
+                            <td>発生時刻、継続時間、範囲</td>
+                            <td>交通安全情報、戦術利用</td>
+                        </tr>
+                        <tr>
+                            <td>オーロラ</td>
+                            <td>出現頻度と強度</td>
+                            <td>吉凶占い、天変地異の予兆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategy-section fadeInUp" id="strategy">
+        <div class="strategy-content">
+            <h2 class="section-title">戦略的価値</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <span class="strategy-number">1</span>
+                    <h3>軍事的要衝</h3>
+                    <ul>
+                        <li>上川盆地の完全掌握</li>
+                        <li>石狩川防衛線の要</li>
+                        <li>大雪山系からの侵入阻止</li>
+                        <li>早期警戒の最前線</li>
+                        <li>補給路の確保と遮断</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <span class="strategy-number">2</span>
+                    <h3>経済管理機能</h3>
+                    <ul>
+                        <li>交易路の安全確保</li>
+                        <li>物流量の把握と管理</li>
+                        <li>市場情報の収集拠点</li>
+                        <li>徴税ポイントの監視</li>
+                        <li>密輸の取り締まり</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <span class="strategy-number">3</span>
+                    <h3>情報中枢</h3>
+                    <ul>
+                        <li>広域情報ネットワークの核</li>
+                        <li>気象データの集積地</li>
+                        <li>軍事情報の分析センター</li>
+                        <li>外交情報の収集</li>
+                        <li>技術知識の保管所</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <span class="strategy-number">4</span>
+                    <h3>災害対策拠点</h3>
+                    <ul>
+                        <li>洪水予測と警報発信</li>
+                        <li>山火事の早期発見</li>
+                        <li>地震時の情報集約</li>
+                        <li>飢饉対策の指揮所</li>
+                        <li>避難民の収容施設</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section fadeInUp" id="facilities">
+        <div class="facilities-content">
+            <h2 class="section-title">関連施設・見どころ</h2>
+            <div class="facilities-grid">
+                <div class="facility-category">
+                    <h3>歴史・文化施設</h3>
+                    <ul class="facility-list">
+                        <li><a href="#">旭川市博物館（アイヌ文化展示）</a></li>
+                        <li><a href="#">上川神社（開拓の歴史）</a></li>
+                        <li><a href="#">旭川兵村記念館</a></li>
+                        <li><a href="#">川村カ子トアイヌ記念館</a></li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <h3>自然・観光スポット</h3>
+                    <ul class="facility-list">
+                        <li><a href="#">旭山動物園</a></li>
+                        <li><a href="#">嵐山展望台</a></li>
+                        <li><a href="#">神居古潭（景勝地）</a></li>
+                        <li><a href="#">就実の丘（絶景スポット）</a></li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <h3>公園・レジャー</h3>
+                    <ul class="facility-list">
+                        <li><a href="#">突哨山公園（遊歩道）</a></li>
+                        <li><a href="#">カムイスキーリンクス</a></li>
+                        <li><a href="#">あさひかわラーメン村</a></li>
+                        <li><a href="#">男山酒造り資料館</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section fadeInUp" id="access">
+        <div class="access-content">
+            <h2 class="section-title">アクセス</h2>
+            <div class="access-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5820.0!2d142.4!3d43.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQyJzAwLjAiTiAxNDLCsDI0JzAwLjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚗 車でのアクセス</h3>
+                    <ul>
+                        <li>旭川駅から：約15分</li>
+                        <li>旭川空港から：約30分</li>
+                        <li>旭川北ICから：約20分</li>
+                        <li>駐車場：突哨山公園駐車場（無料）</li>
+                    </ul>
+                </div>
+                <div class="access-card">
+                    <h3>🚌 公共交通機関</h3>
+                    <ul>
+                        <li>旭川駅前からバス「突哨山」行き</li>
+                        <li>所要時間：約25分</li>
+                        <li>下車後：徒歩10分で山頂展望台</li>
+                        <li>運行：道北バス（本数注意）</li>
+                    </ul>
+                </div>
+                <div class="access-card">
+                    <h3>ℹ️ 訪問情報</h3>
+                    <ul>
+                        <li>見学：通年（冬季は積雪注意）</li>
+                        <li>入場料：無料</li>
+                        <li>所要時間：往復約1時間</li>
+                        <li>おすすめ：春の桜、秋の紅葉時期</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>突哨山チャシを訪れよう</h2>
+            <p>上川盆地を一望する絶景と、古代の監視システムの知恵を体験してください</p>
+            <div class="cta-buttons">
+                <a href="#access" class="cta-button primary">アクセス情報を見る</a>
+                <a href="../" class="cta-button secondary">他の城を探す</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 北海道の城探訪. All rights reserved.</p>
+        <p><a href="#">プライバシーポリシー</a> | <a href="#">利用規約</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの制御
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+
+        // メニューリンククリックで閉じる
+        document.querySelectorAll('.nav-content a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fadeInUp').forEach(el => {
+            observer.observe(el);
+        });
+
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

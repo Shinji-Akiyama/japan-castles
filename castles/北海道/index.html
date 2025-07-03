@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北海道のお城・城跡一覧 | お城ファンページ</title>
+    <meta name="description" content="北海道にある城、館、チャシ、陣屋など50ヵ所以上の城跡を紹介。五稜郭、松前城、根室半島チャシなど、北の大地に残る歴史遺産を探訪しよう。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+            background-size: 100px 100px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+        
+        /* ナビゲーション */
+        .nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-item {
+            flex-shrink: 0;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+        
+        /* メインコンテンツ */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 概要セクション */
+        .overview {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .overview h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .overview h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            border-radius: 2px;
+        }
+        
+        .overview p {
+            color: #5a6c7d;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        /* 統計カード */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* 特集城郭 */
+        .featured {
+            margin-bottom: 60px;
+        }
+        
+        .featured h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .featured-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .featured-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .featured-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            opacity: 0.3;
+            font-weight: 900;
+        }
+        
+        .featured-card:nth-child(1) .featured-image::before { content: '★'; }
+        .featured-card:nth-child(2) .featured-image::before { content: '城'; }
+        .featured-card:nth-child(3) .featured-image::before { content: '砦'; }
+        
+        .featured-content {
+            padding: 30px;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .featured-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .featured-content p {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .featured-link {
+            color: #3498db;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s ease;
+        }
+        
+        .featured-link:hover {
+            gap: 10px;
+        }
+        
+        /* 城郭リスト */
+        .castle-list {
+            margin-bottom: 60px;
+        }
+        
+        .castle-list h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        /* カテゴリーセクション */
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .category-header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px 10px 0 0;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .category-content {
+            background: white;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .castle-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .castle-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .castle-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .castle-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .castle-name {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .castle-reading {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-left: 10px;
+        }
+        
+        .castle-type {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #e8f4f8;
+            color: #3498db;
+        }
+        
+        .castle-type.城 { background: #ffeaa7; color: #f39c12; }
+        .castle-type.館 { background: #fab1a0; color: #e74c3c; }
+        .castle-type.チャシ { background: #a29bfe; color: #6c5ce7; }
+        .castle-type.陣屋 { background: #81ecec; color: #00b894; }
+        .castle-type.台場 { background: #fd79a8; color: #e84393; }
+        
+        .castle-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        
+        .castle-link:hover {
+            color: #2ecc71;
+        }
+        
+        /* マップセクション */
+        .map-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .map-container {
+            height: 500px;
+            background: #e9ecef;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #bdc3c7;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #2ecc71;
+        }
+        
+        .footer .copyright {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .overview {
+                padding: 20px;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .castle-table {
+                font-size: 14px;
+            }
+            
+            .castle-table th,
+            .castle-table td {
+                padding: 10px;
+            }
+            
+            .nav-list {
+                gap: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h1>北海道のお城・城跡</h1>
+            <p>北の大地に刻まれた歴史を巡る旅</p>
+        </div>
+    </header>
+    
+    <!-- ナビゲーション -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#overview" class="nav-link">概要</a></li>
+                <li class="nav-item"><a href="#featured" class="nav-link">特集城郭</a></li>
+                <li class="nav-item"><a href="#castle-list" class="nav-link">城郭一覧</a></li>
+                <li class="nav-item"><a href="#map" class="nav-link">マップ</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">全国の城へ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- メインコンテンツ -->
+    <main class="main">
+        <!-- 概要セクション -->
+        <section class="overview" id="overview">
+            <h2>北海道の城郭について</h2>
+            <p>北海道には、本州とは異なる独特の城郭文化が存在します。アイヌ民族が築いた「チャシ」と呼ばれる砦跡が各地に点在し、その数は500ヵ所以上にのぼります。また、江戸時代には松前藩が統治し、幕末には蝦夷地防衛のための陣屋や台場が各地に築かれました。</p>
+            <p>特に有名なのは、星形要塞として知られる五稜郭と、北海道唯一の日本式城郭である松前城です。これらは幕末の激動期に築かれ、戊辰戦争の舞台となった歴史的に重要な城郭です。</p>
+            
+            <!-- 統計カード -->
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">城跡・館跡</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">チャシ跡</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">日本100名城</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 特集城郭 -->
+        <section class="featured" id="featured">
+            <h2>特集城郭</h2>
+            <div class="featured-grid">
+                <a href="./五稜郭/" class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);"></div>
+                    <div class="featured-content">
+                        <span class="featured-badge">特別史跡</span>
+                        <h3>五稜郭</h3>
+                        <p>幕末に築かれた星形要塞。西洋式築城術を取り入れた日本初の洋式城郭として、戊辰戦争最後の舞台となった歴史的名城。</p>
+                        <span class="featured-link">詳しく見る →</span>
+                    </div>
+                </a>
+                
+                <a href="./松前城/" class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);"></div>
+                    <div class="featured-content">
+                        <span class="featured-badge">日本100名城</span>
+                        <h3>松前城</h3>
+                        <p>北海道唯一の日本式城郭。松前藩の居城として、また北方防衛の要として築かれた最北の天守閣を持つ城。</p>
+                        <span class="featured-link">詳しく見る →</span>
+                    </div>
+                </a>
+                
+                <a href="./根室半島チャシ/" class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);"></div>
+                    <div class="featured-content">
+                        <span class="featured-badge">日本100名城</span>
+                        <h3>根室半島チャシ</h3>
+                        <p>アイヌ民族が築いた24ヵ所のチャシ跡群。日本最東端の「城」として、独特の文化と歴史を今に伝える。</p>
+                        <span class="featured-link">詳しく見る →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <!-- 城郭リスト -->
+        <section class="castle-list" id="castle-list">
+            <h2>北海道の城郭一覧</h2>
+            
+            <!-- 城・城郭 -->
+            <div class="category-section">
+                <div class="category-header">城・城郭</div>
+                <div class="category-content">
+                    <table class="castle-table">
+                        <thead>
+                            <tr>
+                                <th>城名</th>
+                                <th>種別</th>
+                                <th>所在地</th>
+                                <th>築城年代</th>
+                                <th>詳細</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">五稜郭</span>
+                                    <span class="castle-reading">ごりょうかく</span>
+                                </td>
+                                <td><span class="castle-type 城">城郭</span></td>
+                                <td>函館市</td>
+                                <td>幕末（1857-1866年）</td>
+                                <td><a href="./五稜郭/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">松前城</span>
+                                    <span class="castle-reading">まつまえじょう</span>
+                                </td>
+                                <td><span class="castle-type 城">城</span></td>
+                                <td>松前町</td>
+                                <td>江戸時代（1854年）</td>
+                                <td><a href="./松前城/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 館跡 -->
+            <div class="category-section">
+                <div class="category-header">館跡</div>
+                <div class="category-content">
+                    <table class="castle-table">
+                        <thead>
+                            <tr>
+                                <th>館名</th>
+                                <th>種別</th>
+                                <th>所在地</th>
+                                <th>築城年代</th>
+                                <th>詳細</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">志苔館</span>
+                                    <span class="castle-reading">しのりだて</span>
+                                </td>
+                                <td><span class="castle-type 館">館</span></td>
+                                <td>函館市</td>
+                                <td>室町時代</td>
+                                <td><a href="./志苔館/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">上之国館</span>
+                                    <span class="castle-reading">かみのくにだて</span>
+                                </td>
+                                <td><span class="castle-type 館">館</span></td>
+                                <td>上ノ国町</td>
+                                <td>室町時代</td>
+                                <td><a href="./上之国館/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">大館</span>
+                                    <span class="castle-reading">おおだて</span>
+                                </td>
+                                <td><span class="castle-type 館">館</span></td>
+                                <td>松前町</td>
+                                <td>室町時代</td>
+                                <td><a href="#" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- チャシ -->
+            <div class="category-section">
+                <div class="category-header">チャシ（アイヌの砦）</div>
+                <div class="category-content">
+                    <table class="castle-table">
+                        <thead>
+                            <tr>
+                                <th>チャシ名</th>
+                                <th>種別</th>
+                                <th>所在地</th>
+                                <th>築造年代</th>
+                                <th>詳細</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">根室半島チャシ</span>
+                                    <span class="castle-reading">ねむろはんとうちゃし</span>
+                                </td>
+                                <td><span class="castle-type チャシ">チャシ群</span></td>
+                                <td>根室市</td>
+                                <td>16-18世紀</td>
+                                <td><a href="./根室半島チャシ/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">釧路川流域チャシ</span>
+                                    <span class="castle-reading">くしろがわりゅういきちゃし</span>
+                                </td>
+                                <td><span class="castle-type チャシ">チャシ群</span></td>
+                                <td>釧路市・標茶町</td>
+                                <td>アイヌ文化期</td>
+                                <td><a href="#" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">シベチャリ川流域チャシ</span>
+                                    <span class="castle-reading">しべちゃりがわりゅういきちゃし</span>
+                                </td>
+                                <td><span class="castle-type チャシ">チャシ群</span></td>
+                                <td>新ひだか町</td>
+                                <td>アイヌ文化期</td>
+                                <td><a href="#" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 陣屋・台場 -->
+            <div class="category-section">
+                <div class="category-header">陣屋・台場</div>
+                <div class="category-content">
+                    <table class="castle-table">
+                        <thead>
+                            <tr>
+                                <th>施設名</th>
+                                <th>種別</th>
+                                <th>所在地</th>
+                                <th>築造年代</th>
+                                <th>詳細</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">四稜郭</span>
+                                    <span class="castle-reading">しりょうかく</span>
+                                </td>
+                                <td><span class="castle-type 台場">台場</span></td>
+                                <td>函館市</td>
+                                <td>幕末（1869年）</td>
+                                <td><a href="./四稜郭/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">戸切地陣屋</span>
+                                    <span class="castle-reading">へきりちじんや</span>
+                                </td>
+                                <td><span class="castle-type 陣屋">陣屋</span></td>
+                                <td>北斗市</td>
+                                <td>幕末（1855年）</td>
+                                <td><a href="./戸切地陣屋/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="castle-name">白老陣屋</span>
+                                    <span class="castle-reading">しらおいじんや</span>
+                                </td>
+                                <td><span class="castle-type 陣屋">陣屋</span></td>
+                                <td>白老町</td>
+                                <td>幕末（1856年）</td>
+                                <td><a href="./白老陣屋/" class="castle-link">詳細を見る</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- マップセクション -->
+        <section class="map-section" id="map">
+            <h2 style="font-size: 28px; margin-bottom: 30px; text-align: center; color: #2c3e50;">城郭マップ</h2>
+            <div class="map-container">
+                <span style="font-size: 24px; color: #7f8c8d;">🗺️ インタラクティブマップ（準備中）</span>
+            </div>
+        </section>
+    </main>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">全国の城一覧</a>
+            <a href="/about">このサイトについて</a>
+            <a href="/contact">お問い合わせ</a>
+        </div>
+        <p class="copyright">© 2024 お城ファンページ. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 60;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

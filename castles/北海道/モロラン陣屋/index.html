@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モロラン陣屋（もろらんじんや）- 北海道室蘭市 | お城ファンページ</title>
+    <meta name="description" content="北海道室蘭市にあるモロラン陣屋の魅力を紹介。南部藩が築いた北方防衛の要塞は、太平洋に面した天然の良港を守り、蝦夷地開拓の最前線基地として機能した。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-content {
+            width: 70%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            margin-left: auto;
+            padding: 80px 40px 40px;
+            overflow-y: auto;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-links a:hover {
+            color: #0ea5e9;
+            transform: translateX(10px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.7s forwards;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.1s forwards;
+        }
+        
+        .scroll-indicator span {
+            display: block;
+            width: 2px;
+            height: 30px;
+            background: white;
+            margin: 0 auto 10px;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scroll {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        /* メインコンテンツ */
+        .main-content {
+            background: #f8fafc;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* セクション共通 */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            color: #0284c7;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #0284c7 0%, #0ea5e9 100%);
+            border-radius: 2px;
+        }
+        
+        /* 詩セクション */
+        .poem-section {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/><path d="M0,60 Q25,40 50,60 T100,60" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/></svg>') repeat;
+            background-size: 200px 100px;
+            animation: waves 15s linear infinite;
+        }
+        
+        @keyframes waves {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200px); }
+        }
+        
+        .poem-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .poem {
+            font-size: 20px;
+            line-height: 2;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .poem-author {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        /* ストーリーセクション */
+        .story-section {
+            background: white;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .story-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #0284c7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(2, 132, 199, 0.1);
+        }
+        
+        .story-card h3 {
+            color: #0284c7;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .story-card p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+        
+        /* 南部藩北方防衛セクション（特別） */
+        .northern-defense-section {
+            background: linear-gradient(135deg, #075985 0%, #0c4a6e 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .northern-defense-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="30" height="30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/><rect x="60" y="60" width="30" height="30" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/><line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/></svg>') repeat;
+            background-size: 150px 150px;
+            animation: fortify 30s linear infinite;
+        }
+        
+        @keyframes fortify {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(150px, 150px); }
+        }
+        
+        .northern-defense-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .defense-overview {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .defense-overview h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .defense-overview p {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .defense-network {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .defense-post {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .defense-post:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .post-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+        
+        .post-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .post-role {
+            color: #7dd3fc;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .post-details {
+            color: #bae6fd;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .post-capabilities {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #38bdf8;
+        }
+        
+        .post-capabilities h4 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .post-capabilities ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .post-capabilities li {
+            color: #e0f2fe;
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .post-capabilities li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #38bdf8;
+        }
+        
+        .harbor-defense {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .harbor-title {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+        
+        .harbor-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .harbor-feature {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .harbor-feature:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #7dd3fc;
+        }
+        
+        .feature-description {
+            color: #e0f2fe;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .domain-strategy {
+            margin-top: 50px;
+        }
+        
+        .strategy-title {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        
+        .strategy-timeline {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .strategy-event {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .event-year {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0ea5e9;
+            min-width: 80px;
+            margin-right: 20px;
+        }
+        
+        .event-description {
+            flex: 1;
+            color: #e0f2fe;
+        }
+        
+        /* 人物セクション */
+        .people-section {
+            background: #f1f5f9;
+        }
+        
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .person-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .person-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+        }
+        
+        .person-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0284c7;
+        }
+        
+        .person-role {
+            color: #64748b;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .person-description {
+            color: #475569;
+            line-height: 1.6;
+        }
+        
+        /* 戦歴セクション */
+        .battles-section {
+            background: white;
+        }
+        
+        .battles-timeline {
+            position: relative;
+            margin-top: 40px;
+        }
+        
+        .battles-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #0284c7, #0ea5e9);
+            border-radius: 2px;
+        }
+        
+        .battle-item {
+            position: relative;
+            margin-bottom: 60px;
+            padding: 0 50px;
+        }
+        
+        .battle-item:nth-child(odd) {
+            text-align: right;
+        }
+        
+        .battle-item:nth-child(odd) .battle-content {
+            margin-left: auto;
+            margin-right: 60px;
+        }
+        
+        .battle-item:nth-child(even) .battle-content {
+            margin-left: 60px;
+            margin-right: auto;
+        }
+        
+        .battle-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #0284c7;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #0284c7;
+        }
+        
+        .battle-content {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .battle-date {
+            color: #0284c7;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .battle-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1e2532;
+        }
+        
+        .battle-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* 関連リンクセクション */
+        .links-section {
+            background: #f8fafc;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .link-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .link-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #0284c7;
+        }
+        
+        .link-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0284c7;
+        }
+        
+        .link-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: white;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 30px;
+            border-top: 5px solid #0284c7;
+        }
+        
+        .info-card h3 {
+            color: #0284c7;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #475569;
+        }
+        
+        .info-value {
+            color: #64748b;
+        }
+        
+        /* アクセス情報セクション */
+        .access-section {
+            background: #f1f5f9;
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .access-card h3 {
+            color: #0284c7;
+            margin-bottom: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-icon {
+            font-size: 24px;
+        }
+        
+        .access-details {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #0284c7;
+        }
+        
+        .cta-button.primary:hover {
+            background: #f1f5f9;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1e2532;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #0ea5e9;
+        }
+        
+        .footer .copyright {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .nav-content {
+                width: 80%;
+                padding: 80px 30px 40px;
+            }
+            
+            .battles-timeline::before {
+                left: 30px;
+            }
+            
+            .battle-item {
+                padding: 0 20px 0 60px;
+                text-align: left;
+            }
+            
+            .battle-item:nth-child(odd) {
+                text-align: left;
+            }
+            
+            .battle-item:nth-child(odd) .battle-content,
+            .battle-item:nth-child(even) .battle-content {
+                margin-left: 40px;
+                margin-right: 0;
+            }
+            
+            .battle-marker {
+                left: 30px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .defense-network {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h1 style="font-size: 24px; font-weight: 700;">モロラン陣屋</h1>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="nav-menu">
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="#hero">トップ</a></li>
+                <li><a href="#poem">詩歌</a></li>
+                <li><a href="#story">物語</a></li>
+                <li><a href="#northern-defense">南部藩北方防衛</a></li>
+                <li><a href="#people">人物</a></li>
+                <li><a href="#battles">歴史</a></li>
+                <li><a href="#links">関連リンク</a></li>
+                <li><a href="#info">基本情報</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="../">北海道の城一覧</a></li>
+                <li><a href="/">全国の城</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero" id="hero">
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1703123456789!6m8!1m7!1sChIJBUVa4U9dYl8RKDZQQjlQEbA!2m2!1d42.3156!2d140.9744!3f0!4f0!5f0!&q=%E5%AE%A4%E8%98%AD%E5%B8%82%20%E9%99%A3%E5%B1%8B%E7%94%BA" 
+                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <div class="hero-content">
+            <h1>モロラン陣屋</h1>
+            <p class="hero-subtitle">南部藩が築いた北方防衛の要</p>
+            <p class="hero-description">幕末、ロシアの南下に備えて南部藩が室蘭に築いた陣屋。天然の良港・室蘭港を擁し、太平洋側の北方防衛と蝦夷地開拓の最前線基地として重要な役割を果たした。</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+            <p>SCROLL</p>
+        </div>
+    </section>
+    
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <!-- 詩セクション -->
+        <section class="poem-section section" id="poem">
+            <div class="poem-content">
+                <h2 class="section-title" style="color: white;">歌に詠まれしモロラン陣屋</h2>
+                <div class="poem">
+                    太平洋　波打つ岸に　陣屋あり<br>
+                    南部の武士ら　北を守らん<br><br>
+                    室蘭の　良港見下ろす　高台に<br>
+                    遠く故郷　思いて立つも<br><br>
+                    蝦夷地なる　開拓の夢　抱きつつ<br>
+                    防人として　海を見守る
+                </div>
+                <p class="poem-author">— 南部藩士の和歌より</p>
+            </div>
+        </section>
+        
+        <!-- ストーリーセクション -->
+        <section class="story-section section" id="story">
+            <h2 class="section-title">モロラン陣屋の物語</h2>
+            <div class="story-grid">
+                <div class="story-card fade-in">
+                    <h3>🌊 天然の良港</h3>
+                    <p>室蘭は噴火湾（内浦湾）に面した天然の良港。アイヌ語で「モ・ルエラニ（小さな下り道）」と呼ばれたこの地は、古くから交通の要衝として知られていた。</p>
+                </div>
+                <div class="story-card fade-in">
+                    <h3>🛡️ 南部藩の使命</h3>
+                    <p>1855年、日露和親条約締結後、ロシアの南下に備えて幕府は東北諸藩に蝦夷地防衛を命じた。盛岡藩（南部藩）は室蘭を含む胆振地方の警備を担当することになった。</p>
+                </div>
+                <div class="story-card fade-in">
+                    <h3>🏗️ 陣屋建設</h3>
+                    <p>南部藩は室蘭の高台に陣屋を築き、約300名の藩士を駐屯させた。厳しい気候と慣れない土地での任務は過酷を極めたが、藩士たちは使命感を持って防衛に当たった。</p>
+                </div>
+                <div class="story-card fade-in">
+                    <h3>🌾 開拓事業</h3>
+                    <p>防衛任務と並行して、南部藩は積極的な開拓事業も展開。農地開墾、道路整備、港湾改良など、後の室蘭発展の基礎を築いた功績は大きい。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 南部藩北方防衛セクション（特別） -->
+        <section class="northern-defense-section section" id="northern-defense">
+            <div class="northern-defense-content">
+                <div class="defense-overview">
+                    <h2>南部藩北方防衛システム</h2>
+                    <p>幕末期、ロシアの南下政策に対抗するため、幕府は東北諸藩に蝦夷地防衛を命じました。南部藩（盛岡藩）は、室蘭を中心とした胆振・日高地方の防衛を担当し、太平洋側から内陸部まで広大な地域に防衛網を構築しました。厳しい自然環境の中、藩士たちは国防の最前線で奮闘しました。</p>
+                </div>
+                
+                <div class="defense-network">
+                    <div class="defense-post">
+                        <span class="post-icon">🏰</span>
+                        <h3 class="post-name">モロラン陣屋（本陣）</h3>
+                        <p class="post-role">胆振地方防衛司令部</p>
+                        <p class="post-details">室蘭港を見下ろす高台に築かれた防衛の中枢。約300名の藩士が常駐し、太平洋側の監視と内陸部への連絡を担当。港湾施設の整備も進めた。</p>
+                        <div class="post-capabilities">
+                            <h4>主要機能</h4>
+                            <ul>
+                                <li>太平洋側の海上監視</li>
+                                <li>室蘭港の防衛・管理</li>
+                                <li>内陸部陣屋との連携</li>
+                                <li>開拓事業の統括</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="defense-post">
+                        <span class="post-icon">⚔️</span>
+                        <h3 class="post-name">ユウフツ陣屋</h3>
+                        <p class="post-role">勇払原野防衛拠点</p>
+                        <p class="post-details">勇払原野の中央に位置し、太平洋岸と日本海側を結ぶ要路を守備。アイヌとの交易拠点としても機能し、内陸開拓の前進基地となった。</p>
+                        <div class="post-capabilities">
+                            <h4>主要機能</h4>
+                            <ul>
+                                <li>東西交通路の監視</li>
+                                <li>勇払川舟運の管理</li>
+                                <li>アイヌとの交易統制</li>
+                                <li>原野開拓の推進</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="defense-post">
+                        <span class="post-icon">🏔️</span>
+                        <h3 class="post-name">シャマニ陣屋</h3>
+                        <p class="post-role">日高方面前哨基地</p>
+                        <p class="post-details">様似に設置された前哨基地。日高山脈を越えて十勝方面への連絡路を確保し、東部地域の情報収集を担当。馬産地としても重要だった。</p>
+                        <div class="post-capabilities">
+                            <h4>主要機能</h4>
+                            <ul>
+                                <li>日高地方の監視</li>
+                                <li>十勝方面への連絡</li>
+                                <li>馬匹調達・育成</li>
+                                <li>山間部の巡察</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="defense-post">
+                        <span class="post-icon">🌊</span>
+                        <h3 class="post-name">トマコマイ詰所</h3>
+                        <p class="post-role">苫小牧港監視所</p>
+                        <p class="post-details">苫小牧の河口に設置された小規模な詰所。太平洋からの船舶を監視し、勇払川を利用した内陸輸送の安全を確保した。</p>
+                        <div class="post-capabilities">
+                            <h4>主要機能</h4>
+                            <ul>
+                                <li>苫小牧港の監視</li>
+                                <li>河川輸送の護衛</li>
+                                <li>漁業資源の管理</li>
+                                <li>緊急時の通信中継</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="harbor-defense">
+                    <h3 class="harbor-title">室蘭港防衛体制</h3>
+                    <div class="harbor-features">
+                        <div class="harbor-feature">
+                            <span class="feature-icon">⚓</span>
+                            <h4 class="feature-title">天然の要害</h4>
+                            <p class="feature-description">絵鞆半島に囲まれた室蘭港は、狭い湾口と深い水深を持つ天然の良港。防衛には最適な地形条件を備えていた。</p>
+                        </div>
+                        
+                        <div class="harbor-feature">
+                            <span class="feature-icon">🔫</span>
+                            <h4 class="feature-title">砲台配置</h4>
+                            <p class="feature-description">湾口を見下ろす高台に砲台を設置。敵船の侵入を阻止する火力配置を整え、港湾防衛の要とした。</p>
+                        </div>
+                        
+                        <div class="harbor-feature">
+                            <span class="feature-icon">👁️</span>
+                            <h4 class="feature-title">監視体制</h4>
+                            <p class="feature-description">24時間体制の見張り所を設置。太平洋上の船影を早期発見し、のろしや早馬で各所に通報する体制を確立。</p>
+                        </div>
+                        
+                        <div class="harbor-feature">
+                            <span class="feature-icon">🚢</span>
+                            <h4 class="feature-title">港湾施設</h4>
+                            <p class="feature-description">船舶の修理・補給施設を整備。味方船の支援基地として機能し、海上輸送の安全を確保した。</p>
+                        </div>
+                        
+                        <div class="harbor-feature">
+                            <span class="feature-icon">🏘️</span>
+                            <h4 class="feature-title">後方支援</h4>
+                            <p class="feature-description">陣屋町を形成し、武器弾薬の備蓄、食糧供給、医療施設など、長期駐屯を可能にする基盤を整備。</p>
+                        </div>
+                        
+                        <div class="harbor-feature">
+                            <span class="feature-icon">🤝</span>
+                            <h4 class="feature-title">地域協力</h4>
+                            <p class="feature-description">地元アイヌとの友好関係を構築。情報収集や物資調達で協力を得て、円滑な防衛体制を維持した。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="domain-strategy">
+                    <h3 class="strategy-title">南部藩の北方戦略</h3>
+                    <div class="strategy-timeline">
+                        <div class="strategy-event">
+                            <span class="event-year">1855年</span>
+                            <span class="event-description">日露和親条約締結を受け、幕府が東北諸藩に蝦夷地防衛を命令</span>
+                        </div>
+                        
+                        <div class="strategy-event">
+                            <span class="event-year">1856年</span>
+                            <span class="event-description">南部藩が室蘭に先遣隊を派遣、地形調査と陣屋建設地の選定開始</span>
+                        </div>
+                        
+                        <div class="strategy-event">
+                            <span class="event-year">1857年</span>
+                            <span class="event-description">モロラン陣屋の本格建設開始、同時に各地に支所を設置</span>
+                        </div>
+                        
+                        <div class="strategy-event">
+                            <span class="event-year">1859年</span>
+                            <span class="event-description">防衛体制完成、約1,000名の藩士が胆振・日高地方に展開</span>
+                        </div>
+                        
+                        <div class="strategy-event">
+                            <span class="event-year">1860年代</span>
+                            <span class="event-description">開拓事業を本格化、農地開墾・道路建設・港湾整備を推進</span>
+                        </div>
+                        
+                        <div class="strategy-event">
+                            <span class="event-year">1868年</span>
+                            <span class="event-description">明治維新により任務終了、多くの藩士が現地に定住し開拓を継続</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 人物セクション -->
+        <section class="people-section section" id="people">
+            <h2 class="section-title">モロラン陣屋ゆかりの人物</h2>
+            <div class="people-grid">
+                <div class="person-card fade-in">
+                    <div class="person-avatar">新</div>
+                    <h3 class="person-name">新渡戸伝</h3>
+                    <p class="person-role">陣屋総督</p>
+                    <p class="person-description">南部藩の重臣として室蘭陣屋の建設と運営を指揮。優れた行政手腕で防衛と開拓を両立させ、地域発展の基礎を築いた。新渡戸稲造の祖父。</p>
+                </div>
+                <div class="person-card fade-in">
+                    <div class="person-avatar">栗</div>
+                    <h3 class="person-name">栗林貞吉</h3>
+                    <p class="person-role">陣屋奉行</p>
+                    <p class="person-description">現地での実務を統括した有能な武士。アイヌとの交渉に長け、平和的な関係構築に成功。後に室蘭開拓の功労者として称えられた。</p>
+                </div>
+                <div class="person-card fade-in">
+                    <div class="person-avatar">工</div>
+                    <h3 class="person-name">工藤祐助</h3>
+                    <p class="person-role">普請奉行</p>
+                    <p class="person-description">陣屋や港湾施設の建設を担当した技術者。厳しい自然環境での建設工事を成功させ、堅固な防衛施設を完成させた。</p>
+                </div>
+                <div class="person-card fade-in">
+                    <div class="person-avatar">医</div>
+                    <h3 class="person-name">佐々木東洋</h3>
+                    <p class="person-role">陣屋医師</p>
+                    <p class="person-description">藩医として駐屯部隊の健康管理を担当。未知の風土病との戦いの中、西洋医学も取り入れて多くの命を救った。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 戦歴セクション -->
+        <section class="battles-section section" id="battles">
+            <h2 class="section-title">モロラン陣屋の歴史</h2>
+            <div class="battles-timeline">
+                <div class="battle-item fade-in">
+                    <div class="battle-marker"></div>
+                    <div class="battle-content">
+                        <div class="battle-date">1855年（安政2年）</div>
+                        <h3 class="battle-title">蝦夷地防衛命令</h3>
+                        <p class="battle-description">日露和親条約締結により国境が画定。ロシアの脅威に備え、幕府は東北諸藩に蝦夷地防衛を命令。南部藩は胆振・日高地方を担当することになった。</p>
+                    </div>
+                </div>
+                
+                <div class="battle-item fade-in">
+                    <div class="battle-marker"></div>
+                    <div class="battle-content">
+                        <div class="battle-date">1856年（安政3年）</div>
+                        <h3 class="battle-title">先遣隊派遣</h3>
+                        <p class="battle-description">南部藩は先遣隊を室蘭に派遣。地形調査、気候観測、アイヌとの交渉など、陣屋建設の準備を開始。室蘭の戦略的重要性を確認した。</p>
+                    </div>
+                </div>
+                
+                <div class="battle-item fade-in">
+                    <div class="battle-marker"></div>
+                    <div class="battle-content">
+                        <div class="battle-date">1857年（安政4年）</div>
+                        <h3 class="battle-title">陣屋建設開始</h3>
+                        <p class="battle-description">室蘭の高台でモロラン陣屋の建設を開始。同時に勇払、様似など各地に支所を設置。総勢約1,000名の藩士が北方防衛の任に就いた。</p>
+                    </div>
+                </div>
+                
+                <div class="battle-item fade-in">
+                    <div class="battle-marker"></div>
+                    <div class="battle-content">
+                        <div class="battle-date">1859年（安政6年）</div>
+                        <h3 class="battle-title">防衛体制完成</h3>
+                        <p class="battle-description">陣屋の主要施設が完成し、本格的な防衛体制が確立。港湾監視、内陸巡察、通信網整備など、総合的な防衛システムが機能し始めた。</p>
+                    </div>
+                </div>
+                
+                <div class="battle-item fade-in">
+                    <div class="battle-marker"></div>
+                    <div class="battle-content">
+                        <div class="battle-date">1860年代</div>
+                        <h3 class="battle-title">開拓事業展開</h3>
+                        <p class="battle-description">防衛任務と並行して積極的な開拓事業を展開。農地開墾、道路建設、港湾整備、学校設立など、地域発展の基盤を築いた。</p>
+                    </div>
+                </div>
+                
+                <div class="battle-item fade-in">
+                    <div class="battle-marker"></div>
+                    <div class="battle-content">
+                        <div class="battle-date">1868年（明治元年）</div>
+                        <h3 class="battle-title">任務終了</h3>
+                        <p class="battle-description">明治維新により藩制度が廃止され、北方防衛任務も終了。多くの旧藩士が現地に残留し、開拓民として室蘭の発展に貢献することを選んだ。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 関連リンクセクション -->
+        <section class="links-section section" id="links">
+            <h2 class="section-title">関連リンク</h2>
+            <div class="links-grid">
+                <a href="../白老陣屋/" class="link-card fade-in">
+                    <div class="link-icon">🏯</div>
+                    <h3 class="link-title">白老陣屋</h3>
+                    <p class="link-description">仙台藩が築いた太平洋側の陣屋。モロラン陣屋と連携して北方防衛を担った重要拠点。</p>
+                </a>
+                <a href="../ヲシャマンベ陣屋/" class="link-card fade-in">
+                    <div class="link-icon">⚔️</div>
+                    <h3 class="link-title">ヲシャマンベ陣屋</h3>
+                    <p class="link-description">南部藩が長万部に設置した陣屋。内浦湾沿岸の防衛と交通路確保を担当。</p>
+                </a>
+                <a href="../ハママシケ陣屋/" class="link-card fade-in">
+                    <div class="link-icon">🌊</div>
+                    <h3 class="link-title">ハママシケ陣屋</h3>
+                    <p class="link-description">日本海側の防衛を担った荘内藩の陣屋。太平洋側と日本海側の連携体制の一翼。</p>
+                </a>
+                <a href="../トカチ陣屋/" class="link-card fade-in">
+                    <div class="link-icon">🏔️</div>
+                    <h3 class="link-title">トカチ陣屋</h3>
+                    <p class="link-description">仙台藩が十勝地方に築いた陣屋。東部防衛の要として機能した。</p>
+                </a>
+            </div>
+        </section>
+        
+        <!-- 基本情報セクション -->
+        <section class="info-section section" id="info">
+            <h2 class="section-title">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card fade-in">
+                    <h3>📍 基本データ</h3>
+                    <ul class="info-list">
+                        <li><span class="info-label">名称</span><span class="info-value">モロラン陣屋</span></li>
+                        <li><span class="info-label">読み方</span><span class="info-value">もろらんじんや</span></li>
+                        <li><span class="info-label">種別</span><span class="info-value">陣屋（防衛施設）</span></li>
+                        <li><span class="info-label">所在地</span><span class="info-value">北海道室蘭市陣屋町</span></li>
+                        <li><span class="info-label">築造年代</span><span class="info-value">幕末（1857年）</span></li>
+                        <li><span class="info-label">築造者</span><span class="info-value">南部藩（盛岡藩）</span></li>
+                    </ul>
+                </div>
+                
+                <div class="info-card fade-in">
+                    <h3>🏗️ 構造・規模</h3>
+                    <ul class="info-list">
+                        <li><span class="info-label">敷地面積</span><span class="info-value">約3万坪</span></li>
+                        <li><span class="info-label">主要施設</span><span class="info-value">本陣・兵舎・武器庫</span></li>
+                        <li><span class="info-label">防御施設</span><span class="info-value">土塁・空堀・木柵</span></li>
+                        <li><span class="info-label">駐屯兵力</span><span class="info-value">約300名（最大時）</span></li>
+                        <li><span class="info-label">管轄地域</span><span class="info-value">胆振・日高地方</span></li>
+                        <li><span class="info-label">支所</span><span class="info-value">勇払・様似・苫小牧</span></li>
+                    </ul>
+                </div>
+                
+                <div class="info-card fade-in">
+                    <h3>📚 文化財指定</h3>
+                    <ul class="info-list">
+                        <li><span class="info-label">市指定</span><span class="info-value">史跡</span></li>
+                        <li><span class="info-label">道指定</span><span class="info-value">文化財</span></li>
+                        <li><span class="info-label">保存状態</span><span class="info-value">土塁の一部現存</span></li>
+                        <li><span class="info-label">整備状況</span><span class="info-value">説明板・記念碑設置</span></li>
+                        <li><span class="info-label">見学</span><span class="info-value">自由見学可能</span></li>
+                        <li><span class="info-label">関連施設</span><span class="info-value">室蘭市民俗資料館</span></li>
+                    </ul>
+                </div>
+                
+                <div class="info-card fade-in">
+                    <h3>🎯 見どころ</h3>
+                    <ul class="info-list">
+                        <li><span class="info-label">陣屋跡碑</span><span class="info-value">南部藩の功績を記念</span></li>
+                        <li><span class="info-label">土塁跡</span><span class="info-value">防御施設の遺構</span></li>
+                        <li><span class="info-label">室蘭港眺望</span><span class="info-value">天然の良港を一望</span></li>
+                        <li><span class="info-label">測量山</span><span class="info-value">陣屋跡からの展望</span></li>
+                        <li><span class="info-label">地球岬</span><span class="info-value">太平洋の絶景</span></li>
+                        <li><span class="info-label">白鳥大橋</span><span class="info-value">東日本最長の吊橋</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- アクセス情報セクション -->
+        <section class="access-section section" id="access">
+            <h2 class="section-title">アクセス情報</h2>
+            <div class="access-grid">
+                <div class="access-card fade-in">
+                    <h3><span class="access-icon">🚌</span>公共交通機関</h3>
+                    <div class="access-details">
+                        <strong>室蘭駅から：</strong><br>
+                        • 道南バス「測量山団地」行き<br>
+                        • 「陣屋町」バス停下車、徒歩5分<br>
+                        • 所要時間：約15分<br><br>
+                        
+                        <strong>東室蘭駅から：</strong><br>
+                        • 道南バス利用、約20分<br>
+                        • タクシー利用、約10分
+                    </div>
+                </div>
+                
+                <div class="access-card fade-in">
+                    <h3><span class="access-icon">🚗</span>自動車利用</h3>
+                    <div class="access-details">
+                        <strong>道央自動車道から：</strong><br>
+                        • 室蘭ICから約15分<br>
+                        • 国道36号線→道道919号線<br><br>
+                        
+                        <strong>駐車場：</strong><br>
+                        • 陣屋町公園駐車場（無料）<br>
+                        • 収容台数：約20台
+                    </div>
+                </div>
+                
+                <div class="access-card fade-in">
+                    <h3><span class="access-icon">🏛️</span>周辺施設</h3>
+                    <div class="access-details">
+                        <strong>文化施設：</strong><br>
+                        • 室蘭市民俗資料館（車で10分）<br>
+                        • 室蘭市青少年科学館（車で15分）<br><br>
+                        
+                        <strong>観光施設：</strong><br>
+                        • 地球岬（車で20分）<br>
+                        • 白鳥大橋記念館（車で15分）
+                    </div>
+                </div>
+                
+                <div class="access-card fade-in">
+                    <h3><span class="access-icon">ℹ️</span>見学情報</h3>
+                    <div class="access-details">
+                        <strong>見学時間：</strong><br>
+                        • 24時間自由見学可能<br>
+                        • 推奨時間：日中<br><br>
+                        
+                        <strong>所要時間：</strong><br>
+                        • 見学：約30分<br>
+                        • 周辺散策込み：約1時間
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTAセクション -->
+        <section class="cta-section section">
+            <div class="cta-content">
+                <h2>南部藩士が守った北の要塞を訪ねよう</h2>
+                <p>幕末の国防最前線で、遠く故郷を離れて任務に当たった南部藩士たちの足跡。天然の良港・室蘭を見下ろす陣屋跡で、北方防衛の歴史に思いを馳せてみませんか。</p>
+                <div class="cta-buttons">
+                    <a href="#access" class="cta-button primary">アクセス情報を見る</a>
+                    <a href="../" class="cta-button">他の北海道の城を探す</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">全国の城一覧</a>
+            <a href="/about">このサイトについて</a>
+            <a href="/contact">お問い合わせ</a>
+        </div>
+        <p class="copyright">© 2024 お城ファンページ. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // ナビリンククリック時にメニューを閉じる
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // ヘッダー背景変更
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>

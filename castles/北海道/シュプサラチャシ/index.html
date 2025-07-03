@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シュプサラチャシ（しゅぷさらちゃし）- 北海道千歳市 | お城ファンページ</title>
+    <meta name="description" content="北海道千歳市にあるシュプサラチャシの魅力を紹介。ウトナイ湖へと続く大湿原の守護者。渡り鳥の聖地を守り、湿地の恵みと共に生きた水の民の物語。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #006064 0%, #00838f 100%);
+            opacity: 0.95;
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: bold;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 20px;
+        }
+        
+        .nav-menu.active a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu a:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu a:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu a:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu a:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu a:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu a:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu a:nth-child(8) { transition-delay: 0.8s; }
+        .nav-menu a:nth-child(9) { transition-delay: 0.9s; }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+            width: 0;
+            height: 3px;
+            background: #4dd0e1;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: calc(100% - 40px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 1;
+        }
+        
+        /* 霧の効果 */
+        .mist-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 2;
+        }
+        
+        .mist {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 40%,
+                transparent 70%);
+            animation: mistFloat 30s ease-in-out infinite;
+        }
+        
+        .mist:nth-child(2) {
+            animation-delay: -10s;
+            animation-duration: 40s;
+            opacity: 0.5;
+        }
+        
+        .mist:nth-child(3) {
+            animation-delay: -20s;
+            animation-duration: 35s;
+            opacity: 0.3;
+        }
+        
+        @keyframes mistFloat {
+            0%, 100% {
+                transform: translate(-25%, -25%) scale(1);
+            }
+            33% {
+                transform: translate(-15%, -35%) scale(1.1);
+            }
+            66% {
+                transform: translate(-35%, -15%) scale(0.9);
+            }
+        }
+        
+        /* 葦原効果 */
+        .reeds-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            z-index: 3;
+            overflow: hidden;
+        }
+        
+        .reed {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to top, #2e7d32 0%, #388e3c 50%, #4caf50 100%);
+            transform-origin: bottom center;
+            animation: reedSway 4s ease-in-out infinite;
+        }
+        
+        @keyframes reedSway {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(3deg);
+            }
+            75% {
+                transform: rotate(-3deg);
+            }
+        }
+        
+        /* 渡り鳥のシルエット */
+        .birds-container {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            z-index: 4;
+            pointer-events: none;
+        }
+        
+        .bird-flock {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: birdFly 30s linear infinite;
+        }
+        
+        @keyframes birdFly {
+            0% {
+                transform: translateX(-100px) translateY(0);
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(-50px);
+            }
+        }
+        
+        /* 水面の反射 */
+        .water-reflection {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                rgba(0, 96, 100, 0.2) 50%,
+                rgba(0, 131, 143, 0.3) 100%);
+            z-index: 2;
+            animation: waterShimmer 5s ease-in-out infinite;
+        }
+        
+        @keyframes waterShimmer {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        .hero-map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4dd0e1, #26c6da);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(77, 208, 225, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 50px;
+            color: #006064;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #006064, #00838f);
+            border-radius: 2px;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 60px 20px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #006064;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 96, 100, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 96, 100, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        .story-chapter:nth-child(7) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #006064, #00838f);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .chapter-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #006064;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #006064;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .chapter-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #006064, #00838f);
+        }
+        
+        .chapter-content {
+            line-height: 2;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(to bottom, transparent 60%, rgba(77, 208, 225, 0.3) 60%);
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: linear-gradient(135deg, #006064 0%, #00838f 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-section .section-title {
+            color: white;
+        }
+        
+        .info-section .section-title::after {
+            background: linear-gradient(90deg, #4dd0e1, #26c6da);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #4dd0e1;
+        }
+        
+        /* 湿地特徴セクション */
+        .wetland-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 水紋背景効果 */
+        .ripple-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .water-ripple {
+            position: absolute;
+            border: 2px solid #006064;
+            border-radius: 50%;
+            animation: rippleExpand 6s ease-out infinite;
+        }
+        
+        @keyframes rippleExpand {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 600px;
+                height: 600px;
+                opacity: 0;
+            }
+        }
+        
+        .wetland-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .wetland-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+        
+        .wetland-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .wetland-feature {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .wetland-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(77, 208, 225, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .wetland-feature:hover::before {
+            opacity: 1;
+        }
+        
+        .wetland-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wetland-feature h3 {
+            font-size: 1.5rem;
+            color: #006064;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .wetland-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #006064, #00838f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .wetland-feature p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .wetland-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .wetland-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .wetland-list li::before {
+            content: '🌿';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        /* 渡り鳥セクション */
+        .birds-section {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 80px 20px;
+        }
+        
+        .birds-calendar {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .calendar-header h3 {
+            font-size: 1.8rem;
+            color: #006064;
+            margin-bottom: 10px;
+        }
+        
+        .calendar-header p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .birds-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-bar {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e0f2f1, #006064, #e0f2f1);
+            transform: translateY(-50%);
+        }
+        
+        .bird-seasons {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .bird-season {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .season-marker {
+            width: 20px;
+            height: 20px;
+            background: #006064;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            position: relative;
+            z-index: 2;
+            border: 4px solid white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .season-info h4 {
+            font-size: 1.2rem;
+            color: #006064;
+            margin-bottom: 10px;
+        }
+        
+        .bird-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .bird-list li {
+            padding: 5px 0;
+        }
+        
+        /* 湿地資源セクション */
+        .resources-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #006064, #00838f);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .resource-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #006064;
+            margin-bottom: 10px;
+        }
+        
+        .resource-uses {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: linear-gradient(135deg, #00838f 0%, #006064 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-section .section-title {
+            color: white;
+        }
+        
+        .strategy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #4dd0e1, #26c6da, #4dd0e1);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .strategy-card:hover::before {
+            opacity: 1;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .strategy-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4dd0e1, #26c6da);
+            color: #006064;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #4dd0e1;
+        }
+        
+        .strategy-card p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .strategy-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategy-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #4dd0e1;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .facilities-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-category h3 {
+            color: #006064;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .facility-list li:hover {
+            padding-left: 20px;
+            background: linear-gradient(to right, rgba(0, 96, 100, 0.05), transparent);
+        }
+        
+        .facility-link {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .facility-name {
+            font-weight: bold;
+            color: #006064;
+        }
+        
+        .facility-distance {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .facility-arrow {
+            color: #006064;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list li:hover .facility-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .access-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-card h3 {
+            color: #006064;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-icon {
+            font-size: 1.5rem;
+        }
+        
+        .access-card p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .access-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .access-card ul li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #006064;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #006064 0%, #00838f 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4dd0e1, #26c6da);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, #4dd0e1, #26c6da);
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary:hover {
+            background: linear-gradient(135deg, #26c6da, #4dd0e1);
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #006064;
+        }
+        
+        /* 装飾的な要素 */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #4dd0e1;
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-copy {
+            opacity: 0.5;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .nav-menu a {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .strategy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .bird-seasons {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .timeline-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <h1 style="font-size: 1.5rem;">シュプサラチャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <a href="#story" onclick="closeMenu()">湿原の物語</a>
+            <a href="#info" onclick="closeMenu()">基本情報</a>
+            <a href="#wetland" onclick="closeMenu()">湿地の特徴</a>
+            <a href="#birds" onclick="closeMenu()">渡り鳥の聖地</a>
+            <a href="#resources" onclick="closeMenu()">湿地の恵み</a>
+            <a href="#strategic" onclick="closeMenu()">戦略的価値</a>
+            <a href="#facilities" onclick="closeMenu()">関連施設</a>
+            <a href="#access" onclick="closeMenu()">アクセス</a>
+            <a href="../" onclick="closeMenu()">北海道の城一覧へ</a>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="mist-layer">
+            <div class="mist"></div>
+            <div class="mist"></div>
+            <div class="mist"></div>
+        </div>
+        <div class="reeds-container" id="reedsContainer"></div>
+        <div class="birds-container" id="birdsContainer"></div>
+        <div class="water-reflection"></div>
+        <div class="hero-background"></div>
+        <div class="hero-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11784.8!2d141.6833!3d42.8333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDUwJzAwLjAiTiAxNDHCsDQxJzAwLjAiRQ!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-content">
+            <h1>シュプサラチャシ</h1>
+            <p class="hero-subtitle">千歳湿原の守護者</p>
+            <p class="hero-description">
+                ウトナイ湖へと続く大湿原に築かれた水の要塞。
+                渡り鳥の楽園を守り、湿地の豊かな恵みと共に生きた
+                水辺の民の知恵が息づく聖地。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <a href="#story" class="nav-card">
+                <div class="nav-card-icon">📖</div>
+                <div class="nav-card-title">湿原の物語</div>
+            </a>
+            <a href="#info" class="nav-card">
+                <div class="nav-card-icon">🏯</div>
+                <div class="nav-card-title">基本情報</div>
+            </a>
+            <a href="#wetland" class="nav-card">
+                <div class="nav-card-icon">🌊</div>
+                <div class="nav-card-title">湿地の特徴</div>
+            </a>
+            <a href="#birds" class="nav-card">
+                <div class="nav-card-icon">🦆</div>
+                <div class="nav-card-title">渡り鳥の聖地</div>
+            </a>
+            <a href="#resources" class="nav-card">
+                <div class="nav-card-icon">🌾</div>
+                <div class="nav-card-title">湿地の恵み</div>
+            </a>
+            <a href="#strategic" class="nav-card">
+                <div class="nav-card-icon">⚔️</div>
+                <div class="nav-card-title">戦略的価値</div>
+            </a>
+            <a href="#facilities" class="nav-card">
+                <div class="nav-card-icon">🏛️</div>
+                <div class="nav-card-title">関連施設</div>
+            </a>
+            <a href="#access" class="nav-card">
+                <div class="nav-card-icon">🗺️</div>
+                <div class="nav-card-title">アクセス</div>
+            </a>
+            <a href="../" class="nav-card">
+                <div class="nav-card-icon">🏰</div>
+                <div class="nav-card-title">北海道の城一覧</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section section" id="story">
+        <h2 class="section-title">湿原の物語</h2>
+        <div class="story-container">
+            <div class="story-chapter">
+                <div class="chapter-number">1</div>
+                <h3 class="chapter-title">水の大地</h3>
+                <div class="chapter-content">
+                    <p>
+                        千歳の地に広がる大湿原。その中心に築かれた<span class="highlight-text">シュプサラチャシ</span>は、
+                        水と共に生きる人々の知恵の結晶だった。
+                        「シュプサラ」とは、アイヌ語で「葦の茂る湿地」を意味し、
+                        見渡す限りの葦原が風に揺れる光景は、まるで緑の海のようだったという。
+                    </p>
+                    <p>
+                        この広大な湿地は、単なる未開の土地ではなく、
+                        豊かな生態系を育む生命の源泉だった。
+                        春には雪解け水が大地を潤し、夏には無数の水鳥が訪れ、
+                        秋には黄金色の葦が実りの季節を告げた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">2</div>
+                <h3 class="chapter-title">渡り鳥の聖域</h3>
+                <div class="chapter-content">
+                    <p>
+                        シュプサラチャシは、<span class="highlight-text">東アジアの渡り鳥ルート</span>の
+                        重要な中継地点に位置していた。
+                        毎年春と秋、数万羽もの渡り鳥がこの地を訪れ、
+                        長い旅の疲れを癒やし、次の目的地へと飛び立っていった。
+                    </p>
+                    <p>
+                        チャシの人々は、これらの渡り鳥を神の使いとして崇め、
+                        厳格な保護規則を定めていた。
+                        繁殖期や換羽期の狩猟を禁じ、営巣地への立ち入りを制限し、
+                        鳥たちが安心して休息できる環境を守り続けた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">3</div>
+                <h3 class="chapter-title">湿地の恵み</h3>
+                <div class="chapter-content">
+                    <p>
+                        湿原は、<span class="highlight-text">多様な資源の宝庫</span>でもあった。
+                        葦は建材や工芸品の材料として、ガマの穂は火口として、
+                        様々な水生植物は食料や薬草として利用された。
+                    </p>
+                    <p>
+                        特に重要だったのは、湿地に自生するマコモ（真菰）である。
+                        その実は栄養価が高く、茎は編み物の材料に、
+                        根は薬用にと、余すところなく活用された。
+                        シュプサラチャシは、これらの資源を管理し、
+                        持続可能な利用を実現する中心地として機能していた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">4</div>
+                <h3 class="chapter-title">水の防御</h3>
+                <div class="chapter-content">
+                    <p>
+                        シュプサラチャシの最大の特徴は、<span class="highlight-text">水を利用した防御システム</span>だった。
+                        周囲を取り巻く湿地と水路は、天然の堀として機能し、
+                        敵の侵入を困難にしていた。
+                    </p>
+                    <p>
+                        さらに巧妙だったのは、水位を調節できる仕組みである。
+                        堰を操作することで、必要に応じて周辺の水位を上げ下げし、
+                        防御力を高めたり、移動路を確保したりすることができた。
+                        この高度な水利技術は、現代の土木工学から見ても驚嘆に値するものだった。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">5</div>
+                <h3 class="chapter-title">交易の水路</h3>
+                <div class="chapter-content">
+                    <p>
+                        湿地を縦横に走る水路は、<span class="highlight-text">内陸水運の要</span>として
+                        重要な役割を果たしていた。
+                        丸木舟や葦舟を使って、人々は湿地帯を自在に移動し、
+                        物資を運搬していた。
+                    </p>
+                    <p>
+                        シュプサラチャシは、この水運ネットワークの管制センターとして機能し、
+                        通行の安全を確保し、交易を促進していた。
+                        特に、海岸部から内陸部への塩の輸送や、
+                        山間部からの毛皮・薬草の集積において、重要な中継地点となっていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">6</div>
+                <h3 class="chapter-title">近代化と湿地の運命</h3>
+                <div class="chapter-content">
+                    <p>
+                        明治以降の開拓により、千歳の湿原は急速に姿を変えていった。
+                        排水事業により多くの湿地が農地に転換され、
+                        <span class="highlight-text">シュプサラチャシの痕跡</span>も失われていった。
+                    </p>
+                    <p>
+                        しかし、ウトナイ湖周辺には今も貴重な湿地環境が残されている。
+                        ラムサール条約登録湿地として国際的に認められたこの地は、
+                        かつてシュプサラチャシの人々が守り続けた
+                        自然との共生の精神を、現代に伝えている。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">7</div>
+                <h3 class="chapter-title">湿地からの教え</h3>
+                <div class="chapter-content">
+                    <p>
+                        シュプサラチャシが私たちに残した最大の遺産は、
+                        <span class="highlight-text">湿地生態系の価値</span>への深い理解である。
+                        洪水調節、水質浄化、生物多様性の保全など、
+                        湿地が持つ多面的な機能を、彼らは経験的に理解し、活用していた。
+                    </p>
+                    <p>
+                        気候変動や環境破壊が深刻化する現代において、
+                        湿地の重要性は再認識されている。
+                        シュプサラチャシの人々が実践していた、
+                        自然の恵みを守りながら利用する知恵は、
+                        持続可能な社会を目指す私たちにとって、貴重な指針となるのである。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section section" id="info">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">立地</div>
+                <div class="info-value">千歳川下流域湿地帯</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">築造時期</div>
+                <div class="info-value">13-16世紀頃</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">規模</div>
+                <div class="info-value">推定 東西400m × 南北300m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">防御施設</div>
+                <div class="info-value">水路網・葦原迷路・浮島砦</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">管理湿地面積</div>
+                <div class="info-value">約1,000ヘクタール</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">現況</div>
+                <div class="info-value">大部分消失・ウトナイ湖周辺に痕跡</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 湿地特徴セクション -->
+    <section class="wetland-section section" id="wetland">
+        <div class="ripple-container" id="rippleContainer"></div>
+        
+        <div class="wetland-content">
+            <h2 class="section-title">湿地の特徴</h2>
+            <div class="wetland-intro">
+                水と陸の境界に築かれた、独自の生態系管理システム
+            </div>
+            
+            <div class="wetland-features">
+                <div class="wetland-feature">
+                    <h3>
+                        <div class="wetland-icon">💧</div>
+                        水位管理技術
+                    </h3>
+                    <p>
+                        堰と水門を組み合わせた高度な水位調節システムにより、
+                        季節や用途に応じた水環境のコントロールを実現。
+                        洪水防止と水資源確保の両立を可能にしていました。
+                    </p>
+                    <ul class="wetland-list">
+                        <li>可動式堰による水位調節</li>
+                        <li>遊水地としての洪水調整機能</li>
+                        <li>渇水期の水源確保システム</li>
+                        <li>魚道を備えた生態系配慮設計</li>
+                    </ul>
+                </div>
+                
+                <div class="wetland-feature">
+                    <h3>
+                        <div class="wetland-icon">🌱</div>
+                        植生管理
+                    </h3>
+                    <p>
+                        湿地植物の特性を熟知し、用途に応じた植生管理を実施。
+                        葦原の定期的な刈り取りと火入れにより、生産性の高い湿地環境を維持していました。
+                    </p>
+                    <ul class="wetland-list">
+                        <li>葦原の計画的管理</li>
+                        <li>薬草園の造成と維持</li>
+                        <li>水生植物の選択的栽培</li>
+                        <li>外来種の侵入防止</li>
+                    </ul>
+                </div>
+                
+                <div class="wetland-feature">
+                    <h3>
+                        <div class="wetland-icon">🛶</div>
+                        水上交通網
+                    </h3>
+                    <p>
+                        複雑に入り組んだ水路を整備し、効率的な水上交通システムを構築。
+                        葦舟や丸木舟による物資輸送と人の移動を円滑に行っていました。
+                    </p>
+                    <ul class="wetland-list">
+                        <li>主要水路の浚渫と維持</li>
+                        <li>船着場の整備</li>
+                        <li>標識となる目印の設置</li>
+                        <li>緊急避難用の浮島配置</li>
+                    </ul>
+                </div>
+                
+                <div class="wetland-feature">
+                    <h3>
+                        <div class="wetland-icon">🦅</div>
+                        野生生物保護
+                    </h3>
+                    <p>
+                        渡り鳥をはじめとする野生生物の生息地として、厳格な保護管理を実施。
+                        人間活動と野生生物の共存を実現する先進的な取り組みを行っていました。
+                    </p>
+                    <ul class="wetland-list">
+                        <li>繁殖期の立入制限区域設定</li>
+                        <li>営巣地の保護と監視</li>
+                        <li>狩猟規制の厳格な運用</li>
+                        <li>生息数モニタリング</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 渡り鳥セクション -->
+    <section class="birds-section section" id="birds">
+        <h2 class="section-title">渡り鳥の聖地</h2>
+        <div class="birds-calendar">
+            <div class="calendar-header">
+                <h3>四季の渡り鳥カレンダー</h3>
+                <p>
+                    シュプサラチャシは東アジア・オーストラリア地域フライウェイの重要な中継地。
+                    年間を通じて多様な渡り鳥が訪れ、壮大な自然のドラマが繰り広げられていました。
+                </p>
+            </div>
+            
+            <div class="birds-timeline">
+                <div class="timeline-bar"></div>
+                <div class="bird-seasons">
+                    <div class="bird-season">
+                        <div class="season-marker"></div>
+                        <div class="season-info">
+                            <h4>春（3-5月）</h4>
+                            <ul class="bird-list">
+                                <li>マガン・ヒシクイ</li>
+                                <li>オオハクチョウ</li>
+                                <li>カモ類各種</li>
+                                <li>シギ・チドリ類</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bird-season">
+                        <div class="season-marker"></div>
+                        <div class="season-info">
+                            <h4>夏（6-8月）</h4>
+                            <ul class="bird-list">
+                                <li>アオサギ・ゴイサギ</li>
+                                <li>カイツブリ類</li>
+                                <li>ヨシキリ類</li>
+                                <li>カワセミ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bird-season">
+                        <div class="season-marker"></div>
+                        <div class="season-info">
+                            <h4>秋（9-11月）</h4>
+                            <ul class="bird-list">
+                                <li>ツル類</li>
+                                <li>ガン類大群</li>
+                                <li>猛禽類各種</li>
+                                <li>小鳥類の群れ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bird-season">
+                        <div class="season-marker"></div>
+                        <div class="season-info">
+                            <h4>冬（12-2月）</h4>
+                            <ul class="bird-list">
+                                <li>オオワシ・オジロワシ</li>
+                                <li>越冬ガモ類</li>
+                                <li>ハクチョウ類</li>
+                                <li>カワアイサ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 湿地資源セクション -->
+    <section class="resources-section section" id="resources">
+        <h2 class="section-title">湿地の恵み</h2>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="resource-icon">🌾</div>
+                <div class="resource-name">葦（ヨシ）</div>
+                <div class="resource-uses">
+                    建材、屋根材、編み物材料、燃料、
+                    パルプ原料、水質浄化
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🌿</div>
+                <div class="resource-name">真菰（マコモ）</div>
+                <div class="resource-uses">
+                    食用（実・若芽）、編み物材料、
+                    薬用（根茎）、祭事用品
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🌸</div>
+                <div class="resource-name">蒲（ガマ）</div>
+                <div class="resource-uses">
+                    火口、綿毛（詰め物）、花粉（薬用）、
+                    若芽（食用）、敷物材料
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🦪</div>
+                <div class="resource-name">貝類</div>
+                <div class="resource-uses">
+                    食用、装飾品材料、石灰原料、
+                    貨幣、祭器材料
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🐟</div>
+                <div class="resource-name">淡水魚</div>
+                <div class="resource-uses">
+                    フナ、ウグイ、ワカサギ、ウナギ、
+                    ドジョウなど多様な魚種
+                </div>
+            </div>
+            
+            <div class="resource-card">
+                <div class="resource-icon">🌺</div>
+                <div class="resource-name">薬草類</div>
+                <div class="resource-uses">
+                    ミツガシワ、サワオグルマ、
+                    エゾミソハギなど湿地特有の薬草
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section section" id="strategic">
+        <h2 class="section-title">戦略的価値</h2>
+        <div class="strategy-cards">
+            <div class="strategy-card">
+                <div class="strategy-number">1</div>
+                <h3>天然の要害</h3>
+                <p>
+                    広大な湿地と複雑な水路網により、外敵の侵入を困難にする天然の防御システム。
+                    地形を熟知した者のみが安全に移動できる、難攻不落の水の城。
+                </p>
+                <ul class="strategy-list">
+                    <li>迷路のような水路による防御</li>
+                    <li>季節による地形変化の活用</li>
+                    <li>隠し水路による奇襲戦術</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">2</div>
+                <h3>資源の宝庫</h3>
+                <p>
+                    多様な湿地資源により、自給自足が可能な経済基盤を確立。
+                    交易品としても価値の高い特産品を産出し、地域経済の中心として機能。
+                </p>
+                <ul class="strategy-list">
+                    <li>年間を通じた食料確保</li>
+                    <li>高品質な工芸材料の供給</li>
+                    <li>薬草による医療体制</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <h3>情報収集拠点</h3>
+                <p>
+                    渡り鳥の飛来パターンから気候変動や遠方の状況を予測。
+                    水上交通の要衝として、各地の情報が集まる情報センターとして機能。
+                </p>
+                <ul class="strategy-list">
+                    <li>渡り鳥による季節予測</li>
+                    <li>交易商人からの情報収集</li>
+                    <li>水運ネットワークの情報網</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <h3>環境調整機能</h3>
+                <p>
+                    洪水調節、水質浄化、気候緩和など、広域的な環境調整機能を担う。
+                    周辺地域の農業や生活を支える、重要な環境インフラとして機能。
+                </p>
+                <ul class="strategy-list">
+                    <li>洪水被害の軽減</li>
+                    <li>地下水涵養による水源確保</li>
+                    <li>局地気候の安定化</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section section" id="facilities">
+        <h2 class="section-title">関連施設・周辺観光</h2>
+        <div class="facilities-container">
+            <div class="facility-category">
+                <h3>自然観察施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">ウトナイ湖野生鳥獣保護センター</span>
+                            <span class="facility-distance">
+                                <span>約15km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">ウトナイ湖サンクチュアリ</span>
+                            <span class="facility-distance">
+                                <span>約15km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳市埋蔵文化財センター</span>
+                            <span class="facility-distance">
+                                <span>約5km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>体験・学習施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳水族館（サケのふるさと館）</span>
+                            <span class="facility-distance">
+                                <span>約8km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">支笏湖ビジターセンター</span>
+                            <span class="facility-distance">
+                                <span>約25km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">北海道箱根牧場</span>
+                            <span class="facility-distance">
+                                <span>約10km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>周辺の見どころ</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">千歳アウトレットモール・レラ</span>
+                            <span class="facility-distance">
+                                <span>約3km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">新千歳空港温泉</span>
+                            <span class="facility-distance">
+                                <span>約5km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">キリンビール北海道千歳工場</span>
+                            <span class="facility-distance">
+                                <span>約7km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section section" id="access">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-container">
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d94278.812!2d141.6!3d42.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x5f74dc4c4c4c4c4c%3A0x5f74dc4c4c4c4c4c!2z5paw5Y2D5q2z56m65riv!3m2!1d42.7875!2d141.6917!4m5!1s0x0%3A0x0!2z44K344Ol44OX44K144Op44OB44Oj44K3!3m2!1d42.8333!2d141.6833!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">✈️</span>
+                        空路でのアクセス
+                    </h3>
+                    <p>
+                        新千歳空港から車で約15分。日本で最もアクセスしやすい
+                        歴史遺跡の一つです。
+                    </p>
+                    <ul>
+                        <li>羽田→新千歳：約1時間30分</li>
+                        <li>関西→新千歳：約2時間</li>
+                        <li>空港からレンタカー推奨</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚆</span>
+                        鉄道でのアクセス
+                    </h3>
+                    <p>
+                        JR千歳線南千歳駅から車で約10分。
+                        札幌から快速エアポートで約30分。
+                    </p>
+                    <ul>
+                        <li>札幌→南千歳：快速30分</li>
+                        <li>新千歳空港→南千歳：3分</li>
+                        <li>駅からタクシー利用可</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚗</span>
+                        車でのアクセス
+                    </h3>
+                    <p>
+                        道央自動車道千歳ICから約10分。
+                        国道36号線経由でアクセス良好。
+                    </p>
+                    <ul>
+                        <li>札幌市内から：約40分</li>
+                        <li>苫小牧から：約30分</li>
+                        <li>無料駐車場完備</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="cta">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2 class="cta-title">湿原の記憶を訪ねる旅へ</h2>
+            <p class="cta-description">
+                水と共に生きた古代の知恵を探る旅。
+                ラムサール条約湿地ウトナイ湖で、渡り鳥の楽園を体感し、
+                失われた湿原文化の痕跡を辿ってみませんか。
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">野鳥観察ツアーを予約</a>
+                <a href="../" class="cta-button secondary">他の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">サイトマップ</a>
+            </div>
+            <p class="footer-copy">
+                &copy; 2024 北海道の城めぐり. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの開閉
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // メニュー項目クリックで閉じる
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // スクロールでヘッダーの背景を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 動的な装飾要素の生成
+        function createDecorations() {
+            // 葦の生成
+            const reedsContainer = document.getElementById('reedsContainer');
+            for (let i = 0; i < 50; i++) {
+                const reed = document.createElement('div');
+                reed.className = 'reed';
+                reed.style.left = Math.random() * 100 + '%';
+                reed.style.height = (Math.random() * 100 + 50) + 'px';
+                reed.style.animationDelay = Math.random() * 4 + 's';
+                reed.style.animationDuration = (3 + Math.random() * 2) + 's';
+                reedsContainer.appendChild(reed);
+            }
+            
+            // 渡り鳥の群れ生成
+            const birdsContainer = document.getElementById('birdsContainer');
+            const birdSymbols = ['🦆', '🦢', '🦅', '🦜'];
+            
+            setInterval(() => {
+                const flock = document.createElement('div');
+                flock.className = 'bird-flock';
+                flock.innerHTML = birdSymbols[Math.floor(Math.random() * birdSymbols.length)];
+                flock.style.top = Math.random() * 100 + '%';
+                flock.style.animationDuration = (20 + Math.random() * 20) + 's';
+                birdsContainer.appendChild(flock);
+                
+                setTimeout(() => {
+                    flock.remove();
+                }, 40000);
+            }, 5000);
+            
+            // 水紋効果
+            const rippleContainer = document.getElementById('rippleContainer');
+            setInterval(() => {
+                const ripple = document.createElement('div');
+                ripple.className = 'water-ripple';
+                ripple.style.left = Math.random() * 100 + '%';
+                ripple.style.top = Math.random() * 100 + '%';
+                rippleContainer.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 6000);
+            }, 3000);
+        }
+        
+        // ページ読み込み完了後に装飾を生成
+        window.addEventListener('load', createDecorations);
+    </script>
+</body>
+</html>

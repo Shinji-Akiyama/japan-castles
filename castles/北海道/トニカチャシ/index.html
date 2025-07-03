@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トニカチャシ（とにかちゃし）- 北海道斜里町 | お城ファンページ</title>
+    <meta name="description" content="北海道斜里町にあるトニカチャシの魅力を紹介。オホーツク海を望む断崖に築かれた、流氷監視と海洋交易の要衝。知床の自然と共生した独特な防衛システム。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .nav-menu li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu.active li:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu.active li:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu.active li:nth-child(8) { transition-delay: 0.8s; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg iframe {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(0,0,0,0.4) 0%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        /* グラスモーフィズム効果のある情報カード */
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+        
+        .story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .story-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0f172a;
+            position: relative;
+        }
+        
+        .story-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            border-radius: 2px;
+        }
+        
+        .story-chapters {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .story-chapter {
+            position: relative;
+            padding-left: 100px;
+            opacity: 0;
+            animation: fadeInSlide 0.8s ease forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .story-chapter.highlight .chapter-number {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            box-shadow: 0 5px 20px rgba(14, 165, 233, 0.3);
+        }
+        
+        .story-chapter.danger .chapter-number {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            box-shadow: 0 5px 20px rgba(239, 68, 68, 0.3);
+        }
+        
+        .chapter-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        
+        .chapter-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%) 1;
+        }
+        
+        .story-chapter.highlight .chapter-content {
+            border-image: linear-gradient(180deg, #0ea5e9 0%, #0284c7 100%) 1;
+        }
+        
+        .story-chapter.danger .chapter-content {
+            border-image: linear-gradient(180deg, #ef4444 0%, #dc2626 100%) 1;
+        }
+        
+        .chapter-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: #3b82f6;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            border-radius: 2px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .info-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .info-item p {
+            font-size: 18px;
+            color: #0f172a;
+            font-weight: 500;
+        }
+        
+        /* 流氷監視システムセクション */
+        .ice-watch {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1e40af 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ice-watch::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><polygon points="0,100 200,50 400,80 600,40 800,90 800,400 0,400" fill="rgba(255,255,255,0.05)"/><polygon points="0,200 150,150 350,180 550,140 800,190 800,400 0,400" fill="rgba(255,255,255,0.03)"/><polygon points="0,300 250,250 450,280 650,240 800,290 800,400 0,400" fill="rgba(255,255,255,0.02)"/></svg>') repeat-x;
+            animation: ice-drift 30s linear infinite;
+        }
+        
+        @keyframes ice-drift {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-800px); }
+        }
+        
+        .ice-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .ice-watch h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .ice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .ice-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ice-item::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .ice-item:hover::before {
+            top: -150%;
+            left: -150%;
+            opacity: 1;
+        }
+        
+        .ice-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .ice-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: crystal-shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes crystal-shine {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg); 
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.1) rotate(5deg); 
+                filter: brightness(1.3);
+            }
+        }
+        
+        .ice-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e0f2fe;
+        }
+        
+        .ice-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 知床の自然との共生セクション */
+        .nature-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nature-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(59,130,246,0.1)" stroke-width="2"/><path d="M100 20 L80 60 L40 60 L65 85 L55 125 L100 100 L145 125 L135 85 L160 60 L120 60 Z" fill="rgba(59,130,246,0.05)"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: nature-rotate 20s linear infinite;
+        }
+        
+        @keyframes nature-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .nature-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nature-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #0f172a;
+            margin-bottom: 60px;
+        }
+        
+        .nature-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .nature-feature {
+            background: #f0f9ff;
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid #bae6fd;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nature-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .nature-feature:hover::before {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        
+        .nature-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+            border-color: #60a5fa;
+        }
+        
+        .nature-icon {
+            font-size: 3rem;
+            color: #3b82f6;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .nature-feature h3 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        
+        .nature-feature p {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .strategic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .strategic-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .strategic-header {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            padding: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .strategic-number {
+            font-size: 3rem;
+            font-weight: 800;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .strategic-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-body {
+            padding: 30px;
+        }
+        
+        .strategic-body p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .strategic-list {
+            list-style: none;
+        }
+        
+        .strategic-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #64748b;
+        }
+        
+        .strategic-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        /* オホーツク文化遺産セクション */
+        .okhotsk-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .okhotsk-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="200" cy="200" r="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="200" cy="200" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') no-repeat center;
+            animation: okhotsk-pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes okhotsk-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+        
+        .okhotsk-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .okhotsk-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .okhotsk-description {
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .okhotsk-timeline {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .timeline-item {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #fbbf24;
+        }
+        
+        .timeline-event {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* 関連施設セクション */
+        .related-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .related-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .related-category h3 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .related-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .related-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .related-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #3b82f6;
+        }
+        
+        .related-icon {
+            font-size: 28px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .related-info {
+            flex: 1;
+        }
+        
+        .related-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+        
+        .related-info p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+        
+        .related-arrow {
+            font-size: 20px;
+            color: #3b82f6;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .related-item:hover .related-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .access-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-card h3 {
+            font-size: 16px;
+            color: #3b82f6;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .access-card p {
+            color: #475569;
+            font-size: 15px;
+            margin: 5px 0;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #3b82f6;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #3b82f6;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .story-chapter {
+                padding-left: 0;
+                padding-top: 100px;
+            }
+            
+            .chapter-number {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .ice-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nature-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .okhotsk-timeline {
+                flex-direction: column;
+            }
+        }
+        
+        /* スクロールアニメーション */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 流氷エフェクト */
+        .ice-flake {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: ice-fall 10s linear infinite;
+        }
+        
+        @keyframes ice-fall {
+            0% {
+                transform: translateY(-100px) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* オホーツクパターン */
+        .okhotsk-pattern {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .okhotsk-pattern svg {
+            width: 100%;
+            height: 100%;
+            fill: #3b82f6;
+        }
+        
+        @keyframes pattern-float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, -30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-30px, -60px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-50px, -30px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <h2>トニカチャシ</h2>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#story">物語</a></li>
+                <li><a href="#info">基本情報</a></li>
+                <li><a href="#ice-watch">流氷監視</a></li>
+                <li><a href="#nature">知床の自然</a></li>
+                <li><a href="#strategic">戦略的価値</a></li>
+                <li><a href="#okhotsk">オホーツク文化</a></li>
+                <li><a href="#related">関連施設</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="/castles/北海道/">北海道の城一覧</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000!2d144.6742!3d43.9086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>トニカチャシ</h1>
+            <p class="subtitle">オホーツクの海を見守る氷の要塞</p>
+            <div class="info-card">
+                <p>📍 所在地：北海道斜里町</p>
+                <p>🏯 種類：チャシ（海岸監視型）</p>
+                <p>📅 築城年代：16-18世紀（アイヌ文化期）</p>
+                <p>🔍 特徴：流氷監視と海洋交易の拠点</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section id="story" class="story-section scroll-reveal">
+        <div class="story-container">
+            <h2 class="story-title">トニカチャシの物語</h2>
+            <div class="story-chapters">
+                <div class="story-chapter">
+                    <div class="chapter-number">第一章</div>
+                    <h3 class="chapter-title">オホーツクの監視者</h3>
+                    <div class="chapter-content">
+                        <p>知床半島の北岸、オホーツク海を見下ろす断崖の上に、トニカチャシは築かれました。「トニカ」とは「岬の先」を意味し、まさに陸地が海に突き出した絶好の監視地点でした。</p>
+                        <p>このチャシの最大の役割は、冬季に押し寄せる流氷の監視でした。流氷の到来は、狩猟や漁労の時期を告げる重要な自然現象であり、同時に海路を封鎖する脅威でもありました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter highlight">
+                    <div class="chapter-number">第二章</div>
+                    <h3 class="chapter-title">流氷の恵みと脅威</h3>
+                    <div class="chapter-content">
+                        <p>トニカチャシの見張り台からは、水平線の彼方まで見渡すことができました。熟練した監視者は、流氷の動きから風向きや潮流を読み取り、数日先の天候まで予測できたといいます。</p>
+                        <p>流氷の上にはアザラシやトドが休息し、それを狙ってオオワシやオジロワシが飛来します。この豊かな生態系は、アイヌの人々にとって重要な狩猟の場となりました。チャシは、この恵みを効率的に利用するための情報センターとして機能しました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">第三章</div>
+                    <h3 class="chapter-title">海洋交易の要衝</h3>
+                    <div class="chapter-content">
+                        <p>夏季、流氷が去った後のオホーツク海は、活発な交易路となりました。サハリンから来る交易船、千島列島を経由する船、そして本州から北上する船が行き交いました。</p>
+                        <p>トニカチャシは、これらの船舶の動きを監視し、安全な航路情報を提供する灯台のような役割も果たしました。また、交易品の中継地点としても機能し、毛皮、海産物、鉄器などが集積されました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter danger">
+                    <div class="chapter-number">第四章</div>
+                    <h3 class="chapter-title">異国船の脅威</h3>
+                    <div class="chapter-content">
+                        <p>18世紀後半になると、ロシアの南下政策により、オホーツク海にも異国船が現れるようになりました。トニカチャシは、これらの船の動向を監視する最前線の哨戒拠点となりました。</p>
+                        <p>1792年、ロシアのラクスマン使節団が根室に来航した際も、トニカチャシから烽火による警報が発せられ、道東一帯に緊張が走りました。この出来事は、チャシの軍事的重要性を改めて認識させることとなりました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">第五章</div>
+                    <h3 class="chapter-title">知床の守護者</h3>
+                    <div class="chapter-content">
+                        <p>明治時代に入り、チャシとしての機能は失われましたが、トニカチャシの地は、知床の自然を見守る特別な場所として地域の人々に大切にされてきました。</p>
+                        <p>2005年、知床が世界自然遺産に登録されると、トニカチャシ跡も貴重な文化遺産として再評価されました。かつて流氷を監視した場所は、今では観光客が知床の雄大な自然を体感する展望地となっています。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter">
+                    <div class="chapter-number">終章</div>
+                    <h3 class="chapter-title">永遠のオホーツク</h3>
+                    <div class="chapter-content">
+                        <p>トニカチャシから見るオホーツク海の風景は、数百年前と変わらぬ美しさを保っています。冬には流氷が押し寄せ、夏には青い海が広がり、四季折々の自然の営みが続いています。</p>
+                        <p>このチャシは、人と自然が共生してきた知床の歴史を物語る貴重な遺産として、これからも大切に守り継がれていくことでしょう。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section id="info" class="info-section scroll-reveal">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>立地</h3>
+                <p>斜里町ウトロ地区の海岸段丘上</p>
+            </div>
+            <div class="info-item">
+                <h3>標高</h3>
+                <p>約60m（海面からの比高）</p>
+            </div>
+            <div class="info-item">
+                <h3>規模</h3>
+                <p>東西約150m、南北約100m</p>
+            </div>
+            <div class="info-item">
+                <h3>防御施設</h3>
+                <p>土塁、空堀、見張り台跡</p>
+            </div>
+            <div class="info-item">
+                <h3>築城目的</h3>
+                <p>流氷監視、海上交通管理、交易拠点</p>
+            </div>
+            <div class="info-item">
+                <h3>現況</h3>
+                <p>土塁の一部が残存、展望地として整備</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 流氷監視システムセクション -->
+    <section id="ice-watch" class="ice-watch scroll-reveal">
+        <div class="ice-content">
+            <h2>流氷監視システム</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">
+                オホーツク海の自然現象を読み解く高度な観測技術
+            </p>
+            
+            <div class="ice-grid">
+                <div class="ice-item">
+                    <span class="ice-icon">❄️</span>
+                    <h3>流氷予測</h3>
+                    <p>風向き、気温、海流から流氷の到来時期を予測。誤差は驚くほど少なく、現代の気象予報に匹敵する精度でした。</p>
+                </div>
+                
+                <div class="ice-item">
+                    <span class="ice-icon">🔭</span>
+                    <h3>24時間監視</h3>
+                    <p>交代制で常時監視を実施。特に流氷期は、昼夜を問わず見張りが立ち、微細な変化も見逃しませんでした。</p>
+                </div>
+                
+                <div class="ice-item">
+                    <span class="ice-icon">🔥</span>
+                    <h3>烽火通信</h3>
+                    <p>流氷の接近や異常を、烽火により周辺集落へ迅速に伝達。連鎖的な通信網で広域への情報共有が可能でした。</p>
+                </div>
+                
+                <div class="ice-item">
+                    <span class="ice-icon">🦭</span>
+                    <h3>狩猟情報</h3>
+                    <p>流氷上の海獣の群れを発見すると、狩猟隊を適切な場所へ誘導。効率的な狩猟を可能にしました。</p>
+                </div>
+                
+                <div class="ice-item">
+                    <span class="ice-icon">🚢</span>
+                    <h3>航路安全</h3>
+                    <p>流氷の切れ目（水路）を見つけ、安全な航路情報を提供。多くの船がこの情報に頼っていました。</p>
+                </div>
+                
+                <div class="ice-item">
+                    <span class="ice-icon">🌡️</span>
+                    <h3>気象観測</h3>
+                    <p>流氷の動きから長期的な気候変動を読み取り、農耕や狩猟の計画に活用する知恵が蓄積されていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 知床の自然との共生セクション -->
+    <section id="nature" class="nature-section scroll-reveal">
+        <div class="nature-content">
+            <h2 class="nature-title">知床の自然との共生</h2>
+            <div class="nature-features">
+                <div class="nature-feature">
+                    <span class="nature-icon">🦅</span>
+                    <h3>オオワシ・オジロワシの聖地</h3>
+                    <p>冬季、流氷と共に飛来する数千羽のワシたち。トニカチャシからは、これらの猛禽類の壮大な飛翔を間近に観察できました。アイヌの人々は、ワシを「カパッチリカムイ」（ワシ神）として崇め、その羽根は最も神聖な儀式で使用されました。</p>
+                </div>
+                
+                <div class="nature-feature">
+                    <span class="nature-icon">🐻</span>
+                    <h3>ヒグマとの共存</h3>
+                    <p>知床はヒグマの密度が世界一高い地域。トニカチャシでは、ヒグマの行動を観察し、安全な共存のルールを確立していました。「キムンカムイ」（山の神）として敬われたヒグマとの関係は、現代の野生動物管理にも通じる知恵に満ちていました。</p>
+                </div>
+                
+                <div class="nature-feature">
+                    <span class="nature-icon">🐟</span>
+                    <h3>サケ・マスの恵み</h3>
+                    <p>知床の河川を遡上するサケ・マスは、生態系全体を支える重要な資源。トニカチャシからは、河口部でのサケの動きを観察し、最適な漁期を判断しました。持続可能な漁業の原型がここにありました。</p>
+                </div>
+                
+                <div class="nature-feature">
+                    <span class="nature-icon">🌲</span>
+                    <h3>原生林の守護</h3>
+                    <p>背後に広がる知床の原生林は、豊かな資源の宝庫。トニカチャシは、この森林資源の管理拠点でもあり、必要最小限の利用に留める持続可能な森林利用が実践されていました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section id="strategic" class="strategic-section scroll-reveal">
+        <div class="strategic-container">
+            <h2 class="section-title">トニカチャシの戦略的価値</h2>
+            <div class="strategic-grid">
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">01</div>
+                        <div class="strategic-title">海洋監視の要</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>オホーツク海の船舶動向を完全に把握できる立地条件。</p>
+                        <ul class="strategic-list">
+                            <li>視界180度以上の海域監視</li>
+                            <li>流氷期・開水期の両方で機能</li>
+                            <li>異国船の早期発見システム</li>
+                            <li>海難救助の情報拠点</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">02</div>
+                        <div class="strategic-title">交易ネットワークの結節点</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>北方交易の中継地として、多様な物資が集散しました。</p>
+                        <ul class="strategic-list">
+                            <li>サハリン・千島方面との交易</li>
+                            <li>オホーツク沿岸の物資集積</li>
+                            <li>内陸部への物資供給基地</li>
+                            <li>情報交換の中心地</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">03</div>
+                        <div class="strategic-title">自然資源管理センター</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>知床の豊かな自然資源を持続的に利用するための管理拠点。</p>
+                        <ul class="strategic-list">
+                            <li>漁業資源の監視と配分</li>
+                            <li>狩猟区域の管理</li>
+                            <li>森林資源の保護</li>
+                            <li>生態系モニタリング</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-header">
+                        <div class="strategic-number">04</div>
+                        <div class="strategic-title">文化交流の拠点</div>
+                    </div>
+                    <div class="strategic-body">
+                        <p>異なる文化が出会い、融合する場としての役割。</p>
+                        <ul class="strategic-list">
+                            <li>オホーツク文化との接触</li>
+                            <li>和人文化の受容</li>
+                            <li>独自の混合文化の形成</li>
+                            <li>技術・知識の交換</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- オホーツク文化遺産セクション -->
+    <section id="okhotsk" class="okhotsk-section scroll-reveal">
+        <div class="okhotsk-content">
+            <h2 class="okhotsk-title">オホーツク文化の遺産</h2>
+            <p class="okhotsk-description">
+                5～10世紀にかけて栄えたオホーツク文化。<br>
+                トニカチャシには、この海洋民族の影響が色濃く残されています。
+            </p>
+            
+            <div class="okhotsk-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">5世紀</div>
+                    <div class="timeline-event">オホーツク文化の人々が知床に到達</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">7世紀</div>
+                    <div class="timeline-event">海獣狩猟技術の最盛期</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">10世紀</div>
+                    <div class="timeline-event">アイヌ文化との融合開始</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">16世紀</div>
+                    <div class="timeline-event">トニカチャシ築城に技術継承</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section id="related" class="related-section scroll-reveal">
+        <div class="related-container">
+            <h2 class="section-title">関連施設・観光情報</h2>
+            <div class="related-grid">
+                <div class="related-category">
+                    <h3>博物館・資料館</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏛️</span>
+                            <div class="related-info">
+                                <h4>知床博物館</h4>
+                                <p>オホーツク文化とアイヌ文化の資料を展示</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">📚</span>
+                            <div class="related-info">
+                                <h4>知床世界遺産センター</h4>
+                                <p>知床の自然と文化を総合的に紹介</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-category">
+                    <h3>周辺のチャシ・遺跡</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🏰</span>
+                            <div class="related-info">
+                                <h4>チャシコツ岬上遺跡</h4>
+                                <p>オホーツク文化期の集落跡（車で20分）</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🗿</span>
+                            <div class="related-info">
+                                <h4>ウトロ遺跡</h4>
+                                <p>縄文からアイヌ期まで続く複合遺跡</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-category">
+                    <h3>自然体験</h3>
+                    <div class="related-list">
+                        <a href="#" class="related-item">
+                            <span class="related-icon">❄️</span>
+                            <div class="related-info">
+                                <h4>流氷ウォーク</h4>
+                                <p>冬季限定、流氷上を歩く特別体験</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                        <a href="#" class="related-item">
+                            <span class="related-icon">🦅</span>
+                            <div class="related-info">
+                                <h4>ワシ・ワシ観察クルーズ</h4>
+                                <p>オオワシ・オジロワシの観察船</p>
+                            </div>
+                            <span class="related-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section id="access" class="access-section scroll-reveal">
+        <div class="access-container">
+            <h2 class="section-title">アクセス情報</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d144.6742!3d43.9086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚗 車でのアクセス</h3>
+                    <p>女満別空港から約2時間</p>
+                    <p>網走市から約1時間30分</p>
+                    <p>斜里町ウトロから約10分</p>
+                    <p>駐車場：あり（無料）</p>
+                </div>
+                <div class="access-card">
+                    <h3>🚌 公共交通機関</h3>
+                    <p>JR知床斜里駅から斜里バス</p>
+                    <p>「ウトロ温泉バスターミナル」下車</p>
+                    <p>バスターミナルから徒歩約20分</p>
+                </div>
+                <div class="access-card">
+                    <h3>🕒 見学情報</h3>
+                    <p>見学自由（24時間）</p>
+                    <p>冬季は積雪により通行困難</p>
+                    <p>ガイドツアーあり（要予約）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">トニカチャシを訪れよう</h2>
+            <p class="cta-description">
+                オホーツクの海と知床の大自然が織りなす壮大な歴史の舞台へ
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">バーチャルツアーを体験</a>
+                <a href="/castles/北海道/" class="cta-button secondary">他の北海道の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 トニカチャシ - 北海道の城</p>
+        <p><a href="/castles/北海道/">北海道の城一覧へ戻る</a></p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンククリックで閉じる
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        scrollElements.forEach(el => observer.observe(el));
+
+        // スムーススクロール（オフセット付き）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 流氷エフェクトの生成
+        function createIceFlake() {
+            const iceSection = document.querySelector('.ice-watch');
+            const flake = document.createElement('div');
+            flake.className = 'ice-flake';
+            flake.style.left = Math.random() * 100 + '%';
+            flake.style.animationDelay = Math.random() * 10 + 's';
+            flake.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            iceSection.appendChild(flake);
+            
+            setTimeout(() => {
+                flake.remove();
+            }, 20000);
+        }
+
+        // 5秒ごとに流氷を生成
+        setInterval(createIceFlake, 5000);
+        
+        // 初期生成
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createIceFlake, i * 1000);
+        }
+
+        // オホーツクパターンの生成
+        function createOkhotskPattern() {
+            const pattern = document.createElement('div');
+            pattern.className = 'okhotsk-pattern';
+            pattern.innerHTML = '<svg viewBox="0 0 100 100"><path d="M50 10 L90 35 L90 75 L50 90 L10 75 L10 35 Z"/></svg>';
+            pattern.style.left = Math.random() * window.innerWidth + 'px';
+            pattern.style.top = Math.random() * window.innerHeight + 'px';
+            pattern.style.animation = `pattern-float ${15 + Math.random() * 10}s ease-in-out infinite`;
+            document.body.appendChild(pattern);
+            
+            setTimeout(() => {
+                pattern.remove();
+            }, 25000);
+        }
+
+        // 30秒ごとにパターンを生成
+        setInterval(createOkhotskPattern, 30000);
+        createOkhotskPattern(); // 初回実行
+    </script>
+</body>
+</html>

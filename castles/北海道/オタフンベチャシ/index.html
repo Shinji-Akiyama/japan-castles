@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オタフンベチャシ（おたふんべちゃし）- 北海道浜中町 | お城ファンページ</title>
+    <meta name="description" content="北海道浜中町にあるオタフンベチャシの魅力を紹介。太平洋の荒波に立ち向かう断崖の要塞。霧の海に浮かぶ幻の城として東海岸防衛の要を担った物語。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+            opacity: 0.95;
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: bold;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 20px;
+        }
+        
+        .nav-menu.active a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu a:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu a:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu a:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu a:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu a:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu a:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu a:nth-child(8) { transition-delay: 0.8s; }
+        .nav-menu a:nth-child(9) { transition-delay: 0.9s; }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+            width: 0;
+            height: 3px;
+            background: #90caf9;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: calc(100% - 40px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 1;
+        }
+        
+        /* 波のアニメーション */
+        .ocean-waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23263238" opacity="0.3"></path></svg>') repeat-x;
+            animation: waveAnimation 10s linear infinite;
+        }
+        
+        .wave:nth-child(2) {
+            animation-delay: -2s;
+            animation-duration: 13s;
+            opacity: 0.5;
+            bottom: 10px;
+        }
+        
+        .wave:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 15s;
+            opacity: 0.3;
+            bottom: 20px;
+        }
+        
+        @keyframes waveAnimation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* 霧の効果 */
+        .fog-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        .fog-layer {
+            position: absolute;
+            width: 120%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 40%,
+                transparent 70%);
+            animation: fogDrift 20s ease-in-out infinite;
+        }
+        
+        .fog-layer:nth-child(2) {
+            animation-delay: -7s;
+            animation-duration: 25s;
+            opacity: 0.6;
+        }
+        
+        .fog-layer:nth-child(3) {
+            animation-delay: -14s;
+            animation-duration: 30s;
+            opacity: 0.4;
+        }
+        
+        @keyframes fogDrift {
+            0%, 100% {
+                transform: translateX(-10%) translateY(0);
+            }
+            50% {
+                transform: translateX(10%) translateY(-10%);
+            }
+        }
+        
+        /* 断崖のシルエット */
+        .cliff-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, #000 0%, transparent 100%);
+            clip-path: polygon(
+                0 100%,
+                0 40%,
+                20% 35%,
+                30% 40%,
+                40% 30%,
+                50% 35%,
+                60% 25%,
+                70% 30%,
+                80% 20%,
+                90% 25%,
+                100% 15%,
+                100% 100%
+            );
+            z-index: 4;
+        }
+        
+        /* 灯台の光 */
+        .lighthouse-beam {
+            position: absolute;
+            top: 30%;
+            right: 20%;
+            width: 400px;
+            height: 600px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.3) 0%,
+                transparent 100%);
+            clip-path: polygon(45% 0%, 55% 0%, 100% 100%, 0% 100%);
+            transform-origin: top center;
+            animation: beamRotate 15s ease-in-out infinite;
+            z-index: 3;
+        }
+        
+        @keyframes beamRotate {
+            0%, 100% { transform: rotate(-20deg); opacity: 0.3; }
+            50% { transform: rotate(20deg); opacity: 0.6; }
+        }
+        
+        .hero-map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #90caf9, #64b5f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(144, 202, 249, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 50px;
+            color: #263238;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #263238, #455a64);
+            border-radius: 2px;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+            padding: 60px 20px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #263238;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(38, 50, 56, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(38, 50, 56, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        .story-chapter:nth-child(7) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #263238, #455a64);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .chapter-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #263238;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #263238;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .chapter-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #263238, #455a64);
+        }
+        
+        .chapter-content {
+            line-height: 2;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(to bottom, transparent 60%, rgba(144, 202, 249, 0.3) 60%);
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-section .section-title {
+            color: white;
+        }
+        
+        .info-section .section-title::after {
+            background: linear-gradient(90deg, #90caf9, #64b5f6);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #90caf9;
+        }
+        
+        /* 海岸防衛特徴セクション */
+        .coastal-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 海鳥の背景 */
+        .seabirds-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .seabird {
+            position: absolute;
+            font-size: 30px;
+            color: #263238;
+            animation: birdFlight 20s linear infinite;
+        }
+        
+        @keyframes birdFlight {
+            0% {
+                transform: translateX(-50px) translateY(0);
+            }
+            100% {
+                transform: translateX(calc(100vw + 50px)) translateY(-100px);
+            }
+        }
+        
+        .coastal-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .coastal-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+        
+        .coastal-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .coastal-feature {
+            background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .coastal-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(144, 202, 249, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .coastal-feature:hover::before {
+            opacity: 1;
+        }
+        
+        .coastal-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .coastal-feature h3 {
+            font-size: 1.5rem;
+            color: #263238;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .coastal-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #263238, #455a64);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .coastal-feature p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .coastal-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .coastal-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .coastal-list li::before {
+            content: '⚓';
+            position: absolute;
+            left: 0;
+            color: #455a64;
+            font-weight: bold;
+        }
+        
+        /* 霧の観測記録セクション */
+        .fog-section {
+            background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+            padding: 80px 20px;
+        }
+        
+        .fog-calendar {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fog-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .fog-stat {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .fog-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fog-month {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #263238;
+            margin-bottom: 10px;
+        }
+        
+        .fog-days {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #455a64;
+            margin-bottom: 5px;
+        }
+        
+        .fog-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* 海上監視セクション */
+        .surveillance-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .surveillance-map {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .surveillance-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .surveillance-zone {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .surveillance-zone:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .zone-direction {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #263238;
+            margin-bottom: 15px;
+        }
+        
+        .zone-arrow {
+            font-size: 1.5rem;
+        }
+        
+        .zone-details {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .zone-details li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: linear-gradient(135deg, #37474f 0%, #263238 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-section .section-title {
+            color: white;
+        }
+        
+        .strategy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #90caf9, #64b5f6, #90caf9);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .strategy-card:hover::before {
+            opacity: 1;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .strategy-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #90caf9, #64b5f6);
+            color: #263238;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #90caf9;
+        }
+        
+        .strategy-card p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .strategy-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategy-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #90caf9;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .facilities-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-category h3 {
+            color: #263238;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .facility-list li:hover {
+            padding-left: 20px;
+            background: linear-gradient(to right, rgba(38, 50, 56, 0.05), transparent);
+        }
+        
+        .facility-link {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .facility-name {
+            font-weight: bold;
+            color: #263238;
+        }
+        
+        .facility-distance {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .facility-arrow {
+            color: #263238;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list li:hover .facility-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .access-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-card h3 {
+            color: #263238;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-icon {
+            font-size: 1.5rem;
+        }
+        
+        .access-card p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .access-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .access-card ul li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #263238;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #263238 0%, #37474f 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #90caf9, #64b5f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, #90caf9, #64b5f6);
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary:hover {
+            background: linear-gradient(135deg, #64b5f6, #90caf9);
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #263238;
+        }
+        
+        /* 装飾的な要素 */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #90caf9;
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-copy {
+            opacity: 0.5;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .nav-menu a {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .strategy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .lighthouse-beam {
+                width: 300px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <h1 style="font-size: 1.5rem;">オタフンベチャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <a href="#story" onclick="closeMenu()">霧の城物語</a>
+            <a href="#info" onclick="closeMenu()">基本情報</a>
+            <a href="#coastal" onclick="closeMenu()">海岸防衛の特徴</a>
+            <a href="#fog" onclick="closeMenu()">霧の観測記録</a>
+            <a href="#surveillance" onclick="closeMenu()">海上監視網</a>
+            <a href="#strategic" onclick="closeMenu()">戦略的価値</a>
+            <a href="#facilities" onclick="closeMenu()">関連施設</a>
+            <a href="#access" onclick="closeMenu()">アクセス</a>
+            <a href="../" onclick="closeMenu()">北海道の城一覧へ</a>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="ocean-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        <div class="fog-container">
+            <div class="fog-layer"></div>
+            <div class="fog-layer"></div>
+            <div class="fog-layer"></div>
+        </div>
+        <div class="cliff-silhouette"></div>
+        <div class="lighthouse-beam"></div>
+        <div class="hero-background"></div>
+        <div class="hero-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11920.8!2d145.0333!3d43.1667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDEwJzAwLjAiTiAxNDXCsDAyJzAwLjAiRQ!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-content">
+            <h1>オタフンベチャシ</h1>
+            <p class="hero-subtitle">霧の海に浮かぶ断崖の要塞</p>
+            <p class="hero-description">
+                太平洋の荒波が打ち寄せる絶壁の上に築かれた海の城。
+                濃霧に包まれた幻想的な景観の中で、
+                東海岸防衛の要として海原を見守り続けた。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <a href="#story" class="nav-card">
+                <div class="nav-card-icon">📖</div>
+                <div class="nav-card-title">霧の城物語</div>
+            </a>
+            <a href="#info" class="nav-card">
+                <div class="nav-card-icon">🏯</div>
+                <div class="nav-card-title">基本情報</div>
+            </a>
+            <a href="#coastal" class="nav-card">
+                <div class="nav-card-icon">🌊</div>
+                <div class="nav-card-title">海岸防衛の特徴</div>
+            </a>
+            <a href="#fog" class="nav-card">
+                <div class="nav-card-icon">🌫️</div>
+                <div class="nav-card-title">霧の観測記録</div>
+            </a>
+            <a href="#surveillance" class="nav-card">
+                <div class="nav-card-icon">🔭</div>
+                <div class="nav-card-title">海上監視網</div>
+            </a>
+            <a href="#strategic" class="nav-card">
+                <div class="nav-card-icon">⚔️</div>
+                <div class="nav-card-title">戦略的価値</div>
+            </a>
+            <a href="#facilities" class="nav-card">
+                <div class="nav-card-icon">🏛️</div>
+                <div class="nav-card-title">関連施設</div>
+            </a>
+            <a href="#access" class="nav-card">
+                <div class="nav-card-icon">🗺️</div>
+                <div class="nav-card-title">アクセス</div>
+            </a>
+            <a href="../" class="nav-card">
+                <div class="nav-card-icon">🏰</div>
+                <div class="nav-card-title">北海道の城一覧</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section section" id="story">
+        <h2 class="section-title">霧の城物語</h2>
+        <div class="story-container">
+            <div class="story-chapter">
+                <div class="chapter-number">1</div>
+                <h3 class="chapter-title">海霧に包まれた要塞</h3>
+                <div class="chapter-content">
+                    <p>
+                        太平洋に面した険しい断崖の上、<span class="highlight-text">オタフンベチャシ</span>は
+                        まるで天空の城のように聳えていた。
+                        「オタフンベ」とは、アイヌ語で「砂の河口」を意味し、
+                        かつてこの地には小さな川が海に注いでいた。
+                    </p>
+                    <p>
+                        この地域は、年間100日以上も濃霧に包まれる特異な気候で知られている。
+                        霧の中から突如現れる断崖上のチャシは、
+                        まさに幻の城と呼ぶにふさわしい神秘的な姿を見せていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">2</div>
+                <h3 class="chapter-title">海上交通の監視者</h3>
+                <div class="chapter-content">
+                    <p>
+                        オタフンベチャシの最大の役割は、<span class="highlight-text">海上交通の監視</span>だった。
+                        千島列島から本州へと向かう交易船、
+                        そして近海で操業する漁船の動きを常に把握し、
+                        海の安全を守っていた。
+                    </p>
+                    <p>
+                        特に重要だったのは、海難事故への対応である。
+                        荒天時には篝火を焚いて船の目印となり、
+                        座礁した船があれば救助隊を組織した。
+                        チャシは、海の灯台としての機能も果たしていたのである。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">3</div>
+                <h3 class="chapter-title">霧を味方にした防御</h3>
+                <div class="chapter-content">
+                    <p>
+                        この地域特有の濃霧は、<span class="highlight-text">天然の防御装置</span>として
+                        機能していた。視界が数メートルしかない霧の中では、
+                        地形を熟知していない者が断崖に近づくことは
+                        極めて危険だった。
+                    </p>
+                    <p>
+                        チャシの守備隊は、霧の中での行動に熟練しており、
+                        音や匂いを頼りに移動する技術を身につけていた。
+                        また、霧笛のような音響信号を使った独自の通信システムも
+                        開発されていたという。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">4</div>
+                <h3 class="chapter-title">海産物の宝庫</h3>
+                <div class="chapter-content">
+                    <p>
+                        断崖下の海域は、親潮と黒潮が交わる好漁場として知られ、
+                        <span class="highlight-text">豊富な海産物</span>に恵まれていた。
+                        昆布、ウニ、アワビなどの高級海産物が豊富に採れ、
+                        これらは重要な交易品となっていた。
+                    </p>
+                    <p>
+                        オタフンベチャシは、これらの漁場の管理センターとしても機能し、
+                        資源の乱獲を防ぎ、持続可能な漁業を実現していた。
+                        潮の満ち引きや海流の知識は、代々受け継がれる
+                        貴重な財産だった。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">5</div>
+                <h3 class="chapter-title">異国船との遭遇</h3>
+                <div class="chapter-content">
+                    <p>
+                        18世紀後半から19世紀にかけて、
+                        この海域には<span class="highlight-text">外国船の往来</span>が増加した。
+                        ロシアの探検船、アメリカの捕鯨船、
+                        そして時には難破した異国の船も現れた。
+                    </p>
+                    <p>
+                        オタフンベチャシは、これらの異国船との最初の接触点となることも多く、
+                        時には緊張した対峙、時には友好的な交流が行われた。
+                        異文化との出会いは、この地域に新しい知識と技術をもたらし、
+                        同時に伝統文化の重要性を再認識させることにもなった。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">6</div>
+                <h3 class="chapter-title">近代化の波</h3>
+                <div class="chapter-content">
+                    <p>
+                        明治時代に入ると、近代的な灯台や港湾施設が建設され、
+                        <span class="highlight-text">オタフンベチャシの役割</span>は大きく変化した。
+                        しかし、この地域の人々は、先祖が築いた海との共生の知恵を
+                        忘れることはなかった。
+                    </p>
+                    <p>
+                        現在も、霧の日には断崖の上に立つと、
+                        かつてのチャシの面影を感じることができる。
+                        海霧に包まれた幻想的な風景は、
+                        古代の人々が見た光景と変わらないのかもしれない。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">7</div>
+                <h3 class="chapter-title">海と共に生きる教え</h3>
+                <div class="chapter-content">
+                    <p>
+                        オタフンベチャシが私たちに伝えるのは、
+                        <span class="highlight-text">厳しい自然環境との共生</span>の知恵である。
+                        荒波と霧に包まれた過酷な環境を、
+                        彼らは恐れるのではなく、理解し、活用した。
+                    </p>
+                    <p>
+                        海の恵みに感謝し、海の脅威を尊重し、
+                        海と共に生きる。この精神は、
+                        気候変動により海面上昇が懸念される現代において、
+                        改めて見直されるべき価値観なのかもしれない。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section section" id="info">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">立地</div>
+                <div class="info-value">太平洋岸断崖上・標高40m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">築造時期</div>
+                <div class="info-value">15-17世紀頃</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">規模</div>
+                <div class="info-value">東西200m × 南北100m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">防御施設</div>
+                <div class="info-value">断崖利用・土塁・空堀</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">監視範囲</div>
+                <div class="info-value">東方海上30km・沿岸15km</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">現況</div>
+                <div class="info-value">一部遺構残存・海岸浸食進行</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 海岸防衛特徴セクション -->
+    <section class="coastal-section section" id="coastal">
+        <div class="seabirds-background" id="seabirdsContainer"></div>
+        
+        <div class="coastal-content">
+            <h2 class="section-title">海岸防衛の特徴</h2>
+            <div class="coastal-intro">
+                太平洋の荒波と濃霧を味方につけた、独自の海岸防衛システム
+            </div>
+            
+            <div class="coastal-features">
+                <div class="coastal-feature">
+                    <h3>
+                        <div class="coastal-icon">🌊</div>
+                        断崖の天然要害
+                    </h3>
+                    <p>
+                        高さ40メートルの断崖は、海からの侵入を完全に阻む天然の城壁。
+                        唯一の登攀路は厳重に守られ、満潮時には完全に遮断される仕組みになっていました。
+                    </p>
+                    <ul class="coastal-list">
+                        <li>垂直に切り立った海食崖</li>
+                        <li>波蝕洞を利用した隠し港</li>
+                        <li>干潮時のみ通行可能な秘密通路</li>
+                        <li>落石装置による侵入者撃退</li>
+                    </ul>
+                </div>
+                
+                <div class="coastal-feature">
+                    <h3>
+                        <div class="coastal-icon">🌫️</div>
+                        霧を利用した防御
+                    </h3>
+                    <p>
+                        年間100日以上発生する濃霧を戦術的に活用。視界不良時の行動マニュアルが確立され、
+                        霧の中でも正確に位置を把握できる独自の技術が開発されていました。
+                    </p>
+                    <ul class="coastal-list">
+                        <li>音響による位置確認システム</li>
+                        <li>ロープを使った移動経路</li>
+                        <li>霧笛による通信網</li>
+                        <li>嗅覚を使った方向判定</li>
+                    </ul>
+                </div>
+                
+                <div class="coastal-feature">
+                    <h3>
+                        <div class="coastal-icon">🔥</div>
+                        海上信号システム
+                    </h3>
+                    <p>
+                        篝火と煙を使った高度な通信システムを構築。昼夜を問わず、
+                        海上の船舶や他のチャシとの連絡を可能にしていました。
+                    </p>
+                    <ul class="coastal-list">
+                        <li>段階的な火力調整による暗号化</li>
+                        <li>煙の色による情報伝達</li>
+                        <li>鏡を使った光通信</li>
+                        <li>夜間専用の灯火信号</li>
+                    </ul>
+                </div>
+                
+                <div class="coastal-feature">
+                    <h3>
+                        <div class="coastal-icon">⚓</div>
+                        海難救助体制
+                    </h3>
+                    <p>
+                        荒天時の海難事故に備えた救助体制を確立。専門の救助隊が組織され、
+                        多くの命を救った記録が残されています。
+                    </p>
+                    <ul class="coastal-list">
+                        <li>24時間体制の見張り</li>
+                        <li>救助用具の常備</li>
+                        <li>緊急時の避難所機能</li>
+                        <li>医療知識を持つ専門要員</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 霧の観測記録セクション -->
+    <section class="fog-section section" id="fog">
+        <h2 class="section-title">霧の観測記録</h2>
+        <div class="fog-calendar">
+            <h3 style="text-align: center; color: #263238; margin-bottom: 20px;">年間霧発生日数</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                この地域は日本有数の霧の多発地帯。特に6月から8月にかけては、
+                月の半分以上が霧に包まれます。
+            </p>
+            
+            <div class="fog-stats">
+                <div class="fog-stat">
+                    <div class="fog-month">1月</div>
+                    <div class="fog-days">5</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">2月</div>
+                    <div class="fog-days">4</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">3月</div>
+                    <div class="fog-days">7</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">4月</div>
+                    <div class="fog-days">9</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">5月</div>
+                    <div class="fog-days">12</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">6月</div>
+                    <div class="fog-days">18</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">7月</div>
+                    <div class="fog-days">20</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">8月</div>
+                    <div class="fog-days">17</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">9月</div>
+                    <div class="fog-days">10</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">10月</div>
+                    <div class="fog-days">6</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">11月</div>
+                    <div class="fog-days">4</div>
+                    <div class="fog-label">日</div>
+                </div>
+                <div class="fog-stat">
+                    <div class="fog-month">12月</div>
+                    <div class="fog-days">3</div>
+                    <div class="fog-label">日</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 海上監視セクション -->
+    <section class="surveillance-section section" id="surveillance">
+        <h2 class="section-title">海上監視網</h2>
+        <div class="surveillance-map">
+            <h3 style="color: #263238; margin-bottom: 20px;">監視区域と連絡網</h3>
+            <p style="color: #666; line-height: 1.8;">
+                オタフンベチャシは、東海岸の広域監視網の要として機能。
+                各方面への視界と通信体制により、海上の安全を守っていました。
+            </p>
+            
+            <div class="surveillance-zones">
+                <div class="surveillance-zone">
+                    <div class="zone-direction">
+                        <span class="zone-arrow">🧭</span>
+                        <span>東方海域（太平洋）</span>
+                    </div>
+                    <ul class="zone-details">
+                        <li>▸ 監視距離：晴天時30km</li>
+                        <li>▸ 千島方面からの船舶</li>
+                        <li>▸ 外国捕鯨船の動向</li>
+                        <li>▸ 季節回遊魚群の観察</li>
+                    </ul>
+                </div>
+                
+                <div class="surveillance-zone">
+                    <div class="zone-direction">
+                        <span class="zone-arrow">⬆️</span>
+                        <span>北方沿岸（根室方面）</span>
+                    </div>
+                    <ul class="zone-details">
+                        <li>▸ 監視距離：15km</li>
+                        <li>▸ 沿岸航行船の追跡</li>
+                        <li>▸ 隣接チャシとの連携</li>
+                        <li>▸ 狼煙による情報中継</li>
+                    </ul>
+                </div>
+                
+                <div class="surveillance-zone">
+                    <div class="zone-direction">
+                        <span class="zone-arrow">⬇️</span>
+                        <span>南方沿岸（釧路方面）</span>
+                    </div>
+                    <ul class="zone-details">
+                        <li>▸ 監視距離：15km</li>
+                        <li>▸ 交易船の往来確認</li>
+                        <li>▸ 漁船団の動向把握</li>
+                        <li>▸ 海流・潮流の観測</li>
+                    </ul>
+                </div>
+                
+                <div class="surveillance-zone">
+                    <div class="zone-direction">
+                        <span class="zone-arrow">⬅️</span>
+                        <span>内陸方面</span>
+                    </div>
+                    <ul class="zone-details">
+                        <li>▸ 後方支援拠点との連絡</li>
+                        <li>▸ 物資補給路の確保</li>
+                        <li>▸ 緊急時の避難経路</li>
+                        <li>▸ 情報の内陸部への伝達</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section section" id="strategic">
+        <h2 class="section-title">戦略的価値</h2>
+        <div class="strategy-cards">
+            <div class="strategy-card">
+                <div class="strategy-number">1</div>
+                <h3>海上交通の要衝</h3>
+                <p>
+                    太平洋岸の主要航路を押さえる位置にあり、千島列島と本州を結ぶ
+                    海上交通の監視と管理において重要な役割を果たしていました。
+                </p>
+                <ul class="strategy-list">
+                    <li>交易船の通行管理</li>
+                    <li>海賊や略奪の防止</li>
+                    <li>遭難船の救助活動</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">2</div>
+                <h3>豊富な海洋資源</h3>
+                <p>
+                    親潮と黒潮が交わる好漁場を管理し、昆布、ウニ、アワビなどの
+                    高級海産物の採取と交易により、経済的な基盤を確立していました。
+                </p>
+                <ul class="strategy-list">
+                    <li>漁業権の管理と調整</li>
+                    <li>資源保護と持続的利用</li>
+                    <li>加工技術の開発と伝承</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <h3>情報収集の前哨基地</h3>
+                <p>
+                    外国船の動向、気象変化、海洋生物の移動など、様々な情報を
+                    収集・分析し、内陸部へ伝達する情報センターとして機能していました。
+                </p>
+                <ul class="strategy-list">
+                    <li>外国船の早期発見</li>
+                    <li>気象観測と予測</li>
+                    <li>海洋資源の動向把握</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <h3>文化交流の窓口</h3>
+                <p>
+                    難破した外国船の乗組員との接触や、交易を通じた異文化との
+                    交流により、新しい知識や技術の導入窓口となっていました。
+                </p>
+                <ul class="strategy-list">
+                    <li>異文化理解の促進</li>
+                    <li>新技術の習得と応用</li>
+                    <li>国際関係の最前線</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section section" id="facilities">
+        <h2 class="section-title">関連施設・周辺観光</h2>
+        <div class="facilities-container">
+            <div class="facility-category">
+                <h3>歴史関連施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">浜中町郷土資料館</span>
+                            <span class="facility-distance">
+                                <span>約10km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">霧多布岬展望台</span>
+                            <span class="facility-distance">
+                                <span>約5km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">琵琶瀬展望台</span>
+                            <span class="facility-distance">
+                                <span>約8km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>自然・景勝地</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">霧多布湿原</span>
+                            <span class="facility-distance">
+                                <span>約7km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">アゼチの岬</span>
+                            <span class="facility-distance">
+                                <span>約12km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">涙岬・立岩</span>
+                            <span class="facility-distance">
+                                <span>約3km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>グルメ・特産品</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">浜中町産昆布直売所</span>
+                            <span class="facility-distance">
+                                <span>約10km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">霧多布温泉ゆうゆ</span>
+                            <span class="facility-distance">
+                                <span>約8km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">ルパン三世の里（モンキー・パンチ出身地）</span>
+                            <span class="facility-distance">
+                                <span>約10km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section section" id="access">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-container">
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d190733.812!2d144.9!3d43.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x5f723d3d3d3d3d3d%3A0x5f723d3d3d3d3d3d!2z6YeP6Lev6aeF!3m2!1d43.0568!2d144.8469!4m5!1s0x0%3A0x0!2z44Kq44K_44OV44Oz44OZ44OB44Oj44K3!3m2!1d43.1667!2d145.0333!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚗</span>
+                        車でのアクセス
+                    </h3>
+                    <p>
+                        釧路市から国道44号線経由で約1時間30分。
+                        霧多布市街地から海岸沿いの道路で約15分。
+                    </p>
+                    <ul>
+                        <li>釧路空港から：約2時間</li>
+                        <li>根室市から：約1時間30分</li>
+                        <li>駐車場：展望台付近に有</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚌</span>
+                        公共交通機関
+                    </h3>
+                    <p>
+                        JR花咲線（根室本線）茶内駅から路線バスで約30分。
+                        霧多布温泉ゆうゆ行きバスを利用。
+                    </p>
+                    <ul>
+                        <li>釧路→茶内：JR約1時間</li>
+                        <li>茶内→霧多布：バス30分</li>
+                        <li>霧多布からタクシー：15分</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">ℹ️</span>
+                        訪問時の注意
+                    </h3>
+                    <p>
+                        断崖上の遺跡のため、濃霧時や強風時の訪問は危険です。
+                        天候を確認の上、安全な装備でお越しください。
+                    </p>
+                    <ul>
+                        <li>霧の多い6-8月は視界注意</li>
+                        <li>断崖付近は立入禁止区域有</li>
+                        <li>野生動物に注意</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="cta">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2 class="cta-title">霧の海に浮かぶ幻の城へ</h2>
+            <p class="cta-description">
+                太平洋の荒波と濃霧が創り出す神秘的な景観の中で、
+                海と共に生きた古代の人々の知恵に触れてください。
+                断崖の上から見る朝霧の海は、一生の思い出になるでしょう。
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">霧多布観光プランを作成</a>
+                <a href="../" class="cta-button secondary">他の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">サイトマップ</a>
+            </div>
+            <p class="footer-copy">
+                &copy; 2024 北海道の城めぐり. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの開閉
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // メニュー項目クリックで閉じる
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // スクロールでヘッダーの背景を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 動的な装飾要素の生成
+        function createDecorations() {
+            // 海鳥の生成
+            const seabirdsContainer = document.getElementById('seabirdsContainer');
+            const birdSymbols = ['🦅', '🦆', '🕊️'];
+            
+            setInterval(() => {
+                const bird = document.createElement('div');
+                bird.className = 'seabird';
+                bird.innerHTML = birdSymbols[Math.floor(Math.random() * birdSymbols.length)];
+                bird.style.top = Math.random() * 100 + '%';
+                bird.style.animationDuration = (15 + Math.random() * 10) + 's';
+                seabirdsContainer.appendChild(bird);
+                
+                setTimeout(() => {
+                    bird.remove();
+                }, 25000);
+            }, 4000);
+        }
+        
+        // ページ読み込み完了後に装飾を生成
+        window.addEventListener('load', createDecorations);
+    </script>
+</body>
+</html>

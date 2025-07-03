@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <!-- 背景 -->
+  <rect width="800" height="200" fill="#000000"/>
+  
+  <!-- 円形の筆跡風背景 -->
+  <g transform="translate(600, 100)">
+    <!-- 外側の円 -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#333" stroke-width="3" opacity="0.8"/>
+    <!-- 内側の筆跡 -->
+    <path d="M -60,-60 Q -40,-70 -20,-65 T 20,-55 Q 40,-45 50,-20 T 45,20 Q 35,50 10,60 T -30,55 Q -55,40 -65,10 T -60,-30 Q -58,-45 -60,-60" 
+          fill="none" stroke="#444" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- メインテキスト -->
+  <g>
+    <!-- デジタル -->
+    <text x="50" y="80" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">
+      デジタル
+    </text>
+    
+    <!-- 城下町 - 金色 -->
+    <text x="280" y="80" font-family="serif" font-size="52" font-weight="bold" fill="#FFD700">
+      城下町
+    </text>
+    
+    <!-- プロジェクト -->
+    <text x="50" y="130" font-family="Arial, sans-serif" font-size="36" fill="#ffffff">
+      プロジェクト
+    </text>
+    
+    <!-- DIGITAL JOKERS -->
+    <text x="300" y="130" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" letter-spacing="3">
+      DIGITAL JOKERS
+    </text>
+  </g>
+  
+  <!-- 装飾的な線 -->
+  <line x1="50" y1="150" x2="750" y2="150" stroke="#FFD700" stroke-width="1" opacity="0.5"/>
+</svg>

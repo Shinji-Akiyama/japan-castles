@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>発寒チャシ（はっさむちゃし）- 北海道札幌市 | お城ファンページ</title>
+    <meta name="description" content="北海道札幌市にある発寒チャシの魅力を紹介。大都市札幌の地に眠る古代の守護者。石狩平野を見守り続けた聖なる丘の物語。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4a148c 0%, #311b92 100%);
+            opacity: 0.95;
+        }
+        
+        .nav-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: bold;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 20px;
+        }
+        
+        .nav-menu.active a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu a:nth-child(1) { transition-delay: 0.1s; }
+        .nav-menu a:nth-child(2) { transition-delay: 0.2s; }
+        .nav-menu a:nth-child(3) { transition-delay: 0.3s; }
+        .nav-menu a:nth-child(4) { transition-delay: 0.4s; }
+        .nav-menu a:nth-child(5) { transition-delay: 0.5s; }
+        .nav-menu a:nth-child(6) { transition-delay: 0.6s; }
+        .nav-menu a:nth-child(7) { transition-delay: 0.7s; }
+        .nav-menu a:nth-child(8) { transition-delay: 0.8s; }
+        .nav-menu a:nth-child(9) { transition-delay: 0.9s; }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 20px;
+            width: 0;
+            height: 3px;
+            background: #ce93d8;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: calc(100% - 40px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 1;
+        }
+        
+        /* 都市の光アニメーション */
+        .city-lights {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(74, 20, 140, 0.3) 0%, transparent 100%);
+            opacity: 0.8;
+        }
+        
+        .light-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ce93d8;
+            border-radius: 50%;
+            animation: floatUp 10s linear infinite;
+            box-shadow: 0 0 10px #ce93d8;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+        
+        /* 古代の紋様 */
+        .ancient-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+            z-index: 2;
+        }
+        
+        .pattern-ring {
+            position: absolute;
+            border: 2px solid #ce93d8;
+            border-radius: 50%;
+            animation: rotatePattern 20s linear infinite;
+        }
+        
+        .pattern-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            animation-duration: 20s;
+        }
+        
+        .pattern-ring:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+        
+        .pattern-ring:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation-duration: 25s;
+        }
+        
+        @keyframes rotatePattern {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 守護の光 */
+        .guardian-light {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(206, 147, 216, 0.4) 0%, transparent 70%);
+            animation: guardianPulse 4s ease-in-out infinite;
+            z-index: 3;
+        }
+        
+        @keyframes guardianPulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.3);
+                opacity: 0.8;
+            }
+        }
+        
+        .hero-map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ce93d8, #ba68c8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(206, 147, 216, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 50px;
+            color: #4a148c;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a148c, #7b1fa2);
+            border-radius: 2px;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 60px 20px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #4a148c;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 20, 140, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(74, 20, 140, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        .story-chapter:nth-child(6) { animation-delay: 0.6s; }
+        .story-chapter:nth-child(7) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a148c, #7b1fa2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .chapter-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #4a148c;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #4a148c;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .chapter-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #4a148c, #7b1fa2);
+        }
+        
+        .chapter-content {
+            line-height: 2;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(to bottom, transparent 60%, rgba(206, 147, 216, 0.3) 60%);
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: linear-gradient(135deg, #4a148c 0%, #311b92 100%);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .info-section .section-title {
+            color: white;
+        }
+        
+        .info-section .section-title::after {
+            background: linear-gradient(90deg, #ce93d8, #ba68c8);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ce93d8;
+        }
+        
+        /* 都市守護特徴セクション */
+        .guardian-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 都市スカイライン背景 */
+        .skyline-background {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .building {
+            position: absolute;
+            bottom: 0;
+            background: #4a148c;
+            animation: buildingGrow 2s ease-out forwards;
+        }
+        
+        @keyframes buildingGrow {
+            0% { height: 0; }
+            100% { height: var(--height); }
+        }
+        
+        .guardian-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .guardian-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+        
+        .guardian-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .guardian-feature {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .guardian-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(206, 147, 216, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .guardian-feature:hover::before {
+            opacity: 1;
+        }
+        
+        .guardian-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .guardian-feature h3 {
+            font-size: 1.5rem;
+            color: #4a148c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .guardian-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a148c, #7b1fa2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .guardian-feature p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .guardian-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .guardian-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .guardian-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #7b1fa2;
+            font-weight: bold;
+        }
+        
+        /* 都市発展記録セクション */
+        .development-section {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 80px 20px;
+        }
+        
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4a148c, #7b1fa2);
+            top: 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 40px;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 60px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 60px;
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #4a148c;
+            border-radius: 50%;
+            top: 50px;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(74, 20, 140, 0.2);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a148c;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 現代との繋がりセクション */
+        .modern-section {
+            background: white;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .modern-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .modern-card {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .modern-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modern-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #4a148c;
+        }
+        
+        .modern-card h3 {
+            font-size: 1.5rem;
+            color: #4a148c;
+            margin-bottom: 20px;
+        }
+        
+        .modern-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: linear-gradient(135deg, #311b92 0%, #4a148c 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-section .section-title {
+            color: white;
+        }
+        
+        .strategy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategy-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ce93d8, #ba68c8, #ce93d8);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .strategy-card:hover::before {
+            opacity: 1;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .strategy-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ce93d8, #ba68c8);
+            color: #4a148c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ce93d8;
+        }
+        
+        .strategy-card p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .strategy-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .strategy-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategy-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #ce93d8;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .facilities-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-category h3 {
+            color: #4a148c;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .facility-list li:hover {
+            padding-left: 20px;
+            background: linear-gradient(to right, rgba(74, 20, 140, 0.05), transparent);
+        }
+        
+        .facility-link {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .facility-name {
+            font-weight: bold;
+            color: #4a148c;
+        }
+        
+        .facility-distance {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .facility-arrow {
+            color: #4a148c;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-list li:hover .facility-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .access-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .access-map {
+            margin-bottom: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-card h3 {
+            color: #4a148c;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-icon {
+            font-size: 1.5rem;
+        }
+        
+        .access-card p {
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .access-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .access-card ul li {
+            padding: 8px 0;
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .access-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4a148c;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #4a148c 0%, #311b92 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ce93d8, #ba68c8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: linear-gradient(135deg, #ce93d8, #ba68c8);
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary:hover {
+            background: linear-gradient(135deg, #ba68c8, #ce93d8);
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #4a148c;
+        }
+        
+        /* 装飾的な要素 */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ce93d8;
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-copy {
+            opacity: 0.5;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .nav-menu a {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .chapter-title {
+                font-size: 1.5rem;
+            }
+            
+            .strategy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px !important;
+                padding-right: 20px !important;
+                text-align: left !important;
+            }
+            
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-item .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <h1 style="font-size: 1.5rem;">発寒チャシ</h1>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-background"></div>
+        <div class="nav-content">
+            <a href="#story" onclick="closeMenu()">都市の記憶</a>
+            <a href="#info" onclick="closeMenu()">基本情報</a>
+            <a href="#guardian" onclick="closeMenu()">守護者の特徴</a>
+            <a href="#development" onclick="closeMenu()">都市発展の記録</a>
+            <a href="#modern" onclick="closeMenu()">現代との繋がり</a>
+            <a href="#strategic" onclick="closeMenu()">戦略的価値</a>
+            <a href="#facilities" onclick="closeMenu()">関連施設</a>
+            <a href="#access" onclick="closeMenu()">アクセス</a>
+            <a href="../" onclick="closeMenu()">北海道の城一覧へ</a>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="city-lights"></div>
+        <div class="ancient-pattern">
+            <div class="pattern-ring"></div>
+            <div class="pattern-ring"></div>
+            <div class="pattern-ring"></div>
+        </div>
+        <div class="guardian-light"></div>
+        <div class="hero-background"></div>
+        <div class="hero-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11662.8!2d141.2731!3d43.0884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDA1JzE4LjAiTiAxNDHCsDE2JzIzLjAiRQ!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="hero-content">
+            <h1>発寒チャシ</h1>
+            <p class="hero-subtitle">札幌の古代守護者</p>
+            <p class="hero-description">
+                200万都市の地下に眠る、千年の記憶。
+                石狩平野を見守り続けた聖なる丘は、今も都市の守護者として
+                その精神を受け継いでいる。
+            </p>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <a href="#story" class="nav-card">
+                <div class="nav-card-icon">📖</div>
+                <div class="nav-card-title">都市の記憶</div>
+            </a>
+            <a href="#info" class="nav-card">
+                <div class="nav-card-icon">🏯</div>
+                <div class="nav-card-title">基本情報</div>
+            </a>
+            <a href="#guardian" class="nav-card">
+                <div class="nav-card-icon">🛡️</div>
+                <div class="nav-card-title">守護者の特徴</div>
+            </a>
+            <a href="#development" class="nav-card">
+                <div class="nav-card-icon">🏙️</div>
+                <div class="nav-card-title">都市発展の記録</div>
+            </a>
+            <a href="#modern" class="nav-card">
+                <div class="nav-card-icon">🌟</div>
+                <div class="nav-card-title">現代との繋がり</div>
+            </a>
+            <a href="#strategic" class="nav-card">
+                <div class="nav-card-icon">⚔️</div>
+                <div class="nav-card-title">戦略的価値</div>
+            </a>
+            <a href="#facilities" class="nav-card">
+                <div class="nav-card-icon">🏛️</div>
+                <div class="nav-card-title">関連施設</div>
+            </a>
+            <a href="#access" class="nav-card">
+                <div class="nav-card-icon">🗺️</div>
+                <div class="nav-card-title">アクセス</div>
+            </a>
+            <a href="../" class="nav-card">
+                <div class="nav-card-icon">🏰</div>
+                <div class="nav-card-title">北海道の城一覧</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 物語セクション -->
+    <section class="story-section section" id="story">
+        <h2 class="section-title">都市の記憶</h2>
+        <div class="story-container">
+            <div class="story-chapter">
+                <div class="chapter-number">1</div>
+                <h3 class="chapter-title">聖なる丘の始まり</h3>
+                <div class="chapter-content">
+                    <p>
+                        現在の札幌市西区、発寒の地に築かれた<span class="highlight-text">発寒チャシ</span>は、
+                        石狩平野を見渡す小高い丘の上に位置していた。
+                        この地はアイヌの人々にとって、カムイ（神）が宿る聖なる場所として
+                        古くから崇められてきた。
+                    </p>
+                    <p>
+                        「ハッサム」というアイヌ語は「桜の木が多い場所」を意味し、
+                        春になると丘全体が桜色に染まる美しい光景が広がっていたという。
+                        この桜の丘は、単なる美しい場所ではなく、
+                        石狩川流域の守護を担う重要な精神的拠点でもあった。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">2</div>
+                <h3 class="chapter-title">交易の要衝として</h3>
+                <div class="chapter-content">
+                    <p>
+                        16世紀頃、発寒チャシは<span class="highlight-text">内陸交易の重要拠点</span>として
+                        発展していった。石狩川を遡上してきた交易船と、
+                        山間部から下ってきた狩猟民たちが出会う場所として、
+                        活発な物資の交換が行われていた。
+                    </p>
+                    <p>
+                        鮭、毛皮、漆器、鉄器など、様々な品物がこの地で取引され、
+                        チャシの管理者は公正な取引を監督する役割を担っていた。
+                        また、異なる集団間の争いを調停する中立的な場所としても機能し、
+                        平和的な交流を促進する重要な役割を果たしていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">3</div>
+                <h3 class="chapter-title">石狩平野の守護</h3>
+                <div class="chapter-content">
+                    <p>
+                        発寒チャシの最も重要な役割は、<span class="highlight-text">石狩平野全体の守護</span>だった。
+                        丘の上からは、石狩川の流れと広大な平野を一望でき、
+                        異変があればすぐに察知することができた。
+                    </p>
+                    <p>
+                        洪水の予兆、敵対勢力の接近、大規模な動物の移動など、
+                        平野に起こるあらゆる変化を監視し、
+                        周辺の集落に警報を発する早期警戒システムの中核を担っていた。
+                        この監視網により、多くの災害や紛争が未然に防がれたという。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">4</div>
+                <h3 class="chapter-title">精神文化の中心</h3>
+                <div class="chapter-content">
+                    <p>
+                        発寒チャシは、軍事的・経済的な機能だけでなく、
+                        <span class="highlight-text">精神文化の中心地</span>としても重要な役割を果たしていた。
+                        年に数回、周辺地域のアイヌが集まり、カムイへの祈りを捧げる大規模な祭礼が行われた。
+                    </p>
+                    <p>
+                        特に春の桜の季節には、豊穣と平和を祈る儀式が盛大に執り行われ、
+                        歌と踊りが夜通し続いたという。これらの祭礼は、
+                        地域社会の結束を強め、文化的アイデンティティを維持する上で
+                        極めて重要な役割を果たしていた。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">5</div>
+                <h3 class="chapter-title">開拓時代の変容</h3>
+                <div class="chapter-content">
+                    <p>
+                        明治時代に入り、北海道開拓が本格化すると、
+                        発寒の地も大きな変化を迎えた。<span class="highlight-text">開拓使による都市計画</span>が進められ、
+                        チャシのあった丘は次第に市街地に取り込まれていった。
+                    </p>
+                    <p>
+                        しかし興味深いことに、開拓使の技術者たちは、
+                        チャシの立地の優秀さを認識し、その知恵を新しい都市設計に活かした。
+                        発寒地区の道路網や公共施設の配置には、
+                        かつてのチャシが持っていた監視と管理の機能が反映されているという。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">6</div>
+                <h3 class="chapter-title">現代都市の中の聖地</h3>
+                <div class="chapter-content">
+                    <p>
+                        現在、発寒チャシの正確な位置は、都市開発の中で不明瞭になってしまった。
+                        しかし、<span class="highlight-text">その精神は今も生き続けている</span>。
+                        地域の神社や公園として、かつての聖なる場所の記憶が保たれ、
+                        都市の中の憩いの場として市民に愛されている。
+                    </p>
+                    <p>
+                        200万人が暮らす大都市・札幌。その礎には、
+                        千年以上にわたってこの地を守り続けた人々の知恵と精神が息づいている。
+                        発寒チャシは形を変えながらも、今も札幌の守護者として、
+                        都市とその住民を見守り続けているのである。
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-chapter">
+                <div class="chapter-number">7</div>
+                <h3 class="chapter-title">未来への遺産</h3>
+                <div class="chapter-content">
+                    <p>
+                        発寒チャシが私たちに残した最大の遺産は、
+                        <span class="highlight-text">人と自然の共生の知恵</span>である。
+                        都市化が進む現代において、かつての人々が自然と調和しながら
+                        築いた社会システムは、持続可能な都市づくりのヒントを与えてくれる。
+                    </p>
+                    <p>
+                        監視と守護、交易と交流、祈りと祭り。
+                        これらの機能を統合的に担っていたチャシの在り方は、
+                        現代の都市が抱える分断や孤立の問題に対する、
+                        一つの解答を示しているのかもしれない。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基本情報セクション -->
+    <section class="info-section section" id="info">
+        <h2 class="section-title">基本情報</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">立地</div>
+                <div class="info-value">石狩平野西部・標高約30m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">築造時期</div>
+                <div class="info-value">13-16世紀頃</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">規模</div>
+                <div class="info-value">推定 東西200m × 南北150m</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">防御施設</div>
+                <div class="info-value">自然地形利用・柵列跡</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">主な機能</div>
+                <div class="info-value">交易管理・精神的中心・監視拠点</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">現況</div>
+                <div class="info-value">市街地化・一部公園として保存</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 都市守護特徴セクション -->
+    <section class="guardian-section section" id="guardian">
+        <div class="skyline-background" id="skylineContainer"></div>
+        
+        <div class="guardian-content">
+            <h2 class="section-title">守護者の特徴</h2>
+            <div class="guardian-intro">
+                石狩平野を見守り続けた古代の知恵が、現代都市の礎となっている
+            </div>
+            
+            <div class="guardian-features">
+                <div class="guardian-feature">
+                    <h3>
+                        <div class="guardian-icon">🌸</div>
+                        聖なる桜の丘
+                    </h3>
+                    <p>
+                        発寒（ハッサム）の名が示す通り、この地は桜の名所として知られていました。
+                        春の開花は豊穣の予兆とされ、桜の咲き具合で一年の吉凶を占う重要な指標となっていました。
+                    </p>
+                    <ul class="guardian-list">
+                        <li>樹齢数百年の古桜が点在</li>
+                        <li>開花時期による農事暦の制定</li>
+                        <li>桜祭りによる地域統合</li>
+                        <li>花びらを使った占術の伝承</li>
+                    </ul>
+                </div>
+                
+                <div class="guardian-feature">
+                    <h3>
+                        <div class="guardian-icon">👁️</div>
+                        石狩平野の展望台
+                    </h3>
+                    <p>
+                        標高30メートルの丘陵地は、石狩川流域を一望できる絶好の監視点でした。
+                        洪水の予測から敵対勢力の察知まで、広域監視の要として機能していました。
+                    </p>
+                    <ul class="guardian-list">
+                        <li>360度の展望による全方位監視</li>
+                        <li>石狩川の水位観測システム</li>
+                        <li>狼煙による広域通信網</li>
+                        <li>季節ごとの自然現象記録</li>
+                    </ul>
+                </div>
+                
+                <div class="guardian-feature">
+                    <h3>
+                        <div class="guardian-icon">🤝</div>
+                        交易と外交の中心
+                    </h3>
+                    <p>
+                        内陸部と沿岸部を結ぶ交通の要衝として、様々な文化が交差する場所でした。
+                        異なる集団間の仲介役として、平和的な交流を促進する重要な役割を担っていました。
+                    </p>
+                    <ul class="guardian-list">
+                        <li>多言語対応の通訳者の常駐</li>
+                        <li>公正な取引を保証する仲裁機能</li>
+                        <li>宿泊施設と物資保管庫の完備</li>
+                        <li>文化交流イベントの定期開催</li>
+                    </ul>
+                </div>
+                
+                <div class="guardian-feature">
+                    <h3>
+                        <div class="guardian-icon">⛩️</div>
+                        精神文化の聖域
+                    </h3>
+                    <p>
+                        カムイへの祈りの場として、地域の精神的支柱となっていました。
+                        年中行事や通過儀礼が執り行われ、共同体の絆を深める場として機能していました。
+                    </p>
+                    <ul class="guardian-list">
+                        <li>カムイノミ（神への祈り）の定期開催</li>
+                        <li>イオマンテ（熊送り）の儀式場</li>
+                        <li>成人儀礼と婚礼の執行</li>
+                        <li>口承文学の伝承拠点</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 都市発展記録セクション -->
+    <section class="development-section section" id="development">
+        <h2 class="section-title">都市発展の記録</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">13世紀頃</div>
+                    <div class="timeline-title">聖地の確立</div>
+                    <div class="timeline-description">
+                        桜の丘がカムイの宿る場所として認識され、祭祀の場として整備が始まる。
+                        石狩川流域のアイヌ集団の精神的中心地となる。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">16世紀</div>
+                    <div class="timeline-title">交易拠点の発展</div>
+                    <div class="timeline-description">
+                        内陸部と沿岸部を結ぶ交易路が確立。チャシが物資集積と
+                        取引監督の中心地として機能し始める。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">18世紀後半</div>
+                    <div class="timeline-title">和人との接触開始</div>
+                    <div class="timeline-description">
+                        松前藩の交易活動が活発化。発寒地域にも和人商人が
+                        訪れるようになり、新たな交易品が流通し始める。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1869年</div>
+                    <div class="timeline-title">開拓使の設置</div>
+                    <div class="timeline-description">
+                        明治政府による北海道開拓が本格化。札幌本府建設計画が始動し、
+                        発寒地域も都市計画に組み込まれる。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1880年代</div>
+                    <div class="timeline-title">鉄道開通と市街化</div>
+                    <div class="timeline-description">
+                        手宮線（後の函館本線）の開通により、発寒は札幌の西の玄関口として発展。
+                        農業地帯から住宅地への転換が始まる。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">現代</div>
+                    <div class="timeline-title">記憶の継承</div>
+                    <div class="timeline-description">
+                        都市化の中でチャシの物理的痕跡は失われたが、地名や祭り、
+                        公園などの形で、古代の記憶が現代に受け継がれている。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 現代との繋がりセクション -->
+    <section class="modern-section section" id="modern">
+        <h2 class="section-title">現代との繋がり</h2>
+        <div class="modern-grid">
+            <div class="modern-card">
+                <div class="modern-icon">🏙️</div>
+                <h3>都市計画への影響</h3>
+                <p>
+                    発寒チャシの立地選定の知恵は、現代の札幌都市計画にも影響を与えています。
+                    高台を活用した防災拠点の配置や、河川管理システムの構築には、
+                    古代の監視網の考え方が活かされています。
+                </p>
+            </div>
+            
+            <div class="modern-card">
+                <div class="modern-icon">🌸</div>
+                <h3>桜の名所として</h3>
+                <p>
+                    発寒の桜の伝統は今も続いており、発寒河畔公園や農試公園は
+                    札幌市民の花見スポットとして親しまれています。
+                    古代から続く桜への想いが、現代の都市景観に彩りを添えています。
+                </p>
+            </div>
+            
+            <div class="modern-card">
+                <div class="modern-icon">🎭</div>
+                <h3>文化的遺産</h3>
+                <p>
+                    地域の祭りや伝統行事には、チャシ時代の名残が見られます。
+                    発寒神社の例大祭では、豊穣と地域の安全を祈る儀式が行われ、
+                    古代の精神文化が形を変えて継承されています。
+                </p>
+            </div>
+            
+            <div class="modern-card">
+                <div class="modern-icon">🏫</div>
+                <h3>教育への活用</h3>
+                <p>
+                    地域の小中学校では、発寒チャシの歴史を学ぶ郷土学習が行われています。
+                    子どもたちは、自分たちの住む土地の歴史を知ることで、
+                    地域への愛着とアイデンティティを育んでいます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section section" id="strategic">
+        <h2 class="section-title">戦略的価値</h2>
+        <div class="strategy-cards">
+            <div class="strategy-card">
+                <div class="strategy-number">1</div>
+                <h3>地理的優位性</h3>
+                <p>
+                    石狩平野西部の要衝に位置し、内陸部への入り口を押さえる戦略的立地。
+                    河川交通と陸路の結節点として、物流の管理に最適な位置にありました。
+                </p>
+                <ul class="strategy-list">
+                    <li>石狩川本流まで約3km</li>
+                    <li>山間部への街道起点</li>
+                    <li>平野全体を俯瞰できる高台</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">2</div>
+                <h3>防災機能</h3>
+                <p>
+                    洪水や自然災害から集落を守る早期警戒システムの中核。
+                    石狩川の水位変化や気象の変化を常時監視し、被害を最小限に抑えました。
+                </p>
+                <ul class="strategy-list">
+                    <li>洪水予測と避難誘導</li>
+                    <li>気象観測による農事指導</li>
+                    <li>災害時の避難場所機能</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">3</div>
+                <h3>経済統制力</h3>
+                <p>
+                    交易の管理と公正な取引の保証により、地域経済の安定に貢献。
+                    物資の適正な分配と価格統制により、繁栄の基盤を築きました。
+                </p>
+                <ul class="strategy-list">
+                    <li>交易品の品質管理</li>
+                    <li>度量衡の統一と管理</li>
+                    <li>紛争の仲裁と解決</li>
+                </ul>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-number">4</div>
+                <h3>文化的影響力</h3>
+                <p>
+                    宗教的・文化的中心地として、広域にわたる精神的統合を実現。
+                    共通の価値観と文化的アイデンティティの形成に重要な役割を果たしました。
+                </p>
+                <ul class="strategy-list">
+                    <li>祭礼による地域統合</li>
+                    <li>口承文学の保存と伝承</li>
+                    <li>技術と知識の集積地</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 関連施設セクション -->
+    <section class="facilities-section section" id="facilities">
+        <h2 class="section-title">関連施設・周辺観光</h2>
+        <div class="facilities-container">
+            <div class="facility-category">
+                <h3>歴史関連施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">北海道博物館</span>
+                            <span class="facility-distance">
+                                <span>約15km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">札幌市アイヌ文化交流センター（サッポロピリカコタン）</span>
+                            <span class="facility-distance">
+                                <span>約20km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">発寒神社</span>
+                            <span class="facility-distance">
+                                <span>約2km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>公園・自然スポット</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">発寒河畔公園</span>
+                            <span class="facility-distance">
+                                <span>約1km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">農試公園</span>
+                            <span class="facility-distance">
+                                <span>約3km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">白い恋人パーク</span>
+                            <span class="facility-distance">
+                                <span>約4km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="facility-category">
+                <h3>文化・学習施設</h3>
+                <ul class="facility-list">
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">札幌市中央図書館</span>
+                            <span class="facility-distance">
+                                <span>約8km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">北海道開拓の村</span>
+                            <span class="facility-distance">
+                                <span>約18km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="facility-link">
+                            <span class="facility-name">札幌市時計台</span>
+                            <span class="facility-distance">
+                                <span>約7km</span>
+                                <span class="facility-arrow">→</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセスセクション -->
+    <section class="access-section section" id="access">
+        <h2 class="section-title">アクセス情報</h2>
+        <div class="access-container">
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d46651.2!2d141.25!3d43.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e3!4m5!1s0x5f0b2bd1d3f9f9f9%3A0x5f0b2bd1d3f9f9f9!2z5pyt5bmM6aeF!3m2!1d43.0687!2d141.3508!4m5!1s0x0%3A0x0!2z55m65a-S5Zyw5Yy6!3m2!1d43.0884!2d141.2731!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚇</span>
+                        地下鉄でのアクセス
+                    </h3>
+                    <p>
+                        札幌市営地下鉄東西線「発寒南駅」から徒歩約15分。
+                        住宅街の中に点在する史跡や公園を巡ることができます。
+                    </p>
+                    <ul>
+                        <li>大通駅から約15分</li>
+                        <li>新さっぽろ駅から約30分</li>
+                        <li>駅から循環バスも利用可能</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚗</span>
+                        車でのアクセス
+                    </h3>
+                    <p>
+                        札幌市中心部から西へ約20分。国道5号線経由が便利です。
+                        周辺には駐車場を備えた公園が複数あります。
+                    </p>
+                    <ul>
+                        <li>札幌駅から：約7km</li>
+                        <li>新千歳空港から：約50km</li>
+                        <li>無料駐車場あり（公園利用）</li>
+                    </ul>
+                </div>
+                
+                <div class="access-card">
+                    <h3>
+                        <span class="access-icon">🚌</span>
+                        バスでのアクセス
+                    </h3>
+                    <p>
+                        JR札幌駅前から発寒方面行きのバスが運行。
+                        「発寒6条」「発寒中央」などで下車後、徒歩で散策できます。
+                    </p>
+                    <ul>
+                        <li>札幌駅前から約30分</li>
+                        <li>路線バス：複数系統運行</li>
+                        <li>1日乗車券利用可能</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="cta">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2 class="cta-title">都市の記憶を辿る旅へ</h2>
+            <p class="cta-description">
+                200万都市・札幌の原点を探る歴史散策。
+                古代の知恵と現代の都市が交差する場所で、
+                時を超えた物語に触れてみませんか。
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">歴史散策プランを作成</a>
+                <a href="../" class="cta-button secondary">他の城を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">サイトマップ</a>
+            </div>
+            <p class="footer-copy">
+                &copy; 2024 北海道の城めぐり. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの開閉
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // メニュー項目クリックで閉じる
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // スクロールでヘッダーの背景を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+        
+        // スムーススクロール（ヘッダーの高さを考慮）
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 動的な装飾要素の生成
+        function createDecorations() {
+            // 都市の光パーティクル
+            const cityLights = document.querySelector('.city-lights');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'light-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = Math.random() * 30 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                cityLights.appendChild(particle);
+            }
+            
+            // スカイライン背景の生成
+            const skylineContainer = document.getElementById('skylineContainer');
+            if (skylineContainer) {
+                for (let i = 0; i < 20; i++) {
+                    const building = document.createElement('div');
+                    building.className = 'building';
+                    building.style.left = (i * 5) + '%';
+                    building.style.width = (Math.random() * 3 + 2) + '%';
+                    building.style.setProperty('--height', (Math.random() * 150 + 50) + 'px');
+                    building.style.animationDelay = (i * 0.1) + 's';
+                    skylineContainer.appendChild(building);
+                }
+            }
+        }
+        
+        // ページ読み込み完了後に装飾を生成
+        window.addEventListener('load', createDecorations);
+        
+        // タイムラインアニメーションのトリガー
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2799 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五稜郭（ごりょうかく）- 北海道函館市 | お城ファンページ</title>
+    <meta name="description" content="北海道函館市にある星形要塞・五稜郭の魅力を紹介。幕末の歴史と美しい景観が融合する特別史跡。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active .nav-overlay {
+            opacity: 1;
+        }
+        
+        .nav-content {
+            position: absolute;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: #1a1a1a;
+            padding: 60px 30px 30px;
+            overflow-y: auto;
+            transition: right 0.3s ease-in-out;
+        }
+        
+        .nav-menu.active .nav-content {
+            right: 0;
+        }
+        
+        .nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-close:hover {
+            transform: rotate(90deg);
+        }
+        
+        .nav-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+        
+        .nav-list li {
+            margin-bottom: 20px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+            padding-left: 10px;
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        /* タブレット以上では非表示 */
+        @media (min-width: 768px) {
+            .nav-content {
+                width: 400px;
+                right: -400px;
+            }
+        }
+        
+        .header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .header .reading {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+        
+        /* ヒーロー画像エリア */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero iframe {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            border: none;
+            z-index: 1;
+            pointer-events: none;
+            transform: scale(1.1);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero-content .type-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+            opacity: 0.7;
+        }
+        
+        /* メインコンテンツ */
+        .main-content {
+            background: #fff;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ポエムセクション */
+        .poem-section {
+            background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
+        }
+        
+        .poem-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .poem-content {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .poem-intro {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+        
+        .poem-title {
+            font-size: 48px;
+            font-weight: 200;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #fff 0%, #ccc 50%, #fff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .poem-text {
+            font-size: 18px;
+            line-height: 2;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .poem-text p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .poem-divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            margin: 40px auto;
+        }
+        
+        .poem-description {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.8;
+            text-align: left;
+        }
+        
+        .poem-description p {
+            margin-bottom: 20px;
+            text-indent: 1em;
+        }
+        
+        .poem-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+        
+        .poem-image-item {
+            height: 150px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .poem-image-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+        
+        .poem-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .poem-image-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .poem-image-item p {
+            font-size: 13px;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        /* ウェイトリストセクション */
+        .waitlist-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(46, 204, 113, 0.1) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .waitlist-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .waitlist-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .waitlist-description {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .waitlist-benefits {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .waitlist-benefits h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .waitlist-benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .waitlist-benefits li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        
+        .waitlist-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .waitlist-form {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-checkbox {
+            margin-bottom: 25px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .form-checkbox label {
+            font-size: 14px;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .waitlist-button {
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .waitlist-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.4);
+        }
+        
+        .waitlist-note {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .waitlist-more-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .waitlist-more-info p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .waitlist-article-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .waitlist-article-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* ストーリーセクション */
+        .story-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+        }
+        
+        .story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .story-chapters {
+            margin-top: 60px;
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            position: relative;
+            padding-left: 100px;
+            opacity: 0;
+            animation: fadeInSlide 0.8s ease-out forwards;
+        }
+        
+        .story-chapter:nth-child(1) { animation-delay: 0.1s; }
+        .story-chapter:nth-child(2) { animation-delay: 0.2s; }
+        .story-chapter:nth-child(3) { animation-delay: 0.3s; }
+        .story-chapter:nth-child(4) { animation-delay: 0.4s; }
+        .story-chapter:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .story-chapter.final .chapter-number {
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            box-shadow: 0 5px 20px rgba(243, 156, 18, 0.3);
+        }
+        
+        .chapter-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        
+        .chapter-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, #3498db 0%, #2ecc71 100%) 1;
+        }
+        
+        .story-chapter.final .chapter-content {
+            border-image: linear-gradient(180deg, #f39c12 0%, #e74c3c 100%) 1;
+        }
+        
+        .chapter-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 20px;
+        }
+        
+        .chapter-content blockquote {
+            margin: 30px 0;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .chapter-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 60px;
+            color: #3498db;
+            opacity: 0.2;
+        }
+        
+        .chapter-content blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #7f8c8d;
+            font-style: normal;
+        }
+        
+        .story-highlight {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .story-highlight p {
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            border-radius: 2px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3498db 0%, #2ecc71 100%);
+        }
+        
+        .info-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .info-card p {
+            font-size: 18px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        /* 武将情報セクション */
+        .samurai-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .samurai-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .samurai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .samurai-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            border-left: 5px solid transparent;
+        }
+        
+        .samurai-card:nth-child(1) {
+            border-left-color: #3498db;
+        }
+        
+        .samurai-card:nth-child(2) {
+            border-left-color: #e74c3c;
+        }
+        
+        .samurai-card:nth-child(3) {
+            border-left-color: #2ecc71;
+        }
+        
+        .samurai-card:nth-child(4) {
+            border-left-color: #f39c12;
+        }
+        
+        .samurai-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .samurai-info {
+            padding: 30px;
+        }
+        
+        .samurai-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .samurai-title {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .samurai-role {
+            font-size: 16px;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .samurai-description p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 20px;
+        }
+        
+        .samurai-facts {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .samurai-facts span {
+            background: #e9ecef;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #495057;
+        }
+        
+        /* 戦の記録セクション */
+        .battle-section {
+            padding: 80px 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .battle-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .battle-overview {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .battle-overview h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .battle-overview p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        
+        .battle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .battle-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .battle-card h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .battle-card.forces {
+            grid-column: 1 / -1;
+        }
+        
+        .force-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .force-item h5 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .force-details {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .force-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .force-stat:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        .stat-value {
+            font-size: 14px;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        .vs-divider {
+            font-size: 24px;
+            font-weight: 900;
+            color: #e74c3c;
+            text-align: center;
+        }
+        
+        .battle-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .battle-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 15px;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        
+        .battle-date {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        
+        .battle-name {
+            font-weight: 600;
+        }
+        
+        .battle-result {
+            font-size: 13px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .battle-result.victory {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+        
+        .battle-result.defeat {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+        
+        .battle-end {
+            text-align: center;
+        }
+        
+        .end-date {
+            font-size: 24px;
+            font-weight: 700;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .end-event {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .end-details {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+        }
+        
+        .end-details p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .end-details blockquote {
+            margin-top: 20px;
+            padding: 15px 20px;
+            border-left: 3px solid #f39c12;
+            font-style: italic;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 5px;
+        }
+        
+        .end-details blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.7;
+            font-style: normal;
+        }
+        
+        .casualty-stats {
+            text-align: center;
+        }
+        
+        .casualty-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+        }
+        
+        .casualty-side {
+            font-size: 16px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        
+        .casualty-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+        
+        .casualty-note {
+            font-size: 13px;
+            opacity: 0.6;
+        }
+        
+        .memorial-note {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .memorial-note p {
+            font-size: 14px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        /* 関連リンクセクション */
+        .links-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .links-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .link-category h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .link-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #3498db;
+        }
+        
+        .link-icon {
+            font-size: 28px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .link-info {
+            flex: 1;
+        }
+        
+        .link-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .link-info p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+        
+        .link-arrow {
+            font-size: 20px;
+            color: #3498db;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .link-item:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .links-note {
+            margin-top: 40px;
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .links-note p {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+        
+        .access-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .access-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .access-card h3 {
+            font-size: 16px;
+            color: #3498db;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .access-card p {
+            color: #5a6c7d;
+            font-size: 15px;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #3498db;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #3498db;
+        }
+        
+        /* CTAウェイトリスト */
+        .cta-waitlist {
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-waitlist h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .cta-waitlist p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .cta-waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .cta-form-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .cta-form-group input[type="email"] {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-form-group input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .cta-form-group input[type="email"]:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .cta-waitlist-button {
+            padding: 12px 30px;
+            background: white;
+            color: #3498db;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .cta-waitlist-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .cta-form-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .cta-form-checkbox label {
+            font-size: 14px;
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .cta-form-group {
+                flex-direction: column;
+            }
+            
+            .cta-form-group input[type="email"] {
+                width: 100%;
+            }
+            
+            .cta-waitlist-button {
+                width: 100%;
+            }
+        }
+        
+        /* アプリダウンロードセクション */
+        .app-download-section {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-download-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+        
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .app-content {
+            text-align: center;
+        }
+        
+        .app-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .app-description {
+            font-size: 18px;
+            color: #5a6c7d;
+            margin-bottom: 60px;
+            line-height: 1.8;
+        }
+        
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+        
+        .app-feature {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .app-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        
+        .app-feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .app-feature h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .app-feature p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        .app-download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .app-store-button img,
+        .google-play-button img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .app-store-button:hover img,
+        .google-play-button:hover img {
+            transform: scale(1.05);
+        }
+        
+        .app-note-link {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .app-note-link a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.2);
+        }
+        
+        .app-note-link a:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(52, 152, 219, 0.3);
+        }
+        
+        .social-section {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .social-section h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .social-section > p {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+        
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .social-link.line {
+            border-color: #00B900;
+        }
+        
+        .social-link.line:hover {
+            background: #00B900;
+            color: white;
+        }
+        
+        .social-link.twitter {
+            border-color: #1DA1F2;
+        }
+        
+        .social-link.twitter:hover {
+            background: #1DA1F2;
+            color: white;
+        }
+        
+        .social-link.note {
+            border-color: #41C9B4;
+        }
+        
+        .social-link.note:hover {
+            background: #41C9B4;
+            color: white;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .social-link.line .social-icon {
+            color: #00B900;
+        }
+        
+        .social-link.twitter .social-icon {
+            color: #1DA1F2;
+        }
+        
+        .social-link.note .social-icon {
+            color: #41C9B4;
+        }
+        
+        .social-link:hover .social-icon {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .social-info {
+            flex: 1;
+        }
+        
+        .social-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover .social-info h4 {
+            color: white;
+        }
+        
+        .social-info p {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover .social-info p {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .social-arrow {
+            font-size: 24px;
+            font-weight: 700;
+            color: #bdc3c7;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover .social-arrow {
+            color: white;
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 768px) {
+            .app-title {
+                font-size: 28px;
+            }
+            
+            .app-description {
+                font-size: 16px;
+            }
+            
+            .app-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-section {
+                padding: 40px 20px;
+            }
+        }
+        
+        /* 免責事項セクション */
+        .disclaimer-section {
+            background: #f1f1f1;
+            padding: 60px 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .disclaimer-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .disclaimer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .disclaimer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .disclaimer-section a {
+            color: #3498db;
+            text-decoration: none;
+            border-bottom: 1px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .disclaimer-section a:hover {
+            color: #2980b9;
+            border-bottom-color: #2980b9;
+        }
+        
+        /* フッター */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #2ecc71;
+        }
+        
+        .footer .copyright {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .poem-title {
+                font-size: 32px;
+            }
+            
+            .poem-text {
+                font-size: 16px;
+            }
+            
+            .poem-image-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .info-grid, .feature-grid, .access-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div>
+                <h1>五稜郭</h1>
+                <p class="reading">ごりょうかく</p>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-overlay" id="navOverlay"></div>
+        <div class="nav-content">
+            <button class="nav-close" id="navClose" aria-label="閉じる">×</button>
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">トップ</a></li>
+                <li><a href="#poem" class="nav-link">五稜郭について</a></li>
+                <li><a href="#story" class="nav-link">五稜郭物語</a></li>
+                <li><a href="#samurai" class="nav-link">ゆかりの武将</a></li>
+                <li><a href="#battle" class="nav-link">戦の記録</a></li>
+                <li><a href="#info" class="nav-link">基本情報</a></li>
+                <li><a href="#access" class="nav-link">アクセス</a></li>
+                <li><a href="#links" class="nav-link">関連リンク</a></li>
+            </ul>
+            <div class="nav-footer">
+                <p>© デジタル城下町プロジェクト</p>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- ヒーロー画像 -->
+    <div class="hero" id="home">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2974.359631514899!2d140.75443831542318!3d41.79694097922789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="type-badge">城郭 - CASTLE</div>
+            <h1>五稜郭</h1>
+            <p class="subtitle">北海道函館市 • 星形要塞の美</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14m0 0l-7-7m7 7l7-7"/>
+            </svg>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <!-- ポエムセクション -->
+        <section class="poem-section" id="poem">
+            <div class="poem-container">
+                <div class="poem-content">
+                    <p class="poem-intro">星の砦、五稜郭</p>
+                    <h2 class="poem-title">時を超えて輝く<br>北の大地の星</h2>
+                    <div class="poem-text">
+                        <p>函館の空に描かれた五芒星</p>
+                        <p>幕末の夢と志士たちの想いを</p>
+                        <p>永遠に刻み続ける</p>
+                    </div>
+                    <div class="poem-divider"></div>
+                    <div class="poem-description">
+                        <p>蝦夷地に築かれた西洋の叡智。稜堡式の美しき城郭は、日本の夜明けを見つめ、新しい時代への扉を開いた。榎本武揚、土方歳三...名だたる志士たちが最後の夢を託した地。</p>
+                        <p>春には千本桜が咲き誇り、冬には雪化粧をまとう。四季折々の表情を見せながら、今もなお、訪れる人々に歴史の重みと未来への希望を語りかける。</p>
+                    </div>
+                </div>
+                <div class="poem-image-grid">
+                    <div class="poem-image-item">
+                        <div class="poem-icon">⭐</div>
+                        <h4>星形要塞</h4>
+                        <p>日本初の西洋式城郭</p>
+                    </div>
+                    <div class="poem-image-item">
+                        <div class="poem-icon">🏛️</div>
+                        <h4>特別史跡</h4>
+                        <p>国の重要文化財</p>
+                    </div>
+                    <div class="poem-image-item">
+                        <div class="poem-icon">⚔️</div>
+                        <h4>箱館戦争</h4>
+                        <p>幕末最後の戦場</p>
+                    </div>
+                    <div class="poem-image-item">
+                        <div class="poem-icon">🌸</div>
+                        <h4>四季の美</h4>
+                        <p>1600本の桜の名所</p>
+                    </div>
+                </div>
+                
+                <!-- デジタル城下町民ウェイトリスト -->
+                <div class="waitlist-section">
+                    <div class="waitlist-container">
+                        <h3 class="waitlist-title">五稜郭デジタル城下町民ウェイトリスト</h3>
+                        <p class="waitlist-description">
+                            「お城めぐりが、もっと楽しく、もっと特別に」<br>
+                            デジタル城下町は、お城ファンのための新しいSNSアプリです。<br>
+                            五稜郭のデジタル城下町民になると、訪問記録を残したり、<br>
+                            全国のお城ファンと交流できる特別な体験が待っています。
+                        </p>
+                        
+                        <div class="waitlist-benefits">
+                            <h4>デジタル城下町民になると</h4>
+                            <ul>
+                                <li>五稜郭の訪問記録を美しく残せる</li>
+                                <li>日本100名城・続日本100名城の登城記録を管理</li>
+                                <li>全国のお城ファンとつながり、情報交換ができる</li>
+                                <li>城に近づくと自動で登城記録が可能</li>
+                                <li>五稜郭限定のデジタル城下町民証を取得</li>
+                            </ul>
+                        </div>
+                        
+                        <form class="waitlist-form" id="waitlistForm1">
+                            <div class="form-group">
+                                <label for="email1">メールアドレス</label>
+                                <input type="email" id="email1" name="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="name1">お名前（任意）</label>
+                                <input type="text" id="name1" name="name" placeholder="山田太郎">
+                            </div>
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="newsletter1" name="newsletter" checked>
+                                <label for="newsletter1">全国のお城に関するお知らせを受け取る</label>
+                            </div>
+                            <button type="submit" class="waitlist-button">ウェイトリストに登録</button>
+                        </form>
+                        
+                        <p class="waitlist-note">
+                            ※ご登録いただいた情報は、<a href="https://jkrs.jp" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none; border-bottom: 1px solid rgba(52, 152, 219, 0.3);">デジタル城下町プロジェクト</a>に関するご案内にのみ使用いたします。
+                        </p>
+                        
+                        <div class="waitlist-more-info">
+                            <p>デジタル城下町についてもっと詳しく知りたい方は</p>
+                            <a href="https://note.com/digitaljokers/n/n2a93cd7365e1" target="_blank" rel="noopener noreferrer" class="waitlist-article-link">
+                                📖 デジタル城下町プロジェクトの詳細記事を読む
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ストーリーセクション -->
+        <section class="story-section" id="story">
+            <div class="story-container">
+                <h2 class="section-title">五稜郭物語</h2>
+                
+                <div class="story-chapters">
+                    <div class="story-chapter">
+                        <div class="chapter-number">第一章</div>
+                        <h3 class="chapter-title">西洋の叡智との出会い</h3>
+                        <div class="chapter-content">
+                            <p>1854年、黒船来航により日本は開国への道を歩み始めた。箱館（現・函館）が開港されると、幕府は北方防備の要として新たな城郭の建設を決定。武田斐三郎は、フランスの築城家ヴォーバンの稜堡式城郭に着目し、日本初の西洋式城郭の設計に着手した。</p>
+                            <blockquote>
+                                「星の形こそ、最強の防御なり」<br>
+                                <cite>- 武田斐三郎の設計思想</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <div class="chapter-number">第二章</div>
+                        <h3 class="chapter-title">星形要塞の誕生</h3>
+                        <div class="chapter-content">
+                            <p>1857年から1866年にかけて、延べ人員5万人を動員し築城工事が進められた。五つの稜堡を持つ星形の城郭は、どの角度からの攻撃にも死角なく応戦できる画期的な設計。しかし完成した時、時代は既に大きく動き始めていた。</p>
+                            <blockquote>
+                                「我らが築きし星は、新たな日本の夜明けを照らす灯台となるだろう」<br>
+                                <cite>- 築城に携わった技術者の言葉</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <div class="chapter-number">第三章</div>
+                        <h3 class="chapter-title">蝦夷共和国の夢</h3>
+                        <div class="chapter-content">
+                            <p>1868年、戊辰戦争で敗れた旧幕府軍は、榎本武揚に率いられ蝦夷地へ。五稜郭を拠点に、アジア初の共和国「蝦夷共和国」の樹立を宣言。士官は選挙で選ばれ、榎本が初代総裁に就任した。しかし、この理想国家の夢は長くは続かなかった。</p>
+                            <blockquote>
+                                「我らは新しい国の形を示さん」<br>
+                                <cite>- 榎本武揚、蝦夷共和国樹立宣言より</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <div class="chapter-number">第四章</div>
+                        <h3 class="chapter-title">最後の侍たち</h3>
+                        <div class="chapter-content">
+                            <p>1869年春、新政府軍の総攻撃が始まる。土方歳三は一本木関門で壮絶な最期を遂げ、「新選組」の名は伝説となった。5月18日、榎本武揚は降伏を決意。武士の時代は終わりを告げ、五稜郭は新たな歴史の証人となった。</p>
+                            <blockquote>
+                                「たとえ枯れ野となりても、俺の屍を越えて行け」<br>
+                                <cite>- 土方歳三、最後の出陣にて</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="story-chapter final">
+                        <div class="chapter-number">終章</div>
+                        <h3 class="chapter-title">永遠なる星</h3>
+                        <div class="chapter-content">
+                            <p>戦いが終わり150年。五稜郭は今、平和の象徴として四季折々の美しさで人々を魅了する。春には1600本の桜が咲き誇り、かつての戦場は憩いの場へと姿を変えた。星形の城郭は、激動の時代を越えて、今も函館の空に輝き続けている。</p>
+                            <blockquote>
+                                「歴史は繰り返さない。しかし、韻を踏む」<br>
+                                <cite>- マーク・トウェイン</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-highlight">
+                    <p>五稜郭は単なる城郭ではない。それは日本が近代化への扉を開いた瞬間の証人であり、理想に燃えた人々の夢の跡である。この星形の要塞に刻まれた物語は、今も訪れる人々の心に、勇気と希望のメッセージを送り続けている。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 武将情報 -->
+        <section class="samurai-section" id="samurai">
+            <div class="samurai-container">
+                <h2 class="section-title">ゆかりの武将たち</h2>
+                <div class="samurai-grid">
+                    <div class="samurai-card">
+                        <div class="samurai-info">
+                            <h3>榎本 武揚</h3>
+                            <p class="samurai-title">えのもと たけあき</p>
+                            <p class="samurai-role">旧幕府海軍副総裁</p>
+                            <div class="samurai-description">
+                                <p>幕臣として最後まで徳川家に忠誠を尽くした海軍の英傑。オランダ留学で得た知識を活かし、蝦夷共和国の総裁として五稜郭を拠点に新政府軍と戦った。</p>
+                                <div class="samurai-facts">
+                                    <span>1836-1908</span>
+                                    <span>海軍奉行</span>
+                                    <span>蝦夷共和国総裁</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="samurai-card">
+                        <div class="samurai-info">
+                            <h3>土方 歳三</h3>
+                            <p class="samurai-title">ひじかた としぞう</p>
+                            <p class="samurai-role">新選組副長</p>
+                            <div class="samurai-description">
+                                <p>「鬼の副長」と恐れられた新選組の実質的指導者。箱館戦争では陸軍奉行並として戦い、五稜郭防衛戦で壮絶な最期を遂げた。</p>
+                                <div class="samurai-facts">
+                                    <span>1835-1869</span>
+                                    <span>新選組副長</span>
+                                    <span>陸軍奉行並</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="samurai-card">
+                        <div class="samurai-info">
+                            <h3>大鳥 圭介</h3>
+                            <p class="samurai-title">おおとり けいすけ</p>
+                            <p class="samurai-role">旧幕府陸軍奉行</p>
+                            <div class="samurai-description">
+                                <p>洋式軍学の権威として幕府陸軍の近代化に尽力。箱館戦争では陸軍奉行として榎本武揚を支え、五稜郭での戦いを指揮した。</p>
+                                <div class="samurai-facts">
+                                    <span>1833-1911</span>
+                                    <span>陸軍奉行</span>
+                                    <span>洋学者</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="samurai-card">
+                        <div class="samurai-info">
+                            <h3>松平 太郎</h3>
+                            <p class="samurai-title">まつだいら たろう</p>
+                            <p class="samurai-role">旧幕府陸軍副総裁</p>
+                            <div class="samurai-description">
+                                <p>会津藩主松平容保の実弟。兄と共に幕府に忠誠を尽くし、箱館戦争では副総裁として榎本武揚を補佐。五稜郭開城まで戦い続けた。</p>
+                                <div class="samurai-facts">
+                                    <span>1839-1909</span>
+                                    <span>会津藩出身</span>
+                                    <span>陸軍副総裁</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 戦の記録 -->
+        <section class="battle-section" id="battle">
+            <div class="battle-container">
+                <h2 class="section-title">戦の記録</h2>
+                
+                <div class="battle-overview">
+                    <h3>箱館戦争（1868年10月 - 1869年5月）</h3>
+                    <p>戊辰戦争最後の戦い。旧幕府軍と新政府軍による北海道での激戦</p>
+                </div>
+                
+                <div class="battle-grid">
+                    <div class="battle-card forces">
+                        <h4>戦力比較</h4>
+                        <div class="force-comparison">
+                            <div class="force-item">
+                                <h5>旧幕府軍（蝦夷共和国）</h5>
+                                <div class="force-details">
+                                    <div class="force-stat">
+                                        <span class="stat-label">総兵力</span>
+                                        <span class="stat-value">約3,000名</span>
+                                    </div>
+                                    <div class="force-stat">
+                                        <span class="stat-label">艦船</span>
+                                        <span class="stat-value">開陽丸（沈没）、回天丸 他6隻</span>
+                                    </div>
+                                    <div class="force-stat">
+                                        <span class="stat-label">主な指揮官</span>
+                                        <span class="stat-value">榎本武揚、土方歳三、大鳥圭介</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vs-divider">VS</div>
+                            <div class="force-item">
+                                <h5>新政府軍</h5>
+                                <div class="force-details">
+                                    <div class="force-stat">
+                                        <span class="stat-label">総兵力</span>
+                                        <span class="stat-value">約7,000名</span>
+                                    </div>
+                                    <div class="force-stat">
+                                        <span class="stat-label">艦船</span>
+                                        <span class="stat-value">甲鉄艦 他10隻以上</span>
+                                    </div>
+                                    <div class="force-stat">
+                                        <span class="stat-label">主な指揮官</span>
+                                        <span class="stat-value">黒田清隆、山田顕義</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <h4>主要な戦闘</h4>
+                        <div class="battle-list">
+                            <div class="battle-item">
+                                <div class="battle-date">1868年11月</div>
+                                <div class="battle-name">松前城攻略</div>
+                                <div class="battle-result victory">旧幕府軍勝利</div>
+                            </div>
+                            <div class="battle-item">
+                                <div class="battle-date">1869年1月</div>
+                                <div class="battle-name">宮古湾海戦</div>
+                                <div class="battle-result defeat">新政府軍勝利</div>
+                            </div>
+                            <div class="battle-item">
+                                <div class="battle-date">1869年4月</div>
+                                <div class="battle-name">江差沖海戦</div>
+                                <div class="battle-result defeat">開陽丸座礁・沈没</div>
+                            </div>
+                            <div class="battle-item">
+                                <div class="battle-date">1869年5月11日</div>
+                                <div class="battle-name">一本木関門の戦い</div>
+                                <div class="battle-result defeat">土方歳三戦死</div>
+                            </div>
+                            <div class="battle-item">
+                                <div class="battle-date">1869年5月12-17日</div>
+                                <div class="battle-name">五稜郭総攻撃</div>
+                                <div class="battle-result defeat">新政府軍勝利</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <h4>戦いの終結</h4>
+                        <div class="battle-end">
+                            <p class="end-date">1869年5月18日</p>
+                            <p class="end-event">五稜郭開城</p>
+                            <div class="end-details">
+                                <p>榎本武揚は黒田清隆との会見の後、正式に降伏を決定。死者を弔い、生存者の助命を条件に五稜郭を明け渡した。</p>
+                                <blockquote>
+                                    「今日の敵は明日の友。国の為に共に尽くさん」
+                                    <cite>- 黒田清隆</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="battle-card casualties">
+                        <h4>戦没者</h4>
+                        <div class="casualty-stats">
+                            <div class="casualty-item">
+                                <div class="casualty-side">旧幕府軍</div>
+                                <div class="casualty-number">約800名</div>
+                                <div class="casualty-note">（戦死・戦病死含む）</div>
+                            </div>
+                            <div class="casualty-item">
+                                <div class="casualty-side">新政府軍</div>
+                                <div class="casualty-number">約300名</div>
+                                <div class="casualty-note">（戦死・戦病死含む）</div>
+                            </div>
+                            <div class="memorial-note">
+                                <p>両軍の戦没者は分け隔てなく、函館市内の各所に葬られ、今も地元の人々により大切に供養されている。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 関連リンク -->
+        <section class="links-section" id="links">
+            <div class="links-container">
+                <h2 class="section-title">関連リンク</h2>
+                
+                <div class="links-grid">
+                    <div class="link-category">
+                        <h3>公式サイト</h3>
+                        <div class="link-list">
+                            <a href="https://www.goryokaku-tower.co.jp/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🏯</div>
+                                <div class="link-info">
+                                    <h4>五稜郭タワー</h4>
+                                    <p>展望台から星形城郭を一望。営業時間・入場料情報</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://www.hakodate-jts-kosya.jp/park/goryokaku/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🌸</div>
+                                <div class="link-info">
+                                    <h4>五稜郭公園</h4>
+                                    <p>公園利用案内、桜開花情報、イベント情報</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="link-category">
+                        <h3>自治体・観光協会</h3>
+                        <div class="link-list">
+                            <a href="https://www.city.hakodate.hokkaido.jp/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🏛️</div>
+                                <div class="link-info">
+                                    <h4>函館市公式サイト</h4>
+                                    <p>市政情報、観光案内、イベント情報</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://www.hakodate.travel/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🗺️</div>
+                                <div class="link-info">
+                                    <h4>函館市公式観光情報</h4>
+                                    <p>観光スポット、グルメ、宿泊情報</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://www.visit-hokkaido.jp/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🌟</div>
+                                <div class="link-info">
+                                    <h4>北海道観光公式サイト</h4>
+                                    <p>北海道全域の観光情報</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="link-category">
+                        <h3>歴史・文化施設</h3>
+                        <div class="link-list">
+                            <a href="https://www.museum.hakodate.hokkaido.jp/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🏛️</div>
+                                <div class="link-info">
+                                    <h4>函館市博物館</h4>
+                                    <p>五稜郭と箱館戦争の詳細な歴史資料</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://www.hakodate-bugyosho.jp/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🏯</div>
+                                <div class="link-info">
+                                    <h4>箱館奉行所</h4>
+                                    <p>復元された奉行所の見学情報</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="link-category">
+                        <h3>ファンサイト・情報サイト</h3>
+                        <div class="link-list">
+                            <a href="https://www.jcastle.info/view/Goryokaku" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">🏰</div>
+                                <div class="link-info">
+                                    <h4>日本の城データベース</h4>
+                                    <p>全国の城郭情報を網羅するファンサイト</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://kojodan.jp/castle/11/" target="_blank" rel="noopener noreferrer" class="link-item">
+                                <div class="link-icon">📚</div>
+                                <div class="link-info">
+                                    <h4>攻城団</h4>
+                                    <p>城めぐりファンのための情報共有サイト</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="#" class="link-item">
+                                <div class="link-icon">📸</div>
+                                <div class="link-info">
+                                    <h4>五稜郭写真館</h4>
+                                    <p>四季折々の美しい写真を集めたギャラリー</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="links-note">
+                    <p>※ 外部サイトへのリンクは新しいタブで開きます</p>
+                    <p>※ リンク先の情報は各サイト運営者によって管理されています</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 基本情報 -->
+        <section class="info-section" id="info">
+            <h2 class="section-title">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>所在地</h3>
+                    <p>北海道函館市五稜郭町</p>
+                </div>
+                <div class="info-card">
+                    <h3>築城年代</h3>
+                    <p>幕末（1857-1866年）</p>
+                </div>
+                <div class="info-card">
+                    <h3>城主・築城者</h3>
+                    <p>旧幕府軍（蝦夷共和国）</p>
+                </div>
+                <div class="info-card">
+                    <h3>別名</h3>
+                    <p>柳野城（やなぎのじょう）</p>
+                </div>
+                <div class="info-card">
+                    <h3>城郭構造</h3>
+                    <p>稜堡式城郭</p>
+                </div>
+                <div class="info-card">
+                    <h3>文化財指定</h3>
+                    <p>国指定特別史跡</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- アクセス -->
+        <section class="access-section" id="access">
+            <div class="access-container">
+                <h2 class="section-title">アクセス</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5948.719263029798!2d140.75443831542318!3d41.79694097922789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f9ef46bfcb8e1a1%3A0x7c4f7b0e8f0f1f0!2z5LqU56ic6YOt!5e0!3m2!1sja!2sjp!4v1650000000000!5m2!1sja!2sjp"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="access-info">
+                    <div class="access-card">
+                        <h3>📍 住所</h3>
+                        <p>〒040-0001<br>北海道函館市五稜郭町44</p>
+                    </div>
+                    <div class="access-card">
+                        <h3>🚃 公共交通機関</h3>
+                        <p>市電「五稜郭公園前」電停<br>下車徒歩約15分</p>
+                    </div>
+                    <div class="access-card">
+                        <h3>🚗 車でのアクセス</h3>
+                        <p>函館空港から約20分<br>JR函館駅から約15分</p>
+                    </div>
+                    <div class="access-card">
+                        <h3>🅿️ 駐車場</h3>
+                        <p>周辺に有料駐車場あり<br>（約200台収容可能）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>五稜郭で歴史を感じる旅へ</h2>
+                <p>星形の美しい城郭で、幕末の激動の時代に思いを馳せてみませんか？</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button">公式観光情報</a>
+                    <a href="#" class="cta-button secondary">他の城を探す</a>
+                </div>
+                
+                <!-- CTAセクション内のウェイトリスト -->
+                <div class="cta-waitlist">
+                    <h3>デジタル城下町民になろう</h3>
+                    <p>五稜郭のデジタル城下町民ウェイトリストに登録して、優先取得権を手に入れましょう。</p>
+                    
+                    <form class="cta-waitlist-form" id="waitlistForm2">
+                        <div class="cta-form-group">
+                            <input type="email" id="email2" name="email" required placeholder="メールアドレスを入力">
+                            <button type="submit" class="cta-waitlist-button">登録する</button>
+                        </div>
+                        <div class="cta-form-checkbox">
+                            <input type="checkbox" id="newsletter2" name="newsletter" checked>
+                            <label for="newsletter2">お城の最新情報を受け取る</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- デジタル城下町アプリセクション -->
+    <section class="app-download-section">
+        <div class="app-container">
+            <div class="app-content">
+                <h2 class="app-title">デジタル城下町アプリで<br>もっと楽しむ城めぐり</h2>
+                <p class="app-description">
+                    「お城めぐりが、もっと楽しく、もっと特別に」<br>
+                    日本100名城・続日本100名城の訪問記録を美しく残し、<br>
+                    全国のお城ファンとつながる新しい体験をお届けします
+                </p>
+                
+                <div class="app-features">
+                    <div class="app-feature">
+                        <div class="app-feature-icon">📍</div>
+                        <h3>自動登城記録</h3>
+                        <p>城に近づくだけで訪問記録を自動保存</p>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon">🏯</div>
+                        <h3>200城完全網羅</h3>
+                        <p>日本100名城・続日本100名城の全てに対応</p>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon">👥</div>
+                        <h3>ファンコミュニティ</h3>
+                        <p>お城好き同士で情報交換・交流</p>
+                    </div>
+                </div>
+                
+                <div class="app-download-buttons">
+                    <a href="#" class="app-store-button">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Storeからダウンロード">
+                    </a>
+                    <a href="#" class="google-play-button">
+                        <img src="https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Playで手に入れよう">
+                    </a>
+                </div>
+                
+                <div class="app-note-link">
+                    <a href="https://note.com/digitaljokers/n/n2a93cd7365e1" target="_blank" rel="noopener noreferrer">
+                        📚 デジタル城下町プロジェクトの詳細はこちら →
+                    </a>
+                </div>
+                
+                <div class="social-section">
+                    <h3>デジタル城下町プロジェクト公式SNS</h3>
+                    <p>最新情報やお得な情報を配信中！フォローして城めぐりをもっと楽しもう</p>
+                    
+                    <div class="social-links">
+                        <a href="https://line.me/R/ti/p/@172rjlow" target="_blank" rel="noopener noreferrer" class="social-link line">
+                            <div class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.04 2 10.98c0 4.42 3.58 8.08 8.23 8.77.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.42.36.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.21.7.83.58C18.42 19.06 22 15.4 22 10.98 22 6.04 17.52 2 12 2z"/>
+                                </svg>
+                            </div>
+                            <div class="social-info">
+                                <h4>LINE公式アカウント</h4>
+                                <p>友だち追加で最新情報をGET</p>
+                            </div>
+                            <div class="social-arrow">→</div>
+                        </a>
+                        
+                        <a href="https://x.com/digitaljokers" target="_blank" rel="noopener noreferrer" class="social-link twitter">
+                            <div class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </div>
+                            <div class="social-info">
+                                <h4>X (Twitter)</h4>
+                                <p>リアルタイムな城情報を発信</p>
+                            </div>
+                            <div class="social-arrow">→</div>
+                        </a>
+                        
+                        <a href="https://note.com/digitaljokers" target="_blank" rel="noopener noreferrer" class="social-link note">
+                            <div class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div class="social-info">
+                                <h4>note</h4>
+                                <p>城郭の歴史や文化を深く解説</p>
+                            </div>
+                            <div class="social-arrow">→</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 免責事項 -->
+    <section class="disclaimer-section">
+        <div class="disclaimer-container">
+            <h3>免責事項</h3>
+            <p>
+                本サイトに掲載されている情報は、可能な限り正確な情報を掲載するよう努めておりますが、
+                誤情報が入り込んだり、情報が古くなっていることもございます。
+            </p>
+            <p>
+                本サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますので、ご了承ください。
+                最新の情報や詳細については、各施設の公式サイトをご確認いただきますようお願いいたします。
+            </p>
+            <p>
+                また、本サイトは<a href="https://jkrs.jp" target="_blank" rel="noopener noreferrer">デジタル城下町プロジェクト</a>が
+                運営する情報提供サイトであり、各城郭・施設とは直接関係がございません。
+            </p>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../">お城一覧</a>
+                <a href="../">北海道の城</a>
+                <a href="https://jkrs.jp" target="_blank" rel="noopener noreferrer">デジタル城下町プロジェクト</a>
+                <a href="/contact">お問い合わせ</a>
+            </div>
+            <p class="copyright">© デジタル城下町プロジェクト. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // ヘッダーのスクロール効果
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.padding = '10px 20px';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+                header.style.padding = '15px 20px';
+            }
+        });
+        
+        // ハンバーガーメニューの動作
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const navClose = document.getElementById('navClose');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // メニューを開く
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // メニューを閉じる（×ボタン）
+        navClose.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // メニューを閉じる（オーバーレイクリック）
+        navOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // メニューを閉じる（リンククリック）
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // ウェイトリストフォームの処理
+        const waitlistForm1 = document.getElementById('waitlistForm1');
+        const waitlistForm2 = document.getElementById('waitlistForm2');
+        
+        function handleWaitlistSubmit(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const email = formData.get('email');
+            const name = formData.get('name') || '';
+            const newsletter = formData.get('newsletter') ? true : false;
+            
+            // ここで実際のフォーム送信処理を行う
+            console.log('ウェイトリスト登録:', {
+                email: email,
+                name: name,
+                newsletter: newsletter,
+                castle: '五稜郭'
+            });
+            
+            // 成功メッセージを表示
+            alert('五稜郭デジタル城下町民ウェイトリストへの登録ありがとうございます！\n登録確認メールをお送りしました。');
+            
+            // フォームをリセット
+            e.target.reset();
+        }
+        
+        if (waitlistForm1) {
+            waitlistForm1.addEventListener('submit', handleWaitlistSubmit);
+        }
+        
+        if (waitlistForm2) {
+            waitlistForm2.addEventListener('submit', handleWaitlistSubmit);
+        }
+    </script>
+</body>
+</html>

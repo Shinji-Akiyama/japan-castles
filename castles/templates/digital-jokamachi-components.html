@@ -1,0 +1,913 @@
+<!-- デジタル城下町プロジェクト共通コンポーネント -->
+<!-- このファイルには、全てのお城ページで使用する共通要素が含まれています -->
+
+<!-- ========== CSS（<head>内に追加） ========== -->
+<style id="digital-jokamachi-styles">
+/* ウェイトリストセクション */
+.waitlist-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(46, 204, 113, 0.1) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.waitlist-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.waitlist-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.waitlist-description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.waitlist-benefits {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.waitlist-benefits h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.waitlist-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.waitlist-benefits li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.waitlist-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2ecc71;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.waitlist-form {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.form-checkbox {
+    margin-bottom: 25px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.waitlist-button {
+    background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.3);
+}
+
+.waitlist-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(52, 152, 219, 0.4);
+}
+
+.waitlist-note {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.waitlist-more-info {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.waitlist-more-info p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.waitlist-article-link {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.waitlist-article-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* CTAウェイトリスト */
+.cta-waitlist {
+    margin-top: 60px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-waitlist h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.cta-waitlist p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.cta-waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cta-form-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cta-form-group input[type="email"] {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.cta-form-group input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.cta-form-group input[type="email"]:focus {
+    outline: none;
+    border-color: white;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.cta-waitlist-button {
+    padding: 12px 30px;
+    background: white;
+    color: #3498db;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cta-waitlist-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.cta-form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cta-form-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.cta-form-checkbox label {
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* アプリダウンロードセクション */
+.app-download-section {
+    background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-download-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+    transform: rotate(45deg);
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.app-content {
+    text-align: center;
+}
+
+.app-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.app-description {
+    font-size: 18px;
+    color: #5a6c7d;
+    margin-bottom: 60px;
+    line-height: 1.8;
+}
+
+.app-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.app-feature {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.app-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.app-feature-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.app-feature h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.app-feature p {
+    font-size: 14px;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.app-download-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.app-store-button img,
+.google-play-button img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.app-store-button:hover img,
+.google-play-button:hover img {
+    transform: scale(1.05);
+}
+
+.app-note-link {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.app-note-link a {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.2);
+}
+
+.app-note-link a:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(52, 152, 219, 0.3);
+}
+
+/* ソーシャルセクション */
+.social-section {
+    background: white;
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.social-section h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.social-section > p {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.social-link.line {
+    border-color: #00B900;
+}
+
+.social-link.line:hover {
+    background: #00B900;
+    color: white;
+}
+
+.social-link.twitter {
+    border-color: #1DA1F2;
+}
+
+.social-link.twitter:hover {
+    background: #1DA1F2;
+    color: white;
+}
+
+.social-link.note {
+    border-color: #41C9B4;
+}
+
+.social-link.note:hover {
+    background: #41C9B4;
+    color: white;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.social-link.line .social-icon {
+    color: #00B900;
+}
+
+.social-link.twitter .social-icon {
+    color: #1DA1F2;
+}
+
+.social-link.note .social-icon {
+    color: #41C9B4;
+}
+
+.social-link:hover .social-icon {
+    background: rgba(255,255,255,0.2);
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover .social-info h4 {
+    color: white;
+}
+
+.social-info p {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover .social-info p {
+    color: rgba(255,255,255,0.9);
+}
+
+.social-arrow {
+    font-size: 24px;
+    font-weight: 700;
+    color: #bdc3c7;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover .social-arrow {
+    color: white;
+    transform: translateX(0);
+}
+
+/* 免責事項セクション */
+.disclaimer-section {
+    background: #f1f1f1;
+    padding: 60px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.disclaimer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.disclaimer-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.disclaimer-section p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #5a6c7d;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.disclaimer-section a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+.disclaimer-section a:hover {
+    color: #2980b9;
+    border-bottom-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .cta-form-group {
+        flex-direction: column;
+    }
+    
+    .cta-form-group input[type="email"] {
+        width: 100%;
+    }
+    
+    .cta-waitlist-button {
+        width: 100%;
+    }
+    
+    .app-title {
+        font-size: 28px;
+    }
+    
+    .app-description {
+        font-size: 16px;
+    }
+    
+    .app-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-section {
+        padding: 40px 20px;
+    }
+}
+</style>
+
+<!-- ========== ウェイトリストフォーム（五稜郭についてセクションに追加） ========== -->
+<div class="waitlist-section">
+    <div class="waitlist-container">
+        <h3 class="waitlist-title">[城名]デジタル城下町民ウェイトリスト</h3>
+        <p class="waitlist-description">
+            「お城めぐりが、もっと楽しく、もっと特別に」<br>
+            デジタル城下町は、お城ファンのための新しいSNSアプリです。<br>
+            [城名]のデジタル城下町民になると、訪問記録を残したり、<br>
+            全国のお城ファンと交流できる特別な体験が待っています。
+        </p>
+        
+        <div class="waitlist-benefits">
+            <h4>デジタル城下町民になると</h4>
+            <ul>
+                <li>[城名]の訪問記録を美しく残せる</li>
+                <li>日本100名城・続日本100名城の登城記録を管理</li>
+                <li>全国のお城ファンとつながり、情報交換ができる</li>
+                <li>城に近づくと自動で登城記録が可能</li>
+                <li>[城名]限定のデジタル城下町民証を取得</li>
+            </ul>
+        </div>
+        
+        <form class="waitlist-form" id="waitlistForm1">
+            <div class="form-group">
+                <label for="email1">メールアドレス</label>
+                <input type="email" id="email1" name="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label for="name1">お名前（任意）</label>
+                <input type="text" id="name1" name="name" placeholder="山田太郎">
+            </div>
+            <div class="form-checkbox">
+                <input type="checkbox" id="newsletter1" name="newsletter" checked>
+                <label for="newsletter1">全国のお城に関するお知らせを受け取る</label>
+            </div>
+            <button type="submit" class="waitlist-button">ウェイトリストに登録</button>
+        </form>
+        
+        <p class="waitlist-note">
+            ※ご登録いただいた情報は、<a href="https://jkrs.jp" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none; border-bottom: 1px solid rgba(52, 152, 219, 0.3);">デジタル城下町プロジェクト</a>に関するご案内にのみ使用いたします。
+        </p>
+        
+        <div class="waitlist-more-info">
+            <p>デジタル城下町についてもっと詳しく知りたい方は</p>
+            <a href="https://note.com/digitaljokers/n/n2a93cd7365e1" target="_blank" rel="noopener noreferrer" class="waitlist-article-link">
+                📖 デジタル城下町プロジェクトの詳細記事を読む
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ========== CTAセクション内のウェイトリスト ========== -->
+<div class="cta-waitlist">
+    <h3>デジタル城下町民になろう</h3>
+    <p>[城名]のデジタル城下町民ウェイトリストに登録して、優先取得権を手に入れましょう。</p>
+    
+    <form class="cta-waitlist-form" id="waitlistForm2">
+        <div class="cta-form-group">
+            <input type="email" id="email2" name="email" required placeholder="メールアドレスを入力">
+            <button type="submit" class="cta-waitlist-button">登録する</button>
+        </div>
+        <div class="cta-form-checkbox">
+            <input type="checkbox" id="newsletter2" name="newsletter" checked>
+            <label for="newsletter2">お城の最新情報を受け取る</label>
+        </div>
+    </form>
+</div>
+
+<!-- ========== デジタル城下町アプリセクション（フッターの前） ========== -->
+<section class="app-download-section">
+    <div class="app-container">
+        <div class="app-content">
+            <h2 class="app-title">デジタル城下町アプリで<br>もっと楽しむ城めぐり</h2>
+            <p class="app-description">
+                「お城めぐりが、もっと楽しく、もっと特別に」<br>
+                日本100名城・続日本100名城の訪問記録を美しく残し、<br>
+                全国のお城ファンとつながる新しい体験をお届けします
+            </p>
+            
+            <div class="app-features">
+                <div class="app-feature">
+                    <div class="app-feature-icon">📍</div>
+                    <h3>自動登城記録</h3>
+                    <p>城に近づくだけで訪問記録を自動保存</p>
+                </div>
+                <div class="app-feature">
+                    <div class="app-feature-icon">🏯</div>
+                    <h3>200城完全網羅</h3>
+                    <p>日本100名城・続日本100名城の全てに対応</p>
+                </div>
+                <div class="app-feature">
+                    <div class="app-feature-icon">👥</div>
+                    <h3>ファンコミュニティ</h3>
+                    <p>お城好き同士で情報交換・交流</p>
+                </div>
+            </div>
+            
+            <div class="app-download-buttons">
+                <a href="#" class="app-store-button">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Storeからダウンロード">
+                </a>
+                <a href="#" class="google-play-button">
+                    <img src="https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Playで手に入れよう">
+                </a>
+            </div>
+            
+            <div class="app-note-link">
+                <a href="https://note.com/digitaljokers/n/n2a93cd7365e1" target="_blank" rel="noopener noreferrer">
+                    📚 デジタル城下町プロジェクトの詳細はこちら →
+                </a>
+            </div>
+            
+            <div class="social-section">
+                <h3>デジタル城下町プロジェクト公式SNS</h3>
+                <p>最新情報やお得な情報を配信中！フォローして城めぐりをもっと楽しもう</p>
+                
+                <div class="social-links">
+                    <a href="https://line.me/R/ti/p/@172rjlow" target="_blank" rel="noopener noreferrer" class="social-link line">
+                        <div class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.04 2 10.98c0 4.42 3.58 8.08 8.23 8.77.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.42.36.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.21.7.83.58C18.42 19.06 22 15.4 22 10.98 22 6.04 17.52 2 12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h4>LINE公式アカウント</h4>
+                            <p>友だち追加で最新情報をGET</p>
+                        </div>
+                        <div class="social-arrow">→</div>
+                    </a>
+                    
+                    <a href="https://x.com/digitaljokers" target="_blank" rel="noopener noreferrer" class="social-link twitter">
+                        <div class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h4>X (Twitter)</h4>
+                            <p>リアルタイムな城情報を発信</p>
+                        </div>
+                        <div class="social-arrow">→</div>
+                    </a>
+                    
+                    <a href="https://note.com/digitaljokers" target="_blank" rel="noopener noreferrer" class="social-link note">
+                        <div class="social-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h4>note</h4>
+                            <p>城郭の歴史や文化を深く解説</p>
+                        </div>
+                        <div class="social-arrow">→</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 免責事項 ========== -->
+<section class="disclaimer-section">
+    <div class="disclaimer-container">
+        <h3>免責事項</h3>
+        <p>
+            本サイトに掲載されている情報は、可能な限り正確な情報を掲載するよう努めておりますが、
+            誤情報が入り込んだり、情報が古くなっていることもございます。
+        </p>
+        <p>
+            本サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますので、ご了承ください。
+            最新の情報や詳細については、各施設の公式サイトをご確認いただきますようお願いいたします。
+        </p>
+        <p>
+            また、本サイトは<a href="https://jkrs.jp" target="_blank" rel="noopener noreferrer">デジタル城下町プロジェクト</a>が
+            運営する情報提供サイトであり、各城郭・施設とは直接関係がございません。
+        </p>
+    </div>
+</section>
+
+<!-- ========== JavaScript（</body>の前に追加） ========== -->
+<script id="digital-jokamachi-script">
+// ========== お城設定（各ページで変更してください） ==========
+const CASTLE_CONFIG = {
+    name: "[城名]",           // 例: "松前城"
+    id: "[castle_id]",        // 例: "matsumae" (英数字のみ)
+    prefecture: "[都道府県]",  // 例: "北海道"
+    type: "[種別]",           // 例: "日本100名城", "続日本100名城", "その他"
+    category: "[分類]"        // 例: "平山城", "山城", "平城"
+};
+// ====================================================
+
+// Google Apps Script エンドポイント（後で設定）
+const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+// ウェイトリストフォームの処理
+const waitlistForm1 = document.getElementById('waitlistForm1');
+const waitlistForm2 = document.getElementById('waitlistForm2');
+
+async function submitToWaitlist(data) {
+    try {
+        const response = await fetch(WAITLIST_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors', // Google Apps Script用
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        return true;
+    } catch (error) {
+        console.error('送信エラー:', error);
+        return false;
+    }
+}
+
+function handleWaitlistSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    
+    // 登録データを構築
+    const registrationData = {
+        email: formData.get('email'),
+        name: formData.get('name') || '',
+        newsletter: formData.get('newsletter') ? true : false,
+        // お城情報
+        castle: CASTLE_CONFIG.name,
+        castle_id: CASTLE_CONFIG.id,
+        prefecture: CASTLE_CONFIG.prefecture,
+        castle_type: CASTLE_CONFIG.type,
+        castle_category: CASTLE_CONFIG.category,
+        // メタデータ
+        timestamp: new Date().toISOString(),
+        source: "website",
+        user_agent: navigator.userAgent,
+        page_url: window.location.href
+    };
+    
+    // サーバーに送信
+    submitToWaitlist(registrationData).then(success => {
+        if (success) {
+            // 成功メッセージを表示
+            alert(`${CASTLE_CONFIG.name}デジタル城下町民ウェイトリストへの登録ありがとうございます！\n登録確認メールをお送りしました。`);
+            
+            // フォームをリセット
+            e.target.reset();
+            
+            // Google Analytics等のトラッキング（オプション）
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'waitlist_signup', {
+                    castle: CASTLE_CONFIG.name,
+                    castle_id: CASTLE_CONFIG.id
+                });
+            }
+        } else {
+            alert('登録に失敗しました。しばらくしてからもう一度お試しください。');
+        }
+    });
+}
+
+if (waitlistForm1) {
+    waitlistForm1.addEventListener('submit', handleWaitlistSubmit);
+}
+
+if (waitlistForm2) {
+    waitlistForm2.addEventListener('submit', handleWaitlistSubmit);
+}
+</script>
+
+<!-- ========== フッターの修正 ========== -->
+<!-- 
+フッター内の以下の箇所を修正してください：
+1. "© 2024 お城ファンページ" → "© デジタル城下町プロジェクト"
+2. "このサイトについて" → "デジタル城下町プロジェクト" （リンク先: https://jkrs.jp）
+3. 相対パスの修正（必要に応じて）
+-->

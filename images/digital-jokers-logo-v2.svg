@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 150" width="900" height="150">
+  <defs>
+    <!-- グラデーション定義 -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 筆跡風のフィルター -->
+    <filter id="roughPaper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0 .5 .5 .5 .5 .5 .5 .5 .5 .5 .5 .5 .5 .5 .5 1"/>
+      </feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景の円形デザイン -->
+  <g transform="translate(750, 75)">
+    <circle cx="0" cy="0" r="65" fill="none" stroke="#333" stroke-width="2" opacity="0.3" stroke-dasharray="5,5"/>
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#444" stroke-width="1.5" opacity="0.4"/>
+    
+    <!-- 筆で描いたような円 -->
+    <path d="M -50,-30 Q -40,-45 -20,-50 T 20,-45 Q 40,-35 50,-10 T 45,25 Q 35,45 10,50 T -25,45 Q -45,30 -50,5 T -50,-30" 
+          fill="none" stroke="#555" stroke-width="3" opacity="0.5" filter="url(#roughPaper)"/>
+  </g>
+  
+  <!-- メインコンテンツ -->
+  <g>
+    <!-- デジタル -->
+    <text x="40" y="65" font-family="'Hiragino Sans', 'Meiryo', sans-serif" font-size="42" font-weight="300" fill="#ffffff">
+      デジタル
+    </text>
+    
+    <!-- 城下町 -->
+    <g transform="translate(240, 65)">
+      <text font-family="'Hiragino Mincho ProN', serif" font-size="48" font-weight="bold" fill="url(#goldGradient)" style="letter-spacing: 2px;">
+        城下町
+      </text>
+    </g>
+    
+    <!-- プロジェクト -->
+    <text x="40" y="110" font-family="'Hiragino Sans', sans-serif" font-size="28" font-weight="300" fill="#ffffff" opacity="0.9">
+      プロジェクト
+    </text>
+    
+    <!-- DIGITAL JOKERS -->
+    <text x="280" y="110" font-family="'Arial', sans-serif" font-size="18" fill="#ffffff" opacity="0.8" letter-spacing="4" font-weight="300">
+      DIGITAL JOKERS
+    </text>
+  </g>
+  
+  <!-- 下部の装飾線 -->
+  <line x1="40" y1="130" x2="250" y2="130" stroke="url(#goldGradient)" stroke-width="0.5" opacity="0.6"/>
+  <line x1="500" y1="130" x2="680" y2="130" stroke="url(#goldGradient)" stroke-width="0.5" opacity="0.6"/>
+</svg>

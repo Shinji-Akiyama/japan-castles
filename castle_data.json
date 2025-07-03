@@ -1,0 +1,176 @@
+{
+  "prefectures": {
+    "青森県": {
+      "name_romaji": "Aomori",
+      "castles": [
+        {
+          "name_jp": "弘前城",
+          "name_romaji": "Hirosaki Castle",
+          "location": "Hirosaki City, Aomori Prefecture",
+          "alternative_names": ["Takaoka Castle"],
+          "main_lords": ["Tsugaru Clan"],
+          "remaining_structures": ["Moats", "stone walls", "earthworks", "turrets", "main keep"]
+        },
+        {
+          "name_jp": "根城",
+          "name_romaji": "Ne Castle",
+          "location": "Hachinohe City, Aomori Prefecture",
+          "alternative_names": ["Hachinohe Castle"],
+          "main_lords": ["Nanbu Clan"],
+          "remaining_structures": ["Earthworks", "dry moats", "well"]
+        },
+        {
+          "name_jp": "浪岡城",
+          "name_romaji": "Namioka Castle",
+          "location": "Aomori City, Aomori Prefecture",
+          "alternative_names": ["Namioka Residence"],
+          "main_lords": ["Kitabatake Clan"],
+          "remaining_structures": ["Earthworks", "dry moats"]
+        },
+        {
+          "name_jp": "堀越城",
+          "name_romaji": "Horikoshi Castle",
+          "location": "Hirosaki City, Aomori Prefecture",
+          "alternative_names": [],
+          "main_lords": ["Soga Clan", "Tsugaru Clan"],
+          "remaining_structures": ["Earthworks", "dry moats", "land bridges"]
+        },
+        {
+          "name_jp": "三戸城",
+          "name_romaji": "Sannohe Castle",
+          "location": "Sannohe Town, Aomori Prefecture",
+          "alternative_names": ["Tomegasaki Castle"],
+          "main_lords": ["Nanbu Clan"],
+          "remaining_structures": ["Earthworks", "stone walls", "dry moats", "gates"]
+        }
+      ]
+    },
+    "岩手県": {
+      "name_romaji": "Iwate",
+      "castles": [
+        {
+          "name_jp": "盛岡城",
+          "name_romaji": "Morioka Castle",
+          "location": "Morioka City, Iwate Prefecture",
+          "alternative_names": ["Furukatagō Castle"],
+          "main_lords": ["Nanbu Clan"],
+          "remaining_structures": ["Baileys", "stone walls", "earthworks", "horizontal moats", "relocated storehouse", "gate"]
+        },
+        {
+          "name_jp": "九戸城",
+          "name_romaji": "Kunohe Castle",
+          "location": "Ninohe City, Iwate Prefecture",
+          "alternative_names": ["Fukuoka Castle", "Miyano Castle", "Shirotori Castle"],
+          "main_lords": ["Kunohe Clan", "Nanbu Clan"],
+          "remaining_structures": ["Baileys", "stone walls", "earthworks", "horizontal dry moats"]
+        },
+        {
+          "name_jp": "花巻城",
+          "name_romaji": "Hanamaki Castle",
+          "location": "Hanamaki City, Iwate Prefecture",
+          "alternative_names": ["Toriyagasaki Castle"],
+          "main_lords": ["Abe Clan", "Ōshū Fujiwara Clan", "Hienuki Clan", "Kita Clan", "Nanbu Clan"],
+          "remaining_structures": ["Baileys", "earthworks", "horizontal dry moats", "well", "relocated gate", "bell tower"]
+        }
+      ]
+    },
+    "宮城県": {
+      "name_romaji": "Miyagi",
+      "castles": [
+        {
+          "name_jp": "仙台城",
+          "name_romaji": "Sendai Castle",
+          "name_reading": "せんだいじょう",
+          "location": "Miyagi Prefecture, Sendai City, Aoba Ward",
+          "alternative_names": ["青葉城", "仙臺城", "五城楼"],
+          "main_lords": ["Date Clan"],
+          "remaining_structures": ["Baileys", "stone walls", "earthworks", "dry moats"]
+        },
+        {
+          "name_jp": "白石城",
+          "name_romaji": "Shiroishi Castle",
+          "name_reading": "しろいしじょう",
+          "location": "Miyagi Prefecture, Shiroishi City",
+          "alternative_names": ["益岡城", "枡岡城"],
+          "main_lords": ["Shiroishi Clan", "Gamo Clan", "Uesugi Clan", "Katakura Clan"],
+          "remaining_structures": ["Baileys", "stone walls", "relocated gate", "relocated storehouse"]
+        },
+        {
+          "name_jp": "多賀城",
+          "name_romaji": "Taga Castle",
+          "name_reading": "たがじょう",
+          "location": "Miyagi Prefecture, Tagajo City",
+          "alternative_names": ["多賀柵"],
+          "main_lords": ["Ono Azumahito"],
+          "remaining_structures": ["Government office site", "foundation traces", "gate ruins", "earthworks", "dry moats"]
+        }
+      ]
+    },
+    "秋田県": {
+      "name_romaji": "Akita",
+      "castles": [
+        {
+          "name_jp": "久保田城",
+          "name_romaji": "Kubota Castle",
+          "name_reading": "くぼたじょう",
+          "location": "Akita City, 千秋公園1-39",
+          "alternative_names": ["窪田城", "矢留城", "葛根城", "秋田城"],
+          "main_lords": ["Satake clan"],
+          "remaining_structures": ["Baileys", "earthworks", "water/dry moats", "gate", "guardhouse"]
+        },
+        {
+          "name_jp": "脇本城",
+          "name_romaji": "Wakimoto Castle",
+          "name_reading": "わきもとじょう",
+          "location": "Oga City, Wakimoto area",
+          "alternative_names": ["生鼻城", "太平城"],
+          "main_lords": ["Ando clan", "Wakimoto clan"],
+          "remaining_structures": ["Baileys", "earthworks", "dry moat", "well site"]
+        },
+        {
+          "name_jp": "横手城",
+          "name_romaji": "Yokote Castle",
+          "name_reading": "よこてじょう",
+          "location": "Yokote City, Castle Mountain",
+          "alternative_names": ["朝倉城", "阿櫻城", "韮城", "龍ヶ崎城"],
+          "main_lords": ["Onodera clan", "Date clan", "Suda clan"],
+          "remaining_structures": ["Baileys", "earthworks"]
+        }
+      ]
+    },
+    "山形県": {
+      "name_romaji": "Yamagata",
+      "castles": [
+        {
+          "name_jp": "山形城",
+          "name_romaji": "Yamagata Castle",
+          "location": "Yamagata City, Kasumijo Park",
+          "alternative_names": ["Kasuga Castle", "Kasumigajo"],
+          "main_lords": ["Mogami", "Torii", "Hotta", "Akimoto clans"],
+          "remaining_structures": ["Baileys", "stone walls", "moats", "relocated gate and palace"]
+        },
+        {
+          "name_jp": "米沢城",
+          "name_romaji": "Yonezawa Castle",
+          "location": "Yonezawa City",
+          "alternative_names": ["Maizuru Castle", "Matsugaoka Castle"],
+          "main_lords": ["Nagai", "Date", "Gamō", "Uesugi clans"],
+          "remaining_structures": ["Baileys", "earthworks", "moats"]
+        },
+        {
+          "name_jp": "上山城",
+          "name_romaji": "Kaminoyama Castle",
+          "location": "Kaminoyama City, Tsukioka Park",
+          "alternative_names": ["Tsukioka Castle"],
+          "main_lords": ["Multiple clans including Date", "Gamō", "Tokiwa"],
+          "remaining_structures": ["Baileys", "stone walls", "earthworks", "moats"]
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "source": "cmeg.jp",
+    "collection_date": "2025-06-30",
+    "note": "This is a sample of castles from each prefecture. Each prefecture page contains many more castles (typically 30+ per page)."
+  }
+}
