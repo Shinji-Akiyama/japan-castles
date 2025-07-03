@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本の城郭コレクション - お城ファンページ</title>
+    <meta name="description" content="日本全国の城郭を地域別に紹介。北海道から沖縄まで、歴史ある城郭・城跡・チャシ・陣屋を巡る旅へ。">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6; color: #333; background-color: #0a0a0a; overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px; margin: 0 auto; padding: 60px 20px;
+        }
+        
+        h1 {
+            font-size: 3rem; text-align: center; margin-bottom: 50px; color: white;
+            background: linear-gradient(45deg, #ffffff, #ffd700);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .region-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .region-card {
+            background: rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden;
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none; color: white; display: block;
+        }
+        
+        .region-card:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: #ffd700;
+        }
+        
+        .region-header {
+            height: 200px; display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; position: relative;
+        }
+        
+        .hokkaido-bg { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+        .region-header.coming-soon { opacity: 0.5; }
+        
+        .region-content {
+            padding: 20px;
+        }
+        
+        .region-content h2 {
+            font-size: 1.5rem; margin-bottom: 10px; color: #ffd700;
+        }
+        
+        .region-content p {
+            opacity: 0.8;
+        }
+        
+        .coming-soon-badge {
+            position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7);
+            color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;
+        }
+        
+        .back-link {
+            display: inline-block; margin-bottom: 30px; color: #ffd700;
+            text-decoration: none; transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-link">← トップページへ戻る</a>
+        
+        <h1>日本の城郭コレクション</h1>
+        
+        <div class="region-grid">
+            <a href="北海道/" class="region-card">
+                <div class="region-header hokkaido-bg">
+                    🏔️
+                </div>
+                <div class="region-content">
+                    <h2>北海道</h2>
+                    <p>50の城郭・チャシ・陣屋を完全収録。アイヌ文化から幕末まで。</p>
+                </div>
+            </a>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #2c5f2d, #97bc62);">
+                    🌸
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>東北地方</h2>
+                    <p>奥州藤原氏の栄華から戊辰戦争まで。</p>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
+                    🏯
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>関東地方</h2>
+                    <p>江戸城を中心とした徳川の城郭ネットワーク。</p>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #764ba2, #f093fb);">
+                    ⛰️
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>中部地方</h2>
+                    <p>山城の宝庫。戦国時代の激戦地。</p>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    👑
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>近畿地方</h2>
+                    <p>古都の守り。平安京から大坂城まで。</p>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    ⚔️
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>中国地方</h2>
+                    <p>毛利氏の本拠地。瀬戸内海の要衝。</p>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    🌊
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>四国地方</h2>
+                    <p>現存天守の宝庫。四国八十八箇所と共に。</p>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-header coming-soon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    🔥
+                    <div class="coming-soon-badge">準備中</div>
+                </div>
+                <div class="region-content">
+                    <h2>九州・沖縄地方</h2>
+                    <p>南蛮貿易の玄関口。独特な石垣技術。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
