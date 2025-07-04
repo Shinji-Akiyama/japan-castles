@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杉山城（すぎやまじょう）- 埼玉県嵐山町 | 教科書の城・築城技術の最高峰</title>
+    <meta name="description" content="築城技術の教科書と称される杉山城。戦国時代の築城技術の粋を集めた複雑で巧妙な縄張りは、現代の城郭研究の模範とされています。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0a0a0a;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffd700, #ffb347, #daa520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255,215,0,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #ffd700;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* メインナビゲーション */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-menu a {
+            color: #ffb347;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 30px;
+            border-radius: 30px;
+            background: rgba(255,215,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        
+        .nav-menu a:hover {
+            background: rgba(255,215,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a0a 50%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+        
+        /* 幾何学的な設計図エフェクト */
+        .geometric-patterns {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* 設計図の線エフェクト */
+        .blueprint-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+            animation: blueprintDraw 12s ease-in-out infinite;
+        }
+        
+        @keyframes blueprintDraw {
+            0%, 100% { width: 0; opacity: 0; }
+            25% { width: 300px; opacity: 0.6; }
+            75% { width: 300px; opacity: 0.6; }
+            100% { width: 0; opacity: 0; }
+        }
+        
+        .blueprint-line.horizontal {
+            height: 2px;
+        }
+        
+        .blueprint-line.vertical {
+            width: 2px;
+            height: 300px;
+            background: linear-gradient(to bottom, transparent, rgba(255,215,0,0.3), transparent);
+        }
+        
+        .blueprint-line:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .blueprint-line:nth-child(2) { top: 40%; right: 15%; animation-delay: 2s; }
+        .blueprint-line:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+        .blueprint-line:nth-child(4) { top: 60%; left: 50%; animation-delay: 1s; }
+        .blueprint-line:nth-child(5) { top: 30%; right: 30%; animation-delay: 3s; }
+        .blueprint-line:nth-child(6) { bottom: 20%; right: 10%; animation-delay: 5s; }
+        
+        /* 縄張り図エフェクト */
+        .fortification-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .grid-cell {
+            position: absolute;
+            border: 1px solid rgba(255,215,0,0.2);
+            background: rgba(255,215,0,0.05);
+            animation: gridPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        
+        .grid-cell:nth-child(1) { top: 15%; left: 15%; width: 100px; height: 80px; animation-delay: 0s; }
+        .grid-cell:nth-child(2) { top: 25%; right: 20%; width: 120px; height: 90px; animation-delay: 1s; }
+        .grid-cell:nth-child(3) { bottom: 30%; left: 25%; width: 90px; height: 70px; animation-delay: 2s; }
+        .grid-cell:nth-child(4) { top: 50%; left: 60%; width: 110px; height: 85px; animation-delay: 3s; }
+        .grid-cell:nth-child(5) { bottom: 25%; right: 25%; width: 95px; height: 75px; animation-delay: 4s; }
+        .grid-cell:nth-child(6) { top: 70%; left: 40%; width: 105px; height: 80px; animation-delay: 2.5s; }
+        .grid-cell:nth-child(7) { top: 35%; left: 35%; width: 115px; height: 95px; animation-delay: 1.5s; }
+        .grid-cell:nth-child(8) { bottom: 45%; right: 40%; width: 85px; height: 65px; animation-delay: 3.5s; }
+        
+        /* 技術的な図面エフェクト */
+        .technical-drawings {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        
+        .tech-element {
+            position: absolute;
+            border: 2px solid rgba(255,215,0,0.4);
+            border-radius: 50%;
+            animation: techRotate 15s linear infinite;
+        }
+        
+        @keyframes techRotate {
+            0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+            50% { transform: rotate(180deg) scale(1.2); opacity: 0.6; }
+            100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+        }
+        
+        .tech-element:nth-child(1) { top: 20%; left: 20%; width: 60px; height: 60px; animation-delay: 0s; }
+        .tech-element:nth-child(2) { top: 30%; right: 30%; width: 80px; height: 80px; animation-delay: 5s; }
+        .tech-element:nth-child(3) { bottom: 40%; left: 40%; width: 70px; height: 70px; animation-delay: 10s; }
+        .tech-element:nth-child(4) { bottom: 20%; right: 20%; width: 90px; height: 90px; animation-delay: 7s; }
+        
+        /* 建設アニメーション */
+        .construction-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+        }
+        
+        .construction-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ffd700, #ffb347);
+            border-radius: 50%;
+            animation: constructionFloat 10s linear infinite;
+        }
+        
+        @keyframes constructionFloat {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-50px) translateX(30px) rotate(360deg); opacity: 0; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            position: relative;
+            padding: 40px;
+            max-width: 900px;
+            background: rgba(10,10,10,0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border: 2px solid rgba(255,215,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffd700, #ffb347, #daa520, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleShimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(255,215,0,0.5);
+        }
+        
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ffb347;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #ffb347;
+        }
+        
+        .info-value {
+            color: white;
+        }
+        
+        /* マップセクション */
+        .map-section {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a0a);
+        }
+        
+        .map-container {
+            height: 100%;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(10,10,10,0.8);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        
+        .map-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffb347;
+        }
+        
+        .map-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .section-dark {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a0a);
+        }
+        
+        .section-light {
+            background: linear-gradient(135deg, #1a1a0a, #0a0a0a);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 60px;
+            color: white;
+            background: linear-gradient(45deg, #ffd700, #ffb347, #daa520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a0a);
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .nav-card:hover::before {
+            left: 100%;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.3);
+        }
+        
+        .nav-card h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .nav-card p {
+            color: white;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a0a, #0a0a0a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-chapter {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .story-chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .chapter-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0a0a0a;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #ffb347;
+            margin: 0;
+        }
+        
+        .chapter-content {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-chapter {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,179,71,0.1));
+            border: 2px solid rgba(255,215,0,0.5);
+            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a0a);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info-card-detail {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card-detail:hover {
+            transform: translateY(-5px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+        }
+        
+        .info-card-detail h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .info-card-detail p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 教科書の城セクション */
+        .textbook-fortress-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #1a1a0a, #0a0a0a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .textbook-fortress-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 40% 60%, rgba(255,215,0,0.1), transparent 50%);
+            animation: textbookPulse 12s ease-in-out infinite;
+        }
+        
+        @keyframes textbookPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        
+        .textbook-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .textbook-feature {
+            background: rgba(255,215,0,0.1);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .textbook-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,215,0,0.1), transparent);
+            animation: featureSpin 20s linear infinite;
+            opacity: 0;
+        }
+        
+        .textbook-feature:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes featureSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .textbook-feature:hover {
+            transform: translateY(-10px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.3);
+        }
+        
+        .textbook-feature h3 {
+            color: #ffb347;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .textbook-feature p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 文化・精神セクション */
+        .culture-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a0a);
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .culture-card {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+        }
+        
+        .culture-card h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .culture-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a0a, #0a0a0a);
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-card {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255,215,0,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .strategic-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+        }
+        
+        .strategic-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0a0a0a;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+        }
+        
+        .strategic-card h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .strategic-card ul {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .strategic-card li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .strategic-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #ffb347;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a0a);
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .facility-category h3 {
+            color: #ffb347;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .facility-link {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background: rgba(255,215,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-link::after {
+            content: '→';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-link:hover {
+            background: rgba(255,215,0,0.2);
+            transform: translateX(5px);
+        }
+        
+        .facility-link:hover::after {
+            transform: translateY(-50%) translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a0a, #0a0a0a);
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+        
+        .access-card {
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+        }
+        
+        .access-card h3 {
+            color: #ffb347;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .access-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .access-card .highlight {
+            color: #ffb347;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a0a, #2a2a0a);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,215,0,0.1), transparent 50%);
+            animation: ctaPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .cta-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffd700, #ffb347, #daa520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-description {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #0a0a0a;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,215,0,0.6);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #ffd700;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255,215,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255,215,0,0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #ffb347;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer-link:hover {
+            color: #ffd700;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .textbook-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategic-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">杉山城</div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="#story">物語</a>
+        <a href="#info">基本情報</a>
+        <a href="#textbook-fortress">教科書の城</a>
+        <a href="#culture">文化・精神</a>
+        <a href="#strategic">戦略的価値</a>
+        <a href="#facilities">関連施設</a>
+        <a href="#access">アクセス</a>
+        <a href="../">関東の城一覧</a>
+    </nav>
+
+    <section class="hero">
+        <div class="geometric-patterns">
+            <div class="blueprint-line horizontal"></div>
+            <div class="blueprint-line horizontal"></div>
+            <div class="blueprint-line horizontal"></div>
+            <div class="blueprint-line vertical"></div>
+            <div class="blueprint-line vertical"></div>
+            <div class="blueprint-line vertical"></div>
+        </div>
+        
+        <div class="fortification-grid">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+        </div>
+        
+        <div class="technical-drawings">
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+        </div>
+        
+        <div class="construction-effect" id="constructionEffect"></div>
+        
+        <div class="hero-content">
+            <h1>杉山城</h1>
+            <p class="hero-subtitle">教科書の城・築城技術の最高峰</p>
+            <p class="hero-description">
+                戦国時代の築城技術の粋を集めた杉山城。<br>
+                複雑で巧妙な縄張りは「築城技術の教科書」と称され、<br>
+                現代の城郭研究においても重要な模範とされています。
+            </p>
+            <div class="info-card">
+                <div class="info-row">
+                    <span class="info-label">所在地:</span>
+                    <span class="info-value">埼玉県比企郡嵐山町杉山</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">城郭構造:</span>
+                    <span class="info-value">山城、複郭式</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">築城年代:</span>
+                    <span class="info-value">戦国時代（16世紀前半）</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">築城技術:</span>
+                    <span class="info-value">戦国時代最高峰</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.7635784832583!2d139.31991051525823!3d36.04047378024895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60195f0b0e2b0000%3A0x1234567890abcdef!2z5p2J5bGx5Z-O6Leh!5e1!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay">
+                <div class="map-title">杉山城跡の位置</div>
+                <div class="map-description">
+                    現在の埼玉県比企郡嵐山町にある杉山城跡。
+                    国指定史跡として整備され、複雑な縄張りの遺構が良好に保存されています。
+                    築城技術の教科書として多くの研究者が訪れる貴重な史跡です。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-section">
+        <div class="container">
+            <div class="nav-grid">
+                <div class="nav-card fade-in" data-target="#story">
+                    <h3>物語</h3>
+                    <p>築城技術の最高峰として評価される杉山城の建設と発展の歴史</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#info">
+                    <h3>基本情報</h3>
+                    <p>立地、構造、規模など、杉山城の基本的な情報</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#textbook-fortress">
+                    <h3>教科書の城</h3>
+                    <p>なぜ杉山城が築城技術の教科書と呼ばれるのか、その秘密を探る</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#culture">
+                    <h3>文化・精神</h3>
+                    <p>築城技術研究における杉山城の文化的・学術的価値</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#strategic">
+                    <h3>戦略的価値</h3>
+                    <p>戦国時代における杉山城の軍事的・政治的重要性</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#facilities">
+                    <h3>関連施設</h3>
+                    <p>周辺の博物館や歴史施設、研究機関</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#access">
+                    <h3>アクセス</h3>
+                    <p>杉山城跡への交通案内と見学情報</p>
+                </div>
+                <div class="nav-card fade-in" data-target="../">
+                    <h3>関東の城一覧</h3>
+                    <p>関東地方の他の城郭を探索する</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="story-section">
+        <div class="container">
+            <h2 class="section-title fade-in">杉山城物語</h2>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">1</div>
+                    <h3 class="chapter-title">戦国時代の築城</h3>
+                </div>
+                <div class="chapter-content">
+                    戦国時代前期、関東地方では多くの城郭が築かれましたが、
+                    その中でも杉山城は特別な存在でした。比企丘陵の一角に位置するこの城は、
+                    当時の最先端の築城技術を駆使して建設されました。
+                    築城者については諸説ありますが、高度な技術と豊富な資金、
+                    そして深い戦略的思考を持つ人物によって設計されたことは確実です。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">2</div>
+                    <h3 class="chapter-title">複雑な縄張りの誕生</h3>
+                </div>
+                <div class="chapter-content">
+                    杉山城の最大の特徴は、その複雑で精密な縄張りにあります。
+                    本丸を中心に、東西南北の各方向に巧妙に配置された多数の郭が、
+                    有機的に連携する防御システムを形成していました。
+                    各郭は独立した要塞としても機能し、同時に全体として
+                    一つの巨大な防御網を構成する設計となっていました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">3</div>
+                    <h3 class="chapter-title">革新的な防御技術</h3>
+                </div>
+                <div class="chapter-content highlight-chapter">
+                    杉山城では、当時としては革新的な防御技術が多数採用されました。
+                    横矢掛かりの技法、馬出しの巧妙な配置、虎口の複雑な構造など、
+                    後の時代の城郭建築の手本となる要素が随所に見られます。
+                    特に土塁と堀切の組み合わせは芸術的とも言える完成度を示し、
+                    「築城技術の教科書」と称される所以となっています。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">4</div>
+                    <h3 class="chapter-title">短い栄光の時代</h3>
+                </div>
+                <div class="chapter-content">
+                    杉山城の実戦での活用期間は比較的短いものでした。
+                    築城から数十年後の戦国時代後期には、既に廃城となっていたと考えられています。
+                    しかし、その短い期間の中で、この城は戦略的要衝として重要な役割を果たし、
+                    築城技術の発展に大きな影響を与えました。
+                    廃城後も、その遺構は奇跡的に良好な状態で保存されました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">5</div>
+                    <h3 class="chapter-title">近代の再発見</h3>
+                </div>
+                <div class="chapter-content">
+                    江戸時代から明治時代にかけて、杉山城は忘れられた存在でした。
+                    しかし、昭和時代に入り、城郭研究が本格化すると、
+                    その優れた縄張りが再評価されるようになりました。
+                    特に戦後の発掘調査により、その築城技術の高さが科学的に証明され、
+                    戦国時代の築城技術研究の重要な資料となりました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">6</div>
+                    <h3 class="chapter-title">現代への遺産</h3>
+                </div>
+                <div class="chapter-content">
+                    現在、杉山城跡は国指定史跡として大切に保護されています。
+                    全国の城郭研究者が訪れる「聖地」として、また築城技術の教材として、
+                    その価値は計り知れません。遺構の保存状態の良さから、
+                    戦国時代の築城技術を現代に伝える貴重な文化遺産となっています。
+                    多くの研究者や歴史愛好家にとって、杉山城は学びの場であり続けています。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="info-section">
+        <div class="container">
+            <h2 class="section-title fade-in">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card-detail fade-in">
+                    <h3>立地・地形</h3>
+                    <p>
+                        杉山城は埼玉県比企郡嵐山町に位置し、
+                        比企丘陵の一角に築かれた山城です。
+                        標高約60メートルの台地上にあり、
+                        周囲を見渡す優れた立地条件を持ちます。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>城郭構造</h3>
+                    <p>
+                        複郭式の山城として分類される杉山城は、
+                        本丸を中心に多数の郭が複雑に配置されています。
+                        土塁、堀切、虎口などの防御施設が
+                        極めて巧妙に組み合わされた構造です。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>築城年代</h3>
+                    <p>
+                        戦国時代前期の16世紀前半に築城されたと推定されています。
+                        築城者については諸説ありますが、
+                        高度な築城技術を持つ武将によって
+                        計画的に建設されたと考えられています。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>縄張りの特徴</h3>
+                    <p>
+                        杉山城の縄張りは「教科書的」と評される完成度を誇ります。
+                        各郭の配置、虎口の設計、横矢掛かりの技法など、
+                        戦国時代の築城技術の最高峰を示す
+                        要素が随所に見られます。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>規模・範囲</h3>
+                    <p>
+                        城域は東西約300メートル、南北約500メートルに及びます。
+                        10を超える郭が複雑に組み合わされ、
+                        全体で約15ヘクタールの範囲に
+                        高度な防御システムが構築されています。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>現在の状況</h3>
+                    <p>
+                        昭和56年（1981年）に国指定史跡となり、
+                        現在は嵐山町によって管理・保護されています。
+                        遺構の保存状態が極めて良好で、
+                        築城当時の姿を偲ぶことができる貴重な史跡です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="textbook-fortress" class="textbook-fortress-section">
+        <div class="container">
+            <h2 class="section-title fade-in">教科書の城</h2>
+            <div class="textbook-features">
+                <div class="textbook-feature fade-in">
+                    <h3>完璧な縄張り設計</h3>
+                    <p>
+                        杉山城の縄張りは、戦国時代の築城技術の集大成として評価されています。
+                        本丸から放射状に配置された各郭は、それぞれが独立した防御拠点として機能しながら、
+                        同時に全体として有機的に連携する設計となっています。
+                        この高度な設計思想は、後の近世城郭の発展に大きな影響を与えました。
+                        各郭の配置角度、虎口の向き、土塁の高さまで、すべてが計算され尽くした配置となっており、
+                        現代の城郭研究者からも「完璧」と評される縄張りです。
+                    </p>
+                </div>
+                <div class="textbook-feature fade-in">
+                    <h3>革新的な防御技術</h3>
+                    <p>
+                        杉山城では、横矢掛かりの技法が極めて巧妙に使用されています。
+                        敵が虎口に侵入しようとすると、複数の方向から同時に攻撃を受ける構造となっており、
+                        その防御効果は絶大です。また、馬出しの配置も独創的で、
+                        敵の動きを制限しながら味方の機動性を確保する設計となっています。
+                        これらの技術は、後の時代の城郭建築の模範となり、
+                        築城技術の発展史において重要な位置を占めています。
+                    </p>
+                </div>
+                <div class="textbook-feature fade-in">
+                    <h3>土木技術の粋</h3>
+                    <p>
+                        杉山城の土塁や堀切は、土木技術の観点からも極めて高い完成度を示しています。
+                        土塁の断面形状、勾配角度、高さの設定などは、機能性と効率性を両立させた
+                        理想的な設計となっています。堀切についても、敵の侵入を阻止する効果と、
+                        雨水の排水機能を兼ね備えた巧妙な構造となっています。
+                        これらの技術は、限られた労力と時間で最大の防御効果を得るための
+                        合理的な発想に基づいており、現代の土木技術者からも高く評価されています。
+                    </p>
+                </div>
+                <div class="textbook-feature fade-in">
+                    <h3>戦術思想の体現</h3>
+                    <p>
+                        杉山城の設計には、戦国時代の先進的な戦術思想が反映されています。
+                        単純な籠城戦ではなく、積極的な反撃や機動戦を想定した構造となっており、
+                        各郭からの出撃が容易な設計となっています。また、城内の連絡路も
+                        効率的に配置されており、兵力の迅速な移動と集中が可能です。
+                        この戦術的な柔軟性は、当時の軍事思想の発展を物語る貴重な証拠となっています。
+                    </p>
+                </div>
+                <div class="textbook-feature fade-in">
+                    <h3>美的完成度</h3>
+                    <p>
+                        杉山城は機能性だけでなく、美的な完成度も非常に高い城郭です。
+                        各郭の配置が生み出すリズム感、土塁のなめらかな曲線、
+                        虎口の優雅な形状など、実用性と美しさが見事に調和しています。
+                        この美的センスは、築城者の高い教養と芸術的感性を物語っており、
+                        戦国時代の武将文化の一面を示す重要な資料となっています。
+                        現代においても、その美しい景観は多くの人々を魅了し続けています。
+                    </p>
+                </div>
+                <div class="textbook-feature fade-in">
+                    <h3>研究価値の高さ</h3>
+                    <p>
+                        杉山城は、城郭研究における「教科書」として極めて高い価値を持ちています。
+                        遺構の保存状態が良好であることから、築城技術の詳細な分析が可能であり、
+                        多くの研究成果が生み出されています。また、他の城郭との比較研究においても
+                        重要な基準点となっており、戦国時代の築城技術の発展過程を理解する上で
+                        欠かせない存在となっています。全国の城郭研究者が必ず訪れる
+                        「聖地」として、学術的な価値は計り知れません。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" class="culture-section">
+        <div class="container">
+            <h2 class="section-title fade-in">文化・精神的側面</h2>
+            <div class="culture-grid">
+                <div class="culture-card fade-in">
+                    <h3>築城技術の教材</h3>
+                    <p>
+                        杉山城は現代の城郭研究において重要な教材となっています。
+                        大学の考古学・歴史学部や、文化財保護の専門機関では、
+                        杉山城の縄張り図が教科書に掲載され、
+                        築城技術の基本を学ぶ重要な資料として活用されています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>研究者の聖地</h3>
+                    <p>
+                        全国の城郭研究者にとって、杉山城は必見の史跡です。
+                        その完璧な縄張りと保存状態の良さから、
+                        多くの研究論文や著書で言及されており、
+                        城郭研究の発展に大きく貢献しています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>地域の誇り</h3>
+                    <p>
+                        嵐山町民にとって杉山城は地域の誇りです。
+                        国指定史跡として全国的に知られる存在となり、
+                        地域のアイデンティティの重要な要素となっています。
+                        地域の文化活動や観光振興の核となっています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>技術者精神</h3>
+                    <p>
+                        杉山城の築城には、妥協を許さない技術者精神が感じられます。
+                        機能性と美しさを両立させた設計思想は、
+                        現代のエンジニアや建築家にとっても
+                        学ぶべき点の多い貴重な遺産です。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>文化財保護</h3>
+                    <p>
+                        杉山城の保護活動は、文化財保護の模範例となっています。
+                        地域住民、行政、研究者が協力して保護に取り組む姿勢は、
+                        他の史跡保護活動の参考となり、
+                        文化財保護意識の向上に貢献しています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>教育的価値</h3>
+                    <p>
+                        杉山城は歴史教育においても重要な教材です。
+                        戦国時代の社会情勢、技術発展、地域史など、
+                        多角的な学習が可能な貴重な史跡として、
+                        教育現場で積極的に活用されています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategic" class="strategic-section">
+        <div class="container">
+            <h2 class="section-title fade-in">戦略的価値</h2>
+            <div class="strategic-cards">
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">1</div>
+                    <h3>交通路の要衝</h3>
+                    <ul>
+                        <li>武蔵国と上野国を結ぶ街道の監視</li>
+                        <li>比企郡の政治的中心地としての機能</li>
+                        <li>物資輸送ルートの管理統制</li>
+                        <li>地域間交流の拠点としての役割</li>
+                        <li>商業活動の保護と税収確保</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">2</div>
+                    <h3>軍事技術の実験場</h3>
+                    <ul>
+                        <li>最新築城技術の試験的導入</li>
+                        <li>防御システムの効果検証</li>
+                        <li>戦術理論の実践的応用</li>
+                        <li>技術革新の推進拠点</li>
+                        <li>軍事工学の発展への貢献</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">3</div>
+                    <h3>政治的影響力</h3>
+                    <ul>
+                        <li>関東地方の勢力均衡への影響</li>
+                        <li>周辺領主への威圧効果</li>
+                        <li>政治的権威の象徴としての機能</li>
+                        <li>外交交渉における優位性確保</li>
+                        <li>地域支配の正統性の証明</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">4</div>
+                    <h3>現代的価値</h3>
+                    <ul>
+                        <li>学術研究の重要拠点</li>
+                        <li>文化財保護のモデルケース</li>
+                        <li>観光資源としての活用価値</li>
+                        <li>教育教材としての利用価値</li>
+                        <li>地域ブランド形成への貢献</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="facilities-section">
+        <div class="container">
+            <h2 class="section-title fade-in">関連施設・観光情報</h2>
+            <div class="facilities-grid">
+                <div class="facility-category fade-in">
+                    <h3>研究・教育施設</h3>
+                    <a href="#" class="facility-link">嵐山史跡の博物館</a>
+                    <a href="#" class="facility-link">比企城館跡群調査会</a>
+                    <a href="#" class="facility-link">城郭研究室</a>
+                    <a href="#" class="facility-link">埼玉県立歴史と民俗の博物館</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>史跡・遺跡</h3>
+                    <a href="#" class="facility-link">杉山城跡国指定史跡</a>
+                    <a href="#" class="facility-link">菅谷館跡</a>
+                    <a href="#" class="facility-link">畠山重忠館跡</a>
+                    <a href="#" class="facility-link">鎌形八幡神社</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>自然・公園</h3>
+                    <a href="#" class="facility-link">嵐山渓谷</a>
+                    <a href="#" class="facility-link">武蔵嵐山森林公園</a>
+                    <a href="#" class="facility-link">比企丘陵自然歩道</a>
+                    <a href="#" class="facility-link">都幾川河川敷</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>体験・学習</h3>
+                    <a href="#" class="facility-link">城郭見学ツアー</a>
+                    <a href="#" class="facility-link">築城技術講座</a>
+                    <a href="#" class="facility-link">歴史ウォーキング</a>
+                    <a href="#" class="facility-link">考古学体験教室</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>グルメ・特産品</h3>
+                    <a href="#" class="facility-link">比企地域の特産品</a>
+                    <a href="#" class="facility-link">地元農産物直売所</a>
+                    <a href="#" class="facility-link">嵐山町の郷土料理</a>
+                    <a href="#" class="facility-link">城郭関連グッズ</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>宿泊・交通</h3>
+                    <a href="#" class="facility-link">嵐山町周辺宿泊施設</a>
+                    <a href="#" class="facility-link">レンタサイクル</a>
+                    <a href="#" class="facility-link">観光案内所</a>
+                    <a href="#" class="facility-link">駐車場案内</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="access-section">
+        <div class="container">
+            <h2 class="section-title fade-in">アクセス情報</h2>
+            <div class="access-grid">
+                <div class="access-card fade-in">
+                    <h3>電車でのアクセス</h3>
+                    <p><span class="highlight">最寄り駅：</span>東武東上線 武蔵嵐山駅</p>
+                    <p><span class="highlight">所要時間：</span>武蔵嵐山駅から徒歩約25分</p>
+                    <p><span class="highlight">池袋駅から：</span>東武東上線で約1時間</p>
+                    <p><span class="highlight">川越駅から：</span>東武東上線で約25分</p>
+                    <p><span class="highlight">運賃：</span>池袋駅から550円</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>車でのアクセス</h3>
+                    <p><span class="highlight">最寄りIC：</span>関越自動車道 東松山IC</p>
+                    <p><span class="highlight">所要時間：</span>東松山ICから約15分</p>
+                    <p><span class="highlight">駐車場：</span>杉山城跡駐車場（無料）</p>
+                    <p><span class="highlight">収容台数：</span>約20台</p>
+                    <p><span class="highlight">注意：</span>道幅が狭い箇所あり</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>バスでのアクセス</h3>
+                    <p><span class="highlight">武蔵嵐山駅から：</span>イーグルバス「杉山城跡入口」下車</p>
+                    <p><span class="highlight">森林公園駅から：</span>路線バス約20分</p>
+                    <p><span class="highlight">所要時間：</span>武蔵嵐山駅から約10分</p>
+                    <p><span class="highlight">運賃：</span>200円</p>
+                    <p><span class="highlight">本数：</span>平日1時間に1～2本</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>見学・注意事項</h3>
+                    <p><span class="highlight">見学時間：</span>24時間自由見学</p>
+                    <p><span class="highlight">入場料：</span>無料</p>
+                    <p><span class="highlight">所要時間：</span>見学約60～90分</p>
+                    <p><span class="highlight">服装：</span>歩きやすい靴・服装推奨</p>
+                    <p><span class="highlight">注意：</span>虫除け対策・雨天時滑りやすい</p>
+                </div>
+            </div>
+            
+            <div class="map-container" style="margin-top: 50px; height: 400px; border-radius: 20px; overflow: hidden;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1615.3817892416294!2d139.31991051525823!3d36.04047378024895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60195f0b0e2b0000%3A0x1234567890abcdef!2z5p2J5bGx5Z-O6Leh!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title fade-in">築城技術の最高峰を体感しよう</h2>
+            <p class="cta-description fade-in">
+                戦国時代の築城技術の粋を集めた杉山城。<br>
+                「教科書の城」と称される完璧な縄張りを、ぜひ現地で体感してください。
+            </p>
+            <div class="cta-buttons fade-in">
+                <a href="#access" class="cta-button cta-primary">アクセス情報</a>
+                <a href="../" class="cta-button cta-secondary">関東の城一覧</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#story" class="footer-link">物語</a>
+                <a href="#info" class="footer-link">基本情報</a>
+                <a href="#textbook-fortress" class="footer-link">教科書の城</a>
+                <a href="#culture" class="footer-link">文化・精神</a>
+                <a href="#strategic" class="footer-link">戦略的価値</a>
+                <a href="#facilities" class="footer-link">関連施設</a>
+                <a href="#access" class="footer-link">アクセス</a>
+                <a href="../" class="footer-link">関東の城一覧</a>
+            </div>
+            <p>&copy; 2024 杉山城 - 教科書の城・築城技術の最高峰</p>
+            <p style="opacity: 0.8; margin-top: 10px;">築城技術の粋を現代に伝える</p>
+        </div>
+    </footer>
+
+    <script>
+        // 建設粒子エフェクト生成
+        function createConstructionParticle() {
+            const container = document.getElementById('constructionEffect');
+            const particle = document.createElement('div');
+            particle.className = 'construction-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (8 + Math.random() * 6) + 's';
+            container.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+        
+        // 初期の建設粒子を生成
+        for (let i = 0; i < 25; i++) {
+            createConstructionParticle();
+        }
+        
+        // 定期的に新しい建設粒子を生成
+        setInterval(createConstructionParticle, 2000);
+        
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ナビゲーションカードクリック
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                if (target === '../') {
+                    window.location.href = '../';
+                } else if (target) {
+                    const targetElement = document.querySelector(target);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // 全てのアニメーション要素を監視
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .story-chapter').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 設計図ラインのアニメーション強化
+        document.querySelectorAll('.blueprint-line').forEach((line, index) => {
+            line.style.animationDelay = index * 2 + 's';
+            line.style.animationDuration = (12 + Math.random() * 6) + 's';
+        });
+        
+        // グリッドセルのパルスアニメーション
+        document.querySelectorAll('.grid-cell').forEach((cell, index) => {
+            cell.style.animationDelay = index * 1 + 's';
+            cell.style.animationDuration = (8 + Math.random() * 4) + 's';
+        });
+        
+        // 技術要素の回転アニメーション
+        document.querySelectorAll('.tech-element').forEach((element, index) => {
+            element.style.animationDelay = index * 2.5 + 's';
+            element.style.animationDuration = (15 + Math.random() * 10) + 's';
+        });
+        
+        // パララックス効果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const geometricElements = document.querySelectorAll('.blueprint-line, .grid-cell, .tech-element');
+            
+            geometricElements.forEach((element, index) => {
+                const speed = 0.1 + (index * 0.02);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // 幾何学パターンの動的変化
+        setInterval(() => {
+            const gridCells = document.querySelectorAll('.grid-cell');
+            gridCells.forEach((cell, index) => {
+                if (Math.random() < 0.2) {
+                    cell.style.borderColor = `rgba(255,215,0,${0.3 + Math.random() * 0.4})`;
+                    cell.style.backgroundColor = `rgba(255,215,0,${0.05 + Math.random() * 0.1})`;
+                    setTimeout(() => {
+                        cell.style.borderColor = 'rgba(255,215,0,0.2)';
+                        cell.style.backgroundColor = 'rgba(255,215,0,0.05)';
+                    }, 2000);
+                }
+            });
+        }, 4000);
+        
+        // 技術的な図面エフェクトの強化
+        setInterval(() => {
+            const techElements = document.querySelectorAll('.tech-element');
+            techElements.forEach(element => {
+                if (Math.random() < 0.15) {
+                    element.style.borderWidth = '3px';
+                    element.style.borderColor = `rgba(255,215,0,${0.6 + Math.random() * 0.4})`;
+                    setTimeout(() => {
+                        element.style.borderWidth = '2px';
+                        element.style.borderColor = 'rgba(255,215,0,0.4)';
+                    }, 1500);
+                }
+            });
+        }, 6000);
+    </script>
+</body>
+</html>

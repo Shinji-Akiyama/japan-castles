@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箕輪城（みのわじょう）- 群馬県高崎市 | 不落の山城要塞・武田軍を退けた名城</title>
+    <meta name="description" content="長野業正が築いた関東屈指の山城・箕輪城。武田信玄の猛攻も撥ね退けた不落の要塞として戦国史に名を刻む、複雑な縄張りを誇る堅城。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0a0a0a;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(70, 130, 180, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4682b4, #5f9ea0, #8b8b8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(70,130,180,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #4682b4;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(70,130,180,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーション */
+        .nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 350px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding: 80px 30px 30px;
+            border-left: 2px solid rgba(70,130,180,0.3);
+        }
+        
+        .nav.active {
+            right: 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .nav li {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav.active li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav li:nth-child(1) { transition-delay: 0.1s; }
+        .nav li:nth-child(2) { transition-delay: 0.2s; }
+        .nav li:nth-child(3) { transition-delay: 0.3s; }
+        .nav li:nth-child(4) { transition-delay: 0.4s; }
+        .nav li:nth-child(5) { transition-delay: 0.5s; }
+        .nav li:nth-child(6) { transition-delay: 0.6s; }
+        .nav li:nth-child(7) { transition-delay: 0.7s; }
+        .nav li:nth-child(8) { transition-delay: 0.8s; }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 15px 20px;
+            display: block;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(70,130,180,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav a:hover::before {
+            left: 100%;
+        }
+        
+        .nav a:hover {
+            background: rgba(70,130,180,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70,130,180,0.3);
+        }
+        
+        /* メインコンテンツ */
+        .main-content {
+            margin-top: 80px;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1e 25%, #2e2a1a 50%, #1e1a2a 75%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+        
+        /* 山霧エフェクト */
+        .mountain-mist {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .mist {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            background: linear-gradient(90deg, transparent, rgba(70,130,180,0.3), transparent);
+            border-radius: 20px;
+            opacity: 0.6;
+            animation: mistFlow 40s ease-in-out infinite;
+            filter: blur(2px);
+        }
+        
+        @keyframes mistFlow {
+            0% {
+                transform: translateX(-120px) translateY(0px) scale(0.8);
+                opacity: 0;
+            }
+            25% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateX(50vw) translateY(-20px) scale(1.2);
+                opacity: 0.4;
+            }
+            75% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateX(120vw) translateY(0px) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .mist:nth-child(1) { top: 20%; animation-delay: 0s; }
+        .mist:nth-child(2) { top: 40%; animation-delay: 10s; }
+        .mist:nth-child(3) { top: 60%; animation-delay: 20s; }
+        .mist:nth-child(4) { top: 80%; animation-delay: 30s; }
+        
+        /* 石垣構築エフェクト */
+        .stone-wall-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .stone-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, #8b8b8b, #4682b4, #696969);
+            border-radius: 2px;
+            opacity: 0.7;
+            animation: stoneConstruct 25s linear infinite;
+            box-shadow: 0 0 8px rgba(70,130,180,0.3);
+        }
+        
+        @keyframes stoneConstruct {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.7;
+            }
+            80% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* 武田軍の矢エフェクト */
+        .arrow-volleys {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .arrow {
+            position: absolute;
+            width: 3px;
+            height: 20px;
+            background: linear-gradient(180deg, #8b4513, #696969);
+            border-radius: 1px;
+            opacity: 0.5;
+            animation: arrowFlight 15s ease-in-out infinite;
+        }
+        
+        @keyframes arrowFlight {
+            0% {
+                transform: translateX(-50px) translateY(100px) rotate(-30deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(120vw) translateY(-200px) rotate(-30deg);
+                opacity: 0;
+            }
+        }
+        
+        .arrow:nth-child(1) { top: 30%; animation-delay: 0s; }
+        .arrow:nth-child(2) { top: 50%; animation-delay: 3s; }
+        .arrow:nth-child(3) { top: 70%; animation-delay: 6s; }
+        .arrow:nth-child(4) { top: 35%; animation-delay: 9s; }
+        .arrow:nth-child(5) { top: 60%; animation-delay: 12s; }
+        
+        /* 狼煙エフェクト */
+        .signal-fires {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .signal-fire {
+            position: absolute;
+            width: 12px;
+            height: 60px;
+            background: linear-gradient(180deg, #ff4500, #ff8c00, rgba(255,140,0,0.3));
+            border-radius: 6px;
+            opacity: 0.6;
+            animation: signalFlame 20s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255,69,0,0.5);
+        }
+        
+        @keyframes signalFlame {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-30px) scale(1.3);
+                opacity: 0.9;
+            }
+        }
+        
+        .signal-fire:nth-child(1) { top: 15%; left: 85%; animation-delay: 0s; }
+        .signal-fire:nth-child(2) { top: 25%; left: 15%; animation-delay: 7s; }
+        .signal-fire:nth-child(3) { top: 75%; left: 90%; animation-delay: 14s; }
+        
+        /* Google Maps */
+        .maps-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .maps-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) contrast(120%) brightness(0.3);
+        }
+        
+        /* ヒーローコンテンツ */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 60px;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 30px;
+            border: 2px solid rgba(70,130,180,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: heroFortressFloat 7s ease-in-out infinite;
+        }
+        
+        @keyframes heroFortressFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.01); }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4682b4, #5f9ea0, #8b8b8b, #4682b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleFortressShimmer 5s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(70,130,180,0.5);
+        }
+        
+        @keyframes titleFortressShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #5f9ea0;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+        
+        .basic-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .info-item {
+            background: rgba(70,130,180,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            background: rgba(70,130,180,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(70,130,180,0.3);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            color: #5f9ea0;
+            margin-bottom: 8px;
+        }
+        
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #4682b4, #5f9ea0, #8b8b8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #4682b4, transparent);
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1e);
+        }
+        
+        .story-chapter {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .story-chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .chapter-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4682b4, #5f9ea0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 30px;
+            box-shadow: 0 10px 30px rgba(70,130,180,0.4);
+            animation: chapterDefense 4s infinite;
+        }
+        
+        @keyframes chapterDefense {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: white;
+            background: linear-gradient(135deg, #4682b4, #8b8b8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .chapter-content {
+            background: rgba(70,130,180,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(70,130,180,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            line-height: 1.8;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(70,130,180,0.1), transparent 70%);
+            animation: fortressShimmer 12s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes fortressShimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .highlight-chapter {
+            border: 2px solid rgba(70,130,180,0.5);
+            box-shadow: 0 0 30px rgba(70,130,180,0.3);
+        }
+        
+        /* 基本情報セクション */
+        .basic-info-section {
+            background: #0a0a0a;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: rgba(70,130,180,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(70,130,180,0.2);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #4682b4, #5f9ea0, #8b8b8b, #4682b4);
+            z-index: -1;
+            border-radius: 22px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .info-card:hover::before {
+            opacity: 1;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(70,130,180,0.3);
+        }
+        
+        .info-card h3 {
+            color: #5f9ea0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .info-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 特別テーマセクション - 不落の要塞 */
+        .special-theme-section {
+            background: linear-gradient(135deg, #1a1a1e, #2e2a1a);
+            position: relative;
+        }
+        
+        .special-theme-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="100" cy="100" r="2" fill="%234682b4" opacity="0.3"/><circle cx="300" cy="200" r="1.5" fill="%235f9ea0" opacity="0.2"/><circle cx="500" cy="150" r="2.5" fill="%238b8b8b" opacity="0.1"/><circle cx="700" cy="300" r="1" fill="%234682b4" opacity="0.3"/><circle cx="900" cy="250" r="2" fill="%235f9ea0" opacity="0.2"/></svg>');
+            animation: backgroundFortressFloat 30s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes backgroundFortressFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .theme-card {
+            background: rgba(70,130,180,0.1);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(70,130,180,0.1), transparent 70%);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .theme-card:hover::before {
+            opacity: 1;
+            top: -50%;
+            left: -50%;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(70,130,180,0.4);
+        }
+        
+        .theme-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .theme-card h3 {
+            color: #5f9ea0;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .theme-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        /* 文化セクション */
+        .culture-section {
+            background: #0a0a0a;
+        }
+        
+        .culture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .culture-text {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .culture-features {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .culture-feature {
+            background: rgba(70,130,180,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(70,130,180,0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-feature:hover {
+            background: rgba(70,130,180,0.2);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(70,130,180,0.3);
+        }
+        
+        .culture-feature h4 {
+            color: #5f9ea0;
+            margin-bottom: 10px;
+        }
+        
+        .culture-feature p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: linear-gradient(135deg, #1a1a1e, #0a0a0a);
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .strategic-card {
+            background: rgba(70,130,180,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(70,130,180,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .strategic-card:hover::before {
+            left: 100%;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(70,130,180,0.3);
+        }
+        
+        .strategic-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4682b4, #5f9ea0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(70,130,180,0.4);
+        }
+        
+        .strategic-card h3 {
+            color: #5f9ea0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .strategic-list {
+            list-style: none;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .strategic-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategic-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #4682b4;
+            font-weight: bold;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: #0a0a0a;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .facility-category {
+            background: rgba(70,130,180,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(70,130,180,0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .facility-category:hover {
+            background: rgba(70,130,180,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(70,130,180,0.2);
+        }
+        
+        .facility-category h3 {
+            color: #5f9ea0;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .facility-list {
+            list-style: none;
+        }
+        
+        .facility-list li {
+            padding: 10px 0;
+            color: white;
+            opacity: 0.9;
+            border-bottom: 1px solid rgba(70,130,180,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .facility-list li:hover {
+            padding-left: 20px;
+            color: #5f9ea0;
+        }
+        
+        .facility-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .facility-list li:hover::before {
+            opacity: 1;
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: linear-gradient(135deg, #1a1a1e, #2e2a1a);
+        }
+        
+        .access-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .access-info {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: rgba(70,130,180,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            background: rgba(70,130,180,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(70,130,180,0.3);
+        }
+        
+        .access-card h3 {
+            color: #5f9ea0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .access-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .map-container {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(15px);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1e);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(70,130,180,0.1), transparent 50%);
+            animation: ctaFortressPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes ctaFortressPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .cta-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #4682b4, #5f9ea0, #8b8b8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-description {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #4682b4, #5f9ea0);
+            color: white;
+            box-shadow: 0 10px 30px rgba(70,130,180,0.4);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(70,130,180,0.6);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #4682b4;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(70,130,180,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(70,130,180,0.3);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(70,130,180,0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #5f9ea0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4682b4;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer-link:hover {
+            color: #4682b4;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 40px 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .basic-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .culture-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .access-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .nav {
+                width: 100%;
+                right: -100%;
+            }
+        }
+        
+        /* フェードインアニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-slide {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in-slide.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">箕輪城 - 不落の要塞</div>
+            <button class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="#story">物語</a></li>
+            <li><a href="#basic-info">基本情報</a></li>
+            <li><a href="#impregnable-fortress">不落の要塞</a></li>
+            <li><a href="#culture">文化</a></li>
+            <li><a href="#strategic">戦略的価値</a></li>
+            <li><a href="#facilities">関連施設</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="../">関東地方の城へ</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="maps-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.1234567890123!2d139.01234567890!3d36.3456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f123456789012%3A0x123456789abcdef!2z566V6Ly_5Z-O!5e1!3m2!1sja!2sjp!4v1640995200000!5m2!1sja!2sjp" allowfullscreen loading="lazy"></iframe>
+            </div>
+            
+            <div class="mountain-mist">
+                <div class="mist"></div>
+                <div class="mist"></div>
+                <div class="mist"></div>
+                <div class="mist"></div>
+            </div>
+            
+            <div class="stone-wall-particles" id="stoneParticles"></div>
+            
+            <div class="arrow-volleys">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+            
+            <div class="signal-fires">
+                <div class="signal-fire"></div>
+                <div class="signal-fire"></div>
+                <div class="signal-fire"></div>
+            </div>
+            
+            <div class="hero-content">
+                <h1>箕輪城</h1>
+                <p class="hero-subtitle">不落の山城要塞・武田軍を退けた名城</p>
+                <p class="hero-description">
+                    長野業正が築いた関東屈指の山城・箕輪城。<br>
+                    武田信玄の猛攻も撥ね退けた不落の要塞として戦国史に名を刻み、<br>
+                    複雑な縄張りと高度な築城技術を今に伝える。
+                </p>
+                
+                <div class="basic-info">
+                    <div class="info-item">
+                        <div class="info-label">所在地</div>
+                        <div class="info-value">群馬県高崎市</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">城郭構造</div>
+                        <div class="info-value">連郭式山城</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">築城年</div>
+                        <div class="info-value">永正9年（1512年）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">築城主</div>
+                        <div class="info-value">長野業正</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="section story-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">箕輪城の物語</h2>
+                
+                <div class="story-chapter fade-in-slide">
+                    <div class="chapter-header">
+                        <div class="chapter-number">1</div>
+                        <h3 class="chapter-title">長野業正の築城</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>永正9年（1512年）、長野業正により築城された箕輪城。榛名山麓の標高約260メートルの丘陵上に築かれた山城は、複雑な縄張りと強固な防御を誇る要塞として設計されました。業正は関東管領・上杉憲政の重臣として、上野国西部の守りを固める重要拠点としてこの城を築きました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter fade-in-slide">
+                    <div class="chapter-header">
+                        <div class="chapter-number">2</div>
+                        <h3 class="chapter-title">戦国の要衝として</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>戦国時代の箕輪城は、関東と信濃を結ぶ街道の要衝として極めて重要な位置にありました。長野氏は上杉氏の重臣として、北条氏や武田氏の侵攻に備える最前線の守りを担いました。城の周辺には支城群が配置され、箕輪城を中心とした防御ネットワークが構築されていました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter fade-in-slide highlight-chapter">
+                    <div class="chapter-header">
+                        <div class="chapter-number">3</div>
+                        <h3 class="chapter-title">武田信玄との攻防</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>永禄年間（1558年〜1570年）、甲斐の武田信玄が上野国への侵攻を開始しました。信玄は箕輪城を攻略すべく何度も攻撃を仕掛けましたが、長野業正の巧みな守備戦術と堅固な城の防御により、ついに落城させることができませんでした。この時代の箕輪城は「関東の要害」として恐れられ、武田軍も手を焼く難攻不落の城として名を馳せました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter fade-in-slide">
+                    <div class="chapter-header">
+                        <div class="chapter-number">4</div>
+                        <h3 class="chapter-title">業正の死と城の陥落</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>永禄4年（1561年）、長野業正が病没すると、箕輪城の守りは息子・業盛に引き継がれました。しかし業正ほどの武将ではなかった業盛は、武田信玄の巧妙な戦術に徐々に追い詰められていきます。永禄9年（1566年）、ついに武田軍は箕輪城を攻略し、長野氏は滅亡しました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter fade-in-slide">
+                    <div class="chapter-header">
+                        <div class="chapter-number">5</div>
+                        <h3 class="chapter-title">武田氏の支配と改修</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>武田氏の支配下に入った箕輪城は、内藤昌豊（昌秀）が城主となり大幅な改修が行われました。武田流の築城技術が導入され、さらに強固な要塞へと生まれ変わります。特に石垣の技術や虎口の構造など、より高度な防御システムが構築されました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter fade-in-slide">
+                    <div class="chapter-header">
+                        <div class="chapter-number">6</div>
+                        <h3 class="chapter-title">北条氏と井伊直政の時代</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>天正10年（1582年）の武田氏滅亡後、箕輪城は北条氏の支配下に入りましたが、その後徳川家康の関東入封により井伊直政が城主となりました。直政は城の近世化を進めましたが、慶長3年（1598年）に高崎城を新築して移ったため、箕輪城は廃城となりました。</p>
+                    </div>
+                </div>
+                
+                <div class="story-chapter fade-in-slide">
+                    <div class="chapter-header">
+                        <div class="chapter-number">7</div>
+                        <h3 class="chapter-title">現代への継承</h3>
+                    </div>
+                    <div class="chapter-content">
+                        <p>廃城後の箕輪城は、その遺構が良好に保存され、昭和62年（1987年）に国指定史跡となりました。現在は史跡公園として整備され、戦国時代の山城の姿を現代に伝える貴重な文化遺産として多くの歴史愛好家や観光客に親しまれています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="basic-info" class="section basic-info-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">基本情報</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card fade-in">
+                        <h3>立地・地形</h3>
+                        <p>榛名山東麓の標高260メートルの丘陵上に築かれた連郭式山城。南北約500メートル、東西約400メートルの規模を誇る大規模な山城。</p>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <h3>縄張り構造</h3>
+                        <p>本丸・二の丸・三の丸など10以上の郭で構成される複雑な縄張り。各郭は深い堀切で区切られ、敵の侵入を阻む巧妙な防御システム。</p>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <h3>防御施設</h3>
+                        <p>大手虎口、搦手虎口をはじめとする複数の虎口、土橋、竪堀群、馬出しなど高度な防御施設を配置。武田流築城技術の影響も見られる。</p>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <h3>石垣の特徴</h3>
+                        <p>後期には石垣が導入され、特に大手門周辺や本丸虎口には精巧な石垣が築かれた。関東の山城としては珍しく本格的な石垣技術を採用。</p>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <h3>遺構の保存状況</h3>
+                        <p>土塁、堀切、虎口、井戸跡など主要な遺構が良好に保存されている。特に本丸周辺の遺構は当時の姿をよく留めている。</p>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <h3>現況</h3>
+                        <p>国指定史跡として保護され、史跡公園として整備。発掘調査に基づく復元整備が進められ、戦国時代の山城の姿を体感できる。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impregnable-fortress" class="section special-theme-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">不落の要塞</h2>
+                
+                <div class="theme-grid">
+                    <div class="theme-card fade-in">
+                        <div class="theme-icon">🏰</div>
+                        <h3>武田信玄を阻んだ城</h3>
+                        <p>甲斐の虎・武田信玄の攻撃を何度も撥ね退けた唯一の城。長野業正の守備戦術と堅固な城の防御が、最強といわれた武田軍を阻止した。</p>
+                    </div>
+                    
+                    <div class="theme-card fade-in">
+                        <div class="theme-icon">⛰️</div>
+                        <h3>天然の要害</h3>
+                        <p>榛名山麓の急峻な地形を巧みに利用した山城。自然の地形と人工的な防御施設が一体となって、難攻不落の要塞を形成している。</p>
+                    </div>
+                    
+                    <div class="theme-card fade-in">
+                        <div class="theme-icon">🗡️</div>
+                        <h3>長野業正の智将ぶり</h3>
+                        <p>「攻撃は最大の防御」を実践した業正。城の守りだけでなく、積極的な野戦や奇襲戦術で武田軍を翻弄し続けた戦国屈指の智将。</p>
+                    </div>
+                    
+                    <div class="theme-card fade-in">
+                        <div class="theme-icon">🏛️</div>
+                        <h3>複雑な縄張り設計</h3>
+                        <p>10以上の郭を巧妙に配置した複雑な縄張り。敵が攻め込んでも次々と新たな防御線に阻まれる、戦国山城建築の傑作。</p>
+                    </div>
+                    
+                    <div class="theme-card fade-in">
+                        <div class="theme-icon">🔥</div>
+                        <h3>支城群による防御網</h3>
+                        <p>箕輪城を中心とした支城群が連携した広域防御システム。敵の動きを早期に察知し、本城への攻撃を分散させる戦略的配置。</p>
+                    </div>
+                    
+                    <div class="theme-card fade-in">
+                        <div class="theme-icon">⚔️</div>
+                        <h3>関東最後の抵抗</h3>
+                        <p>上杉氏の関東支配の最後の砦として、関東武士の誇りと意地を体現。長野氏の滅亡まで、決して降伏することなく戦い抜いた名城。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="culture" class="section culture-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">文化的側面</h2>
+                
+                <div class="culture-content">
+                    <div class="culture-text fade-in">
+                        <p>箕輪城は単なる軍事要塞ではなく、戦国時代の上野国における政治・文化の中心地でもありました。長野業正は武将としてだけでなく、領国経営にも優れた手腕を発揮し、領民から慕われる名君でした。</p>
+                        <br>
+                        <p>特に箕輪城下町は、中山道と信州街道の分岐点として商業が栄え、多くの商人や職人が集まる文化都市として発展しました。城下には寺社も建立され、武家文化と庶民文化が融合した独特の地域文化が形成されていました。</p>
+                        <br>
+                        <p>また、武田氏支配下では甲州文化の影響も受け、築城技術だけでなく、治水技術や農業技術なども導入され、地域の発展に大きく貢献しました。</p>
+                    </div>
+                    
+                    <div class="culture-features fade-in">
+                        <div class="culture-feature">
+                            <h4>長野氏の名君統治</h4>
+                            <p>長野業正は武勇だけでなく内政にも優れ、領民から「上野の黄門様」と慕われました。</p>
+                        </div>
+                        
+                        <div class="culture-feature">
+                            <h4>街道文化の発達</h4>
+                            <p>中山道の要衝として多くの旅人が行き交い、様々な文化が交流する場となりました。</p>
+                        </div>
+                        
+                        <div class="culture-feature">
+                            <h4>武田流文化の導入</h4>
+                            <p>武田氏支配下で甲州文化が導入され、技術革新と文化的発展をもたらしました。</p>
+                        </div>
+                        
+                        <div class="culture-feature">
+                            <h4>城下町の繁栄</h4>
+                            <p>商工業の発達により多彩な職人文化が花開き、関東有数の城下町として栄えました。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategic" class="section strategic-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">戦略的価値</h2>
+                
+                <div class="strategic-cards">
+                    <div class="strategic-card fade-in">
+                        <div class="strategic-number">1</div>
+                        <h3>関東・信濃の結節点</h3>
+                        <ul class="strategic-list">
+                            <li>中山道と信州街道の分岐点に位置</li>
+                            <li>関東と信濃を結ぶ交通の要衝</li>
+                            <li>物資輸送と軍事移動の重要拠点</li>
+                            <li>上野国西部の政治・経済の中心</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategic-card fade-in">
+                        <div class="strategic-number">2</div>
+                        <h3>武田軍への防波堤</h3>
+                        <ul class="strategic-list">
+                            <li>甲斐からの侵攻路を扼制する最前線</li>
+                            <li>上杉氏の関東支配を支える要の城</li>
+                            <li>武田信玄も落とせなかった不落の城</li>
+                            <li>関東武士の抵抗精神を体現</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategic-card fade-in">
+                        <div class="strategic-number">3</div>
+                        <h3>築城技術の集大成</h3>
+                        <ul class="strategic-list">
+                            <li>戦国山城建築の最高傑作の一つ</li>
+                            <li>長野流と武田流の築城技術の融合</li>
+                            <li>複雑な縄張りによる重層防御システム</li>
+                            <li>後世の城郭建築に大きな影響</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="section facilities-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">関連施設</h2>
+                
+                <div class="facilities-grid">
+                    <div class="facility-category fade-in">
+                        <h3>史跡・遺構</h3>
+                        <ul class="facility-list">
+                            <li>箕輪城跡（国指定史跡）</li>
+                            <li>本丸・二の丸遺構</li>
+                            <li>大手虎口・搦手虎口</li>
+                            <li>堀切・竪堀群</li>
+                            <li>井戸跡・石垣遺構</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="facility-category fade-in">
+                        <h3>博物館・資料館</h3>
+                        <ul class="facility-list">
+                            <li>箕郷支所（資料展示）</li>
+                            <li>群馬県立歴史博物館</li>
+                            <li>高崎市歴史民俗資料館</li>
+                            <li>長野業正関連資料</li>
+                            <li>発掘調査成果展示</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="facility-category fade-in">
+                        <h3>関連史跡</h3>
+                        <ul class="facility-list">
+                            <li>長野業正の墓</li>
+                            <li>高崎城跡（井伊直政築城）</li>
+                            <li>箕輪城下町跡</li>
+                            <li>中山道碓氷峠</li>
+                            <li>榛名神社</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="facility-category fade-in">
+                        <h3>観光・アクセス</h3>
+                        <ul class="facility-list">
+                            <li>箕輪城跡駐車場</li>
+                            <li>高崎駅観光案内所</li>
+                            <li>レンタサイクル</li>
+                            <li>ハイキングコース</li>
+                            <li>周辺宿泊施設</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="access" class="section access-section">
+            <div class="section-container">
+                <h2 class="section-title fade-in">アクセス情報</h2>
+                
+                <div class="access-content">
+                    <div class="access-info">
+                        <div class="access-card fade-in">
+                            <h3>🚃 電車でのアクセス</h3>
+                            <p><strong>JR高崎線 高崎駅</strong><br>
+                            • 上野駅から約1時間<br>
+                            • 高崎駅西口からバス約30分<br>
+                            • 「箕郷本町」下車、徒歩約10分</p>
+                        </div>
+                        
+                        <div class="access-card fade-in">
+                            <h3>🚌 バスでのアクセス</h3>
+                            <p><strong>群馬バス</strong><br>
+                            • 高崎駅西口から「箕郷・榛東村役場」行き<br>
+                            • 約30分「箕郷本町」下車<br>
+                            • そこから徒歩約10分で城跡入口</p>
+                        </div>
+                        
+                        <div class="access-card fade-in">
+                            <h3>🚗 車でのアクセス</h3>
+                            <p><strong>高速道路</strong><br>
+                            • 関越道「前橋IC」から約30分<br>
+                            • 上信越道「松井田妙義IC」から約25分<br>
+                            • 無料駐車場あり（約50台）</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container fade-in">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.1234567890123!2d139.01234567890!3d36.3456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601f123456789012%3A0x123456789abcdef!2z566V6Ly_5Z-O!5e0!3m2!1sja!2sjp!4v1640995200000!5m2!1sja!2sjp" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">不落の山城要塞を体感せよ</h2>
+                <p class="cta-description">
+                    武田信玄も落とせなかった難攻不落の城へ。<br>
+                    長野業正の智略と戦国の浪漫が息づく<br>
+                    関東屈指の山城要塞を巡る歴史の旅へ。
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button cta-primary">史跡情報を見る</a>
+                    <a href="../" class="cta-button cta-secondary">他の城を探す</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link">利用規約</a>
+                <a href="#" class="footer-link">プライバシーポリシー</a>
+                <a href="#" class="footer-link">お問い合わせ</a>
+                <a href="../" class="footer-link">関東地方の城へ</a>
+            </div>
+            <p>&copy; 2024 箕輪城 - 不落の山城要塞・武田軍を退けた名城</p>
+            <p style="opacity: 0.8; margin-top: 10px;">戦国の誇りを次世代へ</p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニューの制御
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // スクロール時のヘッダー変化
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 石垣構築エフェクト生成
+        function createStoneParticle() {
+            const container = document.getElementById('stoneParticles');
+            const particle = document.createElement('div');
+            particle.className = 'stone-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+            
+            // 石の色をランダムに変更
+            const colors = [
+                'linear-gradient(45deg, #8b8b8b, #4682b4, #696969)',
+                'linear-gradient(45deg, #696969, #4682b4, #8b8b8b)',
+                'linear-gradient(45deg, #4682b4, #8b8b8b, #696969)'
+            ];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            container.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 30000);
+        }
+        
+        // 初期石粒子生成
+        for (let i = 0; i < 12; i++) {
+            createStoneParticle();
+        }
+        
+        // 定期的に新しい石粒子を生成
+        setInterval(createStoneParticle, 5000);
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('story-chapter')) {
+                        entry.target.classList.add('visible');
+                    } else if (entry.target.classList.contains('fade-in')) {
+                        entry.target.classList.add('visible');
+                    } else if (entry.target.classList.contains('fade-in-slide')) {
+                        entry.target.classList.add('visible');
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // 要素を監視対象に追加
+        document.querySelectorAll('.fade-in, .fade-in-slide, .story-chapter').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 狼煙の強化エフェクト
+        const signalFires = document.querySelectorAll('.signal-fire');
+        signalFires.forEach((fire, index) => {
+            fire.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 40px rgba(255,69,0,1)';
+                this.style.transform = 'scale(1.3)';
+            });
+            
+            fire.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 0 20px rgba(255,69,0,0.5)';
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // 山霧エフェクト強化
+        const mists = document.querySelectorAll('.mist');
+        mists.forEach((mist, index) => {
+            mist.style.animationDelay = (index * 10) + 's';
+        });
+        
+        // 矢のエフェクト強化
+        const arrows = document.querySelectorAll('.arrow');
+        arrows.forEach((arrow, index) => {
+            arrow.style.animationDelay = (index * 3) + 's';
+        });
+    </script>
+</body>
+</html>

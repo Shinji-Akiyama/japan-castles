@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佐倉城（さくらじょう）- 千葉県佐倉市 | 土塁の芸術と蘭学の城</title>
+    <meta name="description" content="江戸東方の要・佐倉城。石垣を用いない土塁の城郭建築の傑作。蘭学の中心地として西洋文明への窓口となり、多くの人材を輩出した文武両道の名城。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0a0b0a;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 11, 10, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(34, 139, 34, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 11, 10, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #228b22, #32cd32, #7cfc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(34,139,34,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #32cd32;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(50,205,50,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: rgba(10, 11, 10, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+            border-right: 2px solid rgba(34,139,34,0.3);
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .nav-menu ul li {
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu ul li a {
+            color: #32cd32;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-menu ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(50,205,50,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-menu ul li a:hover::before {
+            left: 100%;
+        }
+        
+        .nav-menu ul li a:hover {
+            background: rgba(34,139,34,0.2);
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0b0a 0%, #141916 25%, #1e2e1e 50%, #141916 75%, #0a0b0a 100%);
+        }
+        
+        /* 土塁の層アニメーション */
+        .earthwork-layers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .earth-layer {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, #3e2723, #5d4037, #6d4c41);
+            clip-path: polygon(0 100%, 0 60%, 15% 40%, 30% 50%, 50% 30%, 70% 45%, 85% 35%, 100% 55%, 100% 100%);
+            opacity: 0.3;
+        }
+        
+        .earth-layer:nth-child(1) {
+            bottom: 0;
+            animation: earthShift 20s ease-in-out infinite;
+        }
+        
+        .earth-layer:nth-child(2) {
+            bottom: 50px;
+            opacity: 0.25;
+            animation: earthShift 25s ease-in-out infinite reverse;
+        }
+        
+        .earth-layer:nth-child(3) {
+            bottom: 100px;
+            opacity: 0.2;
+            animation: earthShift 30s ease-in-out infinite;
+        }
+        
+        @keyframes earthShift {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(30px); }
+        }
+        
+        /* 蘭学書物アニメーション */
+        .dutch-books {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .book {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background: linear-gradient(135deg, #8d6e63, #6d4c41);
+            border: 1px solid #3e2723;
+            opacity: 0.6;
+            animation: bookFloat 25s linear infinite;
+            transform-origin: center;
+        }
+        
+        .book::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: #ffd700;
+        }
+        
+        .book::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #ffd700;
+        }
+        
+        @keyframes bookFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 学者シルエット */
+        .scholar-walk {
+            position: absolute;
+            width: 100%;
+            height: 150px;
+            bottom: 10%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .scholar {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            bottom: 0;
+            background: #1a1a1a;
+            clip-path: polygon(50% 0%, 55% 15%, 60% 30%, 65% 60%, 60% 100%, 40% 100%, 35% 60%, 40% 30%, 45% 15%);
+            animation: scholarWalk 40s linear infinite;
+        }
+        
+        .scholar::before {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: -10px;
+            width: 30px;
+            height: 20px;
+            background: #1a1a1a;
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+        }
+        
+        @keyframes scholarWalk {
+            0% { left: -60px; }
+            100% { left: calc(100% + 60px); }
+        }
+        
+        .scholar:nth-child(1) { animation-delay: 0s; }
+        .scholar:nth-child(2) { animation-delay: 10s; }
+        .scholar:nth-child(3) { animation-delay: 20s; }
+        .scholar:nth-child(4) { animation-delay: 30s; }
+        
+        /* 桜の花びら */
+        .sakura-petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .sakura-petal {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ffb7c5, #ffc0cb);
+            border-radius: 0 100% 0 100%;
+            opacity: 0.7;
+            animation: petalFall 20s linear infinite;
+        }
+        
+        @keyframes petalFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 科学器具アニメーション */
+        .scientific-instruments {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .instrument {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            animation: instrumentFloat 30s ease-in-out infinite;
+        }
+        
+        .compass {
+            background: radial-gradient(circle, transparent 40%, #cd853f 41%, #cd853f 45%, transparent 46%);
+            border-radius: 50%;
+        }
+        
+        .compass::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 40%;
+            background: #cd853f;
+            transform: translate(-50%, -100%) rotate(45deg);
+            transform-origin: bottom center;
+        }
+        
+        @keyframes instrumentFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(50px, -50px) rotate(180deg);
+            }
+        }
+        
+        /* Google Maps */
+        .map-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            height: 70%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            z-index: 1;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 11, 10, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            z-index: 2;
+            border: 2px solid rgba(34,139,34,0.4);
+            border-radius: 20px;
+        }
+        
+        .map-overlay h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #228b22, #32cd32, #7cfc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 5px 15px rgba(34,139,34,0.5));
+            animation: scholarlyGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes scholarlyGlow {
+            0%, 100% { filter: drop-shadow(0 5px 15px rgba(34,139,34,0.5)); }
+            50% { filter: drop-shadow(0 5px 30px rgba(50,205,50,0.8)); }
+        }
+        
+        .map-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .castle-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #228b22, #32cd32);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(34,139,34,0.4);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 5px 20px rgba(34,139,34,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(50,205,50,0.6); }
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #0a0b0a 0%, #141916 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 草模様背景 */
+        .grass-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                #228b22 10px,
+                #228b22 12px
+            );
+            transform: rotate(-45deg);
+        }
+        
+        .nav-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(34,139,34,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(50,205,50,0.2) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .nav-card:hover::before {
+            top: -150%;
+            left: -150%;
+            opacity: 1;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(34,139,34,0.4);
+            border-color: rgba(50,205,50,0.6);
+        }
+        
+        .nav-card h3 {
+            color: #32cd32;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .nav-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: linear-gradient(180deg, #0a0b0a 0%, #141916 50%, #0a0b0a 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 和風文様背景 */
+        .japanese-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #228b22 0%, transparent 2%),
+                radial-gradient(circle at 75% 75%, #228b22 0%, transparent 2%);
+            background-size: 30px 30px;
+            animation: patternShift 40s linear infinite;
+        }
+        
+        @keyframes patternShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+        
+        .story-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .story-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #228b22, #32cd32, #7cfc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 5px 15px rgba(34,139,34,0.5));
+        }
+        
+        .chapter {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(34,139,34,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInSlide 0.8s ease forwards;
+        }
+        
+        .chapter:nth-child(2) { animation-delay: 0.1s; }
+        .chapter:nth-child(3) { animation-delay: 0.2s; }
+        .chapter:nth-child(4) { animation-delay: 0.3s; }
+        .chapter:nth-child(5) { animation-delay: 0.4s; }
+        .chapter:nth-child(6) { animation-delay: 0.5s; }
+        .chapter:nth-child(7) { animation-delay: 0.6s; }
+        .chapter:nth-child(8) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            background: linear-gradient(135deg, #228b22, #32cd32);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(34,139,34,0.5);
+        }
+        
+        .chapter h3 {
+            color: #32cd32;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-left: 40px;
+        }
+        
+        .chapter p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .chapter.highlight {
+            background: rgba(34,139,34,0.1);
+            border: 2px solid rgba(50,205,50,0.4);
+            transform: scale(1.02);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: radial-gradient(ellipse at center, #141916 0%, #0a0b0a 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) brightness(1.1);
+            -webkit-backdrop-filter: blur(15px) brightness(1.1);
+            border: 2px solid rgba(34,139,34,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(50,205,50,0.3), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .info-card:hover::before {
+            left: 100%;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(34,139,34,0.4);
+            border-color: rgba(50,205,50,0.6);
+        }
+        
+        .info-card h3 {
+            color: #32cd32;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #228b22, #32cd32);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(34,139,34,0.4);
+        }
+        
+        .info-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        /* 特別テーマセクション - 土塁の芸術と蘭学の城 */
+        .earthwork-section {
+            background: linear-gradient(135deg, #0a0b0a 0%, #141916 25%, #1e2e1e 50%, #141916 75%, #0a0b0a 100%);
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 土塁3Dビジュアライゼーション */
+        .earthwork-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        
+        .mound-layer {
+            position: absolute;
+            width: 80%;
+            height: 150px;
+            bottom: 20%;
+            left: 10%;
+            background: linear-gradient(to top, #3e2723, #5d4037);
+            border-radius: 50% 50% 0 0;
+            transform-style: preserve-3d;
+            opacity: 0.3;
+        }
+        
+        .mound-layer:nth-child(1) {
+            transform: translateZ(0px) rotateY(0deg);
+            animation: moundRotate 30s linear infinite;
+        }
+        
+        .mound-layer:nth-child(2) {
+            transform: translateZ(-50px) rotateY(120deg);
+            animation: moundRotate 30s linear infinite reverse;
+        }
+        
+        .mound-layer:nth-child(3) {
+            transform: translateZ(-100px) rotateY(240deg);
+            animation: moundRotate 30s linear infinite;
+        }
+        
+        @keyframes moundRotate {
+            0% { transform: translateZ(var(--z)) rotateY(0deg); }
+            100% { transform: translateZ(var(--z)) rotateY(360deg); }
+        }
+        
+        /* 蘭学シンボルアニメーション */
+        .rangaku-symbols {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .symbol {
+            position: absolute;
+            font-size: 30px;
+            color: rgba(255,215,0,0.3);
+            animation: symbolFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes symbolFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(100px, -100px) rotate(180deg);
+            }
+        }
+        
+        .earthwork-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .earthwork-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #228b22, #32cd32, #7cfc00, #32cd32, #228b22);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: earthworkShine 5s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(34,139,34,0.6));
+        }
+        
+        @keyframes earthworkShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .earthwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .earthwork-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) brightness(1.2);
+            -webkit-backdrop-filter: blur(20px) brightness(1.2);
+            border: 2px solid rgba(34,139,34,0.4);
+            border-radius: 25px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .earthwork-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(50,205,50,0.3) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .earthwork-card:hover::after {
+            width: 300%;
+            height: 300%;
+        }
+        
+        .earthwork-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(34,139,34,0.5);
+        }
+        
+        .earthwork-card h3 {
+            color: #7cfc00;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .earthwork-card ul {
+            list-style: none;
+        }
+        
+        .earthwork-card ul li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(34,139,34,0.2);
+            position: relative;
+            padding-left: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .earthwork-card ul li::before {
+            content: '📚';
+            position: absolute;
+            left: 10px;
+            font-size: 1.2rem;
+            animation: bookGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes bookGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* 文化・精神的側面セクション */
+        .cultural-section {
+            background: linear-gradient(180deg, #0a0b0a 0%, #141916 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cultural-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cultural-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #32cd32;
+            text-shadow: 0 5px 20px rgba(34,139,34,0.5);
+        }
+        
+        .cultural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .cultural-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(34,139,34,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cultural-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(50,205,50,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cultural-card:hover::before {
+            opacity: 1;
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1.5); }
+        }
+        
+        .cultural-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(34,139,34,0.3);
+        }
+        
+        .cultural-card h3 {
+            color: #32cd32;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cultural-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: radial-gradient(ellipse at center, #141916 0%, #0a0b0a 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .strategic-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #228b22, #32cd32);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .strategic-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(34,139,34,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .strategic-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: bold;
+            color: rgba(34,139,34,0.2);
+            z-index: 0;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(34,139,34,0.4);
+        }
+        
+        .strategic-card:hover .strategic-number {
+            color: rgba(50,205,50,0.4);
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+        
+        .strategic-card h3 {
+            color: #32cd32;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-card ul li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .strategic-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #32cd32;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .strategic-card:hover ul li::before {
+            transform: translateX(5px);
+        }
+        
+        /* 歴史年表セクション */
+        .timeline-section {
+            background: linear-gradient(180deg, #0a0b0a 0%, #141916 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #32cd32;
+            text-shadow: 0 5px 20px rgba(34,139,34,0.5);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #228b22, #32cd32);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+        
+        .timeline-content h3 {
+            color: #32cd32;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+        
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: #32cd32;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(50,205,50,0.8);
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: right;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: linear-gradient(135deg, #0a0b0a 0%, #141916 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facilities-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #32cd32;
+            text-shadow: 0 5px 20px rgba(34,139,34,0.5);
+        }
+        
+        .facilities-categories {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .facility-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(34,139,34,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-category h3 {
+            color: #32cd32;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .facility-category h3::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #32cd32, transparent);
+        }
+        
+        .facility-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .facility-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 15px 20px;
+            border: 1px solid rgba(34,139,34,0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .facility-link:hover {
+            background: rgba(34,139,34,0.1);
+            border-color: rgba(50,205,50,0.5);
+            transform: translateX(10px);
+            color: #7cfc00;
+        }
+        
+        .facility-link::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: radial-gradient(ellipse at center, #141916 0%, #0a0b0a 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .access-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .access-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #32cd32;
+            text-shadow: 0 5px 20px rgba(34,139,34,0.5);
+        }
+        
+        .access-map {
+            margin-bottom: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(34,139,34,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(34,139,34,0.3);
+        }
+        
+        .access-card h3 {
+            color: #32cd32;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #228b22 0%, #32cd32 50%, #228b22 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: ctaShine 10s linear infinite;
+        }
+        
+        @keyframes ctaShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #228b22;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #0a0b0a;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(34,139,34,0.3);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #32cd32;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #7cfc00;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-grid,
+            .earthwork-grid,
+            .cultural-grid,
+            .strategic-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-title,
+            .earthwork-title,
+            .cultural-title,
+            .strategic-title,
+            .timeline-title,
+            .facilities-title,
+            .access-title {
+                font-size: 2rem;
+            }
+            
+            .chapter {
+                padding: 30px 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                text-align: center !important;
+                padding: 20px !important;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .map-container {
+                height: 50vh;
+            }
+        }
+        
+        /* アニメーションのパフォーマンス最適化 */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo">佐倉城 - 土塁の芸術と蘭学の城</div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#story">佐倉城物語</a></li>
+            <li><a href="#info">基本情報</a></li>
+            <li><a href="#earthwork">土塁の芸術と蘭学</a></li>
+            <li><a href="#culture">文化的意義</a></li>
+            <li><a href="#strategy">戦略的価値</a></li>
+            <li><a href="#timeline">歴史年表</a></li>
+            <li><a href="#facilities">関連施設</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="/関東地方/">関東の城一覧</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <!-- 土塁の層 -->
+        <div class="earthwork-layers">
+            <div class="earth-layer"></div>
+            <div class="earth-layer"></div>
+            <div class="earth-layer"></div>
+        </div>
+        
+        <!-- 蘭学書物 -->
+        <div class="dutch-books" id="dutchBooks"></div>
+        
+        <!-- 学者シルエット -->
+        <div class="scholar-walk">
+            <div class="scholar"></div>
+            <div class="scholar"></div>
+            <div class="scholar"></div>
+            <div class="scholar"></div>
+        </div>
+        
+        <!-- 桜の花びら -->
+        <div class="sakura-petals" id="sakuraPetals"></div>
+        
+        <!-- 科学器具 -->
+        <div class="scientific-instruments" id="scientificInstruments"></div>
+        
+        <!-- Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.1234567890123!2d140.2222222!3d35.7777777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228888888888888%3A0x8888888888888888!2z5L2Q5YCJ5Z-O5Z2A5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp&maptype=satellite"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        
+        <div class="map-overlay">
+            <h1>佐倉城</h1>
+            <p>江戸東方の要・土塁の城</p>
+            <p>蘭学発祥の地</p>
+            <div class="castle-badge">日本100名城・千葉県史跡</div>
+        </div>
+    </section>
+    
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="grass-pattern"></div>
+        <div class="nav-grid">
+            <div class="nav-card" onclick="scrollToSection('story')">
+                <h3>佐倉城物語</h3>
+                <p>土井利勝の築城から現代まで</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('info')">
+                <h3>基本情報</h3>
+                <p>土塁城郭の傑作</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('earthwork')">
+                <h3>土塁の芸術と蘭学</h3>
+                <p>石垣なき城の美学</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('culture')">
+                <h3>文化的意義</h3>
+                <p>西洋文明への窓口</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('strategy')">
+                <h3>戦略的価値</h3>
+                <p>江戸東方の守護</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('timeline')">
+                <h3>歴史年表</h3>
+                <p>400年の軌跡</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('facilities')">
+                <h3>関連施設</h3>
+                <p>歴史民俗博物館・城址公園</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('access')">
+                <h3>アクセス</h3>
+                <p>佐倉駅からの道のり</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 物語セクション -->
+    <section class="story-section" id="story">
+        <div class="japanese-pattern"></div>
+        
+        <div class="story-content">
+            <h2 class="story-title">佐倉城物語 - 土塁の芸術と学問の城</h2>
+            
+            <div class="chapter">
+                <div class="chapter-number">1</div>
+                <h3>戦国時代の鹿島城</h3>
+                <p>佐倉城の前身は、戦国時代に千葉氏が築いた鹿島城でした。印旛沼を望む台地上に位置し、水運と陸路の要衝を押さえる重要な拠点でした。しかし、千葉氏の衰退と共に廃城となり、その後約50年間、この地は城のない時代を過ごすことになります。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">2</div>
+                <h3>土井利勝による築城</h3>
+                <p>1610年、徳川家康の側近・土井利勝が佐倉藩主となり、新たな城の築城を開始しました。利勝は石垣を用いず、関東の伝統的な土塁と空堀による築城技術を採用。これは、江戸時代初期の築城としては珍しい選択でしたが、地形を巧みに利用した堅固な城郭が完成しました。</p>
+            </div>
+            
+            <div class="chapter highlight">
+                <div class="chapter-number">3</div>
+                <h3>土塁の芸術</h3>
+                <p>佐倉城の最大の特徴は、石垣を一切使わない土塁の城であることです。高さ10メートルを超える巨大な土塁、深さ15メートルに及ぶ空堀、複雑に配置された馬出しなど、土の造形だけで鉄壁の防御を実現。この土塁築城技術は、日本の城郭建築史上、最高峰の完成度を誇ります。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">4</div>
+                <h3>老中の城</h3>
+                <p>江戸時代を通じて、佐倉藩からは9人の老中を輩出しました。堀田氏、稲葉氏、松平氏など、歴代藩主の多くが幕府の要職に就き、佐倉城は「老中の城」として知られるようになりました。江戸に近く、かつ東国への要衝を押さえる佐倉藩は、幕府にとって極めて重要な藩でした。</p>
+            </div>
+            
+            <div class="chapter highlight">
+                <div class="chapter-number">5</div>
+                <h3>蘭学の発祥地</h3>
+                <p>幕末の佐倉藩は、西洋医学・蘭学の中心地となりました。藩主堀田正睦は開明的な人物で、佐藤泰然を招いて順天堂を開設。ここから日本の近代医学が始まりました。また、西洋兵学、洋式調練も積極的に導入し、佐倉は西洋文明受容の最前線となりました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">6</div>
+                <h3>明治維新と廃城</h3>
+                <p>1871年の廃藩置県により佐倉城は廃城となり、建造物はすべて取り壊されました。しかし、巨大な土塁と空堀は残され、その後は陸軍の駐屯地として利用されました。土塁の堅固さは、明治以降も軍事施設として評価されたことを物語っています。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">7</div>
+                <h3>佐倉連隊と戦争</h3>
+                <p>1874年、佐倉城址に歩兵第2連隊（後の第57連隊）が設置されました。日清・日露戦争から太平洋戦争まで、佐倉連隊は各地の戦場に出征。城址は軍都佐倉の中心として、新たな歴史を刻みました。戦後、連隊の解散と共に、城址は平和な公園へと生まれ変わります。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">8</div>
+                <h3>歴史と自然の調和</h3>
+                <p>現在の佐倉城址公園は、約19万平方メートルの広大な敷地に、見事な土塁と空堀が保存されています。春には約1100本の桜が咲き誇り、県内有数の花見スポットに。国立歴史民俗博物館も設置され、日本の歴史を学ぶ拠点として、また市民の憩いの場として愛されています。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 基本情報セクション -->
+    <section class="info-section" id="info">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><span class="info-icon">🏯</span>城郭データ</h3>
+                <p><strong>築城年：</strong>1610年（慶長15年）<br>
+                <strong>築城者：</strong>土井利勝<br>
+                <strong>主な城主：</strong>土井氏、堀田氏、稲葉氏、松平氏<br>
+                <strong>城郭構造：</strong>連郭式平山城</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">📏</span>規模</h3>
+                <p><strong>城域面積：</strong>約40万㎡<br>
+                <strong>本丸：</strong>東西約200m、南北約150m<br>
+                <strong>土塁高：</strong>最大約15m<br>
+                <strong>空堀深：</strong>最大約15m</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🗾</span>立地</h3>
+                <p><strong>所在地：</strong>千葉県佐倉市城内町<br>
+                <strong>地形：</strong>下総台地の東端<br>
+                <strong>標高：</strong>約30m<br>
+                <strong>水系：</strong>印旛沼・鹿島川</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🛡️</span>防御施設</h3>
+                <p><strong>土塁：</strong>全域に巨大土塁<br>
+                <strong>空堀：</strong>深い空堀で各曲輪を分断<br>
+                <strong>馬出：</strong>各所に馬出を配置<br>
+                <strong>虎口：</strong>複雑な折れを持つ虎口</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🏛️</span>主要施設</h3>
+                <p><strong>御殿：</strong>本丸・二の丸・三の丸御殿<br>
+                <strong>櫓：</strong>三重櫓（天守代用）<br>
+                <strong>門：</strong>追手門、田町門など<br>
+                <strong>武家屋敷：</strong>城下に整然と配置</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🎖️</span>文化財指定</h3>
+                <p><strong>市史跡：</strong>佐倉城跡<br>
+                <strong>日本100名城：</strong>20番<br>
+                <strong>さくら百選：</strong>選定地<br>
+                <strong>関連施設：</strong>国立歴史民俗博物館</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 特別テーマセクション - 土塁の芸術と蘭学の城 -->
+    <section class="earthwork-section" id="earthwork">
+        <div class="earthwork-3d">
+            <div class="mound-layer" style="--z: 0px;"></div>
+            <div class="mound-layer" style="--z: -50px;"></div>
+            <div class="mound-layer" style="--z: -100px;"></div>
+        </div>
+        
+        <div class="rangaku-symbols" id="rangakuSymbols"></div>
+        
+        <div class="earthwork-content">
+            <h2 class="earthwork-title">土塁の芸術と蘭学の城</h2>
+            
+            <div class="earthwork-grid">
+                <div class="earthwork-card">
+                    <h3>土塁築城の極致</h3>
+                    <ul>
+                        <li>石垣を一切使用しない純粋な土の城</li>
+                        <li>高さ15mに及ぶ巨大土塁</li>
+                        <li>芝で覆われた美しい斜面</li>
+                        <li>400年経っても崩れない堅固な構造</li>
+                        <li>関東ローム層を活かした築城技術</li>
+                        <li>日本の土木技術の最高傑作</li>
+                    </ul>
+                </div>
+                
+                <div class="earthwork-card">
+                    <h3>空堀の迷宮</h3>
+                    <ul>
+                        <li>深さ15mの巨大空堀</li>
+                        <li>複雑に入り組んだ堀底道</li>
+                        <li>水を溜めない乾いた堀（空堀）</li>
+                        <li>敵を迷わせる迷路構造</li>
+                        <li>各曲輪を完全に分断</li>
+                        <li>現在も明瞭に残る堀跡</li>
+                    </ul>
+                </div>
+                
+                <div class="earthwork-card">
+                    <h3>蘭学の中心地</h3>
+                    <ul>
+                        <li>佐藤泰然による順天堂開設</li>
+                        <li>日本最初の西洋医学教育機関</li>
+                        <li>全国から集まる医学生</li>
+                        <li>西洋兵学・砲術の導入</li>
+                        <li>洋式調練の実施</li>
+                        <li>開国論者・堀田正睦の改革</li>
+                    </ul>
+                </div>
+                
+                <div class="earthwork-card">
+                    <h3>人材輩出の城</h3>
+                    <ul>
+                        <li>9人の老中を輩出</li>
+                        <li>順天堂から多数の名医</li>
+                        <li>西洋軍事学の専門家養成</li>
+                        <li>幕末の開明派官僚</li>
+                        <li>明治の近代化を担う人材</li>
+                        <li>学問と実践の融合</li>
+                    </ul>
+                </div>
+                
+                <div class="earthwork-card">
+                    <h3>馬出の芸術</h3>
+                    <ul>
+                        <li>各門前に設置された馬出</li>
+                        <li>出撃と防御の両機能</li>
+                        <li>土塁による立体的構成</li>
+                        <li>敵の侵入を阻む工夫</li>
+                        <li>現存する馬出遺構</li>
+                        <li>築城技術の教科書的存在</li>
+                    </ul>
+                </div>
+                
+                <div class="earthwork-card">
+                    <h3>現代に生きる土塁</h3>
+                    <ul>
+                        <li>ほぼ完全な形で残る土塁群</li>
+                        <li>自然と調和した景観美</li>
+                        <li>桜の名所としての再生</li>
+                        <li>市民の憩いの場</li>
+                        <li>歴史教育の生きた教材</li>
+                        <li>土の城の可能性を示す</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 文化的意義セクション -->
+    <section class="cultural-section" id="culture">
+        <div class="cultural-content">
+            <h2 class="cultural-title">文化的意義と精神性</h2>
+            
+            <div class="cultural-grid">
+                <div class="cultural-card">
+                    <h3>西洋文明への窓口</h3>
+                    <p>佐倉城は、幕末期において西洋文明受容の最前線でした。順天堂での西洋医学教育、洋式軍事訓練の導入、蘭書の翻訳事業など、日本の近代化に不可欠な知識と技術がこの地から全国に広まりました。保守的な時代にあって、進取の気風に富んだ佐倉の精神は、現代にも受け継がれています。</p>
+                </div>
+                
+                <div class="cultural-card">
+                    <h3>文武両道の理想</h3>
+                    <p>佐倉藩は、武芸と学問の両立を重視しました。藩校「成徳書院」では儒学と共に洋学も教授され、文武両道の人材育成が行われました。この伝統は、明治以降の佐倉連隊にも引き継がれ、知性と実践を兼ね備えた人材を多数輩出しました。</p>
+                </div>
+                
+                <div class="cultural-card">
+                    <h3>自然との共生思想</h3>
+                    <p>石垣を用いず、土と木だけで築かれた佐倉城は、日本人の自然観を体現しています。土塁は草木に覆われ、四季の変化と共に表情を変えます。この自然と一体化した城の姿は、日本の伝統的な環境思想を現代に伝える貴重な文化遺産です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section" id="strategy">
+        <div class="strategic-content">
+            <h2 class="strategic-title">戦略的価値と軍事的重要性</h2>
+            
+            <div class="strategic-cards">
+                <div class="strategic-card">
+                    <div class="strategic-number">1</div>
+                    <h3>江戸東方の守護</h3>
+                    <ul>
+                        <li>江戸から約40kmの位置</li>
+                        <li>佐倉街道（成田街道）を掌握</li>
+                        <li>東国からの侵入を阻止</li>
+                        <li>水戸街道との連携</li>
+                        <li>江戸防衛の第一線</li>
+                    </ul>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-number">2</div>
+                    <h3>印旛沼の要衝</h3>
+                    <ul>
+                        <li>印旛沼水運の管理</li>
+                        <li>利根川水系への接続</li>
+                        <li>物資輸送の中継点</li>
+                        <li>軍事物資の集積地</li>
+                        <li>水陸両面の交通統制</li>
+                    </ul>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-number">3</div>
+                    <h3>老中の城の意味</h3>
+                    <ul>
+                        <li>幕府中枢との密接な関係</li>
+                        <li>江戸の政治情報を即座に入手</li>
+                        <li>緊急時の江戸支援</li>
+                        <li>東国大名の監視役</li>
+                        <li>幕藩体制の要石</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 歴史年表セクション -->
+    <section class="timeline-section" id="timeline">
+        <div class="timeline-content">
+            <h2 class="timeline-title">佐倉城 歴史年表</h2>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>戦国時代</h3>
+                        <p>千葉氏により鹿島城築城。印旛沼を望む要衝の地。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1610年</h3>
+                        <p>土井利勝により佐倉城築城開始。土塁の城として設計。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1611年</h3>
+                        <p>佐倉城完成。江戸東方の要として機能開始。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1746年</h3>
+                        <p>堀田氏が入封。以後、幕末まで佐倉藩主。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1843年</h3>
+                        <p>佐藤泰然により順天堂開設。西洋医学教育の開始。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1871年</h3>
+                        <p>廃藩置県により廃城。建造物は取り壊される。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1874年</h3>
+                        <p>陸軍歩兵第2連隊設置。軍都佐倉の始まり。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1962年</h3>
+                        <p>佐倉城址公園として整備。市民の憩いの場に。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1983年</h3>
+                        <p>国立歴史民俗博物館開館。日本の歴史研究拠点に。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2006年</h3>
+                        <p>日本100名城に選定。土塁の城の価値が再評価。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 関連施設セクション -->
+    <section class="facilities-section" id="facilities">
+        <div class="facilities-content">
+            <h2 class="facilities-title">関連施設・観光情報</h2>
+            
+            <div class="facilities-categories">
+                <div class="facility-category">
+                    <h3>城址施設</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">佐倉城址公園</a>
+                        <a href="#" class="facility-link">本丸跡</a>
+                        <a href="#" class="facility-link">出丸跡</a>
+                        <a href="#" class="facility-link">馬出し空堀</a>
+                        <a href="#" class="facility-link">姥が池</a>
+                        <a href="#" class="facility-link">茶室（三逕亭）</a>
+                    </div>
+                </div>
+                
+                <div class="facility-category">
+                    <h3>博物館・資料館</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">国立歴史民俗博物館</a>
+                        <a href="#" class="facility-link">佐倉順天堂記念館</a>
+                        <a href="#" class="facility-link">旧堀田邸</a>
+                        <a href="#" class="facility-link">佐倉武家屋敷</a>
+                        <a href="#" class="facility-link">塚本美術館</a>
+                        <a href="#" class="facility-link">DIC川村記念美術館</a>
+                    </div>
+                </div>
+                
+                <div class="facility-category">
+                    <h3>観光スポット</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">ひよどり坂（武家屋敷通り）</a>
+                        <a href="#" class="facility-link">佐倉ふるさと広場</a>
+                        <a href="#" class="facility-link">印旛沼</a>
+                        <a href="#" class="facility-link">佐倉きのこ園</a>
+                        <a href="#" class="facility-link">佐倉草ぶえの丘</a>
+                        <a href="#" class="facility-link">佐倉城下町きもの散歩</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- アクセスセクション -->
+    <section class="access-section" id="access">
+        <div class="access-content">
+            <h2 class="access-title">アクセス・見学情報</h2>
+            
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.1234567890123!2d140.2222222!3d35.7777777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228888888888888%3A0x8888888888888888!2z5L2Q5YCJ5Z-O5Z2A5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚃 電車でのアクセス</h3>
+                    <p>
+                        <strong>JR総武本線・成田線</strong><br>
+                        ・佐倉駅北口より徒歩約25分<br>
+                        ・佐倉駅よりバス「国立博物館入口」下車<br><br>
+                        <strong>京成本線</strong><br>
+                        ・京成佐倉駅南口より徒歩約20分<br>
+                        ・京成佐倉駅よりバス「国立博物館入口」下車
+                    </p>
+                </div>
+                
+                <div class="access-card">
+                    <h3>🕐 開園時間・料金</h3>
+                    <p>
+                        <strong>佐倉城址公園</strong><br>
+                        ・24時間開放<br>
+                        ・入園無料<br><br>
+                        <strong>国立歴史民俗博物館</strong><br>
+                        ・9:30～17:00（入館16:30まで）<br>
+                        ・一般600円、大学生250円<br>
+                        ・月曜休館（祝日の場合は翌日）
+                    </p>
+                </div>
+                
+                <div class="access-card">
+                    <h3>🚗 駐車場情報</h3>
+                    <p>
+                        <strong>佐倉城址公園駐車場</strong><br>
+                        ・自由広場駐車場（無料）<br>
+                        ・田町門跡駐車場（無料）<br><br>
+                        <strong>歴博駐車場</strong><br>
+                        ・無料（約240台）<br>
+                        ・博物館利用者優先
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>土塁の芸術と蘭学の歴史を訪ねて</h2>
+            <p>石垣なき城の美学と、日本近代化の原点を体感してみませんか？</p>
+            <div class="cta-buttons">
+                <a href="/関東地方/" class="cta-button primary">関東の城一覧へ</a>
+                <a href="/" class="cta-button secondary">トップページへ</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 日本の城ファンページ. All rights reserved.</p>
+        <p><a href="#">プライバシーポリシー</a> | <a href="#">利用規約</a></p>
+    </footer>
+    
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // スクロールでヘッダーの見た目を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const headerOffset = 80;
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // モバイルメニューを閉じる
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // IntersectionObserver for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.nav-card, .info-card, .cultural-card, .strategic-card, .earthwork-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // 蘭学書物アニメーション
+        function createBook() {
+            const container = document.getElementById('dutchBooks');
+            const book = document.createElement('div');
+            book.className = 'book';
+            book.style.left = Math.random() * window.innerWidth + 'px';
+            book.style.animationDelay = Math.random() * 25 + 's';
+            book.style.animationDuration = (20 + Math.random() * 10) + 's';
+            container.appendChild(book);
+            
+            setTimeout(() => {
+                book.remove();
+            }, 30000);
+        }
+        
+        // 定期的に書物を生成
+        setInterval(createBook, 3000);
+        
+        // 初期書物
+        for (let i = 0; i < 6; i++) {
+            setTimeout(createBook, i * 1000);
+        }
+        
+        // 桜の花びらエフェクト
+        function createSakuraPetal() {
+            const container = document.getElementById('sakuraPetals');
+            const petal = document.createElement('div');
+            petal.className = 'sakura-petal';
+            petal.style.left = Math.random() * window.innerWidth + 'px';
+            petal.style.animationDelay = Math.random() * 20 + 's';
+            petal.style.animationDuration = (15 + Math.random() * 10) + 's';
+            container.appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 25000);
+        }
+        
+        // 定期的に桜の花びらを生成
+        setInterval(createSakuraPetal, 2500);
+        
+        // 初期桜の花びら
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createSakuraPetal, i * 600);
+        }
+        
+        // 科学器具アニメーション
+        function createInstrument() {
+            const container = document.getElementById('scientificInstruments');
+            const instrument = document.createElement('div');
+            instrument.className = 'instrument compass';
+            instrument.style.left = Math.random() * (window.innerWidth - 60) + 'px';
+            instrument.style.top = Math.random() * (window.innerHeight - 60) + 'px';
+            instrument.style.animationDelay = Math.random() * 30 + 's';
+            container.appendChild(instrument);
+            
+            setTimeout(() => {
+                instrument.remove();
+            }, 30000);
+        }
+        
+        // 定期的に器具を生成
+        setInterval(createInstrument, 5000);
+        
+        // 初期器具
+        for (let i = 0; i < 4; i++) {
+            setTimeout(createInstrument, i * 2000);
+        }
+        
+        // 蘭学シンボルアニメーション
+        function createRangakuSymbol() {
+            const container = document.getElementById('rangakuSymbols');
+            const symbols = ['📖', '🔬', '⚗️', '🧭', '📐'];
+            const symbol = document.createElement('div');
+            symbol.className = 'symbol';
+            symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            symbol.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+            symbol.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            symbol.style.animationDelay = Math.random() * 20 + 's';
+            container.appendChild(symbol);
+            
+            setTimeout(() => {
+                symbol.remove();
+            }, 20000);
+        }
+        
+        // 定期的にシンボルを生成
+        setInterval(createRangakuSymbol, 4000);
+        
+        // 初期シンボル
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createRangakuSymbol, i * 1500);
+        }
+    </script>
+</body>
+</html>

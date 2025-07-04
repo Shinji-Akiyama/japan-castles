@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土浦城（つちうらじょう）- 茨城県土浦市 | 霞ヶ浦の水城・湖に浮かぶ要塞</title>
+    <meta name="description" content="霞ヶ浦に面した水城・土浦城。土屋氏から土井氏まで続いた湖畔の名城は、水運と防御を兼ね備えた独特の城郭として発展しました。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0a0e12;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 18, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(70, 130, 180, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 14, 18, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4682b4, #87ceeb, #b0e0e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(70,130,180,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #4682b4;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(70,130,180,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* メインナビゲーション */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 14, 18, 0.98);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-menu a {
+            color: #b0e0e6;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 30px;
+            border-radius: 30px;
+            background: rgba(70,130,180,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(70,130,180,0.3);
+        }
+        
+        .nav-menu a:hover {
+            background: rgba(70,130,180,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(70,130,180,0.3);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0e12 0%, #1a2e3a 50%, #0a0e12 100%);
+            overflow: hidden;
+        }
+        
+        /* 霞ヶ浦の湖面エフェクト */
+        .lake-effects {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* 湖面の波紋 */
+        .lake-ripple {
+            position: absolute;
+            border: 2px solid rgba(70,130,180,0.3);
+            border-radius: 50%;
+            animation: lakeRipple 8s linear infinite;
+        }
+        
+        @keyframes lakeRipple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 500px;
+                height: 500px;
+                opacity: 0;
+            }
+        }
+        
+        .lake-ripple:nth-child(1) { top: 30%; left: 20%; animation-delay: 0s; }
+        .lake-ripple:nth-child(2) { top: 50%; right: 25%; animation-delay: 2s; }
+        .lake-ripple:nth-child(3) { bottom: 40%; left: 40%; animation-delay: 4s; }
+        .lake-ripple:nth-child(4) { top: 70%; left: 60%; animation-delay: 1s; }
+        .lake-ripple:nth-child(5) { bottom: 60%; right: 30%; animation-delay: 3s; }
+        .lake-ripple:nth-child(6) { top: 20%; right: 40%; animation-delay: 5s; }
+        
+        /* 朝霧エフェクト */
+        .morning-mist {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .mist-layer {
+            position: absolute;
+            width: 200%;
+            height: 100px;
+            background: linear-gradient(90deg, transparent, rgba(176,224,230,0.1), transparent);
+            animation: mistDrift 20s ease-in-out infinite;
+        }
+        
+        @keyframes mistDrift {
+            0%, 100% { transform: translateX(-50%); opacity: 0.3; }
+            50% { transform: translateX(-30%); opacity: 0.6; }
+        }
+        
+        .mist-layer:nth-child(1) { top: 20%; animation-delay: 0s; animation-duration: 18s; }
+        .mist-layer:nth-child(2) { top: 40%; animation-delay: 6s; animation-duration: 22s; }
+        .mist-layer:nth-child(3) { bottom: 30%; animation-delay: 12s; animation-duration: 25s; }
+        .mist-layer:nth-child(4) { top: 60%; animation-delay: 3s; animation-duration: 20s; }
+        
+        /* 漁船のシルエット */
+        .fishing-boats {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        
+        .fishing-boat {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(to right, rgba(70,130,180,0.4), rgba(70,130,180,0.2));
+            clip-path: polygon(0% 70%, 15% 30%, 85% 30%, 100% 70%, 90% 100%, 10% 100%);
+            animation: boatSail 25s linear infinite;
+        }
+        
+        @keyframes boatSail {
+            0% { transform: translateX(-100px); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateX(calc(100vw + 100px)); opacity: 0; }
+        }
+        
+        .fishing-boat:nth-child(1) { bottom: 35%; animation-delay: 0s; }
+        .fishing-boat:nth-child(2) { bottom: 50%; animation-delay: 8s; }
+        .fishing-boat:nth-child(3) { bottom: 25%; animation-delay: 16s; }
+        
+        /* 水鳥のシルエット */
+        .water-birds {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+        }
+        
+        .water-bird {
+            position: absolute;
+            width: 20px;
+            height: 8px;
+            background: rgba(70,130,180,0.3);
+            clip-path: polygon(0% 50%, 30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%);
+            animation: birdFly 15s ease-in-out infinite;
+        }
+        
+        @keyframes birdFly {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(200px) translateY(-30px); }
+            50% { transform: translateX(400px) translateY(-10px); }
+            75% { transform: translateX(200px) translateY(-40px); }
+        }
+        
+        .water-bird:nth-child(1) { top: 25%; left: 10%; animation-delay: 0s; }
+        .water-bird:nth-child(2) { top: 35%; left: 20%; animation-delay: 2s; }
+        .water-bird:nth-child(3) { top: 45%; left: 15%; animation-delay: 4s; }
+        .water-bird:nth-child(4) { top: 30%; left: 50%; animation-delay: 6s; }
+        .water-bird:nth-child(5) { top: 55%; left: 60%; animation-delay: 8s; }
+        
+        /* 土屋家紋エフェクト */
+        .tsuchiya-mon {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+        
+        .tsuchiya-crest {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle at center, rgba(70,130,180,0.3), transparent);
+            border: 2px solid rgba(70,130,180,0.4);
+            border-radius: 50%;
+            animation: tsuchiyaFloat 18s ease-in-out infinite;
+        }
+        
+        @keyframes tsuchiyaFloat {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            33% { transform: translateY(-40px) scale(1.1); opacity: 0.6; }
+            66% { transform: translateY(-20px) scale(0.9); opacity: 0.5; }
+        }
+        
+        .tsuchiya-crest:nth-child(1) { top: 15%; left: 25%; animation-delay: 0s; }
+        .tsuchiya-crest:nth-child(2) { top: 25%; right: 35%; animation-delay: 6s; }
+        .tsuchiya-crest:nth-child(3) { bottom: 35%; left: 35%; animation-delay: 12s; }
+        .tsuchiya-crest:nth-child(4) { bottom: 25%; right: 25%; animation-delay: 9s; }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            position: relative;
+            padding: 40px;
+            max-width: 900px;
+            background: rgba(10,14,18,0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border: 2px solid rgba(70,130,180,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4682b4, #87ceeb, #b0e0e6, #4682b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleShimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(70,130,180,0.5);
+        }
+        
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #b0e0e6;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #b0e0e6;
+        }
+        
+        .info-value {
+            color: white;
+        }
+        
+        /* マップセクション */
+        .map-section {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0e12, #1a2e3a);
+        }
+        
+        .map-container {
+            height: 100%;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(10,14,18,0.8);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            border: 1px solid rgba(70,130,180,0.3);
+        }
+        
+        .map-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #b0e0e6;
+        }
+        
+        .map-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .section-dark {
+            background: linear-gradient(135deg, #0a0e12, #1a2e3a);
+        }
+        
+        .section-light {
+            background: linear-gradient(135deg, #1a2e3a, #0a0e12);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 60px;
+            color: white;
+            background: linear-gradient(45deg, #4682b4, #87ceeb, #b0e0e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0e12, #1a2e3a);
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(70,130,180,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .nav-card:hover::before {
+            left: 100%;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px);
+            background: rgba(70,130,180,0.2);
+            box-shadow: 0 20px 40px rgba(70,130,180,0.3);
+        }
+        
+        .nav-card h3 {
+            color: #b0e0e6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .nav-card p {
+            color: white;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a2e3a, #0a0e12);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-chapter {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .story-chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .chapter-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4682b4, #87ceeb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(70,130,180,0.3);
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #b0e0e6;
+            margin: 0;
+        }
+        
+        .chapter-content {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-chapter {
+            background: linear-gradient(135deg, rgba(70,130,180,0.2), rgba(135,206,235,0.1));
+            border: 2px solid rgba(70,130,180,0.5);
+            box-shadow: 0 0 30px rgba(70,130,180,0.3);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0e12, #1a2e3a);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info-card-detail {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card-detail:hover {
+            transform: translateY(-5px);
+            background: rgba(70,130,180,0.2);
+            box-shadow: 0 15px 30px rgba(70,130,180,0.3);
+        }
+        
+        .info-card-detail h3 {
+            color: #b0e0e6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .info-card-detail p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 水城セクション */
+        .water-castle-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #1a2e3a, #0a0e12);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .water-castle-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 60% 40%, rgba(70,130,180,0.1), transparent 50%);
+            animation: waterPulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes waterPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        
+        .water-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .water-feature {
+            background: rgba(70,130,180,0.1);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .water-feature::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(70,130,180,0.1), transparent 70%);
+            animation: featureWave 12s ease-in-out infinite;
+            opacity: 0;
+        }
+        
+        .water-feature:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes featureWave {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+        }
+        
+        .water-feature:hover {
+            transform: translateY(-10px);
+            background: rgba(70,130,180,0.2);
+            box-shadow: 0 25px 50px rgba(70,130,180,0.3);
+        }
+        
+        .water-feature h3 {
+            color: #b0e0e6;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .water-feature p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 文化・精神セクション */
+        .culture-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0e12, #1a2e3a);
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .culture-card {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-5px);
+            background: rgba(70,130,180,0.2);
+            box-shadow: 0 15px 30px rgba(70,130,180,0.3);
+        }
+        
+        .culture-card h3 {
+            color: #b0e0e6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .culture-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a2e3a, #0a0e12);
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-card {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(70,130,180,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .strategic-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-5px);
+            background: rgba(70,130,180,0.2);
+            box-shadow: 0 15px 30px rgba(70,130,180,0.3);
+        }
+        
+        .strategic-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4682b4, #87ceeb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(70,130,180,0.3);
+        }
+        
+        .strategic-card h3 {
+            color: #b0e0e6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .strategic-card ul {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .strategic-card li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .strategic-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #b0e0e6;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0e12, #1a2e3a);
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .facility-category h3 {
+            color: #b0e0e6;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .facility-link {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background: rgba(70,130,180,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-link::after {
+            content: '→';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-link:hover {
+            background: rgba(70,130,180,0.2);
+            transform: translateX(5px);
+        }
+        
+        .facility-link:hover::after {
+            transform: translateY(-50%) translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a2e3a, #0a0e12);
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+        
+        .access-card {
+            background: rgba(70,130,180,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(70,130,180,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            background: rgba(70,130,180,0.2);
+            box-shadow: 0 15px 30px rgba(70,130,180,0.3);
+        }
+        
+        .access-card h3 {
+            color: #b0e0e6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .access-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .access-card .highlight {
+            color: #b0e0e6;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #1a2e3a, #2a4a5a);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(70,130,180,0.1), transparent 50%);
+            animation: ctaPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .cta-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #4682b4, #87ceeb, #b0e0e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-description {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #4682b4, #87ceeb);
+            color: white;
+            box-shadow: 0 10px 30px rgba(70,130,180,0.4);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(70,130,180,0.6);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #4682b4;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(70,130,180,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(70,130,180,0.3);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(70,130,180,0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #b0e0e6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #87ceeb;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer-link:hover {
+            color: #87ceeb;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .water-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategic-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">土浦城</div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="#story">物語</a>
+        <a href="#info">基本情報</a>
+        <a href="#water-castle">霞ヶ浦の水城</a>
+        <a href="#culture">文化・精神</a>
+        <a href="#strategic">戦略的価値</a>
+        <a href="#facilities">関連施設</a>
+        <a href="#access">アクセス</a>
+        <a href="../">関東の城一覧</a>
+    </nav>
+
+    <section class="hero">
+        <div class="lake-effects">
+            <div class="lake-ripple"></div>
+            <div class="lake-ripple"></div>
+            <div class="lake-ripple"></div>
+            <div class="lake-ripple"></div>
+            <div class="lake-ripple"></div>
+            <div class="lake-ripple"></div>
+        </div>
+        
+        <div class="morning-mist">
+            <div class="mist-layer"></div>
+            <div class="mist-layer"></div>
+            <div class="mist-layer"></div>
+            <div class="mist-layer"></div>
+        </div>
+        
+        <div class="fishing-boats">
+            <div class="fishing-boat"></div>
+            <div class="fishing-boat"></div>
+            <div class="fishing-boat"></div>
+        </div>
+        
+        <div class="water-birds">
+            <div class="water-bird"></div>
+            <div class="water-bird"></div>
+            <div class="water-bird"></div>
+            <div class="water-bird"></div>
+            <div class="water-bird"></div>
+        </div>
+        
+        <div class="tsuchiya-mon">
+            <div class="tsuchiya-crest"></div>
+            <div class="tsuchiya-crest"></div>
+            <div class="tsuchiya-crest"></div>
+            <div class="tsuchiya-crest"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>土浦城</h1>
+            <p class="hero-subtitle">霞ヶ浦の水城・湖に浮かぶ要塞</p>
+            <p class="hero-description">
+                霞ヶ浦に面した独特の立地を持つ土浦城。<br>
+                水運の利を活かしながら堅固な防御を誇り、<br>
+                土屋氏から土井氏まで多くの名門が治めた湖畔の名城です。
+            </p>
+            <div class="info-card">
+                <div class="info-row">
+                    <span class="info-label">所在地:</span>
+                    <span class="info-value">茨城県土浦市中央</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">城郭構造:</span>
+                    <span class="info-value">平城、水城</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">築城年代:</span>
+                    <span class="info-value">室町時代（15世紀後半）</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">主な城主:</span>
+                    <span class="info-value">土屋氏、松平氏、土井氏</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.7635784832583!2d140.20991051525823!3d36.10047378024895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60200f0b0e2b0000%3A0x1234567890abcdef!2z5Zyf5rWm5Z-O6Leh!5e1!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay">
+                <div class="map-title">土浦城跡の位置</div>
+                <div class="map-description">
+                    現在の茨城県土浦市中央にある土浦城跡。
+                    霞ヶ浦に面した立地で、亀城公園として整備され、櫓門と太鼓櫓が復元されています。
+                    湖畔の美しい景観と城跡の調和が魅力的な史跡です。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-section">
+        <div class="container">
+            <div class="nav-grid">
+                <div class="nav-card fade-in" data-target="#story">
+                    <h3>物語</h3>
+                    <p>霞ヶ浦の湖畔に築かれた土浦城の歴史と変遷</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#info">
+                    <h3>基本情報</h3>
+                    <p>立地、構造、規模など、土浦城の基本的な情報</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#water-castle">
+                    <h3>霞ヶ浦の水城</h3>
+                    <p>湖に面した独特の立地と水城としての特徴</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#culture">
+                    <h3>文化・精神</h3>
+                    <p>水運文化と城下町の発展が育んだ地域文化</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#strategic">
+                    <h3>戦略的価値</h3>
+                    <p>霞ヶ浦周辺地域における土浦城の重要性</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#facilities">
+                    <h3>関連施設</h3>
+                    <p>周辺の博物館や霞ヶ浦の観光スポット</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#access">
+                    <h3>アクセス</h3>
+                    <p>土浦城跡への交通案内と見学情報</p>
+                </div>
+                <div class="nav-card fade-in" data-target="../">
+                    <h3>関東の城一覧</h3>
+                    <p>関東地方の他の城郭を探索する</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="story-section">
+        <div class="container">
+            <h2 class="section-title fade-in">土浦城物語</h2>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">1</div>
+                    <h3 class="chapter-title">湖畔の築城</h3>
+                </div>
+                <div class="chapter-content">
+                    室町時代後半、霞ヶ浦の湖畔という独特の立地に土浦城が築かれました。
+                    この地は古くから水運の要衝として知られ、利根川水系と霞ヶ浦を結ぶ
+                    重要な拠点でした。初期の城主については諸説ありますが、
+                    若泉氏や菅谷氏などの在地領主によって基礎が築かれたと考えられています。
+                    湖に面した平城という珍しい形態は、水運の利便性と防御の両立を図った結果でした。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">2</div>
+                    <h3 class="chapter-title">土屋氏の時代</h3>
+                </div>
+                <div class="chapter-content">
+                    戦国時代に入ると、土屋氏が土浦城の城主となりました。
+                    土屋氏は武田信玄に仕えた甲斐の名族で、武田氏滅亡後に徳川家康に仕え、
+                    この地に封じられました。土屋氏は城の改修・拡張を行い、
+                    霞ヶ浦の水運を活かした商業の発展にも力を注ぎました。
+                    この時代に土浦は城下町として大きく発展しました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">3</div>
+                    <h3 class="chapter-title">水城としての発展</h3>
+                </div>
+                <div class="chapter-content highlight-chapter">
+                    土浦城の最大の特徴は、霞ヶ浦に面した水城としての性格でした。
+                    城は湖岸に築かれ、水堀は霞ヶ浦と直接つながっていました。
+                    これにより、舟による物資の輸送が容易で、また敵の侵入も水上からは困難でした。
+                    城下町も湖畔の地形を活かして発展し、漁業と水運業が盛んになりました。
+                    この独特の立地条件が、土浦城を他の城とは一線を画す存在にしていました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">4</div>
+                    <h3 class="chapter-title">松平氏と城の整備</h3>
+                </div>
+                <div class="chapter-content">
+                    江戸時代前期には松平氏が城主となり、城の大規模な改修が行われました。
+                    石垣の増築、櫓の建設、城下町の整備など、近世城郭としての体裁が整えられました。
+                    また、霞ヶ浦の水運を活かした商業政策により、土浦は関東有数の商業都市として発展しました。
+                    米や魚、農産物の集散地として繁栄し、城下町には多くの商人や職人が住むようになりました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">5</div>
+                    <h3 class="chapter-title">土井氏と幕末まで</h3>
+                </div>
+                <div class="chapter-content">
+                    江戸時代中期以降は土井氏が城主となり、明治維新まで続きました。
+                    土井氏は文治政治を重視し、学問や文化の振興に力を注ぎました。
+                    藩校の設立や学者の招聘により、土浦は学問の町としても知られるようになりました。
+                    幕末期には、水戸藩との関係も深く、尊王攘夷運動にも関わりを持ちました。
+                    戊辰戦争では新政府軍に従い、平和的に明治維新を迎えました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">6</div>
+                    <h3 class="chapter-title">現代の土浦城</h3>
+                </div>
+                <div class="chapter-content">
+                    明治維新後、土浦城は廃城となりましたが、櫓門と太鼓櫓が現存し、
+                    現在は亀城公園として市民に親しまれています。霞ヶ浦に面した美しい景観は、
+                    多くの観光客を魅了しており、桜の名所としても有名です。
+                    土浦市立博物館では城の歴史や水運文化について学ぶことができ、
+                    霞ヶ浦と共に歩んだ土浦城の歴史を現代に伝えています。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="info-section">
+        <div class="container">
+            <h2 class="section-title fade-in">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card-detail fade-in">
+                    <h3>立地・地形</h3>
+                    <p>
+                        土浦城は茨城県土浦市に位置し、
+                        霞ヶ浦の西岸に築かれた平城です。
+                        湖に面した独特の立地で、標高約25メートルの
+                        平坦な地形に建設された水城でもあります。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>城郭構造</h3>
+                    <p>
+                        平城として分類される土浦城は、
+                        霞ヶ浦に面した水城の特徴を持ちます。
+                        本丸、二の丸、三の丸の構造で、
+                        水堀が霞ヶ浦と直接つながっていました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>築城年代</h3>
+                    <p>
+                        室町時代後半の15世紀後半に築城されました。
+                        戦国時代に土屋氏が改修し、
+                        江戸時代には松平氏、土井氏によって
+                        近世城郭として整備されました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>城主の変遷</h3>
+                    <p>
+                        初期は在地領主が治め、戦国時代に土屋氏、
+                        江戸時代には松平氏、そして土井氏が
+                        明治維新まで城主を務めました。
+                        各時代の城主が城と城下町の発展に貢献しました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>規模・範囲</h3>
+                    <p>
+                        城域は東西約400メートル、南北約600メートルで、
+                        霞ヶ浦に面した中規模の城郭でした。
+                        水堀と土塁で囲まれ、
+                        全体で約24ヘクタールの規模を持ちました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>現在の状況</h3>
+                    <p>
+                        現在は亀城公園として整備され、
+                        櫓門（現・土浦市立博物館）と太鼓櫓が現存しています。
+                        霞ヶ浦に面した美しい景観が保たれ、
+                        桜の名所として市民に愛されています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="water-castle" class="water-castle-section">
+        <div class="container">
+            <h2 class="section-title fade-in">霞ヶ浦の水城</h2>
+            <div class="water-features">
+                <div class="water-feature fade-in">
+                    <h3>湖岸立地の利点</h3>
+                    <p>
+                        土浦城の霞ヶ浦に面した立地は、多くの利点をもたらしました。
+                        まず、水運による物資輸送が非常に容易で、江戸との連絡も舟で行うことができました。
+                        また、湖からの涼風により夏でも比較的涼しく、居住環境としても優れていました。
+                        漁業も盛んで、城下町の食料供給にも重要な役割を果たしていました。
+                        さらに、湖面を利用した防御システムにより、敵の陸上からの攻撃を制限できました。
+                        この独特の地理的条件が、土浦城を他の城とは異なる特色ある城郭にしていました。
+                    </p>
+                </div>
+                <div class="water-feature fade-in">
+                    <h3>水運ネットワーク</h3>
+                    <p>
+                        霞ヶ浦は利根川水系の一部として、広大な水運ネットワークの要衝でした。
+                        土浦城はこのネットワークの拠点として機能し、関東各地との物資交流が盛んでした。
+                        特に江戸との関係は密接で、米や魚、野菜などの食料を江戸に供給する重要な役割を担いました。
+                        また、佐原、銚子方面からの海産物や、常陸太田方面からの農産物の中継地としても機能しました。
+                        この水運の利を活かした商業活動により、土浦は関東有数の商業都市として発展しました。
+                    </p>
+                </div>
+                <div class="water-feature fade-in">
+                    <h3>防御としての水</h3>
+                    <p>
+                        霞ヶ浦に面した立地は、城の防御面でも大きな意味を持ちました。
+                        湖側からの敵の侵入は舟によるものに限られ、防御側が有利でした。
+                        また、城の水堀は霞ヶ浦と直接つながっており、常に豊富な水量を確保できました。
+                        この水堀システムにより、城への陸上からのアプローチは限定され、
+                        敵の攻撃ルートを制限することができました。さらに、湖の広大な水面は
+                        敵軍の展開を困難にし、城の戦略的価値を高めていました。
+                    </p>
+                </div>
+                <div class="water-feature fade-in">
+                    <h3>漁業と水産業</h3>
+                    <p>
+                        霞ヶ浦は豊富な水産資源に恵まれ、土浦城下町の重要な産業基盤でした。
+                        ワカサギ、コイ、フナなどの淡水魚の漁獲が盛んで、これらの魚は江戸にも出荷されました。
+                        特にワカサギ漁は土浦の名物として知られ、冬の風物詩となっていました。
+                        また、湖岸では塩作りも行われ、内陸部にとって貴重な塩の供給源でもありました。
+                        これらの水産業は城下町の経済を支え、土浦の繁栄に大きく貢献しました。
+                        現在でも霞ヶ浦の水産業は続いており、土浦の伝統産業として受け継がれています。
+                    </p>
+                </div>
+                <div class="water-feature fade-in">
+                    <h3>季節の美しさ</h3>
+                    <p>
+                        霞ヶ浦に面した土浦城は、四季を通じて美しい景観を楽しむことができました。
+                        春には湖岸の桜が咲き誇り、城と湖の調和した美しい風景を作り出していました。
+                        夏には湖面に映る城の影が涼感を演出し、秋には周囲の山々の紅葉が湖面に映えました。
+                        冬には雪化粧した城と凍った湖面が幻想的な景色を作り出しました。
+                        この自然の美しさは、城主や家臣たちの心を癒し、
+                        文化的な活動の発展にも寄与していました。現在でもその美しさは変わらず、
+                        多くの人々を魅了し続けています。
+                    </p>
+                </div>
+                <div class="water-feature fade-in">
+                    <h3>現代への継承</h3>
+                    <p>
+                        現在の土浦城跡は亀城公園として整備され、霞ヶ浦との美しい景観が保たれています。
+                        復元された櫓門と太鼓櫓は、水城としての土浦城の面影を現代に伝えています。
+                        桜の名所として多くの花見客が訪れ、霞ヶ浦マラソンなどのイベント会場としても活用されています。
+                        また、土浦市立博物館では霞ヶ浦の水運文化や城の歴史について学ぶことができ、
+                        水城としての価値を次世代に継承する役割を果たしています。
+                        霞ヶ浦と共に歩んだ土浦城の歴史は、現在も市民の誇りとして大切にされています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" class="culture-section">
+        <div class="container">
+            <h2 class="section-title fade-in">文化・精神的側面</h2>
+            <div class="culture-grid">
+                <div class="culture-card fade-in">
+                    <h3>水運文化の発展</h3>
+                    <p>
+                        土浦城と霞ヶ浦は独特の水運文化を育みました。
+                        舟運による物資輸送や人的交流により、
+                        関東各地の文化が融合した独自の文化圏が形成されました。
+                        船頭歌や水運に関する民謡も数多く生まれました。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>商業文化の繁栄</h3>
+                    <p>
+                        水運の利を活かした商業の発展により、
+                        城下町には豊かな商業文化が花開きました。
+                        問屋街や市場の賑わい、商家の建築文化など、
+                        商業都市ならではの文化的特色が生まれました。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>学問と教育</h3>
+                    <p>
+                        土井氏の時代には学問が奨励され、
+                        藩校や私塾が設立されました。
+                        多くの学者や文人を輩出し、
+                        土浦は関東有数の文教都市としても発展しました。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>漁業と水産文化</h3>
+                    <p>
+                        霞ヶ浦の豊かな水産資源を背景に、
+                        独特の漁業文化が発達しました。
+                        ワカサギ漁をはじめとする伝統漁法や、
+                        水産物を使った郷土料理が育まれました。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>祭りと年中行事</h3>
+                    <p>
+                        水との深い関わりから、水神信仰や
+                        湖の恵みに感謝する祭りが発達しました。
+                        土浦の花火大会は現在も続く伝統行事で、
+                        水辺の美しさを活かした文化的イベントです。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>現代への継承</h3>
+                    <p>
+                        土浦城と霞ヶ浦の文化的価値は現代に受け継がれています。
+                        水辺の景観保護や伝統行事の継承、
+                        地域の歴史教育など、様々な形で
+                        文化的遺産が大切に保たれています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategic" class="strategic-section">
+        <div class="container">
+            <h2 class="section-title fade-in">戦略的価値</h2>
+            <div class="strategic-cards">
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">1</div>
+                    <h3>水運の要衝</h3>
+                    <ul>
+                        <li>霞ヶ浦と利根川水系を結ぶ中継拠点</li>
+                        <li>江戸への物資供給ルートの管理</li>
+                        <li>関東各地との水運ネットワーク中心</li>
+                        <li>舟運による迅速な連絡手段</li>
+                        <li>水上交通の安全確保と監視</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">2</div>
+                    <h3>経済的拠点</h3>
+                    <ul>
+                        <li>関東有数の商業都市として発展</li>
+                        <li>米・魚・農産物の集散地機能</li>
+                        <li>江戸への食料供給基地</li>
+                        <li>水産業と農業の複合的発展</li>
+                        <li>商業税収による安定した財政</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">3</div>
+                    <h3>防御システム</h3>
+                    <ul>
+                        <li>霞ヶ浦を天然の堀として活用</li>
+                        <li>水上からの攻撃に対する優位性</li>
+                        <li>陸上アプローチの制限効果</li>
+                        <li>豊富な水資源による籠城能力</li>
+                        <li>湖面利用による機動的防御</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">4</div>
+                    <h3>現代的意義</h3>
+                    <ul>
+                        <li>歴史的景観の保全モデル</li>
+                        <li>水辺文化の継承拠点</li>
+                        <li>観光・文化振興の核</li>
+                        <li>市民の憩いの場としての機能</li>
+                        <li>地域アイデンティティの象徴</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="facilities-section">
+        <div class="container">
+            <h2 class="section-title fade-in">関連施設・観光情報</h2>
+            <div class="facilities-grid">
+                <div class="facility-category fade-in">
+                    <h3>歴史・文化施設</h3>
+                    <a href="#" class="facility-link">土浦市立博物館</a>
+                    <a href="#" class="facility-link">亀城公園</a>
+                    <a href="#" class="facility-link">土浦城櫓門</a>
+                    <a href="#" class="facility-link">上高津貝塚ふるさと歴史の広場</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>霞ヶ浦・自然</h3>
+                    <a href="#" class="facility-link">霞ヶ浦総合公園</a>
+                    <a href="#" class="facility-link">霞ヶ浦環境科学センター</a>
+                    <a href="#" class="facility-link">霞ヶ浦ふれあいランド</a>
+                    <a href="#" class="facility-link">観光帆引き船</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>寺社・史跡</h3>
+                    <a href="#" class="facility-link">愛宕神社</a>
+                    <a href="#" class="facility-link">東城寺</a>
+                    <a href="#" class="facility-link">土浦藩校郷学校跡</a>
+                    <a href="#" class="facility-link">八坂神社</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>イベント・体験</h3>
+                    <a href="#" class="facility-link">土浦全国花火競技大会</a>
+                    <a href="#" class="facility-link">霞ヶ浦マラソン</a>
+                    <a href="#" class="facility-link">ワカサギ釣り体験</a>
+                    <a href="#" class="facility-link">城跡ガイドツアー</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>グルメ・特産品</h3>
+                    <a href="#" class="facility-link">霞ヶ浦の魚料理</a>
+                    <a href="#" class="facility-link">土浦の日本酒</a>
+                    <a href="#" class="facility-link">れんこん料理</a>
+                    <a href="#" class="facility-link">土浦カレー</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>宿泊・交通</h3>
+                    <a href="#" class="facility-link">土浦駅周辺ホテル</a>
+                    <a href="#" class="facility-link">レンタサイクル</a>
+                    <a href="#" class="facility-link">観光案内所</a>
+                    <a href="#" class="facility-link">駐車場案内</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="access-section">
+        <div class="container">
+            <h2 class="section-title fade-in">アクセス情報</h2>
+            <div class="access-grid">
+                <div class="access-card fade-in">
+                    <h3>電車でのアクセス</h3>
+                    <p><span class="highlight">最寄り駅：</span>JR常磐線 土浦駅</p>
+                    <p><span class="highlight">所要時間：</span>土浦駅から徒歩約15分</p>
+                    <p><span class="highlight">上野駅から：</span>常磐線快速で約1時間</p>
+                    <p><span class="highlight">水戸駅から：</span>常磐線で約30分</p>
+                    <p><span class="highlight">運賃：</span>上野駅から1,170円</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>車でのアクセス</h3>
+                    <p><span class="highlight">最寄りIC：</span>常磐自動車道 土浦北IC</p>
+                    <p><span class="highlight">所要時間：</span>土浦北ICから約15分</p>
+                    <p><span class="highlight">駐車場：</span>亀城公園駐車場（無料）</p>
+                    <p><span class="highlight">収容台数：</span>約100台</p>
+                    <p><span class="highlight">利用時間：</span>8:30～22:00</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>バスでのアクセス</h3>
+                    <p><span class="highlight">土浦駅から：</span>関東鉄道バス「亀城公園前」下車</p>
+                    <p><span class="highlight">荒川沖駅から：</span>関鉄バス約20分</p>
+                    <p><span class="highlight">所要時間：</span>土浦駅から約10分</p>
+                    <p><span class="highlight">運賃：</span>200円</p>
+                    <p><span class="highlight">本数：</span>平日1時間に3～4本</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>見学・利用案内</h3>
+                    <p><span class="highlight">開園時間：</span>24時間開放（公園部分）</p>
+                    <p><span class="highlight">博物館：</span>9:00～16:30（月曜休館）</p>
+                    <p><span class="highlight">入館料：</span>大人105円、小中学生50円</p>
+                    <p><span class="highlight">所要時間：</span>見学約60分</p>
+                    <p><span class="highlight">おすすめ：</span>桜の季節（4月上旬）が特に美しい</p>
+                </div>
+            </div>
+            
+            <div class="map-container" style="margin-top: 50px; height: 400px; border-radius: 20px; overflow: hidden;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1610.3817892416294!2d140.20991051525823!3d36.10047378024895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60200f0b0e2b0000%3A0x1234567890abcdef!2z5Zyf5rWm5Z-O6Leh!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title fade-in">霞ヶ浦の水城を訪れよう</h2>
+            <p class="cta-description fade-in">
+                湖に浮かぶ美しい城跡で、水運文化の歴史と<br>
+                四季折々の霞ヶ浦の絶景をお楽しみください。
+            </p>
+            <div class="cta-buttons fade-in">
+                <a href="#access" class="cta-button cta-primary">アクセス情報</a>
+                <a href="../" class="cta-button cta-secondary">関東の城一覧</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#story" class="footer-link">物語</a>
+                <a href="#info" class="footer-link">基本情報</a>
+                <a href="#water-castle" class="footer-link">霞ヶ浦の水城</a>
+                <a href="#culture" class="footer-link">文化・精神</a>
+                <a href="#strategic" class="footer-link">戦略的価値</a>
+                <a href="#facilities" class="footer-link">関連施設</a>
+                <a href="#access" class="footer-link">アクセス</a>
+                <a href="../" class="footer-link">関東の城一覧</a>
+            </div>
+            <p>&copy; 2024 土浦城 - 霞ヶ浦の水城・湖に浮かぶ要塞</p>
+            <p style="opacity: 0.8; margin-top: 10px;">湖と共に歩んだ城の歴史</p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ナビゲーションカードクリック
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                if (target === '../') {
+                    window.location.href = '../';
+                } else if (target) {
+                    const targetElement = document.querySelector(target);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // 全てのアニメーション要素を監視
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .story-chapter').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 湖面の波紋エフェクト強化
+        document.querySelectorAll('.lake-ripple').forEach((ripple, index) => {
+            ripple.style.animationDelay = index * 1.3 + 's';
+            ripple.style.animationDuration = (8 + Math.random() * 4) + 's';
+        });
+        
+        // 朝霧のドリフトエフェクト
+        document.querySelectorAll('.mist-layer').forEach((mist, index) => {
+            mist.style.animationDelay = index * 3 + 's';
+            mist.style.animationDuration = (18 + Math.random() * 8) + 's';
+        });
+        
+        // 漁船のセイリングアニメーション
+        document.querySelectorAll('.fishing-boat').forEach((boat, index) => {
+            boat.style.animationDelay = index * 8 + 's';
+            boat.style.animationDuration = (25 + Math.random() * 10) + 's';
+        });
+        
+        // 水鳥の飛行パターン
+        document.querySelectorAll('.water-bird').forEach((bird, index) => {
+            bird.style.animationDelay = index * 2 + 's';
+            bird.style.animationDuration = (15 + Math.random() * 5) + 's';
+        });
+        
+        // 土屋家紋の浮遊エフェクト
+        document.querySelectorAll('.tsuchiya-crest').forEach((crest, index) => {
+            crest.style.animationDelay = index * 4.5 + 's';
+            crest.style.animationDuration = (18 + Math.random() * 6) + 's';
+        });
+        
+        // パララックス効果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const lakeElements = document.querySelectorAll('.lake-ripple, .mist-layer, .water-bird');
+            
+            lakeElements.forEach((element, index) => {
+                const speed = 0.2 + (index * 0.03);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // 霞ヶ浦の動的エフェクト
+        setInterval(() => {
+            const ripples = document.querySelectorAll('.lake-ripple');
+            ripples.forEach(ripple => {
+                if (Math.random() < 0.3) {
+                    ripple.style.borderColor = `rgba(70,130,180,${0.3 + Math.random() * 0.3})`;
+                    setTimeout(() => {
+                        ripple.style.borderColor = 'rgba(70,130,180,0.3)';
+                    }, 2000);
+                }
+            });
+        }, 5000);
+        
+        // 朝霧の濃淡変化
+        setInterval(() => {
+            const mistLayers = document.querySelectorAll('.mist-layer');
+            mistLayers.forEach(layer => {
+                if (Math.random() < 0.2) {
+                    layer.style.opacity = 0.1 + Math.random() * 0.5;
+                    setTimeout(() => {
+                        layer.style.opacity = '';
+                    }, 3000);
+                }
+            });
+        }, 8000);
+        
+        // 水鳥の鳴き声的視覚効果
+        setInterval(() => {
+            const birds = document.querySelectorAll('.water-bird');
+            birds.forEach(bird => {
+                if (Math.random() < 0.1) {
+                    bird.style.filter = `brightness(${1.2 + Math.random() * 0.8})`;
+                    setTimeout(() => {
+                        bird.style.filter = 'brightness(1)';
+                    }, 1000);
+                }
+            });
+        }, 6000);
+    </script>
+</body>
+</html>

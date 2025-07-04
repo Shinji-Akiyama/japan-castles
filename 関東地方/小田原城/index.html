@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小田原城（おだわらじょう）- 神奈川県小田原市 | 難攻不落の要塞都市</title>
+    <meta name="description" content="北条氏の本拠地として100年間守り抜かれた小田原城。日本最大級の総構えを誇る要塞都市は、東海道の要衝として関東の守りを固めた。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0c0a08;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(12, 10, 8, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        
+        .header.scrolled {
+            background: rgba(12, 10, 8, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #8b4513, #a0522d, #cd853f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(139,69,19,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #cd853f;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(205,133,63,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: rgba(12, 10, 8, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+            border-right: 2px solid rgba(139,69,19,0.3);
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .nav-menu ul li {
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu ul li a {
+            color: #cd853f;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-menu ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139,69,19,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-menu ul li a:hover::before {
+            left: 100%;
+        }
+        
+        .nav-menu ul li a:hover {
+            background: rgba(139,69,19,0.2);
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0c0a08 0%, #1a1410 25%, #261e18 50%, #1a1410 75%, #0c0a08 100%);
+        }
+        
+        /* 石垣建設アニメーション */
+        .stone-wall-construction {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .stone-block {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(135deg, #696969, #808080, #a9a9a9);
+            border: 1px solid #555;
+            opacity: 0;
+            animation: stoneFall 3s ease-in forwards;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes stoneFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+                opacity: 1;
+            }
+        }
+        
+        /* 総構え防壁ビジュアライゼーション */
+        .sougamae-walls {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .wall-section {
+            position: absolute;
+            height: 100px;
+            background: linear-gradient(to top, #8b4513, #a0522d);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+        }
+        
+        .wall-section:nth-child(1) {
+            bottom: 0;
+            left: 0;
+            width: 30%;
+            transform: skewX(-10deg);
+        }
+        
+        .wall-section:nth-child(2) {
+            bottom: 0;
+            left: 25%;
+            width: 30%;
+            height: 120px;
+        }
+        
+        .wall-section:nth-child(3) {
+            bottom: 0;
+            right: 20%;
+            width: 25%;
+            transform: skewX(10deg);
+        }
+        
+        .wall-section:nth-child(4) {
+            bottom: 0;
+            right: 0;
+            width: 25%;
+            height: 90px;
+        }
+        
+        /* 侍パトロールアニメーション */
+        .samurai-patrol {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            bottom: 100px;
+            overflow: hidden;
+            opacity: 0.4;
+        }
+        
+        .samurai-figure {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            bottom: 0;
+            background: linear-gradient(to top, #2a2a2a, #4a4a4a);
+            clip-path: polygon(50% 0%, 60% 20%, 60% 60%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 40% 60%, 40% 20%);
+            animation: patrolWalk 30s linear infinite;
+        }
+        
+        @keyframes patrolWalk {
+            0% {
+                left: -60px;
+                transform: scaleX(1);
+            }
+            49% {
+                transform: scaleX(1);
+            }
+            50% {
+                left: calc(100% + 60px);
+                transform: scaleX(-1);
+            }
+            99% {
+                transform: scaleX(-1);
+            }
+            100% {
+                left: -60px;
+                transform: scaleX(1);
+            }
+        }
+        
+        .samurai-figure:nth-child(1) { animation-delay: 0s; }
+        .samurai-figure:nth-child(2) { animation-delay: 5s; }
+        .samurai-figure:nth-child(3) { animation-delay: 10s; }
+        .samurai-figure:nth-child(4) { animation-delay: 15s; }
+        
+        /* 梅の花エフェクト */
+        .plum-blossoms {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .plum-petal {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ff69b4, #ff1493);
+            border-radius: 0 50% 50% 50%;
+            opacity: 0.7;
+            animation: plumFall 20s linear infinite;
+            box-shadow: 0 0 5px rgba(255,105,180,0.5);
+        }
+        
+        @keyframes plumFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Google Maps */
+        .map-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            height: 70%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            z-index: 1;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(12, 10, 8, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            z-index: 2;
+            border: 2px solid rgba(139,69,19,0.4);
+            border-radius: 20px;
+        }
+        
+        .map-overlay h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #8b4513, #cd853f, #daa520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 5px 15px rgba(139,69,19,0.5));
+            animation: fortressGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes fortressGlow {
+            0%, 100% { filter: drop-shadow(0 5px 15px rgba(139,69,19,0.5)); }
+            50% { filter: drop-shadow(0 5px 30px rgba(205,133,63,0.8)); }
+        }
+        
+        .map-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .castle-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b4513, #cd853f);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(139,69,19,0.4);
+            animation: badgeShine 3s ease-in-out infinite;
+        }
+        
+        @keyframes badgeShine {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(205,133,63,0.6); }
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #0c0a08 0%, #1a1410 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navigation-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 50px,
+                rgba(139,69,19,0.1) 50px,
+                rgba(139,69,19,0.1) 100px
+            );
+            animation: wallPattern 10s linear infinite;
+        }
+        
+        @keyframes wallPattern {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100px); }
+        }
+        
+        .nav-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(205,133,63,0.2) 0%, transparent 70%);
+            transition: all 0.5s ease;
+        }
+        
+        .nav-card:hover::before {
+            top: -150%;
+            left: -150%;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(139,69,19,0.4);
+            border-color: rgba(205,133,63,0.6);
+        }
+        
+        .nav-card h3 {
+            color: #cd853f;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .nav-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: linear-gradient(180deg, #0c0a08 0%, #1a1410 50%, #0c0a08 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 東海道の旅人アニメーション */
+        .tokaido-travelers {
+            position: absolute;
+            width: 100%;
+            height: 150px;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0.2;
+        }
+        
+        .traveler {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 60px;
+            background: #333;
+            clip-path: polygon(50% 0%, 55% 30%, 60% 60%, 65% 100%, 35% 100%, 40% 60%, 45% 30%);
+            animation: travel 40s linear infinite;
+        }
+        
+        @keyframes travel {
+            0% { left: -50px; }
+            100% { left: calc(100% + 50px); }
+        }
+        
+        .traveler:nth-child(1) { animation-delay: 0s; }
+        .traveler:nth-child(2) { animation-delay: 8s; width: 35px; height: 55px; }
+        .traveler:nth-child(3) { animation-delay: 16s; }
+        .traveler:nth-child(4) { animation-delay: 24s; width: 45px; height: 65px; }
+        .traveler:nth-child(5) { animation-delay: 32s; }
+        
+        .story-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .story-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8b4513, #cd853f, #daa520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 5px 15px rgba(139,69,19,0.5));
+        }
+        
+        .chapter {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(139,69,19,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInSlide 0.8s ease forwards;
+        }
+        
+        .chapter:nth-child(2) { animation-delay: 0.1s; }
+        .chapter:nth-child(3) { animation-delay: 0.2s; }
+        .chapter:nth-child(4) { animation-delay: 0.3s; }
+        .chapter:nth-child(5) { animation-delay: 0.4s; }
+        .chapter:nth-child(6) { animation-delay: 0.5s; }
+        .chapter:nth-child(7) { animation-delay: 0.6s; }
+        .chapter:nth-child(8) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            background: linear-gradient(135deg, #8b4513, #cd853f);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(139,69,19,0.5);
+        }
+        
+        .chapter h3 {
+            color: #cd853f;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-left: 40px;
+        }
+        
+        .chapter p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .chapter.highlight {
+            background: rgba(139,69,19,0.1);
+            border: 2px solid rgba(205,133,63,0.4);
+            transform: scale(1.02);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: radial-gradient(ellipse at center, #1a1410 0%, #0c0a08 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) brightness(1.1);
+            -webkit-backdrop-filter: blur(15px) brightness(1.1);
+            border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(205,133,63,0.3), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .info-card:hover::before {
+            left: 100%;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139,69,19,0.4);
+            border-color: rgba(205,133,63,0.6);
+        }
+        
+        .info-card h3 {
+            color: #cd853f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b4513, #cd853f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(139,69,19,0.4);
+        }
+        
+        .info-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        /* 特別テーマセクション - 難攻不落の要塞都市 */
+        .fortress-section {
+            background: linear-gradient(135deg, #0c0a08 0%, #1a1410 25%, #261e18 50%, #1a1410 75%, #0c0a08 100%);
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 総構え3Dビジュアライゼーション */
+        .sougamae-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        
+        .fortress-layer {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border: 3px solid rgba(139,69,19,0.3);
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            animation: fortressRotate 40s linear infinite;
+        }
+        
+        .fortress-layer:nth-child(1) {
+            transform: translateZ(0px);
+            border-color: rgba(139,69,19,0.5);
+        }
+        
+        .fortress-layer:nth-child(2) {
+            transform: translateZ(-50px) scale(1.1);
+            border-color: rgba(139,69,19,0.4);
+        }
+        
+        .fortress-layer:nth-child(3) {
+            transform: translateZ(-100px) scale(1.2);
+            border-color: rgba(139,69,19,0.3);
+        }
+        
+        .fortress-layer:nth-child(4) {
+            transform: translateZ(-150px) scale(1.3);
+            border-color: rgba(139,69,19,0.2);
+        }
+        
+        @keyframes fortressRotate {
+            0% { transform: rotateY(0deg) translateZ(var(--z)); }
+            100% { transform: rotateY(360deg) translateZ(var(--z)); }
+        }
+        
+        /* 防御戦アニメーション */
+        .siege-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .arrow {
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: #666;
+            transform-origin: right center;
+            animation: arrowFly 2s linear infinite;
+        }
+        
+        .arrow::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid #666;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        
+        @keyframes arrowFly {
+            0% {
+                transform: translateX(-100px) translateY(0) rotate(-30deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(100px) rotate(-30deg);
+                opacity: 0;
+            }
+        }
+        
+        .fortress-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .fortress-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #8b4513, #cd853f, #daa520, #cd853f, #8b4513);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fortressShine 5s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(139,69,19,0.6));
+        }
+        
+        @keyframes fortressShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .fortress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .fortress-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) brightness(1.2);
+            -webkit-backdrop-filter: blur(20px) brightness(1.2);
+            border: 2px solid rgba(139,69,19,0.4);
+            border-radius: 25px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .fortress-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(205,133,63,0.3) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .fortress-card:hover::after {
+            width: 300%;
+            height: 300%;
+        }
+        
+        .fortress-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(139,69,19,0.5);
+        }
+        
+        .fortress-card h3 {
+            color: #cd853f;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .fortress-card ul {
+            list-style: none;
+        }
+        
+        .fortress-card ul li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(139,69,19,0.2);
+            position: relative;
+            padding-left: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .fortress-card ul li::before {
+            content: '⚔';
+            position: absolute;
+            left: 10px;
+            color: #cd853f;
+            font-size: 1.2rem;
+            animation: weaponGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes weaponGlow {
+            0%, 100% { opacity: 0.6; text-shadow: 0 0 5px rgba(205,133,63,0.5); }
+            50% { opacity: 1; text-shadow: 0 0 15px rgba(205,133,63,0.8); }
+        }
+        
+        /* 文化・精神的側面セクション */
+        .cultural-section {
+            background: linear-gradient(180deg, #0c0a08 0%, #1a1410 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cultural-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cultural-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #cd853f;
+            text-shadow: 0 5px 20px rgba(139,69,19,0.5);
+        }
+        
+        .cultural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .cultural-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cultural-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(205,133,63,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cultural-card:hover::before {
+            opacity: 1;
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1.5); }
+        }
+        
+        .cultural-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139,69,19,0.3);
+        }
+        
+        .cultural-card h3 {
+            color: #cd853f;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cultural-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: radial-gradient(ellipse at center, #1a1410 0%, #0c0a08 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .strategic-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8b4513, #cd853f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .strategic-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .strategic-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: bold;
+            color: rgba(139,69,19,0.2);
+            z-index: 0;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(139,69,19,0.4);
+        }
+        
+        .strategic-card:hover .strategic-number {
+            color: rgba(205,133,63,0.4);
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+        
+        .strategic-card h3 {
+            color: #cd853f;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-card ul li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .strategic-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #cd853f;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .strategic-card:hover ul li::before {
+            transform: translateX(5px);
+        }
+        
+        /* 歴史年表セクション */
+        .timeline-section {
+            background: linear-gradient(180deg, #0c0a08 0%, #1a1410 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #cd853f;
+            text-shadow: 0 5px 20px rgba(139,69,19,0.5);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #8b4513, #cd853f);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+        
+        .timeline-content h3 {
+            color: #cd853f;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+        
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: #cd853f;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(205,133,63,0.8);
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: right;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: linear-gradient(135deg, #0c0a08 0%, #1a1410 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facilities-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #cd853f;
+            text-shadow: 0 5px 20px rgba(139,69,19,0.5);
+        }
+        
+        .facilities-categories {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .facility-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(139,69,19,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-category h3 {
+            color: #cd853f;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .facility-category h3::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #cd853f, transparent);
+        }
+        
+        .facility-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .facility-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 15px 20px;
+            border: 1px solid rgba(139,69,19,0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .facility-link:hover {
+            background: rgba(139,69,19,0.1);
+            border-color: rgba(205,133,63,0.5);
+            transform: translateX(10px);
+            color: #cd853f;
+        }
+        
+        .facility-link::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: radial-gradient(ellipse at center, #1a1410 0%, #0c0a08 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .access-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .access-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #cd853f;
+            text-shadow: 0 5px 20px rgba(139,69,19,0.5);
+        }
+        
+        .access-map {
+            margin-bottom: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139,69,19,0.3);
+        }
+        
+        .access-card h3 {
+            color: #cd853f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #8b4513 0%, #cd853f 50%, #8b4513 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: ctaShine 10s linear infinite;
+        }
+        
+        @keyframes ctaShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #8b4513;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #0c0a08;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(139,69,19,0.3);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #cd853f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #daa520;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-grid,
+            .fortress-grid,
+            .cultural-grid,
+            .strategic-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-title,
+            .fortress-title,
+            .cultural-title,
+            .strategic-title,
+            .timeline-title,
+            .facilities-title,
+            .access-title {
+                font-size: 2rem;
+            }
+            
+            .chapter {
+                padding: 30px 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                text-align: center !important;
+                padding: 20px !important;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .map-container {
+                height: 50vh;
+            }
+        }
+        
+        /* アニメーションのパフォーマンス最適化 */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo">小田原城 - 難攻不落の要塞都市</div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#story">小田原城物語</a></li>
+            <li><a href="#info">基本情報</a></li>
+            <li><a href="#fortress">難攻不落の要塞</a></li>
+            <li><a href="#culture">文化的意義</a></li>
+            <li><a href="#strategy">戦略的価値</a></li>
+            <li><a href="#timeline">歴史年表</a></li>
+            <li><a href="#facilities">関連施設</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="/関東地方/">関東の城一覧</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <!-- 石垣建設アニメーション -->
+        <div class="stone-wall-construction" id="stoneConstruction"></div>
+        
+        <!-- 総構え防壁 -->
+        <div class="sougamae-walls">
+            <div class="wall-section"></div>
+            <div class="wall-section"></div>
+            <div class="wall-section"></div>
+            <div class="wall-section"></div>
+        </div>
+        
+        <!-- 侍パトロール -->
+        <div class="samurai-patrol">
+            <div class="samurai-figure"></div>
+            <div class="samurai-figure"></div>
+            <div class="samurai-figure"></div>
+            <div class="samurai-figure"></div>
+        </div>
+        
+        <!-- 梅の花 -->
+        <div class="plum-blossoms" id="plumBlossoms"></div>
+        
+        <!-- Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.7561597650847!2d139.15089931524693!3d35.25486568029709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ab3e4c5a2a5d%3A0x4c5e5d9e4e6e1234!2z5bCP55Sw5Y6f5Z-O!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp&maptype=satellite"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        
+        <div class="map-overlay">
+            <h1>小田原城</h1>
+            <p>北条氏五代の本拠地</p>
+            <p>日本最大級の総構えを誇る要塞都市</p>
+            <div class="castle-badge">国史跡・日本100名城</div>
+        </div>
+    </section>
+    
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="nav-grid">
+            <div class="nav-card" onclick="scrollToSection('story')">
+                <h3>小田原城物語</h3>
+                <p>100年の栄華と秀吉の大軍団</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('info')">
+                <h3>基本情報</h3>
+                <p>関東の要衝を守る巨大城郭</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('fortress')">
+                <h3>難攻不落の要塞</h3>
+                <p>日本最大の総構え防御システム</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('culture')">
+                <h3>文化的意義</h3>
+                <p>北条文化と城下町の繁栄</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('strategy')">
+                <h3>戦略的価値</h3>
+                <p>東海道を扼する軍事拠点</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('timeline')">
+                <h3>歴史年表</h3>
+                <p>室町から現代まで</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('facilities')">
+                <h3>関連施設</h3>
+                <p>天守閣・歴史見聞館</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('access')">
+                <h3>アクセス</h3>
+                <p>小田原駅から徒歩10分</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 物語セクション -->
+    <section class="story-section" id="story">
+        <div class="tokaido-travelers">
+            <div class="traveler"></div>
+            <div class="traveler"></div>
+            <div class="traveler"></div>
+            <div class="traveler"></div>
+            <div class="traveler"></div>
+        </div>
+        
+        <div class="story-content">
+            <h2 class="story-title">小田原城物語 - 難攻不落の要塞都市</h2>
+            
+            <div class="chapter">
+                <div class="chapter-number">1</div>
+                <h3>大森氏による築城</h3>
+                <p>15世紀中頃、大森氏によって小田原城の基礎が築かれました。相模湾を望む丘陵上に位置し、箱根の関を控えた交通の要衝として重要な役割を果たしました。当初は小規模な山城でしたが、後の北条氏による大改修の礎となる重要な立地条件を備えていました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">2</div>
+                <h3>北条早雲の入城</h3>
+                <p>1495年、伊勢宗瑞（北条早雲）が大森氏から小田原城を奪取。これが後北条氏100年の歴史の始まりでした。早雲は城の防御を強化し、領国経営の拠点として整備。関東進出の橋頭堡として、小田原城は戦国大名北条氏の本拠地となりました。</p>
+            </div>
+            
+            <div class="chapter highlight">
+                <div class="chapter-number">3</div>
+                <h3>北条氏による大拡張</h3>
+                <p>北条氏康の時代、小田原城は日本最大級の城郭へと変貌を遂げました。城下町全体を囲む「総構え」は周囲約9キロメートルに及び、空堀と土塁で防御された巨大な要塞都市が完成。上杉謙信、武田信玄の攻撃を退け、「難攻不落」の名声を確立しました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">4</div>
+                <h3>小田原評定と城下の繁栄</h3>
+                <p>北条氏は「小田原評定」と呼ばれる合議制で領国を統治。城下町は関東最大の商業都市として繁栄し、職人街、商人街が整備されました。東海道の宿場町としても発展し、文化・経済の中心地として栄えました。この繁栄は戦国時代を通じて続きました。</p>
+            </div>
+            
+            <div class="chapter highlight">
+                <div class="chapter-number">5</div>
+                <h3>秀吉の小田原攻め</h3>
+                <p>1590年、豊臣秀吉は15万の大軍で小田原城を包囲。3か月に及ぶ籠城戦の末、北条氏は降伏しました。秀吉は石垣山に一夜城を築き、圧倒的な物量で北条氏を圧迫。この戦いで戦国時代は終焉を迎え、日本は統一への道を歩み始めました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">6</div>
+                <h3>江戸時代の小田原藩</h3>
+                <p>徳川家康の関東入封後、小田原城は譜代大名の居城となりました。大久保氏、稲葉氏などが城主を務め、東海道の要衝として重要な役割を果たしました。1633年の大地震で大きな被害を受けましたが、その都度再建され、箱根関所と共に江戸の西の守りを固めました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">7</div>
+                <h3>明治維新と廃城</h3>
+                <p>1870年の廃城令により、小田原城の建造物は解体されました。石垣の一部は鉄道建設に転用され、城址は荒廃しました。しかし、1923年の関東大震災後、史跡保存の機運が高まり、1938年に国の史跡に指定。戦後の復興と共に、城址の整備が進められました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">8</div>
+                <h3>現代の小田原城</h3>
+                <p>1960年に天守閣が復興され、小田原市のシンボルとして親しまれています。2016年の大改修により耐震補強と展示リニューアルが完了。総構えの遺構も各所に残り、戦国時代の巨大要塞都市の姿を今に伝えています。日本100名城に選定され、多くの観光客が訪れる歴史観光の拠点となっています。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 基本情報セクション -->
+    <section class="info-section" id="info">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><span class="info-icon">🏯</span>城郭データ</h3>
+                <p><strong>築城年：</strong>15世紀中頃（大森氏）<br>
+                <strong>主な城主：</strong>大森氏、後北条氏、大久保氏、稲葉氏<br>
+                <strong>城郭構造：</strong>平山城<br>
+                <strong>天守構造：</strong>複合式層塔型3重4階（復興）</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">📏</span>規模</h3>
+                <p><strong>総構え周囲：</strong>約9km（日本最大級）<br>
+                <strong>本丸面積：</strong>約11,000㎡<br>
+                <strong>二の丸：</strong>約19,000㎡<br>
+                <strong>三の丸：</strong>約45,000㎡</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🗾</span>立地</h3>
+                <p><strong>所在地：</strong>神奈川県小田原市<br>
+                <strong>標高：</strong>約60m<br>
+                <strong>地形：</strong>相模湾を望む丘陵<br>
+                <strong>河川：</strong>酒匂川・早川</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🛡️</span>防御施設</h3>
+                <p><strong>総構え：</strong>城下町全体を囲む防御線<br>
+                <strong>空堀：</strong>幅20m、深さ10m級<br>
+                <strong>土塁：</strong>高さ10m級の巨大土塁<br>
+                <strong>馬出：</strong>各所に配置された出撃拠点</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🏛️</span>主要遺構</h3>
+                <p><strong>石垣：</strong>江戸時代の石垣が現存<br>
+                <strong>堀：</strong>本丸東堀・西堀<br>
+                <strong>土塁：</strong>総構えの土塁跡<br>
+                <strong>復元建造物：</strong>天守閣、常盤木門、銅門</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🎖️</span>文化財指定</h3>
+                <p><strong>国史跡：</strong>1938年指定<br>
+                <strong>日本100名城：</strong>23番<br>
+                <strong>関東の名城：</strong>代表的存在<br>
+                <strong>観光地：</strong>年間約70万人が来城</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 特別テーマセクション - 難攻不落の要塞都市 -->
+    <section class="fortress-section" id="fortress">
+        <div class="sougamae-3d">
+            <div class="fortress-layer" style="--z: 0px;"></div>
+            <div class="fortress-layer" style="--z: -50px;"></div>
+            <div class="fortress-layer" style="--z: -100px;"></div>
+            <div class="fortress-layer" style="--z: -150px;"></div>
+        </div>
+        
+        <div class="siege-animation" id="siegeAnimation"></div>
+        
+        <div class="fortress-content">
+            <h2 class="fortress-title">難攻不落の要塞 - 日本最大の総構え</h2>
+            
+            <div class="fortress-grid">
+                <div class="fortress-card">
+                    <h3>総構えシステム</h3>
+                    <ul>
+                        <li>周囲約9kmの巨大防御線</li>
+                        <li>城下町全体を包含する設計</li>
+                        <li>空堀と土塁の二重防御</li>
+                        <li>11か所の出入口を厳重管理</li>
+                        <li>3万の兵と10万の民を収容</li>
+                        <li>完全な自給自足体制を構築</li>
+                    </ul>
+                </div>
+                
+                <div class="fortress-card">
+                    <h3>防御施設の特徴</h3>
+                    <ul>
+                        <li>幅20m深さ10mの巨大空堀</li>
+                        <li>高さ10m以上の土塁</li>
+                        <li>複雑な虎口構造</li>
+                        <li>馬出による出撃拠点</li>
+                        <li>横矢掛かりの多用</li>
+                        <li>水堀と空堀の組み合わせ</li>
+                    </ul>
+                </div>
+                
+                <div class="fortress-card">
+                    <h3>攻城戦の記録</h3>
+                    <ul>
+                        <li>1561年 上杉謙信の包囲（撃退）</li>
+                        <li>1569年 武田信玄の攻撃（撃退）</li>
+                        <li>1590年 豊臣秀吉の大包囲</li>
+                        <li>15万対5万の兵力差</li>
+                        <li>3か月の籠城戦</li>
+                        <li>一度も力攻めされず開城</li>
+                    </ul>
+                </div>
+                
+                <div class="fortress-card">
+                    <h3>城下町の防御</h3>
+                    <ul>
+                        <li>職人町・商人町の計画配置</li>
+                        <li>寺社を防御拠点として配置</li>
+                        <li>曲がりくねった道路設計</li>
+                        <li>T字路による侵入阻止</li>
+                        <li>町屋の防御的配置</li>
+                        <li>井戸・水路の戦略的整備</li>
+                    </ul>
+                </div>
+                
+                <div class="fortress-card">
+                    <h3>兵站システム</h3>
+                    <ul>
+                        <li>城内に巨大な兵糧蔵</li>
+                        <li>武器・弾薬の大量備蓄</li>
+                        <li>鍛冶・弓矢職人の常駐</li>
+                        <li>医療施設の整備</li>
+                        <li>情報伝達網の構築</li>
+                        <li>長期籠城を想定した体制</li>
+                    </ul>
+                </div>
+                
+                <div class="fortress-card">
+                    <h3>現代に残る遺構</h3>
+                    <ul>
+                        <li>総構えの土塁・空堀跡</li>
+                        <li>小峯御鐘ノ台大堀切</li>
+                        <li>早川口遺構</li>
+                        <li>山ノ神堀切</li>
+                        <li>城下の地割り</li>
+                        <li>防御的地名の継承</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 文化的意義セクション -->
+    <section class="cultural-section" id="culture">
+        <div class="cultural-content">
+            <h2 class="cultural-title">文化的意義と精神性</h2>
+            
+            <div class="cultural-grid">
+                <div class="cultural-card">
+                    <h3>北条氏の善政</h3>
+                    <p>後北条氏は「四公六民」という軽い税制を実施し、領民から支持されました。小田原評定による合議制統治、撫民政策、法度の整備など、戦国時代としては先進的な領国経営を展開。この善政により、領民は北条氏のために最後まで戦う覚悟を持っていました。</p>
+                </div>
+                
+                <div class="cultural-card">
+                    <h3>東海道の要衝文化</h3>
+                    <p>小田原は東海道の重要な宿場町として、多様な文化が交流する場でした。京都の公家文化、鎌倉の武家文化、江戸の町人文化が融合。小田原提灯、かまぼこ、梅干しなどの名産品が生まれ、独自の宿場町文化が花開きました。</p>
+                </div>
+                
+                <div class="cultural-card">
+                    <h3>城下町の伝統工芸</h3>
+                    <p>北条氏の保護により、多くの職人が小田原に集まりました。漆器、鋳物、刀鍛冶など高度な技術が発達。特に小田原漆器は、実用性と美しさを兼ね備えた工芸品として全国に知られました。これらの伝統は現代まで受け継がれています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section" id="strategy">
+        <div class="strategic-content">
+            <h2 class="strategic-title">戦略的価値と軍事的重要性</h2>
+            
+            <div class="strategic-cards">
+                <div class="strategic-card">
+                    <div class="strategic-number">1</div>
+                    <h3>東海道の扼制</h3>
+                    <ul>
+                        <li>京都・江戸間の要衝を押さえる</li>
+                        <li>箱根の関との連携防御</li>
+                        <li>相模湾からの上陸阻止</li>
+                        <li>東西交通の完全掌握</li>
+                        <li>情報・物流の統制拠点</li>
+                    </ul>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-number">2</div>
+                    <h3>関東支配の拠点</h3>
+                    <ul>
+                        <li>相模・武蔵・上野への進出基地</li>
+                        <li>関東平野西端の要害</li>
+                        <li>支城網の中心として機能</li>
+                        <li>海陸両面からの補給路確保</li>
+                        <li>関東管領に対抗する戦略拠点</li>
+                    </ul>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-number">3</div>
+                    <h3>経済・軍事の集約</h3>
+                    <ul>
+                        <li>関東最大の商業都市</li>
+                        <li>武器・物資の生産拠点</li>
+                        <li>年貢・運上金の集積地</li>
+                        <li>職人・商人の保護育成</li>
+                        <li>戦時動員システムの中核</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 歴史年表セクション -->
+    <section class="timeline-section" id="timeline">
+        <div class="timeline-content">
+            <h2 class="timeline-title">小田原城 歴史年表</h2>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>15世紀中頃</h3>
+                        <p>大森氏が小田原城を築城。相模国西部の拠点として機能。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1495年</h3>
+                        <p>北条早雲（伊勢宗瑞）が小田原城を奪取。後北条氏の本拠地となる。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1561年・1569年</h3>
+                        <p>上杉謙信、武田信玄の攻撃を撃退。難攻不落の城として名を馳せる。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1590年</h3>
+                        <p>豊臣秀吉の小田原攻めにより開城。北条氏の滅亡。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>江戸時代</h3>
+                        <p>譜代大名の居城として機能。大久保氏、稲葉氏などが城主を務める。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1870年</h3>
+                        <p>廃城令により解体。城址は荒廃する。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1960年</h3>
+                        <p>天守閣復興。観光のシンボルとして再生。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2016年</h3>
+                        <p>天守閣大改修完了。耐震補強と展示リニューアル。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 関連施設セクション -->
+    <section class="facilities-section" id="facilities">
+        <div class="facilities-content">
+            <h2 class="facilities-title">関連施設・観光情報</h2>
+            
+            <div class="facilities-categories">
+                <div class="facility-category">
+                    <h3>城内施設</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">小田原城天守閣</a>
+                        <a href="#" class="facility-link">常盤木門SAMURAI館</a>
+                        <a href="#" class="facility-link">歴史見聞館NINJA</a>
+                        <a href="#" class="facility-link">銅門</a>
+                        <a href="#" class="facility-link">馬出門</a>
+                        <a href="#" class="facility-link">本丸広場</a>
+                    </div>
+                </div>
+                
+                <div class="facility-category">
+                    <h3>総構え遺構</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">小峯御鐘ノ台大堀切</a>
+                        <a href="#" class="facility-link">早川口遺構</a>
+                        <a href="#" class="facility-link">山ノ神堀切</a>
+                        <a href="#" class="facility-link">総構え稲荷森</a>
+                        <a href="#" class="facility-link">城下張出</a>
+                        <a href="#" class="facility-link">清閑亭</a>
+                    </div>
+                </div>
+                
+                <div class="facility-category">
+                    <h3>関連スポット</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">報徳二宮神社</a>
+                        <a href="#" class="facility-link">小田原城址公園</a>
+                        <a href="#" class="facility-link">郷土文化館</a>
+                        <a href="#" class="facility-link">石垣山一夜城</a>
+                        <a href="#" class="facility-link">北条氏政・氏照墓所</a>
+                        <a href="#" class="facility-link">小田原文学館</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- アクセスセクション -->
+    <section class="access-section" id="access">
+        <div class="access-content">
+            <h2 class="access-title">アクセス・見学情報</h2>
+            
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.7561597650847!2d139.15089931524693!3d35.25486568029709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ab3e4c5a2a5d%3A0x4c5e5d9e4e6e1234!2z5bCP55Sw5Y6f5Z-O!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚃 電車でのアクセス</h3>
+                    <p>
+                        <strong>JR・小田急線</strong><br>
+                        ・小田原駅東口より徒歩10分<br>
+                        ・東京駅から東海道新幹線で35分<br>
+                        ・新宿駅から小田急ロマンスカーで73分<br>
+                        ・横浜駅から東海道線で47分
+                    </p>
+                </div>
+                
+                <div class="access-card">
+                    <h3>🕐 開館時間・料金</h3>
+                    <p>
+                        <strong>天守閣</strong><br>
+                        ・9:00～17:00（入館16:30まで）<br>
+                        ・大人510円、小中学生200円<br><br>
+                        <strong>歴史見聞館</strong><br>
+                        ・9:00～17:00<br>
+                        ・大人310円、小中学生100円
+                    </p>
+                </div>
+                
+                <div class="access-card">
+                    <h3>🚗 駐車場情報</h3>
+                    <p>
+                        <strong>周辺駐車場</strong><br>
+                        ・藤棚観光バス駐車場<br>
+                        ・三の丸駐車場<br>
+                        ・栄町駐車場<br><br>
+                        ※城址公園内への車両進入不可<br>
+                        ※周辺は有料駐車場を利用
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>難攻不落の要塞都市を体感</h2>
+            <p>戦国最強の防御システムと北条五代の歴史を、あなたも体験してみませんか？</p>
+            <div class="cta-buttons">
+                <a href="/関東地方/" class="cta-button primary">関東の城一覧へ</a>
+                <a href="/" class="cta-button secondary">トップページへ</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 日本の城ファンページ. All rights reserved.</p>
+        <p><a href="#">プライバシーポリシー</a> | <a href="#">利用規約</a></p>
+    </footer>
+    
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // スクロールでヘッダーの見た目を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const headerOffset = 80;
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // モバイルメニューを閉じる
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // IntersectionObserver for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.nav-card, .info-card, .cultural-card, .strategic-card, .fortress-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // 石垣建設アニメーション
+        function createStoneBlock() {
+            const container = document.getElementById('stoneConstruction');
+            const stone = document.createElement('div');
+            stone.className = 'stone-block';
+            stone.style.left = Math.random() * window.innerWidth + 'px';
+            stone.style.bottom = Math.random() * 200 + 'px';
+            stone.style.animationDelay = Math.random() * 3 + 's';
+            container.appendChild(stone);
+            
+            setTimeout(() => {
+                stone.remove();
+            }, 3000);
+        }
+        
+        // 定期的に石を生成
+        setInterval(createStoneBlock, 1500);
+        
+        // 梅の花エフェクト
+        function createPlumPetal() {
+            const container = document.getElementById('plumBlossoms');
+            const petal = document.createElement('div');
+            petal.className = 'plum-petal';
+            petal.style.left = Math.random() * window.innerWidth + 'px';
+            petal.style.animationDelay = Math.random() * 20 + 's';
+            petal.style.animationDuration = (15 + Math.random() * 10) + 's';
+            container.appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 25000);
+        }
+        
+        // 定期的に梅の花を生成
+        setInterval(createPlumPetal, 2000);
+        
+        // 初期梅の花
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createPlumPetal, i * 500);
+        }
+        
+        // 攻城戦の矢アニメーション
+        function createArrow() {
+            const container = document.getElementById('siegeAnimation');
+            const arrow = document.createElement('div');
+            arrow.className = 'arrow';
+            arrow.style.top = Math.random() * window.innerHeight + 'px';
+            arrow.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(arrow);
+            
+            setTimeout(() => {
+                arrow.remove();
+            }, 2000);
+        }
+        
+        // 定期的に矢を生成
+        setInterval(createArrow, 800);
+    </script>
+</body>
+</html>

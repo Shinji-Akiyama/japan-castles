@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忍城（おしじょう）- 埼玉県行田市 | 浮城・水に浮かぶ不落の要塞</title>
+    <meta name="description" content="石田三成の水攻めに耐えた奇跡の城・忍城。『のぼうの城』の舞台として有名な、水に浮かぶ不落の要塞の歴史と魅力を探る。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0a0e14;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 20, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(30, 144, 255, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 14, 20, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.8);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1e90ff, #4169e1, #87ceeb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(30,144,255,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #1e90ff;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(30,144,255,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* メインナビゲーション */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 14, 20, 0.98);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-menu a {
+            color: #87ceeb;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 10px 30px;
+            border-radius: 30px;
+            background: rgba(30,144,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(30,144,255,0.3);
+        }
+        
+        .nav-menu a:hover {
+            background: rgba(30,144,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30,144,255,0.3);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0e14 0%, #1a2e4a 50%, #0a0e14 100%);
+            overflow: hidden;
+        }
+        
+        /* 水のエフェクト */
+        .water-effects {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* 水面の波紋 */
+        .water-ripple {
+            position: absolute;
+            border: 2px solid rgba(30,144,255,0.3);
+            border-radius: 50%;
+            animation: ripple 6s linear infinite;
+        }
+        
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+        
+        .water-ripple:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .water-ripple:nth-child(2) { top: 60%; right: 20%; animation-delay: 2s; }
+        .water-ripple:nth-child(3) { bottom: 30%; left: 50%; animation-delay: 4s; }
+        .water-ripple:nth-child(4) { top: 40%; left: 70%; animation-delay: 1s; }
+        .water-ripple:nth-child(5) { bottom: 60%; right: 40%; animation-delay: 3s; }
+        .water-ripple:nth-child(6) { top: 80%; left: 10%; animation-delay: 5s; }
+        
+        /* 水の流れエフェクト */
+        .water-stream {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .stream-line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(30,144,255,0.6), transparent);
+            animation: streamFlow 8s linear infinite;
+        }
+        
+        @keyframes streamFlow {
+            0% { transform: translateY(-200px) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) translateX(50px); opacity: 0; }
+        }
+        
+        .stream-line:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .stream-line:nth-child(2) { left: 25%; animation-delay: 1s; }
+        .stream-line:nth-child(3) { left: 40%; animation-delay: 2s; }
+        .stream-line:nth-child(4) { left: 55%; animation-delay: 3s; }
+        .stream-line:nth-child(5) { left: 70%; animation-delay: 4s; }
+        .stream-line:nth-child(6) { left: 85%; animation-delay: 5s; }
+        
+        /* 水攻めエフェクト */
+        .siege-water {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .water-wall {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(30,144,255,0.2), transparent);
+            animation: waterRise 20s ease-in-out infinite;
+        }
+        
+        @keyframes waterRise {
+            0%, 100% { height: 20%; opacity: 0.2; }
+            50% { height: 40%; opacity: 0.4; }
+        }
+        
+        /* 成田甲斐の雲エフェクト */
+        .floating-castle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        
+        .castle-silhouette {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(30,144,255,0.3), rgba(30,144,255,0.1));
+            clip-path: polygon(10% 90%, 20% 70%, 30% 80%, 40% 60%, 50% 40%, 60% 60%, 70% 80%, 80% 70%, 90% 90%);
+            animation: castleFloat 12s ease-in-out infinite;
+            border: 1px solid rgba(30,144,255,0.4);
+        }
+        
+        @keyframes castleFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+        
+        /* 成田氏家紋エフェクト */
+        .narita-mon {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+        }
+        
+        .narita-crest {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at center, rgba(30,144,255,0.3), transparent);
+            border: 3px solid rgba(30,144,255,0.4);
+            border-radius: 50%;
+            animation: naritaFloat 15s ease-in-out infinite;
+        }
+        
+        @keyframes naritaFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            33% { transform: translateY(-30px) rotate(120deg); opacity: 0.6; }
+            66% { transform: translateY(-15px) rotate(240deg); opacity: 0.5; }
+        }
+        
+        .narita-crest:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+        .narita-crest:nth-child(2) { top: 25%; right: 25%; animation-delay: 5s; }
+        .narita-crest:nth-child(3) { bottom: 25%; left: 25%; animation-delay: 10s; }
+        .narita-crest:nth-child(4) { bottom: 15%; right: 15%; animation-delay: 7s; }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            position: relative;
+            padding: 40px;
+            max-width: 900px;
+            background: rgba(10,14,20,0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border: 2px solid rgba(30,144,255,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #1e90ff, #4169e1, #87ceeb, #1e90ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleShimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(30,144,255,0.5);
+        }
+        
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #87ceeb;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #87ceeb;
+        }
+        
+        .info-value {
+            color: white;
+        }
+        
+        /* マップセクション */
+        .map-section {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0e14, #1a2e4a);
+        }
+        
+        .map-container {
+            height: 100%;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(10,14,20,0.8);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            border: 1px solid rgba(30,144,255,0.3);
+        }
+        
+        .map-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #87ceeb;
+        }
+        
+        .map-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .section-dark {
+            background: linear-gradient(135deg, #0a0e14, #1a2e4a);
+        }
+        
+        .section-light {
+            background: linear-gradient(135deg, #1a2e4a, #0a0e14);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 60px;
+            color: white;
+            background: linear-gradient(45deg, #1e90ff, #4169e1, #87ceeb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0a0e14, #1a2e4a);
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30,144,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .nav-card:hover::before {
+            left: 100%;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px);
+            background: rgba(30,144,255,0.2);
+            box-shadow: 0 20px 40px rgba(30,144,255,0.3);
+        }
+        
+        .nav-card h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .nav-card p {
+            color: white;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a2e4a, #0a0e14);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-chapter {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .story-chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .chapter-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1e90ff, #4169e1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(30,144,255,0.3);
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #87ceeb;
+            margin: 0;
+        }
+        
+        .chapter-content {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-chapter {
+            background: linear-gradient(135deg, rgba(30,144,255,0.2), rgba(65,105,225,0.1));
+            border: 2px solid rgba(30,144,255,0.5);
+            box-shadow: 0 0 30px rgba(30,144,255,0.3);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0e14, #1a2e4a);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .info-card-detail {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card-detail:hover {
+            transform: translateY(-5px);
+            background: rgba(30,144,255,0.2);
+            box-shadow: 0 15px 30px rgba(30,144,255,0.3);
+        }
+        
+        .info-card-detail h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .info-card-detail p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 浮城セクション */
+        .floating-fortress-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #1a2e4a, #0a0e14);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-fortress-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(30,144,255,0.1), transparent 50%);
+            animation: floatingPulse 10s ease-in-out infinite;
+        }
+        
+        @keyframes floatingPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        
+        .floating-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .floating-feature {
+            background: rgba(30,144,255,0.1);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .floating-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(30,144,255,0.1), transparent 70%);
+            animation: featureFlow 8s ease-in-out infinite;
+            opacity: 0;
+        }
+        
+        .floating-feature:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes featureFlow {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+        }
+        
+        .floating-feature:hover {
+            transform: translateY(-10px);
+            background: rgba(30,144,255,0.2);
+            box-shadow: 0 25px 50px rgba(30,144,255,0.3);
+        }
+        
+        .floating-feature h3 {
+            color: #87ceeb;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .floating-feature p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 文化・精神セクション */
+        .culture-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0e14, #1a2e4a);
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .culture-card {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30,144,255,0.2);
+            box-shadow: 0 15px 30px rgba(30,144,255,0.3);
+        }
+        
+        .culture-card h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .culture-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a2e4a, #0a0e14);
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-card {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(30,144,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .strategic-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30,144,255,0.2);
+            box-shadow: 0 15px 30px rgba(30,144,255,0.3);
+        }
+        
+        .strategic-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e90ff, #4169e1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(30,144,255,0.3);
+        }
+        
+        .strategic-card h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .strategic-card ul {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .strategic-card li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .strategic-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #87ceeb;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0e14, #1a2e4a);
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facility-category {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .facility-category h3 {
+            color: #87ceeb;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .facility-link {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background: rgba(30,144,255,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-link::after {
+            content: '→';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-link:hover {
+            background: rgba(30,144,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .facility-link:hover::after {
+            transform: translateY(-50%) translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a2e4a, #0a0e14);
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+        
+        .access-card {
+            background: rgba(30,144,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(30,144,255,0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30,144,255,0.2);
+            box-shadow: 0 15px 30px rgba(30,144,255,0.3);
+        }
+        
+        .access-card h3 {
+            color: #87ceeb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .access-card p {
+            color: white;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .access-card .highlight {
+            color: #87ceeb;
+            font-weight: bold;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #1a2e4a, #0f4a6a);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(30,144,255,0.1), transparent 50%);
+            animation: ctaPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .cta-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #1e90ff, #4169e1, #87ceeb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-description {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, #1e90ff, #4169e1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(30,144,255,0.4);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(30,144,255,0.6);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #1e90ff;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(30,144,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30,144,255,0.3);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(30,144,255,0.2);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #87ceeb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4169e1;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer-link:hover {
+            color: #4169e1;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategic-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* アニメーション */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">忍城</div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="#story">物語</a>
+        <a href="#info">基本情報</a>
+        <a href="#floating-fortress">浮城の秘密</a>
+        <a href="#culture">文化・精神</a>
+        <a href="#strategic">戦略的価値</a>
+        <a href="#facilities">関連施設</a>
+        <a href="#access">アクセス</a>
+        <a href="../">関東の城一覧</a>
+    </nav>
+
+    <section class="hero">
+        <div class="water-effects">
+            <div class="water-ripple"></div>
+            <div class="water-ripple"></div>
+            <div class="water-ripple"></div>
+            <div class="water-ripple"></div>
+            <div class="water-ripple"></div>
+            <div class="water-ripple"></div>
+        </div>
+        
+        <div class="water-stream">
+            <div class="stream-line"></div>
+            <div class="stream-line"></div>
+            <div class="stream-line"></div>
+            <div class="stream-line"></div>
+            <div class="stream-line"></div>
+            <div class="stream-line"></div>
+        </div>
+        
+        <div class="siege-water">
+            <div class="water-wall"></div>
+        </div>
+        
+        <div class="floating-castle">
+            <div class="castle-silhouette"></div>
+        </div>
+        
+        <div class="narita-mon">
+            <div class="narita-crest"></div>
+            <div class="narita-crest"></div>
+            <div class="narita-crest"></div>
+            <div class="narita-crest"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>忍城</h1>
+            <p class="hero-subtitle">浮城・水に浮かぶ不落の要塞</p>
+            <p class="hero-description">
+                石田三成の水攻めに最後まで耐え抜いた奇跡の城・忍城。<br>
+                『のぼうの城』の舞台として知られ、水に浮かぶ城として<br>
+                戦国史に輝く不落の名城です。
+            </p>
+            <div class="info-card">
+                <div class="info-row">
+                    <span class="info-label">所在地:</span>
+                    <span class="info-value">埼玉県行田市本丸</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">城郭構造:</span>
+                    <span class="info-value">平城、水城</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">築城年代:</span>
+                    <span class="info-value">文明10年（1478年）</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">主な城主:</span>
+                    <span class="info-value">成田氏、松平氏</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3226.7635784832583!2d139.46991051525823!3d36.13047378024895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60189f0b0e2b0000%3A0x1234567890abcdef!2z5b+N5Z+O6Leh!5e1!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay">
+                <div class="map-title">忍城跡の位置</div>
+                <div class="map-description">
+                    現在の埼玉県行田市本丸にある忍城跡。三重櫓が復元され、
+                    行田市郷土博物館として利用されています。周辺は古代蓮の里や石田堤など、
+                    水攻めの歴史を物語る史跡が残されています。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="navigation-section">
+        <div class="container">
+            <div class="nav-grid">
+                <div class="nav-card fade-in" data-target="#story">
+                    <h3>物語</h3>
+                    <p>石田三成の水攻めに耐えた奇跡の城、忍城の壮大な歴史物語</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#info">
+                    <h3>基本情報</h3>
+                    <p>立地、構造、歴史など、忍城の基本的な情報</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#floating-fortress">
+                    <h3>浮城の秘密</h3>
+                    <p>水攻めに耐えた忍城の独特な構造と防御システム</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#culture">
+                    <h3>文化・精神</h3>
+                    <p>『のぼうの城』として知られる忍城の文化的価値</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#strategic">
+                    <h3>戦略的価値</h3>
+                    <p>関東平野北部における忍城の重要な戦略的役割</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#facilities">
+                    <h3>関連施設</h3>
+                    <p>周辺の歴史施設や古代蓮の里などの観光スポット</p>
+                </div>
+                <div class="nav-card fade-in" data-target="#access">
+                    <h3>アクセス</h3>
+                    <p>忍城跡への交通案内と周辺観光情報</p>
+                </div>
+                <div class="nav-card fade-in" data-target="../">
+                    <h3>関東の城一覧</h3>
+                    <p>関東地方の他の城郭を探索する</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="story-section">
+        <div class="container">
+            <h2 class="section-title fade-in">忍城物語</h2>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">1</div>
+                    <h3 class="chapter-title">成田氏の築城</h3>
+                </div>
+                <div class="chapter-content">
+                    文明10年（1478年）、成田顕泰によって築かれた忍城は、
+                    利根川と荒川に挟まれた低湿地帯に位置する平城でした。
+                    この立地は一見不利に見えますが、周囲を沼地や湿地に囲まれることで、
+                    天然の要害として機能しました。成田氏は代々この城を居城とし、
+                    武蔵国北部の重要な拠点として発展させました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">2</div>
+                    <h3 class="chapter-title">後北条氏との関係</h3>
+                </div>
+                <div class="chapter-content">
+                    戦国時代に入ると、忍城は後北条氏の影響下に入りました。
+                    しかし成田氏は独立性を保ち、後北条氏との微妙な関係を維持していました。
+                    成田長親（のぼう）の時代には、その人柄と領民への思いやりで、
+                    地域住民から深く愛される領主となりました。
+                    この結束が後の水攻めに対する抵抗力の源となりました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">3</div>
+                    <h3 class="chapter-title">小田原征伐の開始</h3>
+                </div>
+                <div class="chapter-content">
+                    天正18年（1590年）、豊臣秀吉による小田原征伐が始まると、
+                    忍城も戦禍に巻き込まれました。小田原城が包囲される中、
+                    忍城は後北条氏の支城として最後まで抵抗する決意を固めました。
+                    成田長親は領民と共に籠城の準備を進め、
+                    石田三成率いる豊臣軍の攻撃に備えました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">4</div>
+                    <h3 class="chapter-title">石田三成の水攻め</h3>
+                </div>
+                <div class="chapter-content highlight-chapter">
+                    石田三成は忍城の堅固な守りを見て、正攻法では攻略困難と判断し、
+                    水攻めという戦略を採用しました。利根川の流れを変え、
+                    忍城周辺を水没させる大規模な土木工事が行われました。
+                    石田堤と呼ばれる大堤防が築かれ、忍城は文字通り水に浮かぶ城となりました。
+                    しかし、城は水に浮かんでも沈むことなく、その名の通り「浮城」として耐え続けました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">5</div>
+                    <h3 class="chapter-title">不落の要塞</h3>
+                </div>
+                <div class="chapter-content">
+                    水攻めが始まっても、忍城は決して落城しませんでした。
+                    城の構造が水害に対応していたことに加え、
+                    成田長親の人望により結束した領民が最後まで戦い続けました。
+                    舟を使った戦術や、水上での戦闘など、独特の攻防戦が繰り広げられました。
+                    この間、小田原城は既に開城していたにも関わらず、
+                    忍城だけは抵抗を続けていました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">6</div>
+                    <h3 class="chapter-title">開城と戦後</h3>
+                </div>
+                <div class="chapter-content">
+                    小田原城の開城と北条氏政の死を知った成田長親は、
+                    ついに忍城の開城を決断しました。石田三成は忍城の勇敢な抵抗を讃え、
+                    成田長親を丁重に扱いました。戦後、忍城は松平氏の居城となり、
+                    江戸時代を通じて関東北部の重要な拠点として機能し続けました。
+                </div>
+            </div>
+            
+            <div class="story-chapter fade-in">
+                <div class="chapter-header">
+                    <div class="chapter-number">7</div>
+                    <h3 class="chapter-title">現代への継承</h3>
+                </div>
+                <div class="chapter-content">
+                    明治維新後、忍城は廃城となりましたが、
+                    その勇敢な歴史は地域の人々に語り継がれました。
+                    現在は三重櫓が復元され、行田市郷土博物館として活用されています。
+                    小説『のぼうの城』や映画化により、その感動的な物語は全国に知られるようになり、
+                    多くの人々が忍城の不屈の精神に感動しています。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="info-section">
+        <div class="container">
+            <h2 class="section-title fade-in">基本情報</h2>
+            <div class="info-grid">
+                <div class="info-card-detail fade-in">
+                    <h3>立地・地形</h3>
+                    <p>
+                        忍城は埼玉県行田市に位置し、
+                        利根川と荒川に挟まれた低湿地帯に築かれた平城です。
+                        標高は約20メートルと低く、周囲を沼地や湿地に囲まれた
+                        独特の立地条件を持つ水城でもありました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>城郭構造</h3>
+                    <p>
+                        平城として分類される忍城は、
+                        本丸、二の丸、三の丸の三重構造を持ちます。
+                        水堀に囲まれた構造で、水攻めに対応できる
+                        特殊な設計が施されていました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>築城年代</h3>
+                    <p>
+                        文明10年（1478年）に成田顕泰によって築城されました。
+                        戦国時代を通じて成田氏の居城として発展し、
+                        江戸時代には松平氏の居城となりました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>城主の変遷</h3>
+                    <p>
+                        成田氏が長期間城主を務め、特に成田長親は
+                        『のぼうの城』の主人公として有名です。
+                        江戸時代には松平氏、阿部氏などが城主となり、
+                        明治維新まで続きました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>規模・範囲</h3>
+                    <p>
+                        城域は東西約500メートル、南北約600メートルに及び、
+                        関東平野の平城としては中規模の城郭でした。
+                        水堀に囲まれた構造により、
+                        実際の防御範囲はさらに広範囲に及んでいました。
+                    </p>
+                </div>
+                <div class="info-card-detail fade-in">
+                    <h3>現在の状況</h3>
+                    <p>
+                        現在は忍城址公園として整備され、
+                        三重櫓が復元されています。行田市郷土博物館として活用され、
+                        忍城の歴史や石田堤の遺構などが展示されています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="floating-fortress" class="floating-fortress-section">
+        <div class="container">
+            <h2 class="section-title fade-in">浮城の秘密</h2>
+            <div class="floating-features">
+                <div class="floating-feature fade-in">
+                    <h3>水攻めへの対応</h3>
+                    <p>
+                        忍城の最大の特徴は、水攻めに対する耐性でした。
+                        低湿地帯に築かれた立地を逆手に取り、水に囲まれても機能を維持できる
+                        独特の構造を持っていました。石垣の代わりに土塁を用い、
+                        水圧に耐えられる柔軟な設計が採用されていました。
+                        また、城内には十分な備蓄と水源が確保されており、
+                        長期間の籠城にも対応できる体制が整えられていました。
+                    </p>
+                </div>
+                <div class="floating-feature fade-in">
+                    <h3>水上戦術</h3>
+                    <p>
+                        石田三成の水攻めが始まると、忍城は舟を活用した水上戦術を展開しました。
+                        城兵は小舟を使って機動的に移動し、敵の包囲網を突破する戦術を取りました。
+                        また、水上からの奇襲攻撃や、夜間の攪乱作戦なども行われました。
+                        この独特な戦術により、石田軍を大いに苦しめ、
+                        水攻めの効果を大幅に減少させることに成功しました。
+                    </p>
+                </div>
+                <div class="floating-feature fade-in">
+                    <h3>石田堤の攻防</h3>
+                    <p>
+                        石田三成が築いた石田堤は、全長約14キロメートルに及ぶ大工事でした。
+                        この堤防により忍城周辺は一面の湖となりましたが、
+                        忍城は水に浮かぶように聳え立ちました。城側は堤防の弱点を見つけ、
+                        夜襲により部分的な破壊を試みるなど、積極的な反撃も行いました。
+                        また、水位の変化を利用した戦術や、
+                        堤防の構造を逆手に取った防御策も編み出されました。
+                    </p>
+                </div>
+                <div class="floating-feature fade-in">
+                    <h3>領民との結束</h3>
+                    <p>
+                        忍城の抵抗を支えたのは、成田長親と領民との強い結束でした。
+                        長親の人柄と日頃の善政により、領民は自発的に城の防御に参加しました。
+                        農民も武器を取り、女性や子供も城内での作業に従事しました。
+                        この一致団結した姿勢が、長期間の籠城を可能にし、
+                        石田軍の士気を削ぐ重要な要因となりました。
+                    </p>
+                </div>
+                <div class="floating-feature fade-in">
+                    <h3>気象との戦い</h3>
+                    <p>
+                        水攻めの期間中、忍城は自然の猛威とも戦わねばなりませんでした。
+                        梅雨時期の大雨により水位が急上昇し、城の機能が脅かされることもありました。
+                        しかし、城内の排水システムや、水位調整のための工夫により、
+                        これらの困難も乗り越えました。また、湿度の高い環境での食料保存や、
+                        疫病の予防など、様々な課題に対処する必要がありました。
+                    </p>
+                </div>
+                <div class="floating-feature fade-in">
+                    <h3>現代に残る遺構</h3>
+                    <p>
+                        現在でも石田堤の一部や、忍城の土塁跡などが残されており、
+                        当時の水攻めの規模を物語っています。復元された三重櫓は、
+                        水に浮かぶ城の姿を現代に再現しており、その美しい姿は多くの人々を魅了しています。
+                        また、周辺の古代蓮の里では、水攻めの際に形成された池で
+                        古代蓮が咲き誇り、歴史とロマンを感じさせる景観を作り出しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" class="culture-section">
+        <div class="container">
+            <h2 class="section-title fade-in">文化・精神的側面</h2>
+            <div class="culture-grid">
+                <div class="culture-card fade-in">
+                    <h3>『のぼうの城』文学</h3>
+                    <p>
+                        和田竜の小説『のぼうの城』により、忍城の物語は現代に蘇りました。
+                        成田長親の人柄と領民への愛情、そして不屈の精神が
+                        感動的に描かれ、多くの読者の心を打ちました。
+                        映画化もされ、忍城の名は全国に知られるようになりました。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>武士道精神</h3>
+                    <p>
+                        忍城の抵抗は、義を重んじる武士道精神の体現でした。
+                        最後まで諦めず、領民を守り抜こうとする姿勢は、
+                        日本人の精神的な支柱として語り継がれています。
+                        現代でも困難に立ち向かう象徴として愛され続けています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>地域文化の中心</h3>
+                    <p>
+                        忍城は長年にわたり地域文化の中心でした。
+                        城下町では様々な文化活動が行われ、
+                        職人や商人による独特の文化が花開きました。
+                        現在も行田市の文化活動の拠点として機能しています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>水との共生思想</h3>
+                    <p>
+                        忍城の歴史は、水との共生を示す貴重な例です。
+                        水害を恐れるのではなく、それを防御に活用する発想は、
+                        日本人の自然観の特徴を表しています。
+                        現代の治水技術にも影響を与えている考え方です。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>平和への願い</h3>
+                    <p>
+                        戦争の悲惨さを物語る忍城の歴史は、
+                        平和の尊さを教える教材としても活用されています。
+                        戦いの中でも人間性を失わなかった成田長親の姿は、
+                        現代人にとって重要な教訓となっています。
+                    </p>
+                </div>
+                <div class="culture-card fade-in">
+                    <h3>現代への継承</h3>
+                    <p>
+                        忍城の精神は現代の行田市民に受け継がれています。
+                        市民参加型の文化イベントや、歴史保存活動など、
+                        地域一丸となった取り組みが続けられており、
+                        忍城の精神的遺産が次世代に伝えられています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategic" class="strategic-section">
+        <div class="container">
+            <h2 class="section-title fade-in">戦略的価値</h2>
+            <div class="strategic-cards">
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">1</div>
+                    <h3>関東北部の要衝</h3>
+                    <ul>
+                        <li>利根川流域の重要な交通路の監視</li>
+                        <li>武蔵国と上野国を結ぶ街道の管理</li>
+                        <li>河川交通の拠点としての機能</li>
+                        <li>関東平野北部の政治的中心地</li>
+                        <li>周辺地域の商業活動の統制</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">2</div>
+                    <h3>水路防御システム</h3>
+                    <ul>
+                        <li>自然の水路を活用した防御網</li>
+                        <li>低湿地帯を逆手に取った要塞化</li>
+                        <li>舟を活用した機動的な防御</li>
+                        <li>水攻めに対する独特の耐性</li>
+                        <li>天然の堀としての河川利用</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">3</div>
+                    <h3>政治的象徴</h3>
+                    <ul>
+                        <li>後北条氏への忠義の象徴</li>
+                        <li>関東武士の矜持を示す城</li>
+                        <li>豊臣政権への最後の抵抗拠点</li>
+                        <li>武士道精神の体現</li>
+                        <li>地域結束力の象徴</li>
+                    </ul>
+                </div>
+                <div class="strategic-card fade-in">
+                    <div class="strategic-number">4</div>
+                    <h3>経済的重要性</h3>
+                    <ul>
+                        <li>水田地帯の農業生産管理</li>
+                        <li>河川を利用した物資輸送</li>
+                        <li>周辺市場の統制と税収</li>
+                        <li>漁業権の管理と保護</li>
+                        <li>水利権の調整と分配</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="facilities-section">
+        <div class="container">
+            <h2 class="section-title fade-in">関連施設・観光情報</h2>
+            <div class="facilities-grid">
+                <div class="facility-category fade-in">
+                    <h3>歴史・文化施設</h3>
+                    <a href="#" class="facility-link">行田市郷土博物館（忍城址）</a>
+                    <a href="#" class="facility-link">石田堤史跡公園</a>
+                    <a href="#" class="facility-link">さきたま史跡の博物館</a>
+                    <a href="#" class="facility-link">忍城おもてなし甲冑隊</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>自然・公園</h3>
+                    <a href="#" class="facility-link">古代蓮の里</a>
+                    <a href="#" class="facility-link">忍城址公園</a>
+                    <a href="#" class="facility-link">水城公園</a>
+                    <a href="#" class="facility-link">利根大堰</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>古墳・史跡</h3>
+                    <a href="#" class="facility-link">さきたま古墳群</a>
+                    <a href="#" class="facility-link">稲荷山古墳</a>
+                    <a href="#" class="facility-link">丸墓山古墳</a>
+                    <a href="#" class="facility-link">石田堤跡</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>イベント・体験</h3>
+                    <a href="#" class="facility-link">のぼうの城祭り</a>
+                    <a href="#" class="facility-link">古代蓮まつり</a>
+                    <a href="#" class="facility-link">忍城時代まつり</a>
+                    <a href="#" class="facility-link">甲冑着付け体験</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>グルメ・お土産</h3>
+                    <a href="#" class="facility-link">ゼリーフライ</a>
+                    <a href="#" class="facility-link">フライ（行田名物）</a>
+                    <a href="#" class="facility-link">忍城関連グッズ</a>
+                    <a href="#" class="facility-link">古代蓮茶</a>
+                </div>
+                <div class="facility-category fade-in">
+                    <h3>宿泊・交通</h3>
+                    <a href="#" class="facility-link">行田市内ホテル</a>
+                    <a href="#" class="facility-link">レンタサイクル</a>
+                    <a href="#" class="facility-link">観光案内所</a>
+                    <a href="#" class="facility-link">駐車場案内</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="access-section">
+        <div class="container">
+            <h2 class="section-title fade-in">アクセス情報</h2>
+            <div class="access-grid">
+                <div class="access-card fade-in">
+                    <h3>電車でのアクセス</h3>
+                    <p><span class="highlight">最寄り駅：</span>JR高崎線 行田駅</p>
+                    <p><span class="highlight">所要時間：</span>行田駅からバス約15分</p>
+                    <p><span class="highlight">東京駅から：</span>高崎線で約1時間</p>
+                    <p><span class="highlight">上野駅から：</span>高崎線で約50分</p>
+                    <p><span class="highlight">運賃：</span>東京駅から890円</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>車でのアクセス</h3>
+                    <p><span class="highlight">最寄りIC：</span>東北自動車道 羽生IC</p>
+                    <p><span class="highlight">所要時間：</span>羽生ICから約20分</p>
+                    <p><span class="highlight">駐車場：</span>忍城址公園駐車場（無料）</p>
+                    <p><span class="highlight">収容台数：</span>約50台</p>
+                    <p><span class="highlight">大型バス：</span>要事前連絡</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>バスでのアクセス</h3>
+                    <p><span class="highlight">行田駅から：</span>市内循環バス「忍城址・郷土博物館前」下車</p>
+                    <p><span class="highlight">熊谷駅から：</span>朝日バス約30分</p>
+                    <p><span class="highlight">所要時間：</span>行田駅から約15分</p>
+                    <p><span class="highlight">運賃：</span>150円（市内循環バス）</p>
+                    <p><span class="highlight">本数：</span>1時間に2～3本</p>
+                </div>
+                <div class="access-card fade-in">
+                    <h3>徒歩・自転車</h3>
+                    <p><span class="highlight">行田市駅から：</span>徒歩約15分</p>
+                    <p><span class="highlight">自転車：</span>レンタサイクル有り（市内各所）</p>
+                    <p><span class="highlight">周辺散策：</span>古代蓮の里まで約10分</p>
+                    <p><span class="highlight">所要時間：</span>さきたま古墳群まで約20分</p>
+                    <p><span class="highlight">注意：</span>夏季は熱中症対策を推奨</p>
+                </div>
+            </div>
+            
+            <div class="map-container" style="margin-top: 50px; height: 400px; border-radius: 20px; overflow: hidden;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1613.3817892416294!2d139.46991051525823!3d36.13047378024895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60189f0b0e2b0000%3A0x1234567890abcdef!2z5b+N5Z+O6Leh!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title fade-in">浮城の奇跡を体感しよう</h2>
+            <p class="cta-description fade-in">
+                石田三成の水攻めに耐えた奇跡の城、忍城。<br>
+                『のぼうの城』の舞台で、不屈の精神と感動の歴史を体験してください。
+            </p>
+            <div class="cta-buttons fade-in">
+                <a href="#access" class="cta-button cta-primary">アクセス情報</a>
+                <a href="../" class="cta-button cta-secondary">関東の城一覧</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#story" class="footer-link">物語</a>
+                <a href="#info" class="footer-link">基本情報</a>
+                <a href="#floating-fortress" class="footer-link">浮城の秘密</a>
+                <a href="#culture" class="footer-link">文化・精神</a>
+                <a href="#strategic" class="footer-link">戦略的価値</a>
+                <a href="#facilities" class="footer-link">関連施設</a>
+                <a href="#access" class="footer-link">アクセス</a>
+                <a href="../" class="footer-link">関東の城一覧</a>
+            </div>
+            <p>&copy; 2024 忍城 - 浮城・水に浮かぶ不落の要塞</p>
+            <p style="opacity: 0.8; margin-top: 10px;">水に浮かんでも沈まぬ城</p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // スクロール時のヘッダー効果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ナビゲーションカードクリック
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                if (target === '../') {
+                    window.location.href = '../';
+                } else if (target) {
+                    const targetElement = document.querySelector(target);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // 全てのアニメーション要素を監視
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .story-chapter').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 水の波紋エフェクト強化
+        document.querySelectorAll('.water-ripple').forEach((ripple, index) => {
+            ripple.style.animationDelay = index * 1 + 's';
+            ripple.style.animationDuration = (6 + Math.random() * 3) + 's';
+        });
+        
+        // 水の流れエフェクト
+        document.querySelectorAll('.stream-line').forEach((stream, index) => {
+            stream.style.animationDelay = index * 1 + 's';
+            stream.style.animationDuration = (8 + Math.random() * 4) + 's';
+        });
+        
+        // 成田家紋の浮遊アニメーション
+        document.querySelectorAll('.narita-crest').forEach((crest, index) => {
+            crest.style.animationDelay = index * 2.5 + 's';
+            crest.style.animationDuration = (15 + Math.random() * 5) + 's';
+        });
+        
+        // 浮城エフェクトの動的変化
+        const castleSilhouette = document.querySelector('.castle-silhouette');
+        if (castleSilhouette) {
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    castleSilhouette.style.filter = `brightness(${0.8 + Math.random() * 0.4})`;
+                    setTimeout(() => {
+                        castleSilhouette.style.filter = 'brightness(1)';
+                    }, 2000);
+                }
+            }, 8000);
+        }
+        
+        // 水壁の動的効果
+        const waterWall = document.querySelector('.water-wall');
+        if (waterWall) {
+            setInterval(() => {
+                const randomHeight = 20 + Math.random() * 20;
+                waterWall.style.height = randomHeight + '%';
+            }, 10000);
+        }
+        
+        // パララックス効果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const waterEffects = document.querySelectorAll('.water-ripple, .stream-line');
+            
+            waterEffects.forEach((effect, index) => {
+                const speed = 0.2 + (index * 0.05);
+                effect.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // 水音効果（視覚的）
+        setInterval(() => {
+            const ripples = document.querySelectorAll('.water-ripple');
+            ripples.forEach(ripple => {
+                if (Math.random() < 0.2) {
+                    ripple.style.borderColor = `rgba(30,144,255,${0.2 + Math.random() * 0.3})`;
+                    setTimeout(() => {
+                        ripple.style.borderColor = 'rgba(30,144,255,0.3)';
+                    }, 1000);
+                }
+            });
+        }, 3000);
+    </script>
+</body>
+</html>

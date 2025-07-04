@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八王子城（はちおうじじょう）- 東京都八王子市 | 悲劇の山城要塞</title>
+    <meta name="description" content="北条氏照が築いた関東屈指の山城・八王子城。天正18年の落城の悲劇と共に、その高度な築城技術と山岳要塞の威容を今に伝える国史跡。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0a0808;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* ヘッダー */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 8, 8, 0.9);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            color: white;
+            padding: 15px 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(139, 0, 0, 0.3);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.7);
+        }
+        
+        .header.scrolled {
+            background: rgba(10, 8, 8, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.9);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #8b0000, #dc143c, #ff6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(139,0,0,0.5);
+        }
+        
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #dc143c;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+            box-shadow: 0 0 10px rgba(220,20,60,0.5);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        /* ナビゲーションメニュー */
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: rgba(10, 8, 8, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.7);
+            border-right: 2px solid rgba(139,0,0,0.3);
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+        
+        .nav-menu ul li {
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-menu ul li a {
+            color: #dc143c;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-menu ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(220,20,60,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-menu ul li a:hover::before {
+            left: 100%;
+        }
+        
+        .nav-menu ul li a:hover {
+            background: rgba(139,0,0,0.2);
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0808 0%, #1a0e0e 25%, #2a1414 50%, #1a0e0e 75%, #0a0808 100%);
+        }
+        
+        /* 山霧エフェクト */
+        .mountain-mist {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .mist-layer {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: mistFlow 30s linear infinite;
+        }
+        
+        .mist-layer:nth-child(1) {
+            bottom: 0;
+            height: 30%;
+            animation-duration: 25s;
+            opacity: 0.3;
+        }
+        
+        .mist-layer:nth-child(2) {
+            bottom: 20%;
+            height: 40%;
+            animation-duration: 35s;
+            animation-delay: -5s;
+            opacity: 0.2;
+        }
+        
+        .mist-layer:nth-child(3) {
+            bottom: 40%;
+            height: 50%;
+            animation-duration: 40s;
+            animation-delay: -10s;
+            opacity: 0.15;
+        }
+        
+        @keyframes mistFlow {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* 霊魂エフェクト */
+        .spirit-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .spirit {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.8), transparent);
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: spiritFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes spiritFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.3;
+            }
+            80% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* 山道アニメーション */
+        .mountain-path {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .path-segment {
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: rgba(139,69,19,0.5);
+            transform-origin: left center;
+        }
+        
+        .path-segment:nth-child(1) { bottom: 20%; left: 0; transform: rotate(-15deg); }
+        .path-segment:nth-child(2) { bottom: 25%; left: 90px; transform: rotate(10deg); }
+        .path-segment:nth-child(3) { bottom: 30%; left: 180px; transform: rotate(-20deg); }
+        .path-segment:nth-child(4) { bottom: 38%; left: 270px; transform: rotate(15deg); }
+        .path-segment:nth-child(5) { bottom: 45%; left: 360px; transform: rotate(-10deg); }
+        
+        /* 落ち葉エフェクト */
+        .falling-leaves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.7;
+            animation: leafFall 15s linear infinite;
+        }
+        
+        @keyframes leafFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 炎エフェクト */
+        .fire-effect {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            opacity: 0.2;
+        }
+        
+        .flame {
+            position: absolute;
+            width: 60px;
+            height: 100px;
+            background: radial-gradient(ellipse at bottom, #ff4500, #ff6347, transparent);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 2s ease-in-out infinite;
+            filter: blur(2px);
+        }
+        
+        @keyframes flicker {
+            0%, 100% { transform: scaleY(1) translateY(0); opacity: 0.8; }
+            50% { transform: scaleY(1.2) translateY(-10px); opacity: 1; }
+        }
+        
+        .flame:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .flame:nth-child(2) { left: 30%; animation-delay: 0.5s; }
+        .flame:nth-child(3) { left: 50%; animation-delay: 1s; }
+        .flame:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+        .flame:nth-child(5) { left: 90%; animation-delay: 2s; }
+        
+        /* Google Maps */
+        .map-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            height: 70%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            z-index: 1;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 8, 8, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            z-index: 2;
+            border: 2px solid rgba(139,0,0,0.4);
+            border-radius: 20px;
+        }
+        
+        .map-overlay h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #8b0000, #dc143c, #ff6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 5px 15px rgba(139,0,0,0.5));
+            animation: tragicGlow 5s ease-in-out infinite;
+        }
+        
+        @keyframes tragicGlow {
+            0%, 100% { filter: drop-shadow(0 5px 15px rgba(139,0,0,0.5)); }
+            50% { filter: drop-shadow(0 5px 30px rgba(220,20,60,0.8)); }
+        }
+        
+        .map-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .castle-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(139,0,0,0.4);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 5px 20px rgba(139,0,0,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(220,20,60,0.6); }
+        }
+        
+        /* ナビゲーションセクション */
+        .navigation-section {
+            background: linear-gradient(135deg, #0a0808 0%, #1a0e0e 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 石垣パターン */
+        .stone-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(90deg, transparent 48%, #8b0000 48%, #8b0000 52%, transparent 52%),
+                linear-gradient(0deg, transparent 48%, #8b0000 48%, #8b0000 52%, transparent 52%);
+            background-size: 50px 50px;
+        }
+        
+        .nav-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(139,0,0,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(220,20,60,0.2) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .nav-card:hover::before {
+            top: -150%;
+            left: -150%;
+            opacity: 1;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(139,0,0,0.4);
+            border-color: rgba(220,20,60,0.6);
+        }
+        
+        .nav-card h3 {
+            color: #dc143c;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .nav-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* 物語セクション */
+        .story-section {
+            background: linear-gradient(180deg, #0a0808 0%, #1a0e0e 50%, #0a0808 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 戦国武将シルエット */
+        .samurai-shadows {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.1;
+        }
+        
+        .samurai-silhouette {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            background: #000;
+            clip-path: polygon(
+                50% 0%, 60% 20%, 65% 35%, 70% 60%, 
+                75% 80%, 70% 100%, 30% 100%, 25% 80%,
+                30% 60%, 35% 35%, 40% 20%
+            );
+            animation: samuraiMarch 40s linear infinite;
+        }
+        
+        @keyframes samuraiMarch {
+            0% { left: -100px; }
+            100% { left: calc(100% + 100px); }
+        }
+        
+        .samurai-silhouette:nth-child(1) { bottom: 5%; animation-delay: 0s; }
+        .samurai-silhouette:nth-child(2) { bottom: 10%; animation-delay: 8s; }
+        .samurai-silhouette:nth-child(3) { bottom: 8%; animation-delay: 16s; }
+        .samurai-silhouette:nth-child(4) { bottom: 12%; animation-delay: 24s; }
+        .samurai-silhouette:nth-child(5) { bottom: 6%; animation-delay: 32s; }
+        
+        .story-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .story-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8b0000, #dc143c, #ff6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 5px 15px rgba(139,0,0,0.5));
+        }
+        
+        .chapter {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(139,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInSlide 0.8s ease forwards;
+        }
+        
+        .chapter:nth-child(2) { animation-delay: 0.1s; }
+        .chapter:nth-child(3) { animation-delay: 0.2s; }
+        .chapter:nth-child(4) { animation-delay: 0.3s; }
+        .chapter:nth-child(5) { animation-delay: 0.4s; }
+        .chapter:nth-child(6) { animation-delay: 0.5s; }
+        .chapter:nth-child(7) { animation-delay: 0.6s; }
+        .chapter:nth-child(8) { animation-delay: 0.7s; }
+        
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chapter-number {
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(139,0,0,0.5);
+        }
+        
+        .chapter h3 {
+            color: #dc143c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-left: 40px;
+        }
+        
+        .chapter p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .chapter.highlight {
+            background: rgba(139,0,0,0.1);
+            border: 2px solid rgba(220,20,60,0.4);
+            transform: scale(1.02);
+        }
+        
+        /* 基本情報セクション */
+        .info-section {
+            background: radial-gradient(ellipse at center, #1a0e0e 0%, #0a0808 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) brightness(1.1);
+            -webkit-backdrop-filter: blur(15px) brightness(1.1);
+            border: 2px solid rgba(139,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(220,20,60,0.3), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .info-card:hover::before {
+            left: 100%;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139,0,0,0.4);
+            border-color: rgba(220,20,60,0.6);
+        }
+        
+        .info-card h3 {
+            color: #dc143c;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(139,0,0,0.4);
+        }
+        
+        .info-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        /* 特別テーマセクション - 悲劇の山城要塞 */
+        .tragedy-section {
+            background: linear-gradient(135deg, #0a0808 0%, #1a0e0e 25%, #2a1414 50%, #1a0e0e 75%, #0a0808 100%);
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 山城3Dビジュアライゼーション */
+        .mountain-castle-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        
+        .mountain-layer {
+            position: absolute;
+            width: 100%;
+            height: 300px;
+            bottom: 0;
+            background: linear-gradient(to top, #2a1414, transparent);
+            clip-path: polygon(0 100%, 20% 40%, 40% 60%, 60% 30%, 80% 50%, 100% 100%);
+            transform-style: preserve-3d;
+        }
+        
+        .mountain-layer:nth-child(1) {
+            transform: translateZ(0px);
+            opacity: 0.8;
+        }
+        
+        .mountain-layer:nth-child(2) {
+            transform: translateZ(-100px) scale(1.1);
+            opacity: 0.6;
+        }
+        
+        .mountain-layer:nth-child(3) {
+            transform: translateZ(-200px) scale(1.2);
+            opacity: 0.4;
+        }
+        
+        /* 落城の炎アニメーション */
+        .siege-flames {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        
+        .siege-fire {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background: radial-gradient(ellipse at bottom, #ff0000, #ff4500, transparent);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: siegeFlame 3s ease-in-out infinite;
+            filter: blur(3px);
+        }
+        
+        @keyframes siegeFlame {
+            0%, 100% { 
+                transform: scaleY(1) translateY(0) rotate(0deg); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: scaleY(1.3) translateY(-20px) rotate(-5deg); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scaleY(1.1) translateY(-10px) rotate(5deg); 
+                opacity: 1;
+            }
+            75% { 
+                transform: scaleY(1.4) translateY(-30px) rotate(-3deg); 
+                opacity: 0.7;
+            }
+        }
+        
+        .tragedy-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tragedy-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #8b0000, #dc143c, #ff0000, #dc143c, #8b0000);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: tragedyShine 5s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(139,0,0,0.6));
+        }
+        
+        @keyframes tragedyShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .tragedy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .tragedy-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px) brightness(1.2);
+            -webkit-backdrop-filter: blur(20px) brightness(1.2);
+            border: 2px solid rgba(139,0,0,0.4);
+            border-radius: 25px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .tragedy-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(220,20,60,0.3) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .tragedy-card:hover::after {
+            width: 300%;
+            height: 300%;
+        }
+        
+        .tragedy-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(139,0,0,0.5);
+        }
+        
+        .tragedy-card h3 {
+            color: #ff6347;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .tragedy-card ul {
+            list-style: none;
+        }
+        
+        .tragedy-card ul li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(139,0,0,0.2);
+            position: relative;
+            padding-left: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .tragedy-card ul li::before {
+            content: '⚔';
+            position: absolute;
+            left: 10px;
+            color: #dc143c;
+            font-size: 1.2rem;
+            animation: weaponPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes weaponPulse {
+            0%, 100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+        
+        /* 文化・精神的側面セクション */
+        .cultural-section {
+            background: linear-gradient(180deg, #0a0808 0%, #1a0e0e 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cultural-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cultural-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #dc143c;
+            text-shadow: 0 5px 20px rgba(139,0,0,0.5);
+        }
+        
+        .cultural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .cultural-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(139,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cultural-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(220,20,60,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cultural-card:hover::before {
+            opacity: 1;
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1.5); }
+        }
+        
+        .cultural-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139,0,0,0.3);
+        }
+        
+        .cultural-card h3 {
+            color: #dc143c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cultural-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* 戦略的価値セクション */
+        .strategic-section {
+            background: radial-gradient(ellipse at center, #1a0e0e 0%, #0a0808 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .strategic-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .strategic-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .strategic-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .strategic-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(139,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .strategic-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-weight: bold;
+            color: rgba(139,0,0,0.2);
+            z-index: 0;
+        }
+        
+        .strategic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 50px rgba(139,0,0,0.4);
+        }
+        
+        .strategic-card:hover .strategic-number {
+            color: rgba(220,20,60,0.4);
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+        
+        .strategic-card h3 {
+            color: #dc143c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .strategic-card ul li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .strategic-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #dc143c;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .strategic-card:hover ul li::before {
+            transform: translateX(5px);
+        }
+        
+        /* 歴史年表セクション */
+        .timeline-section {
+            background: linear-gradient(180deg, #0a0808 0%, #1a0e0e 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #dc143c;
+            text-shadow: 0 5px 20px rgba(139,0,0,0.5);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #8b0000, #dc143c);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+        
+        .timeline-content h3 {
+            color: #dc143c;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+        
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: #dc143c;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(220,20,60,0.8);
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: right;
+        }
+        
+        /* 関連施設セクション */
+        .facilities-section {
+            background: linear-gradient(135deg, #0a0808 0%, #1a0e0e 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facilities-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #dc143c;
+            text-shadow: 0 5px 20px rgba(139,0,0,0.5);
+        }
+        
+        .facilities-categories {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .facility-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(139,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .facility-category h3 {
+            color: #dc143c;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .facility-category h3::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #dc143c, transparent);
+        }
+        
+        .facility-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .facility-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 15px 20px;
+            border: 1px solid rgba(139,0,0,0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .facility-link:hover {
+            background: rgba(139,0,0,0.1);
+            border-color: rgba(220,20,60,0.5);
+            transform: translateX(10px);
+            color: #ff6347;
+        }
+        
+        .facility-link::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .facility-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* アクセスセクション */
+        .access-section {
+            background: radial-gradient(ellipse at center, #1a0e0e 0%, #0a0808 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .access-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .access-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #dc143c;
+            text-shadow: 0 5px 20px rgba(139,0,0,0.5);
+        }
+        
+        .access-map {
+            margin-bottom: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+        }
+        
+        .access-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .access-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(139,0,0,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139,0,0,0.3);
+        }
+        
+        .access-card h3 {
+            color: #dc143c;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .access-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        /* CTAセクション */
+        .cta-section {
+            background: linear-gradient(135deg, #8b0000 0%, #dc143c 50%, #8b0000 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: ctaShine 10s linear infinite;
+        }
+        
+        @keyframes ctaShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button.primary {
+            background: white;
+            color: #8b0000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        /* フッター */
+        .footer {
+            background: #0a0808;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(139,0,0,0.3);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            color: #dc143c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #ff6347;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-grid,
+            .tragedy-grid,
+            .cultural-grid,
+            .strategic-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-title,
+            .tragedy-title,
+            .cultural-title,
+            .strategic-title,
+            .timeline-title,
+            .facilities-title,
+            .access-title {
+                font-size: 2rem;
+            }
+            
+            .chapter {
+                padding: 30px 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                text-align: center !important;
+                padding: 20px !important;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .map-container {
+                height: 50vh;
+            }
+        }
+        
+        /* アニメーションのパフォーマンス最適化 */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo">八王子城 - 悲劇の山城要塞</div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- ナビゲーションメニュー -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#story">八王子城物語</a></li>
+            <li><a href="#info">基本情報</a></li>
+            <li><a href="#tragedy">悲劇の山城要塞</a></li>
+            <li><a href="#culture">文化的意義</a></li>
+            <li><a href="#strategy">戦略的価値</a></li>
+            <li><a href="#timeline">歴史年表</a></li>
+            <li><a href="#facilities">関連施設</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="/関東地方/">関東の城一覧</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <!-- 山霧エフェクト -->
+        <div class="mountain-mist">
+            <div class="mist-layer"></div>
+            <div class="mist-layer"></div>
+            <div class="mist-layer"></div>
+        </div>
+        
+        <!-- 霊魂エフェクト -->
+        <div class="spirit-container" id="spiritContainer"></div>
+        
+        <!-- 山道 -->
+        <div class="mountain-path">
+            <div class="path-segment"></div>
+            <div class="path-segment"></div>
+            <div class="path-segment"></div>
+            <div class="path-segment"></div>
+            <div class="path-segment"></div>
+        </div>
+        
+        <!-- 落ち葉 -->
+        <div class="falling-leaves" id="fallingLeaves"></div>
+        
+        <!-- 炎エフェクト -->
+        <div class="fire-effect">
+            <div class="flame"></div>
+            <div class="flame"></div>
+            <div class="flame"></div>
+            <div class="flame"></div>
+            <div class="flame"></div>
+        </div>
+        
+        <!-- Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.1234567890123!2d139.2555555!3d35.6666666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60191234567890ab%3A0x123456789abcdef0!2z5YWr546L5a2Q5Z-O6Leh!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp&maptype=satellite"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        
+        <div class="map-overlay">
+            <h1>八王子城</h1>
+            <p>北条氏照の山城要塞</p>
+            <p>天正18年落城の悲劇</p>
+            <div class="castle-badge">国史跡・日本100名城</div>
+        </div>
+    </section>
+    
+    <!-- ナビゲーションセクション -->
+    <section class="navigation-section">
+        <div class="stone-pattern"></div>
+        <div class="nav-grid">
+            <div class="nav-card" onclick="scrollToSection('story')">
+                <h3>八王子城物語</h3>
+                <p>築城から悲劇の落城まで</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('info')">
+                <h3>基本情報</h3>
+                <p>関東屈指の山城データ</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('tragedy')">
+                <h3>悲劇の山城要塞</h3>
+                <p>天正18年6月23日の惨劇</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('culture')">
+                <h3>文化的意義</h3>
+                <p>霊場としての八王子城</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('strategy')">
+                <h3>戦略的価値</h3>
+                <p>北条氏の支城ネットワーク</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('timeline')">
+                <h3>歴史年表</h3>
+                <p>築城から現代まで</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('facilities')">
+                <h3>関連施設</h3>
+                <p>ガイダンス施設・遺構</p>
+            </div>
+            <div class="nav-card" onclick="scrollToSection('access')">
+                <h3>アクセス</h3>
+                <p>高尾駅からのルート</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 物語セクション -->
+    <section class="story-section" id="story">
+        <div class="samurai-shadows">
+            <div class="samurai-silhouette"></div>
+            <div class="samurai-silhouette"></div>
+            <div class="samurai-silhouette"></div>
+            <div class="samurai-silhouette"></div>
+            <div class="samurai-silhouette"></div>
+        </div>
+        
+        <div class="story-content">
+            <h2 class="story-title">八王子城物語 - 悲劇の山城要塞</h2>
+            
+            <div class="chapter">
+                <div class="chapter-number">1</div>
+                <h3>北条氏照による築城</h3>
+                <p>1571年頃、北条氏康の三男・氏照により八王子城の築城が開始されました。それまでの居城・滝山城では武田信玄の攻撃を防ぎきれなかったことから、より堅固な山城の必要性を痛感。関東山地の要害の地に、北条氏の威信をかけた巨大山城の建設が始まりました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">2</div>
+                <h3>関東屈指の山城へ</h3>
+                <p>氏照は約20年をかけて八王子城を拡張。山頂の本丸を中心に、中腹に御主殿、山麓に城下町を配置。総面積は150ヘクタールを超える巨大な山城となりました。石垣、堀切、竪堀など最新の築城技術を駆使し、関東では珍しい石垣を多用した近世的な城郭へと発展しました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">3</div>
+                <h3>北条氏の支城ネットワーク</h3>
+                <p>八王子城は小田原城を中心とする北条氏の支城ネットワークの要でした。甲斐・武蔵・相模の境界に位置し、甲州街道を押さえる戦略的要地。氏照は外交にも長け、徳川家康とも親交を持ち、関東の政治バランスを保つ重要な役割を果たしていました。</p>
+            </div>
+            
+            <div class="chapter highlight">
+                <div class="chapter-number">4</div>
+                <h3>豊臣秀吉の小田原攻め</h3>
+                <p>1590年、豊臣秀吉による小田原攻めが始まると、氏照は小田原城に籠城。八王子城には家臣や農民など約3000人が立て籠もりました。6月23日、前田利家・上杉景勝率いる15000の大軍が八王子城を包囲。わずか1日で落城する悲劇が始まりました。</p>
+            </div>
+            
+            <div class="chapter highlight">
+                <div class="chapter-number">5</div>
+                <h3>落城の惨劇</h3>
+                <p>激戦の末、城は陥落。御主殿では北条方の婦女子が自刃、城代・横地監物をはじめ多くの将兵が討死。城内の井戸や滝には身を投げる者が相次ぎ、御主殿の滝は三日三晩血に染まったと伝えられます。この凄惨な落城は、小田原城の開城を決定づけることになりました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">6</div>
+                <h3>廃城と霊場化</h3>
+                <p>落城後、八王子城は廃城となり、徳川家康により破却されました。しかし、落城時の悲劇は人々の記憶に深く刻まれ、城跡は霊場として畏れられるようになりました。特に御主殿の滝周辺では、今も落城の犠牲者を供養する人々が訪れています。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">7</div>
+                <h3>発掘調査と史跡整備</h3>
+                <p>昭和に入り本格的な発掘調査が開始。御主殿跡からは当時の生活を物語る多くの遺物が出土しました。石垣、虎口、曳橋などが復元整備され、戦国時代の山城の姿がよみがえりました。1951年に国史跡に指定、2006年には日本100名城に選定されました。</p>
+            </div>
+            
+            <div class="chapter">
+                <div class="chapter-number">8</div>
+                <h3>現代に生きる八王子城</h3>
+                <p>現在の八王子城跡は、戦国時代の山城の構造を学べる貴重な史跡として整備されています。ガイダンス施設では出土品や復元模型を展示。登山道も整備され、本丸跡からは関東平野を一望できます。悲劇の歴史を伝えながら、平和の尊さを訴える場所として、多くの人々が訪れています。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 基本情報セクション -->
+    <section class="info-section" id="info">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><span class="info-icon">🏯</span>城郭データ</h3>
+                <p><strong>築城年：</strong>1571年頃（元亀2年）<br>
+                <strong>築城者：</strong>北条氏照<br>
+                <strong>城主：</strong>北条氏照<br>
+                <strong>城郭構造：</strong>山城</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">📏</span>規模</h3>
+                <p><strong>総面積：</strong>約150ヘクタール<br>
+                <strong>標高：</strong>445m（本丸）<br>
+                <strong>比高：</strong>約240m<br>
+                <strong>遺構範囲：</strong>東西約3km、南北約2km</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🗾</span>立地</h3>
+                <p><strong>所在地：</strong>東京都八王子市元八王子町<br>
+                <strong>地形：</strong>関東山地東端の深沢山<br>
+                <strong>水系：</strong>城山川（南浅川支流）<br>
+                <strong>街道：</strong>甲州街道を押さえる</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🛡️</span>防御施設</h3>
+                <p><strong>堀切：</strong>大規模な堀切で尾根を遮断<br>
+                <strong>竪堀：</strong>斜面に多数の竪堀<br>
+                <strong>石垣：</strong>関東では珍しい石垣造り<br>
+                <strong>虎口：</strong>複雑な虎口構造</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🏛️</span>主要遺構</h3>
+                <p><strong>御主殿跡：</strong>礎石・石垣が現存<br>
+                <strong>本丸跡：</strong>山頂の主郭<br>
+                <strong>曳橋：</strong>復元整備<br>
+                <strong>御主殿の滝：</strong>悲劇の舞台</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><span class="info-icon">🎖️</span>文化財指定</h3>
+                <p><strong>国史跡：</strong>1951年指定<br>
+                <strong>日本100名城：</strong>22番<br>
+                <strong>出土品：</strong>東京都指定文化財<br>
+                <strong>関連文書：</strong>北条氏照関係文書</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 特別テーマセクション - 悲劇の山城要塞 -->
+    <section class="tragedy-section" id="tragedy">
+        <div class="mountain-castle-3d">
+            <div class="mountain-layer"></div>
+            <div class="mountain-layer"></div>
+            <div class="mountain-layer"></div>
+        </div>
+        
+        <div class="siege-flames" id="siegeFlames"></div>
+        
+        <div class="tragedy-content">
+            <h2 class="tragedy-title">悲劇の山城要塞 - 天正18年6月23日</h2>
+            
+            <div class="tragedy-grid">
+                <div class="tragedy-card">
+                    <h3>落城の経過</h3>
+                    <ul>
+                        <li>早朝 - 前田・上杉軍15000が包囲</li>
+                        <li>激戦により外郭防衛線突破</li>
+                        <li>太鼓曲輪・山王台での攻防</li>
+                        <li>御主殿への総攻撃開始</li>
+                        <li>夕刻 - 城代横地監物討死</li>
+                        <li>日没 - 城の完全陥落</li>
+                    </ul>
+                </div>
+                
+                <div class="tragedy-card">
+                    <h3>犠牲者たち</h3>
+                    <ul>
+                        <li>城代・横地監物吉信</li>
+                        <li>中山勘解由家範</li>
+                        <li>狩野一庵ら重臣たち</li>
+                        <li>北条方の婦女子多数</li>
+                        <li>農民・町人を含む約1000名</li>
+                        <li>御主殿の滝に身を投げた人々</li>
+                    </ul>
+                </div>
+                
+                <div class="tragedy-card">
+                    <h3>御主殿の滝の悲劇</h3>
+                    <ul>
+                        <li>城内の婦女子が集団自決</li>
+                        <li>滝が三日三晩血に染まる</li>
+                        <li>現在も慰霊碑が建立</li>
+                        <li>毎年6月23日に慰霊祭</li>
+                        <li>心霊スポットとしても有名</li>
+                        <li>歴史の悲劇を今に伝える</li>
+                    </ul>
+                </div>
+                
+                <div class="tragedy-card">
+                    <h3>戦略的影響</h3>
+                    <ul>
+                        <li>八王子城陥落の報が小田原へ</li>
+                        <li>北条氏政・氏直の戦意喪失</li>
+                        <li>小田原城開城の決定打に</li>
+                        <li>関東の戦国時代終焉</li>
+                        <li>秀吉の天下統一完成</li>
+                        <li>徳川家康の関東移封へ</li>
+                    </ul>
+                </div>
+                
+                <div class="tragedy-card">
+                    <h3>城の破却</h3>
+                    <ul>
+                        <li>徳川家康による徹底的破却</li>
+                        <li>石垣の大部分を破壊</li>
+                        <li>建造物はすべて焼却</li>
+                        <li>二度と城として使えぬよう処置</li>
+                        <li>城下町も廃絶</li>
+                        <li>400年の時を経て遺構発掘</li>
+                    </ul>
+                </div>
+                
+                <div class="tragedy-card">
+                    <h3>現代への教訓</h3>
+                    <ul>
+                        <li>戦争の悲惨さを物語る史跡</li>
+                        <li>平和の尊さを訴える場所</li>
+                        <li>歴史教育の重要な教材</li>
+                        <li>慰霊と鎮魂の聖地</li>
+                        <li>文化財保護の重要性</li>
+                        <li>地域の歴史継承の象徴</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 文化的意義セクション -->
+    <section class="cultural-section" id="culture">
+        <div class="cultural-content">
+            <h2 class="cultural-title">文化的意義と精神性</h2>
+            
+            <div class="cultural-grid">
+                <div class="cultural-card">
+                    <h3>霊場としての八王子城</h3>
+                    <p>落城の悲劇により、八王子城跡は霊場として認識されるようになりました。特に御主殿の滝周辺は、多くの犠牲者の霊を慰める場所として、現在も供養が続けられています。毎年6月23日の慰霊祭には、地元住民や歴史愛好家が集い、戦国時代の犠牲者に祈りを捧げています。</p>
+                </div>
+                
+                <div class="cultural-card">
+                    <h3>山岳信仰との融合</h3>
+                    <p>八王子城が築かれた深沢山は、古くから山岳信仰の対象でした。城内には八王子権現が祀られ、北条氏照も深く信仰していました。現在も城山の各所に祠や石仏が残り、戦国の城郭と古来の信仰が融合した独特の空間を形成しています。</p>
+                </div>
+                
+                <div class="cultural-card">
+                    <h3>戦国山城の教科書</h3>
+                    <p>八王子城は、戦国時代の山城の構造を学ぶ上で貴重な史跡です。堀切、竪堀、曲輪の配置など、山城の防御システムが良好に保存されています。また、関東では珍しい石垣の使用は、西国の築城技術の影響を示す重要な証拠として、城郭研究者から注目されています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 戦略的価値セクション -->
+    <section class="strategic-section" id="strategy">
+        <div class="strategic-content">
+            <h2 class="strategic-title">戦略的価値と軍事的重要性</h2>
+            
+            <div class="strategic-cards">
+                <div class="strategic-card">
+                    <div class="strategic-number">1</div>
+                    <h3>交通の要衝</h3>
+                    <ul>
+                        <li>甲州街道を押さえる位置</li>
+                        <li>甲斐・武蔵・相模の結節点</li>
+                        <li>小田原⇔甲府の中継地</li>
+                        <li>関東山地への入口を掌握</li>
+                        <li>多摩川水系の制御</li>
+                    </ul>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-number">2</div>
+                    <h3>北条氏の防衛網</h3>
+                    <ul>
+                        <li>小田原城の支城群の要</li>
+                        <li>滝山城から機能を移転</li>
+                        <li>鉢形城・川越城と連携</li>
+                        <li>武田氏への最前線</li>
+                        <li>関東平野西部の監視拠点</li>
+                    </ul>
+                </div>
+                
+                <div class="strategic-card">
+                    <div class="strategic-number">3</div>
+                    <h3>山城の利点</h3>
+                    <ul>
+                        <li>比高240mの要害</li>
+                        <li>360度の眺望で敵を監視</li>
+                        <li>急峻な地形による天然の防御</li>
+                        <li>豊富な水源の確保</li>
+                        <li>長期籠城に適した立地</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 歴史年表セクション -->
+    <section class="timeline-section" id="timeline">
+        <div class="timeline-content">
+            <h2 class="timeline-title">八王子城 歴史年表</h2>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1571年頃</h3>
+                        <p>北条氏照により築城開始。滝山城から本拠を移す。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1580年代</h3>
+                        <p>城の大規模な拡張工事。石垣造りの導入。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1590年4月</h3>
+                        <p>豊臣秀吉の小田原攻め開始。氏照は小田原城へ。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1590年6月23日</h3>
+                        <p>前田利家・上杉景勝軍の攻撃により落城。多数の犠牲者。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1590年7月</h3>
+                        <p>小田原城開城。北条氏滅亡。八王子城は廃城に。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>江戸時代</h3>
+                        <p>城跡は放置され、霊場として畏れられる。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1951年</h3>
+                        <p>国史跡に指定。保存整備の開始。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1990年～</h3>
+                        <p>本格的な発掘調査。御主殿跡の整備、曳橋の復元。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2006年</h3>
+                        <p>日本100名城に選定。ガイダンス施設開設。</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 関連施設セクション -->
+    <section class="facilities-section" id="facilities">
+        <div class="facilities-content">
+            <h2 class="facilities-title">関連施設・観光情報</h2>
+            
+            <div class="facilities-categories">
+                <div class="facility-category">
+                    <h3>城跡施設</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">八王子城跡ガイダンス施設</a>
+                        <a href="#" class="facility-link">御主殿跡</a>
+                        <a href="#" class="facility-link">本丸跡（山頂）</a>
+                        <a href="#" class="facility-link">曳橋（復元）</a>
+                        <a href="#" class="facility-link">御主殿の滝</a>
+                        <a href="#" class="facility-link">大手道</a>
+                    </div>
+                </div>
+                
+                <div class="facility-category">
+                    <h3>遺構・見どころ</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">虎口</a>
+                        <a href="#" class="facility-link">石垣</a>
+                        <a href="#" class="facility-link">堀切</a>
+                        <a href="#" class="facility-link">竪堀</a>
+                        <a href="#" class="facility-link">馬冷やし</a>
+                        <a href="#" class="facility-link">山王台</a>
+                    </div>
+                </div>
+                
+                <div class="facility-category">
+                    <h3>周辺施設</h3>
+                    <div class="facility-links">
+                        <a href="#" class="facility-link">八王子市郷土資料館</a>
+                        <a href="#" class="facility-link">高尾山</a>
+                        <a href="#" class="facility-link">武蔵陵墓地</a>
+                        <a href="#" class="facility-link">八王子城跡まつり（10月）</a>
+                        <a href="#" class="facility-link">北条氏照まつり</a>
+                        <a href="#" class="facility-link">慰霊祭（6月23日）</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- アクセスセクション -->
+    <section class="access-section" id="access">
+        <div class="access-content">
+            <h2 class="access-title">アクセス・見学情報</h2>
+            
+            <div class="access-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.1234567890123!2d139.2555555!3d35.6666666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60191234567890ab%3A0x123456789abcdef0!2z5YWr546L5a2Q5Z-O6Leh5Yqg44Kk44OA44Oz44K55pa95oiw!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp"
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="access-info">
+                <div class="access-card">
+                    <h3>🚃 電車・バスでのアクセス</h3>
+                    <p>
+                        <strong>JR中央線・京王線</strong><br>
+                        ・高尾駅北口から徒歩約40分<br>
+                        ・高尾駅北口からバス「霊園前」下車徒歩20分<br><br>
+                        <strong>土日祝のみ</strong><br>
+                        ・高尾駅北口から「八王子城跡」行きバス<br>
+                        ・終点下車すぐ（ガイダンス施設前）
+                    </p>
+                </div>
+                
+                <div class="access-card">
+                    <h3>🕐 開館時間・料金</h3>
+                    <p>
+                        <strong>ガイダンス施設</strong><br>
+                        ・9:00～17:00<br>
+                        ・入館無料<br>
+                        ・年末年始休館<br><br>
+                        <strong>城跡</strong><br>
+                        ・24時間見学可能<br>
+                        ・入山無料<br>
+                        ・本丸まで徒歩約40分
+                    </p>
+                </div>
+                
+                <div class="access-card">
+                    <h3>🚗 駐車場情報</h3>
+                    <p>
+                        <strong>八王子城跡駐車場</strong><br>
+                        ・無料（約50台）<br>
+                        ・ガイダンス施設前<br><br>
+                        <strong>注意事項</strong><br>
+                        ・山道のため歩きやすい靴推奨<br>
+                        ・飲料水持参推奨<br>
+                        ・雨天時は滑りやすいので注意
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTAセクション -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>歴史の悲劇を今に伝える山城へ</h2>
+            <p>戦国時代の終焉を告げた八王子城で、平和の尊さを感じてみませんか？</p>
+            <div class="cta-buttons">
+                <a href="/関東地方/" class="cta-button primary">関東の城一覧へ</a>
+                <a href="/" class="cta-button secondary">トップページへ</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 日本の城ファンページ. All rights reserved.</p>
+        <p><a href="#">プライバシーポリシー</a> | <a href="#">利用規約</a></p>
+    </footer>
+    
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // スクロールでヘッダーの見た目を変更
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // スムーススクロール
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const headerOffset = 80;
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // モバイルメニューを閉じる
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+        
+        // IntersectionObserver for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.nav-card, .info-card, .cultural-card, .strategic-card, .tragedy-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // 霊魂エフェクト
+        function createSpirit() {
+            const container = document.getElementById('spiritContainer');
+            const spirit = document.createElement('div');
+            spirit.className = 'spirit';
+            spirit.style.left = Math.random() * window.innerWidth + 'px';
+            spirit.style.animationDelay = Math.random() * 20 + 's';
+            spirit.style.animationDuration = (15 + Math.random() * 10) + 's';
+            container.appendChild(spirit);
+            
+            setTimeout(() => {
+                spirit.remove();
+            }, 25000);
+        }
+        
+        // 定期的に霊魂を生成
+        setInterval(createSpirit, 3000);
+        
+        // 初期霊魂
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createSpirit, i * 1000);
+        }
+        
+        // 落ち葉エフェクト
+        function createLeaf() {
+            const container = document.getElementById('fallingLeaves');
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.left = Math.random() * window.innerWidth + 'px';
+            leaf.style.animationDelay = Math.random() * 15 + 's';
+            leaf.style.animationDuration = (10 + Math.random() * 10) + 's';
+            container.appendChild(leaf);
+            
+            setTimeout(() => {
+                leaf.remove();
+            }, 20000);
+        }
+        
+        // 定期的に落ち葉を生成
+        setInterval(createLeaf, 2000);
+        
+        // 初期落ち葉
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createLeaf, i * 500);
+        }
+        
+        // 攻城の炎エフェクト
+        function createSiegeFire() {
+            const container = document.getElementById('siegeFlames');
+            const fire = document.createElement('div');
+            fire.className = 'siege-fire';
+            fire.style.left = Math.random() * window.innerWidth + 'px';
+            fire.style.bottom = Math.random() * 200 + 'px';
+            fire.style.animationDelay = Math.random() * 3 + 's';
+            container.appendChild(fire);
+            
+            setTimeout(() => {
+                fire.remove();
+            }, 3000);
+        }
+        
+        // 定期的に炎を生成
+        setInterval(createSiegeFire, 1500);
+        
+        // 初期炎
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createSiegeFire, i * 300);
+        }
+    </script>
+</body>
+</html>

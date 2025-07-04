@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中部地方の城郭 - お城ファンページ</title>
+    <meta name="description" content="中部地方の城郭・城跡を紹介。山城の宝庫として知られる戦国時代の激戦地。松本城・名古屋城をはじめとする名城を巡る旅。">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, "メイリオ", Meiryo, sans-serif;
+            line-height: 1.6; color: #333; background-color: #0a0a0f; overflow-x: hidden;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px) saturate(200%); color: white; padding: 15px 20px; z-index: 1000;
+            transition: all 0.3s ease; border-bottom: 1px solid rgba(139,69,19,0.3);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1400px; margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem; background: linear-gradient(135deg, #8b4513, #daa520, #228b22);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; filter: drop-shadow(0 2px 4px rgba(139,69,19,0.3));
+        }
+        
+        .back-link {
+            color: #daa520; text-decoration: none; font-size: 1rem;
+            transition: all 0.3s ease; display: flex; align-items: center; gap: 5px;
+            position: relative; padding: 5px 10px;
+        }
+        
+        .back-link::before {
+            content: ''; position: absolute; inset: 0; border-radius: 20px;
+            background: rgba(218,165,32,0.1); transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover::before { transform: scale(1); }
+        .back-link:hover { color: white; transform: translateX(-5px); }
+        
+        .hero {
+            height: 100vh; position: relative; display: flex; align-items: center;
+            justify-content: center; overflow: hidden;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a0a 25%, #2a1a0f 50%, #1a2a0f 75%, #0a0a0f 100%);
+        }
+        
+        /* 日本アルプス風景 */
+        .alpine-landscape {
+            position: absolute; width: 100%; height: 100%; overflow: hidden;
+        }
+        
+        .mountain-range {
+            position: absolute; bottom: 0; width: 120%; height: 70%;
+            background: linear-gradient(to top, #2a1a0f, #1a2a0f);
+            clip-path: polygon(0 100%, 5% 60%, 15% 80%, 25% 50%, 35% 70%, 45% 40%, 55% 60%, 65% 30%, 75% 50%, 85% 35%, 95% 55%, 100% 40%, 100% 100%);
+            animation: mountainShift 30s ease-in-out infinite;
+        }
+        
+        @keyframes mountainShift {
+            0%, 100% { transform: translateX(0) scale(1); }
+            50% { transform: translateX(-20px) scale(1.02); }
+        }
+        
+        .mountain-range.layer2 {
+            height: 60%; opacity: 0.8; z-index: 2;
+            background: linear-gradient(to top, #3a2a1f, #2a3a1f);
+            clip-path: polygon(0 100%, 8% 70%, 18% 85%, 28% 65%, 38% 75%, 48% 55%, 58% 70%, 68% 45%, 78% 60%, 88% 50%, 98% 65%, 100% 55%, 100% 100%);
+            animation-delay: -10s;
+        }
+        
+        .mountain-range.layer3 {
+            height: 50%; opacity: 0.6; z-index: 3;
+            background: linear-gradient(to top, #4a3a2f, #3a4a2f);
+            clip-path: polygon(0 100%, 10% 75%, 20% 90%, 30% 80%, 40% 85%, 50% 70%, 60% 80%, 70% 60%, 80% 75%, 90% 65%, 100% 75%, 100% 100%);
+            animation-delay: -20s;
+        }
+        
+        /* 雪山エフェクト */
+        .snow-cap {
+            position: absolute; width: 100%; height: 20%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+            clip-path: polygon(0 0%, 5% 40%, 15% 20%, 25% 50%, 35% 30%, 45% 60%, 55% 40%, 65% 70%, 75% 50%, 85% 65%, 95% 45%, 100% 60%, 100% 0%);
+            top: 30%;
+            animation: snowShimmer 20s ease-in-out infinite;
+        }
+        
+        @keyframes snowShimmer {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        /* 城下町の明かり */
+        .castle-town-lights {
+            position: absolute; width: 100%; height: 100%;
+        }
+        
+        .town-light {
+            position: absolute; width: 6px; height: 6px;
+            background: radial-gradient(circle, #ffeb3b, #ff9800);
+            border-radius: 50%; opacity: 0.8;
+            animation: lightTwinkle 8s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255,235,59,0.6);
+        }
+        
+        @keyframes lightTwinkle {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            25% { opacity: 1; transform: scale(1.2); }
+            50% { opacity: 0.6; transform: scale(0.8); }
+            75% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .town-light:nth-child(1) { bottom: 15%; left: 10%; animation-delay: 0s; }
+        .town-light:nth-child(2) { bottom: 20%; left: 20%; animation-delay: 1s; }
+        .town-light:nth-child(3) { bottom: 18%; left: 35%; animation-delay: 2s; }
+        .town-light:nth-child(4) { bottom: 25%; left: 50%; animation-delay: 3s; }
+        .town-light:nth-child(5) { bottom: 22%; left: 65%; animation-delay: 4s; }
+        .town-light:nth-child(6) { bottom: 19%; left: 80%; animation-delay: 5s; }
+        .town-light:nth-child(7) { bottom: 24%; left: 90%; animation-delay: 6s; }
+        
+        /* 雲海エフェクト */
+        .cloud-sea {
+            position: absolute; width: 100%; height: 40%; bottom: 30%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.2), transparent);
+            animation: cloudDrift 25s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes cloudDrift {
+            0%, 100% { transform: translateX(0) scale(1); }
+            33% { transform: translateX(20px) scale(1.1); }
+            66% { transform: translateX(-15px) scale(0.9); }
+        }
+        
+        .cloud-sea.layer2 {
+            height: 30%; bottom: 40%; opacity: 0.4;
+            animation-delay: -8s; animation-duration: 20s;
+        }
+        
+        /* 戦国時代の旗指物 */
+        .battle-flags {
+            position: absolute; width: 100%; height: 100%;
+        }
+        
+        .battle-flag {
+            position: absolute; width: 8px; height: 40px;
+            background: linear-gradient(to bottom, #dc143c, #8b0000);
+            animation: flagWave 12s ease-in-out infinite;
+            transform-origin: bottom;
+        }
+        
+        @keyframes flagWave {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.1); }
+            50% { transform: rotate(-3deg) scale(0.9); }
+            75% { transform: rotate(4deg) scale(1.05); }
+        }
+        
+        .battle-flag:nth-child(1) { bottom: 30%; left: 15%; animation-delay: 0s; }
+        .battle-flag:nth-child(2) { bottom: 35%; left: 45%; animation-delay: 3s; }
+        .battle-flag:nth-child(3) { bottom: 32%; left: 75%; animation-delay: 6s; }
+        
+        .hero-content {
+            text-align: center; color: white; z-index: 10; position: relative; padding: 40px;
+            max-width: 1000px; animation: heroFadeIn 2s ease-out;
+            background: rgba(10,10,15,0.8); border-radius: 30px;
+            backdrop-filter: blur(15px) saturate(200%); border: 2px solid rgba(139,69,19,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        @keyframes heroFadeIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5rem); margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b4513, #daa520, #228b22, #8b4513);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; animation: titleShimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(139,69,19,0.5); letter-spacing: 0.05em;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem; margin-bottom: 30px; opacity: 0.9; color: #daa520;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .hero-description {
+            font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px; opacity: 0.8;
+            color: #f5f5dc; max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        
+        .main-content {
+            background: linear-gradient(135deg, #0a0a0f, #1a1a0a); min-height: 100vh;
+            position: relative; overflow: hidden;
+        }
+        
+        .section {
+            padding: 80px 20px; max-width: 1400px; margin: 0 auto; position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem); text-align: center; margin-bottom: 50px;
+            background: linear-gradient(135deg, #8b4513, #daa520);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; position: relative;
+        }
+        
+        .section-title::after {
+            content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+            width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #daa520, transparent);
+            border-radius: 2px;
+        }
+        
+        .intro-text {
+            font-size: 1.3rem; color: #daa520; text-align: center; max-width: 900px;
+            margin: 0 auto 60px; line-height: 1.8; opacity: 0.9;
+        }
+        
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; margin-bottom: 80px;
+        }
+        
+        .stat-card {
+            background: rgba(10,10,15,0.8); border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 20px; padding: 40px; text-align: center; position: relative;
+            backdrop-filter: blur(15px) saturate(200%); overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .stat-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139,69,19,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .stat-card:hover::before { left: 100%; }
+        
+        .stat-card:hover {
+            transform: translateY(-10px); box-shadow: 0 30px 60px rgba(139,69,19,0.2);
+            border-color: rgba(139,69,19,0.5);
+        }
+        
+        .stat-icon {
+            font-size: 3rem; margin-bottom: 20px; animation: iconFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .stat-number {
+            font-size: 3rem; font-weight: bold; color: #daa520; margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(218,165,32,0.5);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem; color: #8b4513; font-weight: 600;
+        }
+        
+        .stat-description {
+            font-size: 1rem; color: #f5f5dc; margin-top: 15px; line-height: 1.6;
+            opacity: 0.8;
+        }
+        
+        .castles-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px; margin-top: 60px;
+        }
+        
+        .castle-card {
+            background: rgba(10,10,15,0.9); border: 2px solid rgba(139,69,19,0.3);
+            border-radius: 20px; padding: 30px; position: relative; overflow: hidden;
+            backdrop-filter: blur(15px) saturate(200%); cursor: pointer;
+            transition: all 0.4s ease; text-decoration: none; color: inherit;
+        }
+        
+        .castle-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139,69,19,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .castle-card:hover::before { left: 100%; }
+        
+        .castle-card:hover {
+            transform: translateY(-15px); box-shadow: 0 40px 80px rgba(139,69,19,0.3);
+            border-color: rgba(139,69,19,0.6); text-decoration: none; color: inherit;
+        }
+        
+        .castle-status {
+            display: inline-block; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem;
+            font-weight: bold; margin-bottom: 15px;
+        }
+        
+        .status-completed {
+            background: linear-gradient(135deg, #228b22, #32cd32); color: white;
+            box-shadow: 0 0 15px rgba(34,139,34,0.4);
+        }
+        
+        .status-coming-soon {
+            background: linear-gradient(135deg, #ff8c00, #ffa500); color: white;
+            box-shadow: 0 0 15px rgba(255,140,0,0.4);
+        }
+        
+        .castle-name {
+            font-size: 1.5rem; font-weight: bold; color: #daa520; margin-bottom: 10px;
+        }
+        
+        .castle-theme {
+            font-size: 1rem; color: #8b4513; margin-bottom: 15px; font-style: italic;
+        }
+        
+        .castle-description {
+            font-size: 1rem; color: #f5f5dc; line-height: 1.6; margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .castle-meta {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.9rem; color: #8b4513; margin-top: 20px;
+            border-top: 1px solid rgba(139,69,19,0.2); padding-top: 15px;
+        }
+        
+        .castle-location {
+            font-weight: 600;
+        }
+        
+        .castle-arrow {
+            font-size: 1.2rem; transition: transform 0.3s ease;
+        }
+        
+        .castle-card:hover .castle-arrow {
+            transform: translateX(5px);
+        }
+        
+        .features-section {
+            background: rgba(139,69,19,0.05); border-radius: 30px; padding: 60px 40px;
+            margin: 80px 0; position: relative; overflow: hidden;
+        }
+        
+        .features-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(139,69,19,0.1), transparent),
+                        radial-gradient(circle at 70% 70%, rgba(218,165,32,0.1), transparent);
+            animation: featureGlow 20s ease-in-out infinite;
+        }
+        
+        @keyframes featureGlow {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+        
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; position: relative; z-index: 2;
+        }
+        
+        .feature-item {
+            text-align: center; padding: 30px; background: rgba(10,10,15,0.6);
+            border-radius: 20px; border: 2px solid rgba(139,69,19,0.2);
+            backdrop-filter: blur(10px); transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px); border-color: rgba(139,69,19,0.4);
+            box-shadow: 0 25px 50px rgba(139,69,19,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem; margin-bottom: 20px; animation: featureIconFloat 8s ease-in-out infinite;
+        }
+        
+        @keyframes featureIconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-8px) rotate(2deg); }
+            66% { transform: translateY(-4px) rotate(-2deg); }
+        }
+        
+        .feature-title {
+            font-size: 1.4rem; font-weight: bold; color: #daa520; margin-bottom: 15px;
+        }
+        
+        .feature-description {
+            font-size: 1.1rem; color: #f5f5dc; line-height: 1.6; opacity: 0.9;
+        }
+        
+        .cta-section {
+            text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #8b4513, #daa520);
+            margin-top: 80px; position: relative; overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1), transparent),
+                        radial-gradient(circle at 60% 60%, rgba(255,255,255,0.1), transparent);
+            animation: ctaGlow 25s ease-in-out infinite;
+        }
+        
+        @keyframes ctaGlow {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+        
+        .cta-content {
+            max-width: 800px; margin: 0 auto; position: relative; z-index: 2;
+        }
+        
+        .cta-title {
+            font-size: clamp(2.5rem, 6vw, 4rem); font-weight: bold; color: white;
+            margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-description {
+            font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block; background: rgba(255,255,255,0.9); color: #8b4513;
+            padding: 20px 40px; border-radius: 50px; font-size: 1.2rem; font-weight: bold;
+            text-decoration: none; transition: all 0.4s ease; position: relative;
+            overflow: hidden; animation: buttonPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .cta-button::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139,69,19,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .cta-button:hover::before { left: 100%; }
+        
+        .cta-button:hover {
+            transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            color: #8b4513; text-decoration: none;
+        }
+        
+        .footer {
+            background: #000; color: #daa520; padding: 40px 20px; text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 10px; opacity: 0.8;
+        }
+        
+        .footer a {
+            color: #daa520; text-decoration: none; transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #8b4513; text-shadow: 0 0 10px rgba(139,69,19,0.5);
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .hero-content { padding: 20px; }
+            .section { padding: 60px 15px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .castles-grid { grid-template-columns: 1fr; gap: 20px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .cta-button { padding: 15px 30px; font-size: 1.1rem; }
+        }
+        
+        /* アニメーション用クラス */
+        .fade-in {
+            opacity: 0; transform: translateY(50px); transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0; transform: translateX(-50px); transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1; transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0; transform: translateX(50px); transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1; transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0; transform: scale(0.8); transition: all 0.8s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1; transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>中部地方の城郭</h1>
+            </div>
+            <a href="../index.html" class="back-link">← トップページに戻る</a>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <!-- 日本アルプス背景 -->
+        <div class="alpine-landscape">
+            <div class="mountain-range"></div>
+            <div class="mountain-range layer2"></div>
+            <div class="mountain-range layer3"></div>
+            <div class="snow-cap"></div>
+            <div class="cloud-sea"></div>
+            <div class="cloud-sea layer2"></div>
+        </div>
+        
+        <!-- 城下町の明かり -->
+        <div class="castle-town-lights">
+            <div class="town-light"></div>
+            <div class="town-light"></div>
+            <div class="town-light"></div>
+            <div class="town-light"></div>
+            <div class="town-light"></div>
+            <div class="town-light"></div>
+            <div class="town-light"></div>
+        </div>
+        
+        <!-- 戦国の旗指物 -->
+        <div class="battle-flags">
+            <div class="battle-flag"></div>
+            <div class="battle-flag"></div>
+            <div class="battle-flag"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>中部地方の城郭</h1>
+            <p class="hero-subtitle">山城の宝庫・戦国激戦地の名城群</p>
+            <p class="hero-description">
+                日本アルプスの雄大な山々に囲まれた中部地方は、まさに山城の宝庫です。
+                戦国時代の激戦地として数多くの名城が築かれ、現在も松本城、名古屋城をはじめとする
+                美しい城郭が私たちを魅了し続けています。山岳地帯の要害性を活かした堅固な山城から、
+                平野部に築かれた威容を誇る平城まで、多彩な城郭建築の粋を体験してください。
+            </p>
+        </div>
+    </section>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- 統計情報セクション -->
+        <section class="section">
+            <h2 class="section-title fade-in">中部地方の城郭概要</h2>
+            <p class="intro-text fade-in">
+                中部地方は、戦国時代の激戦地として知られ、武田氏、今川氏、織田氏、徳川氏などの戦国大名が
+                しのぎを削った歴史の舞台です。山岳地帯を活かした難攻不落の山城と、政治・経済の中心となった
+                壮麗な平城が共存する、日本城郭史の縮図ともいえる地域です。
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">🏔️</div>
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">城郭総数</div>
+                    <div class="stat-description">
+                        現存する城郭・城跡・陣屋などを含む総数。山城が特に多く、険しい地形を活かした要害が数多く残されています。
+                    </div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">🏯</div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">現存天守</div>
+                    <div class="stat-description">
+                        松本城と犬山城の2基の現存天守が残り、戦国時代から江戸時代の建築技術の粋を現代に伝えています。
+                    </div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">⚔️</div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">主要山城</div>
+                    <div class="stat-description">
+                        武田氏の信濃侵攻、織田・徳川連合軍との攻防戦の舞台となった戦略的要衝の山城群。
+                    </div>
+                </div>
+                
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">🌸</div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">桜の名所</div>
+                    <div class="stat-description">
+                        城郭と桜の競演が美しい名所。特に松本城、高遠城址公園の桜は全国的に有名です。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色セクション -->
+        <section class="section">
+            <div class="features-section">
+                <h2 class="section-title">中部地方の城郭の特色</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item scale-in">
+                        <div class="feature-icon">🏔️</div>
+                        <h3 class="feature-title">山城の宝庫</h3>
+                        <p class="feature-description">
+                            日本アルプスの険しい地形を活かした難攻不落の山城が数多く残る。
+                            自然の要害性と巧妙な縄張りの組み合わせが特徴的。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item scale-in">
+                        <div class="feature-icon">⚔️</div>
+                        <h3 class="feature-title">戦国激戦地</h3>
+                        <p class="feature-description">
+                            武田、今川、織田、徳川の諸勢力が争った戦国時代の最激戦地。
+                            歴史的価値の高い合戦の舞台となった城郭が多数。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item scale-in">
+                        <div class="feature-icon">🏯</div>
+                        <h3 class="feature-title">現存天守</h3>
+                        <p class="feature-description">
+                            松本城と犬山城の2つの現存天守を有し、
+                            戦国から江戸時代の建築技術の変遷を学べる貴重な遺産。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item scale-in">
+                        <div class="feature-icon">🌊</div>
+                        <h3 class="feature-title">水との調和</h3>
+                        <p class="feature-description">
+                            河川や湖沼を活かした水城や、雪解け水を利用した防御システムなど、
+                            豊富な水資源を巧みに活用した城郭設計。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item scale-in">
+                        <div class="feature-icon">🛤️</div>
+                        <h3 class="feature-title">街道の要衝</h3>
+                        <p class="feature-description">
+                            東海道、中山道、甲州街道などの主要街道を抑える要衝に築かれ、
+                            交通・物流の拠点として発展した城下町。
+                        </p>
+                    </div>
+                    
+                    <div class="feature-item scale-in">
+                        <div class="feature-icon">🌸</div>
+                        <h3 class="feature-title">四季の美</h3>
+                        <p class="feature-description">
+                            桜、新緑、紅葉、雪景色と四季折々の表情を見せる城郭群。
+                            特に高遠城址公園の桜は「天下第一の桜」と称賛される。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 城郭一覧セクション -->
+        <section class="section">
+            <h2 class="section-title">中部地方の城郭一覧</h2>
+            
+            <div class="castles-grid">
+                <a href="松本城/" class="castle-card slide-in-left">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">松本城</h3>
+                    <p class="castle-theme">国宝の烏城・アルプスの名城</p>
+                    <p class="castle-description">
+                        現存12天守の一つで、国宝に指定される黒い美しい天守閣。
+                        北アルプスを背景にした姿は日本で最も美しい城の一つとされる。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 長野県松本市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="名古屋城/" class="castle-card slide-in-right">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">名古屋城</h3>
+                    <p class="castle-theme">金鯱の輝く尾張の名城</p>
+                    <p class="castle-description">
+                        徳川家康が築いた尾張徳川家の居城。金の鯱鉾で有名な天守閣と、
+                        御殿の豪華絢爛な障壁画で知られる。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 愛知県名古屋市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="犬山城/" class="castle-card slide-in-left">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">犬山城</h3>
+                    <p class="castle-theme">木曽川の断崖に立つ現存天守</p>
+                    <p class="castle-description">
+                        現存する日本最古の天守の一つ。木曽川の断崖絶壁に立つ姿は
+                        「白帝城」とも呼ばれ、その美しさで多くの人を魅了する。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 愛知県犬山市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="岡崎城/" class="castle-card slide-in-right">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">岡崎城</h3>
+                    <p class="castle-theme">徳川家康生誕の城・三河の本拠</p>
+                    <p class="castle-description">
+                        徳川家康が生まれ、松平氏から徳川氏へと発展の礎となった城。
+                        岡崎公園として整備され、春には桜の名所として親しまれる。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 愛知県岡崎市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="高遠城/" class="castle-card slide-in-left">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">高遠城</h3>
+                    <p class="castle-theme">天下第一の桜・武田の重要拠点</p>
+                    <p class="castle-description">
+                        武田信玄の重要拠点として機能し、現在は「天下第一の桜」で
+                        知られる高遠城址公園として全国から観光客を集める。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 長野県伊那市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="駿府城/" class="castle-card slide-in-right">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">駿府城</h3>
+                    <p class="castle-theme">大御所家康の隠居城・東海の政治中枢</p>
+                    <p class="castle-description">
+                        徳川家康が隠居後の居城とした城。江戸幕府の政治的中枢として機能し、
+                        「大御所政治」の舞台となった歴史的意義の高い城郭。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 静岡県静岡市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="上田城/" class="castle-card slide-in-left">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">上田城</h3>
+                    <p class="castle-theme">真田幸村の父・昌幸の築城・不落の名城</p>
+                    <p class="castle-description">
+                        真田昌幸が築き、徳川軍を二度にわたって撃退した不落の名城。
+                        真田氏の知略と築城技術の粋が込められた戦国山城の傑作。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 長野県上田市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="小諸城/" class="castle-card slide-in-right">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">小諸城</h3>
+                    <p class="castle-theme">穴城・仙石氏の居城</p>
+                    <p class="castle-description">
+                        城下町より低い位置にある珍しい「穴城」。
+                        千曲川の断崖を利用した要害性と、小諸城址懐古園の美しい景観で知られる。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 長野県小諸市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="掛川城/" class="castle-card slide-in-left">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">掛川城</h3>
+                    <p class="castle-theme">山内一豊の居城・東海の要衝</p>
+                    <p class="castle-description">
+                        山内一豊が改修し、東海道の要衝として機能した城。
+                        現在は復元天守と御殿で、戦国時代の城郭の姿を再現している。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 静岡県掛川市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="躑躅ヶ崎館/" class="castle-card slide-in-right">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">躑躅ヶ崎館</h3>
+                    <p class="castle-theme">武田信玄の居館・甲斐の本拠</p>
+                    <p class="castle-description">
+                        武田信玄が居住した館跡。現在は武田神社となっているが、
+                        戦国最強軍団を率いた信玄の本拠地としての歴史的価値は計り知れない。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 山梨県甲府市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="新府城/" class="castle-card slide-in-left">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">新府城</h3>
+                    <p class="castle-theme">武田氏最後の本拠・悲劇の城</p>
+                    <p class="castle-description">
+                        武田勝頼が築いた武田氏最後の本拠地。完成を見ることなく
+                        武田氏滅亡とともに歴史の舞台から消えた悲劇の城。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 山梨県韮崎市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+                
+                <a href="要害山城/" class="castle-card slide-in-right">
+                    <div class="castle-status status-coming-soon">Coming Soon</div>
+                    <h3 class="castle-name">要害山城</h3>
+                    <p class="castle-theme">武田信玄生誕の地・甲斐の詰城</p>
+                    <p class="castle-description">
+                        武田信玄が生まれたとされる要害性に優れた山城。
+                        躑躅ヶ崎館の詰城として機能し、甲府盆地を一望できる絶好の立地。
+                    </p>
+                    <div class="castle-meta">
+                        <span class="castle-location">📍 山梨県甲府市</span>
+                        <span class="castle-arrow">→</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTAセクション -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">中部地方の城郭を体験しよう</h2>
+                <p class="cta-description">
+                    山城の宝庫・中部地方で、戦国時代の激戦を物語る名城の数々を巡る旅へ。
+                    現存天守から山城跡まで、多彩な城郭の魅力をお楽しみください。
+                </p>
+                <a href="../index.html" class="cta-button">全国の城郭を探索する</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2024 中部地方の城郭 - お城ファンページ. All rights reserved.</p>
+        <p>日本の城郭文化を未来へ継承</p>
+    </footer>
+
+    <script>
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // 全てのアニメーション要素を観察
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // 動的に要素を生成（パフォーマンス考慮）
+        function createAnimationElements() {
+            // 雪の結晶エフェクト（少数）
+            const heroSection = document.querySelector('.hero');
+            
+            for (let i = 0; i < 10; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.style.cssText = `
+                    position: absolute;
+                    width: 6px;
+                    height: 6px;
+                    background: radial-gradient(circle, #ffffff, #e0e0e0);
+                    border-radius: 50%;
+                    opacity: 0.6;
+                    animation: snowFall ${15 + Math.random() * 10}s linear infinite;
+                    left: ${Math.random() * 100}%;
+                    top: -10px;
+                    animation-delay: ${Math.random() * 15}s;
+                `;
+                heroSection.appendChild(snowflake);
+            }
+            
+            // 金の粒子エフェクト（少数）
+            for (let i = 0; i < 15; i++) {
+                const goldParticle = document.createElement('div');
+                goldParticle.style.cssText = `
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    background: radial-gradient(circle, #daa520, #b8860b);
+                    border-radius: 50%;
+                    opacity: 0.7;
+                    animation: goldFloat ${20 + Math.random() * 10}s linear infinite;
+                    left: ${Math.random() * 100}%;
+                    bottom: -10px;
+                    animation-delay: ${Math.random() * 20}s;
+                `;
+                heroSection.appendChild(goldParticle);
+            }
+        }
+
+        // CSS animations for dynamically created elements
+        const dynamicStyles = document.createElement('style');
+        dynamicStyles.textContent = `
+            @keyframes snowFall {
+                0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.6; }
+                90% { opacity: 0.6; }
+                100% { transform: translateY(calc(100vh + 10px)) rotate(360deg); opacity: 0; }
+            }
+            
+            @keyframes goldFloat {
+                0% { transform: translateY(10px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.7; }
+                90% { opacity: 0.7; }
+                100% { transform: translateY(calc(-100vh - 10px)) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(dynamicStyles);
+
+        // ページ読み込み完了後に動的要素を作成
+        window.addEventListener('load', createAnimationElements);
+
+        // パフォーマンス最適化: レイジーローディング
+        document.querySelectorAll('.castle-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.willChange = 'transform, box-shadow';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.willChange = 'auto';
+            });
+        });
+    </script>
+</body>
+</html>
